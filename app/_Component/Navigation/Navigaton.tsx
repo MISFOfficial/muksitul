@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
+import logo from '@/public/muksitul-logo-2.png';
 
 export default function Navigaton() {
     const navLinks = [
@@ -20,8 +22,13 @@ export default function Navigaton() {
                 className="flex items-center justify-between gap-2 px-6 py-4 w-full ratio"
             >
                 <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full primary-color flex items-center justify-center text-white font-black text-xs">J</div>
-                    <span className="font-black tracking-tighter text-xl uppercase italic">Muksitul.</span>
+                    <Image
+                        src={logo}
+                        alt="Profile"
+                        width={400}
+                        height={400}
+                        className="w-16"
+                    />
                 </div>
 
                 <div className="flex gap-10 items-center">
@@ -45,7 +52,7 @@ export default function Navigaton() {
                         </Link>
                         <Link
                             href="#"
-                            className="px-6 py-2 rounded-sm primary-color text-white text-sm font-bold hover:scale-105 transition-all shadow-lg"
+                            className="px-6 py-2 rounded-sm bg-white text-black text-sm font-bold hover:scale-105 transition-all shadow-lg"
                         >
                             Resume
                         </Link>

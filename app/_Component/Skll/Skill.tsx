@@ -46,12 +46,12 @@ const row3 = [
     { name: "Dockerize", logo: "https://cdn.simpleicons.org/docker/2496ED" },
 ];
 
-const TagRow = ({ items, speed = 20, direction = "left" }: { items: typeof row1, speed?: number, direction?: "left" | "right" }) => {
+const TagRow = ({ items, speed = 10, direction = "left" }: { items: typeof row1, speed?: number, direction?: "left" | "right" }) => {
     return (
         <div className="flex overflow-hidden w-full relative group-mask">
             {/* Edge Fading Mask (Dynamic to Theme) */}
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[var(--background)] to-transparent z-10 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[var(--background)] to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 left-0 w-36 bg-gradient-to-r from-[var(--background)] to-transparent z-10 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-36 bg-gradient-to-l from-[var(--background)] to-transparent z-10 pointer-events-none" />
 
             <motion.div
                 animate={{
@@ -68,7 +68,7 @@ const TagRow = ({ items, speed = 20, direction = "left" }: { items: typeof row1,
                 {[...items, ...items, ...items, ...items].map((item, idx) => (
                     <div
                         key={idx}
-                        className="flex items-center gap-3 px-6 py-4 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-2xl whitespace-nowrap hover:border-[#FF5C58]/30 hover:shadow-lg dark:hover:shadow-[#FF5C58]/5 transition-all duration-300 group cursor-pointer"
+                        className="flex items-center gap-3 px-6 py-2 border border-white/50 rounded-md whitespace-nowrap hover:border-[#FF5C58]/30 hover:shadow-lg dark:hover:shadow-[#FF5C58]/5 transition-all duration-300 group cursor-pointer"
                     >
                         <div className="w-6 h-6 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-all transform group-hover:scale-125 duration-300">
                             <img
@@ -90,10 +90,10 @@ const TagRow = ({ items, speed = 20, direction = "left" }: { items: typeof row1,
 
 export default function Skill() {
     return (
-        <section className="  flex flex-col gap-3 overflow-hidden">
-            <TagRow items={row1} speed={60} direction="left" />
-            <TagRow items={row2} speed={70} direction="right" />
-            <TagRow items={row3} speed={65} direction="left" />
+        <section className="  flex flex-col overflow-hidden">
+            <TagRow items={row1} speed={0} direction="left" />
+            <TagRow items={row2} speed={0} direction="right" />
+            <TagRow items={row3} speed={0} direction="left" />
         </section>
     );
 }
