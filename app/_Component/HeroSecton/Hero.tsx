@@ -69,7 +69,7 @@ export default function Hero() {
         <section ref={containerRef} className="relative min-h-[80vh] py-20 lg:py-20 overflow-hidden flex items-center justify-center">
 
             {/* 1. Background Typography Layer (The large gray outlines) */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0">
+            <div className="absolute inset-0 flex lg:hidden flex-col items-center justify-center pointer-events-none select-none z-0">
                 <h2 ref={bgSoftwareRef} className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline opacity-40 leading-none">
                     Software
                 </h2>
@@ -129,7 +129,7 @@ export default function Hero() {
                     </div>
 
                     {/* Blue Glow Effect */}
-                    <div className="absolute hidden md:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[80px] -z-10 pointer-events-none mix-blend-screen" />
+                    {/* <div className="absolute hidden md:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[80px] -z-10 pointer-events-none mix-blend-screen" /> */}
 
                     {/* 2. User Image - (z-10) */}
                     <motion.div
