@@ -1,21 +1,13 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Skills from "@/components/Skills";
-import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Hero from "./_Component/HeroSecton/Hero";
+import Navigaton from "./_Component/Navigation/Navigaton";
+import Skill from "./_Component/Skll/Skill";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-black">
-      <Navbar />
+    <main className="">
+      <Navigaton />
       <Hero />
-      <Skills />
-      <Services />
-      <Portfolio />
-      <Contact />
-      <Footer />
+      <Skill />
     </main>
   );
 }
