@@ -1,26 +1,82 @@
 "use client";
 
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Instagram, Linkedin, Twitter, Facebook, MoveRight } from 'lucide-react';
 import jahin from "@/public/profile.png";
-
 import Image from 'next/image';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const bgSoftwareRef = useRef<HTMLHeadingElement>(null);
+    const bgEngineerRef = useRef<HTMLHeadingElement>(null);
+    const fgSoftwareRef = useRef<HTMLHeadingElement>(null);
+    const fgEngineerRef = useRef<HTMLHeadingElement>(null);
+
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            // Background Text Animations
+            gsap.to(bgSoftwareRef.current, {
+                x: -150,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 1,
+                }
+            });
+            gsap.to(bgEngineerRef.current, {
+                x: 150,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 1,
+                }
+            });
+
+            // Foreground Text Animations - software (behind)
+            gsap.to(fgSoftwareRef.current, {
+                x: -100,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 1,
+                }
+            });
+
+            // Foreground Text Animations - engineer (front)
+            gsap.to(fgEngineerRef.current, {
+                x: 100,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 1,
+                }
+            });
+        }, containerRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section className="relative min-h-[80vh] py-20 lg:py-20 overflow-hidden flex items-center justify-center">
+        <section ref={containerRef} className="relative min-h-[80vh] py-20 lg:py-20 overflow-hidden flex items-center justify-center">
 
             {/* 1. Background Typography Layer (The large gray outlines) */}
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0">
-                <h2 className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline opacity-40 leading-none">
+                <h2 ref={bgSoftwareRef} className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline opacity-40 leading-none">
                     Software
                 </h2>
-                <h2 className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline opacity-40 leading-none -mt-4 md:-mt-8 lg:-mt-12">
+                <h2 ref={bgEngineerRef} className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline opacity-40 leading-none -mt-4 md:-mt-8 lg:-mt-12">
                     Engineer
                 </h2>
             </div>
-
             <div className="relative z-10 w-full   grid grid-cols-1 lg:grid-cols-12  items-center">
                 {/* Left Column (Greeting, Name, CTA) */}
                 <div className="lg:col-span-3 flex flex-col items-start text-left gap-4 order-2 lg:order-1">
@@ -63,7 +119,7 @@ export default function Hero() {
 
                     {/* 1. Software (Red Outline) - Responsive Layering (Hidden on Mobile, Behind on Desktop) */}
                     <div className="absolute inset-0 hidden lg:flex flex-col items-center justify-center pointer-events-none z-[20] lg:z-5">
-                        <h2 className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline-red leading-none">
+                        <h2 ref={fgSoftwareRef} className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline-red leading-none">
                             Software
                         </h2>
                         {/* Invisble spacer to maintain layout for Software */}
@@ -71,6 +127,9 @@ export default function Hero() {
                             Engineer
                         </h2>
                     </div>
+
+                    {/* Blue Glow Effect */}
+                    <div className="absolute hidden md:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[80px] -z-10 pointer-events-none mix-blend-screen" />
 
                     {/* 2. User Image - (z-10) */}
                     <motion.div
@@ -99,11 +158,12 @@ export default function Hero() {
                         <h2 className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter opacity-0 leading-none">
                             Software
                         </h2>
-                        <h2 className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline-red leading-none -mt-4 md:-mt-8 lg:-mt-12">
+                        <h2 ref={fgEngineerRef} className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline-red leading-none -mt-4 md:-mt-8 lg:-mt-12">
                             Engineer
                         </h2>
                     </div>
                 </div>
+
                 {/* Right Column (About Me & Socials) */}
                 <div className="lg:col-span-3 flex flex-col gap-12 text-left order-3">
                     <motion.div
@@ -134,8 +194,7 @@ export default function Hero() {
                         </div>
                     </motion.div>
                 </div>
-
             </div>
-        </section>
+        </section >
     );
 }

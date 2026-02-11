@@ -46,7 +46,7 @@ const row3 = [
     { name: "Dockerize", logo: "https://cdn.simpleicons.org/docker/2496ED" },
 ];
 
-const TagRow = ({ items, speed = 10, direction = "left" }: { items: typeof row1, speed?: number, direction?: "left" | "right" }) => {
+const TagRow = ({ items, speed = 100, direction = "left" }: { items: typeof row1, speed?: number, direction?: "left" | "right" }) => {
     return (
         <div className="flex overflow-hidden w-full relative group-mask">
             {/* Edge Fading Mask (Dynamic to Theme) */}
@@ -91,9 +91,9 @@ const TagRow = ({ items, speed = 10, direction = "left" }: { items: typeof row1,
 export default function Skill() {
     return (
         <section className="  flex flex-col overflow-hidden">
-            <TagRow items={row1} speed={0} direction="left" />
-            <TagRow items={row2} speed={0} direction="right" />
-            <TagRow items={row3} speed={0} direction="left" />
+            <TagRow items={row1} speed={90} direction="left" />
+            <TagRow items={row2} speed={90} direction="right" />
+            <TagRow items={row3} speed={90} direction="left" />
         </section>
     );
 }
