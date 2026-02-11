@@ -5,8 +5,12 @@ import Skill from "./_Component/Skll/Skill";
 export default function Home() {
   return (
     <main className="">
-      <Navigaton />
-      <Hero />
+      <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl ">
+        <Navigaton />
+      </div>
+      <div className="ratio  min-h-screen ">
+        <Hero />
+      </div>
       <Skill />
     </main>
   );

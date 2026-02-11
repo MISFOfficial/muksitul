@@ -9,14 +9,14 @@ import Image from 'next/image';
 
 export default function Hero() {
     return (
-        <section className="relative h-fit overflow-hidden flex items-center justify-center">
+        <section className="relative min-h-[80vh] py-20 lg:py-20 overflow-hidden flex items-center justify-center">
 
             {/* 1. Background Typography Layer (The large gray outlines) */}
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0">
-                <h2 className="text-[12vw] font-black uppercase tracking-tighter text-outline opacity-40 leading-none">
+                <h2 className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline opacity-40 leading-none">
                     Software
                 </h2>
-                <h2 className="text-[12vw] font-black uppercase tracking-tighter text-outline opacity-40 leading-none -mt-[2vw]">
+                <h2 className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline opacity-40 leading-none -mt-4 md:-mt-8 lg:-mt-12">
                     Engineer
                 </h2>
             </div>
@@ -45,9 +45,16 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="mt-6 px-10 py-5 bg-[#FF5C58] text-white rounded-full font-bold flex items-center gap-2 hover:bg-[#ff443f] transition-colors shadow-lg shadow-[#FF5C58]/20"
+                        whileHover="hover"
+                        className="mt-6 px-10 py-5 primary-color text-white rounded-sm font-bold flex items-center gap-2 transition-all shadow-lg cursor-pointer"
                     >
-                        View Portfolio <MoveRight size={20} />
+                        View Portfolio
+                        <motion.span
+                            variants={{ hover: { x: 8 } }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        >
+                            <MoveRight size={20} />
+                        </motion.span>
                     </motion.button>
                 </div>
 
@@ -56,11 +63,11 @@ export default function Hero() {
 
                     {/* 1. Software (Red Outline) - Responsive Layering (Hidden on Mobile, Behind on Desktop) */}
                     <div className="absolute inset-0 hidden lg:flex flex-col items-center justify-center pointer-events-none z-[20] lg:z-5">
-                        <h2 className="text-[12vw] font-black uppercase tracking-tighter text-outline-red leading-none">
+                        <h2 className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline-red leading-none">
                             Software
                         </h2>
                         {/* Invisble spacer to maintain layout for Software */}
-                        <h2 className="text-[12vw] font-black uppercase tracking-tighter opacity-0 leading-none -mt-[2vw]">
+                        <h2 className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter opacity-0 leading-none -mt-4 md:-mt-8 lg:-mt-12">
                             Engineer
                         </h2>
                     </div>
@@ -89,10 +96,10 @@ export default function Hero() {
                     {/* 3. Engineer (Red Outline) - IN FRONT OF IMAGE (z-20) */}
                     <div className="absolute inset-0 hidden lg:flex flex-col items-center justify-center pointer-events-none z-20">
                         {/* Invisble spacer to maintain layout for Engineer */}
-                        <h2 className="text-[12vw] font-black uppercase tracking-tighter opacity-0 leading-none">
+                        <h2 className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter opacity-0 leading-none">
                             Software
                         </h2>
-                        <h2 className="text-[12vw] font-black uppercase tracking-tighter text-outline-red leading-none -mt-[2vw]">
+                        <h2 className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline-red leading-none -mt-4 md:-mt-8 lg:-mt-12">
                             Engineer
                         </h2>
                     </div>
@@ -120,7 +127,7 @@ export default function Hero() {
                         <h3 className="font-bold text-lg dark:text-white">Find me on</h3>
                         <div className="flex gap-4">
                             {[Instagram, Linkedin, Twitter, Facebook].map((Icon, idx) => (
-                                <a key={idx} href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-[#FF5C58] hover:text-white transition-all transform hover:scale-110">
+                                <a key={idx} href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 primary-color text-neutral-600 dark:text-neutral-400 hover:text-white transition-all transform hover:scale-110">
                                     <Icon size={18} />
                                 </a>
                             ))}

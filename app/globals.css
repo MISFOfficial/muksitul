@@ -1,37 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  --accent-red: #FF5C58;
   --background: #000000;
   --foreground: #ffffff;
   --card-bg: #111111;
   --card-border: rgba(255, 255, 255, 0.1);
   --text-muted: #a1a1aa;
-  --outline-opacity: 0.2;
+  --outline-opacity: 0.5;
 }
 
 html,
 body {
-  min-height: 100vh;
   margin: 0;
   padding: 0;
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-outfit), sans-serif;
-  overflow-x: hidden;
 }
 
 /* Typography Utilities */
 .text-outline {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, var(--outline-opacity));
+  -webkit-text-stroke: 2px rgba(255, 255, 255, var(--outline-opacity));
   color: transparent;
 }
 
 .text-outline-red {
-  -webkit-text-stroke: 1px var(--accent-red);
+  -webkit-text-stroke: 2px #20255e;
   color: transparent;
 }
 
-.rato {
-  @apply max-w-[1400px] mx-auto;
+.primary-color {
+  @apply bg-[#20255e];
+}
+
+.primary-text {
+  @apply text-[#20255e];
+}
+
+.ratio {
+  @apply max-w-[1450px] mx-auto px-4 xl:px-0;
 }
