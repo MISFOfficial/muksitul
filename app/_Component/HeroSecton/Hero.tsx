@@ -7,6 +7,7 @@ import jahin from "@/public/profile.png";
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -97,7 +98,8 @@ export default function Hero() {
                         Muksitul <br />
                         Islam
                     </motion.h1>
-                    <motion.button
+                    <motion.a
+                        href="/resume"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
@@ -111,7 +113,7 @@ export default function Hero() {
                         >
                             <MoveRight size={20} />
                         </motion.span>
-                    </motion.button>
+                    </motion.a>
                 </div>
 
                 {/* Center Column (Image & Dynamic Text Layering) */}
