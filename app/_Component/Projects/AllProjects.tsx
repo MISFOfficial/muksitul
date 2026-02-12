@@ -22,14 +22,14 @@ export default function AllProjects() {
                     >
                         {/* Card Container */}
                         <Link href={`/projects/${project.id}`}>
-                            <div className="relative rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 bg-[#121212] border border-white/5 cursor-pointer">
+                            <div className="relative rounded-xl overflow-hidden transition-all duration-300  bg-[#121212] border border-white/5 cursor-pointer">
                                 {/* Image / Preview Area */}
                                 <div className="relative h-[380px] w-full overflow-hidden bg-[#1a1a1a]">
                                     <Image
                                         src={project.image}
                                         alt={project.title}
                                         fill
-                                        className="object-cover"
+                                        className="object-cover group-hover:scale-110 duration-300 transition-transform"
                                     />
 
                                     {/* Hover Overlay */}

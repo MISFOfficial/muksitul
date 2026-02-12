@@ -99,14 +99,14 @@ export default function Hero() {
                         Islam
                     </motion.h1>
                     <motion.a
-                        href="/resume"
+                        href="/about"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                         whileHover="hover"
                         className="mt-6 px-10 py-5 primary-color text-white rounded-sm font-bold flex items-center gap-2 transition-all shadow-lg cursor-pointer"
                     >
-                        View Portfolio
+                        Life Journey
                         <motion.span
                             variants={{ hover: { x: 8 } }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}

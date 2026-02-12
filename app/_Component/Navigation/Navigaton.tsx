@@ -58,8 +58,8 @@ export default function Navigaton() {
                             Bio
                         </Link>
                         <Link
-                            href="#"
-                            className="px-6 py-2 rounded-sm bg-white text-black text-sm font-bold hover:scale-105 transition-all shadow-lg"
+                            href="/resume"
+                            className="px-6 py-2 primary-color2 rounded-sm bg-white text-white text-sm font-bold hover:scale-105 transition-all shadow-lg"
                         >
                             Resume
                         </Link>
@@ -108,7 +108,7 @@ export default function Navigaton() {
                                 <Link
                                     href="#"
                                     onClick={closeMenu}
-                                    className="block px-4 py-3 text-center rounded-sm bg-white text-black text-sm font-bold hover:scale-105 transition-all shadow-lg"
+                                    className="block px-4 py-3 text-center rounded-sm primary-color2 text-black text-sm font-bold hover:scale-105 transition-all shadow-lg"
                                 >
                                     Resume
                                 </Link>
