@@ -15,23 +15,52 @@ export default function Navigaton() {
 
     const navLinks = [
         { name: "Home", id: "hero" },
-        { name: "Complete", id: "complete" },
-        { name: "Services", id: "services" },
         { name: "Projects", id: "projects" },
+        { name: "Services", id: "services" },
         { name: "Faq", id: "faq" },
+        { name: "Contact", id: "contact" },
         { name: "Resume", id: "resume", href: "/resume" },
     ];
 
     const handleNavClick = (id: string, href?: string) => {
-        const isProjectSection = ['faq', 'projects',].includes(id);
-        const scrollBlock = isProjectSection ? 'start' : 'center' as ScrollLogicalPosition;
+        if (href) {
+            router.push(href);
+            closeMenu();
+            return;
+        }
 
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: scrollBlock });
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
+        const scrollBlock = (id === 'hero' && isMobile) ? 'start' : 'center';
+
+        if (pathname !== "/") {
+            router.push(`/#${id}`);
+        } else {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: scrollBlock as ScrollLogicalPosition });
+            }
         }
         closeMenu();
     };
+
+    React.useEffect(() => {
+        if (typeof window !== 'undefined' && window.location.hash) {
+            const id = window.location.hash.replace('#', '');
+            const element = document.getElementById(id);
+            if (element) {
+                setTimeout(() => {
+                    const isMobile = window.innerWidth < 1024;
+                    const scrollBlock = (id === 'hero' && isMobile) ? 'start' : 'center';
+                    element.scrollIntoView({ behavior: 'smooth', block: scrollBlock as ScrollLogicalPosition });
+                }, 400);
+            }
+        }
+    }, [pathname]);
+
+
+
+
+
 
 
 
