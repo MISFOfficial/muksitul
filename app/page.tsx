@@ -13,7 +13,8 @@ import VideoResume from "./_Component/VideoResume/VideoResume";
 export default function Home() {
   return (
     <main className="relative">
-      <div className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl ">
+      <div className="sticky top-0 w-full z-50 backdrop-blur-xl ">
+
         <Navigaton />
       </div>
       <div className="ratio  min-h-screen ">
@@ -25,9 +26,9 @@ export default function Home() {
         <Skill />
         <Projects />
         <Services />
-        <Faq />
         <Optical />
         <AllProjects />
+        <Faq />
         <HireMe />
       </div>
       <Footer />

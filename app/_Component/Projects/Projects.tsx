@@ -14,7 +14,7 @@ export default function Projects() {
     ];
 
     return (
-        <section id="portfolio" className="relative   overflow-hidden flex flex-col items-center justify-center text-center">
+        <section id="complete" className="relative   overflow-hidden flex flex-col items-center justify-center text-center">
 
 
             {/* Background Typography */}

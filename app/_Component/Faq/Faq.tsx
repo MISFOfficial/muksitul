@@ -31,7 +31,7 @@ export default function Faq() {
     };
 
     return (
-        <section className="">
+        <section id="faq" className="">
 
             {/* Header */}
             <div className="text-center  space-y-4 mb-5">

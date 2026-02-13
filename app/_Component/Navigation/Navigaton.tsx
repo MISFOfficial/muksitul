@@ -14,30 +14,26 @@ export default function Navigaton() {
     const pathname = usePathname();
 
     const navLinks = [
-        { name: "Home", href: "#hero" },
-        { name: "Services", href: "#services" },
-        { name: "Portfolio", href: "#portfolio" },
-        { name: "Bio", href: "/about" },
-        { name: "Resume", href: "/resume" },
+        { name: "Home", id: "hero" },
+        { name: "Complete", id: "complete" },
+        { name: "Services", id: "services" },
+        { name: "Projects", id: "projects" },
+        { name: "Faq", id: "faq" },
+        { name: "Resume", id: "resume", href: "/resume" },
     ];
 
-    const handleNavClick = (href: string) => {
-        if (href.startsWith('#')) {
-            const id = href.substring(1);
-            if (pathname === '/') {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+    const handleNavClick = (id: string, href?: string) => {
+        const isProjectSection = ['faq', 'projects',].includes(id);
+        const scrollBlock = isProjectSection ? 'start' : 'center' as ScrollLogicalPosition;
 
-            } else {
-                router.push(`/${href}`);
-            }
-        } else {
-            router.push(href);
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: scrollBlock });
         }
         closeMenu();
     };
+
+
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
@@ -50,7 +46,8 @@ export default function Navigaton() {
                 className="flex items-center justify-between gap-2 px-6 py-4 w-full ratio"
             >
                 <div className="flex items-center gap-2">
-                    <button onClick={() => handleNavClick("#hero")}>
+                    <button onClick={() => handleNavClick("hero")}>
+
                         <Image
                             src={logo}
                             alt="Profile"
@@ -67,7 +64,8 @@ export default function Navigaton() {
                         {navLinks.map((link) => (
                             <button
                                 key={link.name}
-                                onClick={() => handleNavClick(link.href)}
+                                onClick={() => handleNavClick(link.id, link.href)}
+
                                 className={`px-4 py-2 text-sm font-bold transition-all rounded-sm hover:scale-105 cursor-pointer ${link.name === "Resume"
                                     ? "primary-color2 bg-white text-white shadow-lg mx-2"
                                     : "text-white/60 hover:text-white"
@@ -104,7 +102,8 @@ export default function Navigaton() {
                             {navLinks.map((link) => (
                                 <button
                                     key={link.name}
-                                    onClick={() => handleNavClick(link.href)}
+                                    onClick={() => handleNavClick(link.id, link.href)}
+
                                     className={`w-full block px-4 py-3 text-sm font-bold transition-all rounded-sm hover:scale-105 cursor-pointer ${link.name === "Resume"
                                         ? "primary-color2 text-black shadow-lg"
                                         : "text-white/60 hover:text-white hover:bg-white/5 border border-white/10"
