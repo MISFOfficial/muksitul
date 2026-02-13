@@ -5,7 +5,8 @@ import jahin from "@/public/profile.png";
 
 function Services() {
     return (
-        <section className="">
+        <section id="services" className="">
+
             <div className="primary-color rounded-2xl overflow-hidden relative min-h-[500px] flex items-center justify-between px-6 py-12 lg:px-20 lg:py-16">
 
                 {/* Left Side - Image Placeholder (Hidden on small screens if needed, or stacked) */}
@@ -42,7 +43,7 @@ function Services() {
                         At the heart of our company lies a commitment to excellence that drives everything we do.
                     </p>
 
-                    <button className="bg-white text-[#FF0055] px-8 py-4 rounded-lg font-bold text-sm md:text-base uppercase tracking-wider hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                    <button className="bg-white text-black px-8 py-4 rounded-lg font-bold text-sm md:text-base uppercase tracking-wider hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
                         Purchase Our Reeni
                     </button>
                 </div>

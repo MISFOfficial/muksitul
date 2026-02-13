@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Youtube, Mail, Heart } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -21,11 +21,12 @@ export default function Footer() {
             { name: 'Consulting', href: '#' }
         ],
         social: [
-            { name: 'GitHub', icon: Github, href: '#' },
-            { name: 'LinkedIn', icon: Linkedin, href: '#' },
-            { name: 'Twitter', icon: Twitter, href: '#' },
-            { name: 'Email', icon: Mail, href: 'mailto:hello@example.com' }
+            { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/msfofficial/' },
+            { name: 'GitHub', icon: Github, href: 'https://github.com/MISFOfficial' },
+            { name: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/' },
+            { name: 'Email', icon: Mail, href: 'mailto:muksitul44@gmail.com' }
         ]
+
     };
 
     return (
@@ -49,9 +50,12 @@ export default function Footer() {
                                 <a
                                     key={social.name}
                                     href={social.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#20255e] flex items-center justify-center transition-all group"
                                     aria-label={social.name}
                                 >
+
                                     <social.icon size={18} className="text-gray-400 group-hover:text-white transition-colors" />
                                 </a>
                             ))}

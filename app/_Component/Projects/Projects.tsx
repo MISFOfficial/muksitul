@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { projectsData } from '@/lib/projectsData';
 
 export default function Projects() {
     const features = [
@@ -13,7 +14,8 @@ export default function Projects() {
     ];
 
     return (
-        <section className="relative   overflow-hidden flex flex-col items-center justify-center text-center">
+        <section id="portfolio" className="relative   overflow-hidden flex flex-col items-center justify-center text-center">
+
 
             {/* Background Typography */}
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0 opacity-20">
@@ -36,7 +38,7 @@ export default function Projects() {
                     className="relative"
                 >
                     <span className="text-[60px] md:text-[100px] font-black leading-none text-[#FF5C58] tracking-tighter">
-                        44+
+                        {projectsData.length}+
                     </span>
                     <span className="absolute top-2 -right-12 text-[12px] md:text-lg font-bold bg-[#20255e] px-3 py-1 rounded-full text-white rotate-12">
                         Projects

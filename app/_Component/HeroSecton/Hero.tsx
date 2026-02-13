@@ -2,7 +2,7 @@
 
 import React, { useLayoutEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Instagram, Linkedin, Twitter, Facebook, MoveRight } from 'lucide-react';
+import { Instagram, Linkedin, Twitter, Facebook, MoveRight, Youtube, Github } from 'lucide-react';
 import jahin from "@/public/profile.png";
 import Image from 'next/image';
 import gsap from 'gsap';
@@ -67,7 +67,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section ref={containerRef} className="relative min-h-[80vh] py-20 lg:py-20 overflow-hidden flex items-center justify-center">
+        <section id="hero" ref={containerRef} className="relative min-h-[80vh] py-20 lg:py-20 overflow-hidden flex items-center justify-center">
 
             {/* 1. Background Typography Layer (The large gray outlines) */}
             <div className="absolute inset-0 flex lg:hidden flex-col items-center justify-center pointer-events-none select-none z-0">
@@ -94,7 +94,7 @@ export default function Hero() {
                         transition={{ delay: 0.1 }}
                         className="text-6xl md:text-7xl font-black leading-[0.9] text-black dark:text-white tracking-tighter"
                     >
-                        i'm <br />
+                        I'm <br />
                         Muksitul <br />
                         Islam
                     </motion.h1>
@@ -106,7 +106,7 @@ export default function Hero() {
                         whileHover="hover"
                         className="mt-6 px-10 py-5 primary-color text-white rounded-sm font-bold flex items-center gap-2 transition-all shadow-lg cursor-pointer"
                     >
-                        Life Journey
+                        My Journey
                         <motion.span
                             variants={{ hover: { x: 8 } }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -175,7 +175,7 @@ export default function Hero() {
                     >
                         <h3 className="font-bold text-lg dark:text-white">About Me.</h3>
                         <p className="text-neutral-500 dark:text-neutral-400 leading-relaxed font-medium">
-                            A personal <span className="text-[#FF5C58]">portfolio</span> is a collection of your work, that is achievements, and skills that <span className="text-[#FF5C58] font-bold">software development</span> highlights in your growth
+                            As a <span className="text-[#FF5C58] font-bold">Professional Software Engineer</span>, I craft high-performance applications where <span className="text-[#FF5C58]">innovative solutions</span> meet architectural excellence to drive meaningful impact.
                         </p>
                     </motion.div>
 
@@ -188,13 +188,24 @@ export default function Hero() {
                     >
                         <h3 className="font-bold text-lg dark:text-white">Find me on</h3>
                         <div className="flex gap-4">
-                            {[Instagram, Linkedin, Twitter, Facebook].map((Icon, idx) => (
-                                <a key={idx} href="#" className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 primary-color text-neutral-600 dark:text-neutral-400 hover:text-white transition-all transform hover:scale-110">
+                            {[
+                                { Icon: Linkedin, href: "https://www.linkedin.com/in/msfofficial/" },
+                                { Icon: Github, href: "https://github.com/MISFOfficial" },
+                                { Icon: Youtube, href: "https://www.youtube.com/" },
+                            ].map(({ Icon, href }, idx) => (
+                                <Link
+                                    key={idx}
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 primary-color text-neutral-600 dark:text-neutral-400 hover:text-white transition-all transform hover:scale-110"
+                                >
                                     <Icon size={18} />
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </motion.div>
+
                 </div>
             </div>
         </section >

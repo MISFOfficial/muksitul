@@ -18,6 +18,7 @@ const row1 = [
     { name: "Redux", logo: "https://cdn.simpleicons.org/redux/764ABC" },
     { name: "Zustand", logo: "https://raw.githubusercontent.com/pmndrs/zustand/main/docs/zustand-logo.png" },
     { name: "Framer Motion", logo: "https://cdn.simpleicons.org/framer/0055FF" },
+    { name: "GSAP", logo: "https://cdn.simpleicons.org/gsap/339933" },
     { name: "TanStack Query", logo: "https://cdn.simpleicons.org/reactquery/FF4154" },
     { name: "Axios", logo: "https://cdn.simpleicons.org/axios/white" },
 ];
@@ -25,25 +26,37 @@ const row1 = [
 const row2 = [
     { name: "Node.js", logo: "https://cdn.simpleicons.org/nodedotjs/339933" },
     { name: "Express.js", logo: "https://cdn.simpleicons.org/express/white" },
+    { name: "Nest.js", logo: "https://cdn.simpleicons.org/nestjs/ff5e5e" },
     { name: "MongoDB", logo: "https://cdn.simpleicons.org/mongodb/47A248" },
-    { name: "Prisma ORM", logo: "https://cdn.simpleicons.org/prisma/white" },
-    { name: "PostgreSQL", logo: "https://cdn.simpleicons.org/postgresql/4169E1" },
+    { name: "Mongoose", logo: "https://cdn.simpleicons.org/mongoose/ff5e5e" },
+    { name: "Axios", logo: "https://cdn.simpleicons.org/axios/white" },
     { name: "Redux", logo: "https://cdn.simpleicons.org/redux/764ABC" },
-
-
+    { name: "Zustand", logo: "https://cdn.simpleicons.org/zustand/764ABC" },
     { name: "TanStack Query", logo: "https://cdn.simpleicons.org/reactquery/FF4154" },
-    { name: "GitHub", logo: "https://cdn.simpleicons.org/github/white" },
+    { name: "Postman", logo: "https://cdn.simpleicons.org/postman/2496ED" },
+    { name: "Swagger UI", logo: "https://cdn.simpleicons.org/swagger/339933" },
+
 ];
 
 const row3 = [
     { name: "Modern UI/UX", logo: "https://cdn.simpleicons.org/figma/F24E1E" },
+    { name: "Adobe XD", logo: "https://cdn.simpleicons.org/adobexd/white" },
     { name: "Figma Design", logo: "https://cdn.simpleicons.org/figma/F24E1E" },
-    { name: "Pixel Perfect", logo: "https://cdn.simpleicons.org/adobephotoshop/31A8FF" },
-    { name: "SEO Expert", logo: "https://cdn.simpleicons.org/google/4285F4" },
-    { name: "Clean Code", logo: "https://cdn.simpleicons.org/visualstudiocode/007ACC" },
-    { name: "Mobile First", logo: "https://cdn.simpleicons.org/apple/white" },
-    { name: "Unit Testing", logo: "https://cdn.simpleicons.org/jest/C21325" },
-    { name: "Dockerize", logo: "https://cdn.simpleicons.org/docker/2496ED" },
+    { name: "Pixso", logo: "https://cdn.simpleicons.org/pixso/white" },
+    { name: "Google Analytics", logo: "https://cdn.simpleicons.org/google/4285F4" },
+    { name: "Docker", logo: "https://cdn.simpleicons.org/docker/2496ED" },
+    { name: "Git", logo: "https://cdn.simpleicons.org/git/2496ED" },
+    { name: "GitHub", logo: "https://cdn.simpleicons.org/github/2496ED" },
+    { name: "Jira", logo: "https://cdn.simpleicons.org/jira/2496ED" },
+    { name: "Mermaid", logo: "https://cdn.simpleicons.org/mermaid/2496ED" },
+    { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/2496ED" },
+    { name: "Parplexity", logo: "https://cdn.simpleicons.org/parplexity/2496ED" },
+    { name: "Cloudinary", logo: "https://cdn.simpleicons.org/cloudinary/2496ED" },
+    { name: "cloudflare", logo: "https://cdn.simpleicons.org/cloudflare/f6821f" },
+    { name: "VSCode", logo: "https://cdn.simpleicons.org/vscode/2496ED" },
+    { name: "Antigravity", logo: "https://cdn.simpleicons.org/antigravity/2496ED" },
+
+
 ];
 
 const TagRow = ({ items, speed = 100, direction = "left" }: { items: typeof row1, speed?: number, direction?: "left" | "right" }) => {
@@ -68,7 +81,7 @@ const TagRow = ({ items, speed = 100, direction = "left" }: { items: typeof row1
                 {[...items, ...items, ...items, ...items].map((item, idx) => (
                     <div
                         key={idx}
-                        className="flex items-center gap-3 px-6 py-2 border border-white/50 rounded-md whitespace-nowrap hover:border-[#FF5C58]/30 hover:shadow-lg dark:hover:shadow-[#FF5C58]/5 transition-all duration-300 group cursor-pointer"
+                        className="flex items-center gap-3 py-2  border-white/50 rounded-md whitespace-nowrap  hover:shadow-lg dark:hover:shadow-[#FF5C58]/5 transition-all duration-300 group cursor-pointer"
                     >
                         <div className="w-6 h-6 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-all transform group-hover:scale-125 duration-300">
                             <img

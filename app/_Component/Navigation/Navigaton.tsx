@@ -6,16 +6,38 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import logo from '@/public/muksitul-logo-2.png';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function Navigaton() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const router = useRouter();
+    const pathname = usePathname();
 
     const navLinks = [
-        { name: "Home", href: "#" },
-        { name: "Services", href: "#" },
-        { name: "Portfolio", href: "#" },
-        { name: "Bio", href: "#" },
+        { name: "Home", href: "#hero" },
+        { name: "Services", href: "#services" },
+        { name: "Portfolio", href: "#portfolio" },
+        { name: "Bio", href: "/about" },
+        { name: "Resume", href: "/resume" },
     ];
+
+    const handleNavClick = (href: string) => {
+        if (href.startsWith('#')) {
+            const id = href.substring(1);
+            if (pathname === '/') {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+
+            } else {
+                router.push(`/${href}`);
+            }
+        } else {
+            router.push(href);
+        }
+        closeMenu();
+    };
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
@@ -28,43 +50,35 @@ export default function Navigaton() {
                 className="flex items-center justify-between gap-2 px-6 py-4 w-full ratio"
             >
                 <div className="flex items-center gap-2">
-                    <Image
-                        src={logo}
-                        alt="Profile"
-                        width={400}
-                        height={400}
-                        className="w-16"
-                    />
+                    <button onClick={() => handleNavClick("#hero")}>
+                        <Image
+                            src={logo}
+                            alt="Profile"
+                            width={400}
+                            height={400}
+                            className="w-16 cursor-pointer"
+                        />
+                    </button>
                 </div>
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex gap-10 items-center">
                     <ul className="flex gap-2 items-center justify-center">
                         {navLinks.map((link) => (
-                            <Link
+                            <button
                                 key={link.name}
-                                href={link.href}
-                                className="px-4 py-2 text-sm font-bold transition-all rounded-sm text-white/60 hover:text-white hover:scale-105"
+                                onClick={() => handleNavClick(link.href)}
+                                className={`px-4 py-2 text-sm font-bold transition-all rounded-sm hover:scale-105 cursor-pointer ${link.name === "Resume"
+                                    ? "primary-color2 bg-white text-white shadow-lg mx-2"
+                                    : "text-white/60 hover:text-white"
+                                    }`}
                             >
                                 {link.name}
-                            </Link>
+                            </button>
                         ))}
                     </ul>
-                    <div className="flex gap-4 items-center justify-center ml-4">
-                        <Link
-                            href="#"
-                            className="text-sm font-bold text-white/60 hover:text-white transition-colors"
-                        >
-                            Bio
-                        </Link>
-                        <Link
-                            href="/resume"
-                            className="px-6 py-2 primary-color2 rounded-sm bg-white text-white text-sm font-bold hover:scale-105 transition-all shadow-lg"
-                        >
-                            Resume
-                        </Link>
-                    </div>
                 </div>
+
 
                 {/* Mobile Menu Button */}
                 <button
@@ -88,35 +102,23 @@ export default function Navigaton() {
                     >
                         <div className="px-6 py-4 space-y-2 text-center">
                             {navLinks.map((link) => (
-                                <Link
+                                <button
                                     key={link.name}
-                                    href={link.href}
-                                    onClick={closeMenu}
-                                    className="block border px-4 py-3 text-sm font-bold transition-all rounded-sm text-white/60 hover:text-white hover:bg-white/5"
+                                    onClick={() => handleNavClick(link.href)}
+                                    className={`w-full block px-4 py-3 text-sm font-bold transition-all rounded-sm hover:scale-105 cursor-pointer ${link.name === "Resume"
+                                        ? "primary-color2 text-black shadow-lg"
+                                        : "text-white/60 hover:text-white hover:bg-white/5 border border-white/10"
+                                        }`}
                                 >
                                     {link.name}
-                                </Link>
+                                </button>
                             ))}
-                            <div className="pt-2 space-y-2 border-t border-white/10">
-                                <Link
-                                    href="#"
-                                    onClick={closeMenu}
-                                    className="block px-4 py-3 text-sm font-bold text-white/60 hover:text-white hover:bg-white/5 rounded-sm transition-all"
-                                >
-                                    Bio
-                                </Link>
-                                <Link
-                                    href="#"
-                                    onClick={closeMenu}
-                                    className="block px-4 py-3 text-center rounded-sm primary-color2 text-black text-sm font-bold hover:scale-105 transition-all shadow-lg"
-                                >
-                                    Resume
-                                </Link>
-                            </div>
                         </div>
+
                     </motion.div>
                 )}
             </AnimatePresence>
         </nav>
     );
 }
+

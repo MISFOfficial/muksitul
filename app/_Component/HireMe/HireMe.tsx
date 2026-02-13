@@ -5,7 +5,8 @@ import { ArrowRight, Star, Code, Palette, Rocket, Mail } from 'lucide-react';
 
 export default function HireMe() {
     return (
-        <section className="relative overflow-hidden">
+        <section id="contact" className="relative overflow-hidden">
+
             <div className="relative z-10">
                 {/* Main Card */}
                 <div className="overflow-hidden rounded-2xl border border-white/10">
