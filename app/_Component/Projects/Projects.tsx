@@ -52,8 +52,8 @@ export default function Projects() {
                     viewport={{ once: true }}
                     className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-5xl"
                 >
-                    Pre-Build Creative <span className="text-neutral-500">Personal</span> <br />
-                    Portfolio <span className="text-[#20255e]">Demos</span>
+                    Featured Engineering <span className="text-neutral-500">Solutions</span> <br />
+                    & Architectural <span className="text-[#20255e]">Showcase</span>
                 </motion.h2>
 
                 {/* Description */}
@@ -64,10 +64,10 @@ export default function Projects() {
                     transition={{ delay: 0.1 }}
                     className="text-neutral-400 max-w-2xl text-lg leading-relaxed mt-4"
                 >
-                    We have carefully selected these categories based on our judgment.
-                    However, you are free to choose any suggested category that best
-                    fits your personal or individual preferences.
+                    Explore a curated collection of high-performance applications and innovative digital experiences,
+                    demonstrating my commitment to technical excellence and professional problem-solving.
                 </motion.p>
+
 
                 {/* Features List */}
                 {/* <motion.div

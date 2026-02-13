@@ -6,28 +6,28 @@ import { Plus, Minus } from 'lucide-react';
 
 const faqData = [
     {
-        question: "What is Reeni ? How does it work?",
-        answer: "Reeni is a modern and powerful Personal Portfolio WordPress Theme. Elevate your online presence with Reeni's sleek design, lightning-fast loading speeds, and intuitive customization options. Crafted for efficiency and professionalism, Reeni empowers your Portfolio with seamless functionality and well-documented code. Build your corporate identity effortlessly and stand out in the digital landscape with Reeni."
+        question: "What technical expertise do you bring to my project?",
+        answer: "I specialize in building production-ready web applications using Next.js, TypeScript, and modern styling frameworks. My focus is on creating high-performance, and accessible digital experiences that scale with your business needs."
     },
     {
-        question: "How can I get the customer support?",
-        answer: "We provide dedicated customer support through our support ticket system. You can open a ticket at any time, and our team will get back to you within 24 hours."
+        question: "How do you ensure project scalability and maintainability?",
+        answer: "I follow industry best practices, including clean architecture, modular component design, and rigorous testing. By using strongly typed systems like TypeScript and efficient state management, I ensure your codebase remains easy to update and evolve as your product grows."
     },
     {
-        question: "Can I get update regularly and For how long do I get updates?",
-        answer: "Yes, we provide lifetime free updates for all our themes. You will receive a notification whenever a new update is available."
+        question: "What is your typical development process?",
+        answer: "My process is collaborative and transparent: starting with deep discovery and architecture planning, followed by agile development with regular updates, and concluding with comprehensive testing and seamless deployment to ensure a successful launch."
     },
     {
-        question: "Can I change any Elements as I like?",
-        answer: "Absolutely! Reeni is built with full customizability in mind. You can easily modify colors, fonts, layouts, and other elements using the built-in options panel or page builder."
+        question: "Do you provide post-launch support and optimization?",
+        answer: "Absolutely. I believe in long-term partnerships. I offer performance monitoring, security updates, and iterative feature development to ensure your application continues to deliver exceptional value post-deployment."
     }
 ];
 
 export default function Faq() {
-    const [activeIndex, setActiveIndex] = useState<number | null>(0);
+    const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     const toggleFaq = (index: number) => {
-        setActiveIndex(activeIndex === index ? null : index);
+        setOpenIndex(openIndex === index ? null : index);
     };
 
     return (
@@ -35,10 +35,10 @@ export default function Faq() {
 
             {/* Header */}
             <div className="text-center  space-y-4 mb-5">
-                <h4 className="primary-text font-bold uppercase tracking-widest text-sm">Clients Feedback</h4>
-                <h2 className="text-xl md:text-4xl font-black text-white">Have You Any Questions?</h2>
+                <h4 className="primary-text font-bold uppercase tracking-widest text-sm">Hire Me</h4>
+                <h2 className="text-xl md:text-4xl font-black text-white">Why Hire Me?</h2>
                 <p className="text-gray-400 max-w-2xl mx-auto">
-                    With a strong foundation in theme development and a keen eye for design, I specialize in creating interactive and responsive web.
+                    With a deep expertise in modern web architectures and a passion for clean, maintainable code, I help businesses scale through robust and innovative technical solutions.
                 </p>
             </div>
 
@@ -70,16 +70,17 @@ export default function Faq() {
                                 onClick={() => toggleFaq(index)}
                                 className="w-full flex items-center justify-between p-6 text-left group"
                             >
-                                <span className={`text-base md:text-lg  font-bold transition-colors ${activeIndex === index ? 'text-primary-color2' : 'text-gray-300 group-hover:text-white'}`}>
+                                <span className={`text-base md:text-lg  font-bold transition-colors ${openIndex === index ? 'text-primary-color2' : 'text-gray-300 group-hover:text-white'}`}>
                                     {item.question}
                                 </span>
                                 <div className="text-gray-500 group-hover:text-white transition-colors">
-                                    {activeIndex === index ? <Minus size={20} /> : <Plus size={20} />}
+                                    {openIndex === index ? <Minus size={20} /> : <Plus size={20} />}
                                 </div>
                             </button>
 
                             <AnimatePresence>
-                                {activeIndex === index && (
+                                {openIndex === index && (
+
                                     <motion.div
                                         initial={{ height: 0, opacity: 0 }}
                                         animate={{ height: "auto", opacity: 1 }}

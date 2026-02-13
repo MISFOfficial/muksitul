@@ -24,7 +24,7 @@ const cards = [
         color: "#1a1e4d"
     },
     {
-        title: "25+ Years",
+        title: "1+ Years",
         icon: Award,
         desc: "Of Experience",
         highlight: true,
@@ -105,9 +105,9 @@ export default function Optical() {
                             </div>
 
                             {/* Decor: Number or accent */}
-                            {card.highlight && (
-                                <div className="absolute top-4 right-4 text-[#FF0055]/20 text-6xl font-black">25</div>
-                            )}
+                            {/* {card.highlight && (
+                                <div className="absolute top-4 right-4 text-[#FF0055]/20 text-6xl font-black">1</div>
+                            )} */}
                         </div>
                     ))}
                 </motion.div>
