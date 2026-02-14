@@ -81,7 +81,7 @@ const TagRow = ({ items, speed = 100, direction = "left" }: { items: typeof row1
                 {[...items, ...items, ...items, ...items].map((item, idx) => (
                     <div
                         key={idx}
-                        className="flex items-center gap-3 py-2  border-white/50 rounded-md whitespace-nowrap  hover:shadow-lg dark:hover:shadow-[#FF5C58]/5 transition-all duration-300 group cursor-pointer"
+                        className="flex items-center gap-3 py-2  border-white/150 rounded-md whitespace-nowrap  hover:shadow-lg dark:hover:shadow-[#FF5C58]/5 transition-all duration-300 group cursor-pointer"
                     >
                         <div className="w-6 h-6 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-all transform group-hover:scale-125 duration-300">
                             <img

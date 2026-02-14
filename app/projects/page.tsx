@@ -58,7 +58,7 @@ export default function ProjectsPage() {
 
                     {/* Empty State if no projects (unlikely but good for safety) */}
                     {projectsData.length === 0 && (
-                        <div className="text-center py-20 border border-dashed border-white/10 rounded-2xl">
+                        <div className="text-center py-20 border border-dashed border-white/10 rounded-md">
                             <p className="text-gray-500">No projects found in the archive.</p>
                         </div>
                     )}

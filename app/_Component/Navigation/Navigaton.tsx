@@ -28,7 +28,6 @@ export default function Navigaton() {
             closeMenu();
             return;
         }
-
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
         const scrollBlock = (id === 'hero' && isMobile) ? 'start' : 'center';
 
@@ -56,13 +55,6 @@ export default function Navigaton() {
             }
         }
     }, [pathname]);
-
-
-
-
-
-
-
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
@@ -142,7 +134,6 @@ export default function Navigaton() {
                                 </button>
                             ))}
                         </div>
-
                     </motion.div>
                 )}
             </AnimatePresence>

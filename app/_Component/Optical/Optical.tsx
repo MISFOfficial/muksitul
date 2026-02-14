@@ -82,14 +82,14 @@ export default function Optical() {
                             key={idx}
                             className={`
                                 relative min-w-[280px] md:min-w-[320px] h-[200px] md:h-[240px] 
-                                rounded-2xl p-6 flex flex-col justify-between 
-                                border border-white/5 bg-[#111111] hover:border-white/20 transition-all group
+                                rounded-md p-6 flex flex-col justify-between 
+                                border border-white/15 bg-[#111111] hover:border-white/15 transition-all group
                                 ${card.highlight ? 'bg-gradient-to-br from-[#111111] to-[#2d0a16]' : ''}
                             `}
                         >
                             {/* Glow Effect */}
                             <div
-                                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                                className="absolute inset-0 rounded-md opacity-0 group-hover:opacity-20 transition-opacity duration-500"
                                 style={{ background: `radial-gradient(circle at center, ${card.color}, transparent 70%)` }}
                             />
 

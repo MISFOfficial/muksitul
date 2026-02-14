@@ -81,7 +81,7 @@ export default function ProjectModal({ isOpen, onClose }: ProjectModalProps) {
                         initial={{ scale: 0.9, opacity: 0, y: 20 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                        className="relative w-full max-w-2xl  border-2 border-white/20 rounded-2xl overflow-hidden shadow-2xl"
+                        className="relative w-full max-w-2xl  border-2 border-white/15 rounded-md overflow-hidden shadow-2xl"
                     >
                         {/* Close Button */}
                         <button
@@ -131,7 +131,7 @@ export default function ProjectModal({ isOpen, onClose }: ProjectModalProps) {
                                                     required
                                                     type="text"
                                                     placeholder="e.g. E-commerce Revolution"
-                                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-colors"
+                                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/15 transition-colors"
                                                     value={formData.projectName}
                                                     onChange={(e) => setFormData({ ...formData, projectName: e.target.value })}
                                                 />
@@ -144,7 +144,7 @@ export default function ProjectModal({ isOpen, onClose }: ProjectModalProps) {
                                                     required
                                                     type="email"
                                                     placeholder="e.g. you@example.com"
-                                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-colors"
+                                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/15 transition-colors"
                                                     value={formData.userEmail}
                                                     onChange={(e) => setFormData({ ...formData, userEmail: e.target.value })}
                                                 />
@@ -159,7 +159,7 @@ export default function ProjectModal({ isOpen, onClose }: ProjectModalProps) {
                                                 required
                                                 rows={4}
                                                 placeholder="Tell me more about what you're looking to achieve..."
-                                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 transition-colors resize-none"
+                                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-white/15 transition-colors resize-none"
                                                 value={formData.details}
                                                 onChange={(e) => setFormData({ ...formData, details: e.target.value })}
                                             />
@@ -174,7 +174,7 @@ export default function ProjectModal({ isOpen, onClose }: ProjectModalProps) {
                                                     onChange={handleFileChange}
                                                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                                 />
-                                                <div className="w-full bg-white/5 border border-dashed border-white/20 group-hover:border-white/40 rounded-xl px-4 py-6 flex flex-col items-center justify-center gap-2 transition-colors">
+                                                <div className="w-full bg-white/5 border border-dashed border-white/15 group-hover:border-white/40 rounded-xl px-4 py-6 flex flex-col items-center justify-center gap-2 transition-colors">
                                                     <Upload className="text-white/30 group-hover:text-white/50 transition-colors" />
                                                     <span className="text-sm text-white/40 group-hover:text-white/60 transition-colors">
                                                         {formData.file ? formData.file.name : 'Click or drop files here'}

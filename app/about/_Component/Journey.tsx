@@ -49,7 +49,7 @@ export default function Journey({ journeyEvents }: any) {
                                 </p>
                                 <div className="flex gap-4">
                                     <div className="h-[1px] w-20 bg-[#FF0055] mt-4" />
-                                    <div className="p-4 bg-white/5 rounded-2xl border border-white/10 primary-text2">
+                                    <div className="p-4 bg-white/5 rounded-md border border-white/10 primary-text2">
                                         {event.icon}
                                     </div>
                                 </div>

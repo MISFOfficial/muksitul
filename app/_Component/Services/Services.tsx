@@ -12,7 +12,7 @@ export default function Services() {
 
     return (
         <section id="services" className="">
-            <div className="primary-color rounded-2xl overflow-hidden relative min-h-[500px] flex items-center justify-between px-6 py-12 lg:px-20 lg:py-16">
+            <div className="primary-color rounded-md overflow-hidden relative min-h-[500px] flex items-center justify-between px-6 py-12 lg:px-20 lg:py-16">
                 {/* Left Side - Image */}
                 <div className="hidden lg:flex w-1/2 justify-center items-end relative h-full">
                     <div className="relative w-full h-[450px] flex items-end justify-center">

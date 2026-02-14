@@ -65,7 +65,7 @@ export default function Faq() {
                 {/* Accordion - Right Side */}
                 <div className="lg:col-span-8 space-y-4">
                     {faqData.map((item, index) => (
-                        <div key={index} className="bg-[#111111] rounded-md overflow-hidden border border-white/5 transition-all duration-300 ">
+                        <div key={index} className="bg-[#111111] rounded-md overflow-hidden border border-white/15 transition-all duration-300 ">
                             <button
                                 onClick={() => toggleFaq(index)}
                                 className="w-full flex items-center justify-between p-6 text-left group"
@@ -88,7 +88,7 @@ export default function Faq() {
                                         transition={{ duration: 0.3 }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="px-6 pb-6 pt-0 text-gray-400 leading-relaxed border-t border-white/5 mt-2">
+                                        <div className="px-6 pb-6 pt-0 text-gray-400 leading-relaxed border-t border-white/15 mt-2">
                                             {item.answer}
                                         </div>
                                     </motion.div>

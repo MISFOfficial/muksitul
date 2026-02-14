@@ -33,7 +33,7 @@ export default function ResumePage() {
             <div className="max-w-[210mm] mx-auto primary-color shadow-2xl  border border-white/10 ">
                 <div className="p-12">
                     {/* Header */}
-                    <div className="text-center border-b-2 border-white/20 pb-6 mb-6">
+                    <div className="text-center border-b-2 border-white/15 pb-6 mb-6">
                         <h1 className="text-4xl font-black mb-2 text-white">{resumeData.personalInfo.name}</h1>
                         <h2 className="text-lg text-white font-semibold mb-4">{resumeData.personalInfo.title}</h2>
 
@@ -56,7 +56,7 @@ export default function ResumePage() {
 
                     {/* Professional Summary */}
                     <section className="mb-6">
-                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/20 pb-1 mb-3 text-white">Professional Summary</h3>
+                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/15 pb-1 mb-3 text-white">Professional Summary</h3>
                         <p className="text-sm text-gray-300 leading-relaxed text-justify">
                             {resumeData.summary}
                         </p>
@@ -64,7 +64,7 @@ export default function ResumePage() {
 
                     {/* Skills */}
                     <section className="mb-6">
-                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/20 pb-1 mb-3 text-white">Skills & Technologies</h3>
+                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/15 pb-1 mb-3 text-white">Skills & Technologies</h3>
 
                         <div className="space-y-2 text-sm">
                             <div className="bg-white/5 p-3 rounded border border-white/10">
@@ -100,10 +100,10 @@ export default function ResumePage() {
 
                     {/* Experience */}
                     <section className="mb-6">
-                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/20 pb-1 mb-3 text-white">Experience</h3>
+                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/15 pb-1 mb-3 text-white">Experience</h3>
 
                         {resumeData.experience.map((exp, idx) => (
-                            <div key={idx} className="mb-4 bg-white/5 p-4 rounded-lg border-l-4 border-white/20">
+                            <div key={idx} className="mb-4 bg-white/5 p-4 rounded-lg border-l-4 border-white/15">
                                 <div className="flex justify-between items-start mb-2">
                                     <div>
                                         <h4 className="font-bold text-base text-white">{exp.position} | <span className="text-white">{exp.company}</span></h4>
@@ -123,10 +123,10 @@ export default function ResumePage() {
 
                     {/* Projects */}
                     <section className="mb-6">
-                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/20 pb-1 mb-3 text-white">Relevant Projects</h3>
+                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/15 pb-1 mb-3 text-white">Relevant Projects</h3>
 
                         {resumeData.projects.map((project, idx) => (
-                            <div key={idx} className="mb-4 bg-white/5 p-4 rounded-lg border-l-4 border-white/20">
+                            <div key={idx} className="mb-4 bg-white/5 p-4 rounded-lg border-l-4 border-white/15">
                                 <div className="flex justify-between items-start mb-1">
                                     <h4 className="font-bold text-base text-white">{project.name}</h4>
                                     <Link href={project?.href || "#"} target="_blank" className="text-sm text-white font-semibold">{project.liveLink}</Link>
@@ -153,9 +153,9 @@ export default function ResumePage() {
 
                     {/* Education */}
                     <section className="mb-6">
-                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/20 pb-1 mb-3 text-white">Education</h3>
+                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/15 pb-1 mb-3 text-white">Education</h3>
 
-                        <div className="flex justify-between items-start bg-white/5 p-4 rounded-lg border-l-4 border-white/20">
+                        <div className="flex justify-between items-start bg-white/5 p-4 rounded-lg border-l-4 border-white/15">
                             <div>
                                 <h4 className="font-bold text-base text-white">{resumeData.education.degree}</h4>
                                 <p className="text-sm text-white font-semibold">{resumeData.education.institution}</p>
@@ -167,7 +167,7 @@ export default function ResumePage() {
 
                     {/* Languages */}
                     <section className="mb-6">
-                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/20 pb-1 mb-3 text-white">Language</h3>
+                        <h3 className="text-lg font-bold uppercase border-b-2 border-white/15 pb-1 mb-3 text-white">Language</h3>
 
                         <div className="text-sm text-gray-300 bg-white/5 p-4 rounded-lg border border-white/10">
                             <p><span className="font-bold text-white">Bangla:</span> {resumeData.languages.bangla}</p>

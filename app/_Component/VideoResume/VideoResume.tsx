@@ -38,7 +38,7 @@ function VideoResume() {
                             stiffness: 260,
                             damping: 20
                         }}
-                        className="relative w-16 md:w-24 h-16 md:h-24 rounded-full overflow-hidden cursor-pointer shadow-2xl border-2 border-white/20 group bg-slate-900"
+                        className="relative w-16 md:w-24 h-16 md:h-24 rounded-full overflow-hidden cursor-pointer shadow-2xl border-2 border-white/15 group bg-slate-900"
                     >
                         {/* Custom Thumbnail / Poster */}
                         <div className="absolute inset-0 w-full h-full">

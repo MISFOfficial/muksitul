@@ -30,7 +30,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-[#0a0a0a] border-t border-white/5">
+        <footer className="bg-[#0a0a0a] border-t border-white/15">
             <div className="ratio py-16">
                 {/* Main Footer Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -98,7 +98,7 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 border-t border-white/5">
+                <div className="pt-8 border-t border-white/15">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <p className="text-gray-500 text-sm">
                             © {currentYear} Muksitul Islam. All rights reserved.

@@ -9,7 +9,7 @@ export default function HireMe() {
 
             <div className="relative z-10">
                 {/* Main Card */}
-                <div className="overflow-hidden rounded-2xl border border-white/10">
+                <div className="overflow-hidden rounded-md border border-white/10">
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
                         {/* Left Sidebar - Vertical Stats */}
                         <div className="lg:col-span-2 primary-color p-8 lg:p-12 relative overflow-hidden">
@@ -79,7 +79,7 @@ export default function HireMe() {
                                     ].map((stat, idx) => (
                                         <div
                                             key={idx}
-                                            className="bg-white/5 rounded-xl p-4 border border-white/5 hover:border-[#20255e]/50 transition-all"
+                                            className="bg-white/5 rounded-xl p-4 border border-white/15 hover:border-[#20255e]/50 transition-all"
                                         >
                                             <div className="text-2xl font-black primary-text">{stat.num}</div>
                                             <div className="text-xs text-gray-400 mt-1">{stat.label}</div>
