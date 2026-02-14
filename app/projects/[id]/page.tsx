@@ -104,15 +104,37 @@ export default function ProjectPage() {
                   Live Demo
                 </a>
               )}
-              {project.githubUrl && (
+              {project?.fgithubUrl && (
                 <a
-                  href={project.githubUrl}
+                  href={project?.fgithubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-2 border-white/20 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-white/5 transition-all"
                 >
                   <Github size={20} />
-                  Source Code
+                  Frontend Source Code
+                </a>
+              )}
+              {project?.bgithubUrl && (
+                <a
+                  href={project?.bgithubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-2 border-white/20 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-white/5 transition-all"
+                >
+                  <Github size={20} />
+                  Backend Source Code
+                </a>
+              )}
+              {project?.githubUrl && (
+                <a
+                  href={project?.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border-2 border-white/20 text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-white/5 transition-all"
+                >
+                  <Github size={20} />
+                  Full Source Code
                 </a>
               )}
             </div>
@@ -205,21 +227,23 @@ export default function ProjectPage() {
                   </div>
                   <div>
                     <div className="text-xs text-gray-500">Year</div>
-                    <div className="text-white font-semibold">2024</div>
+                    <div className="text-white font-semibold">
+                      {project.year}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Quick Stats */}
-            <div className="bg-gradient-to-br from-[#20255e]/10 to-transparent rounded-2xl p-6 border border-[#20255e]/20">
+            {/* <div className="bg-gradient-to-br from-[#20255e]/10 to-transparent rounded-2xl p-6 border border-[#20255e]/20">
               <div className="text-center">
                 <div className="text-4xl font-black primary-text mb-2">
                   #{project.id}
                 </div>
                 <div className="text-sm text-gray-400">Project ID</div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
