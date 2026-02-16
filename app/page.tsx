@@ -7,8 +7,6 @@ import EngineeringMindset from "./_Component/EngineeringMindset/EngineeringMinds
 import Faq from "./_Component/Faq/Faq";
 import Optical from "./_Component/Optical/Optical";
 import AllProjects from "./_Component/Projects/AllProjects";
-import Certificates from "./_Component/Certificates/Certificates";
-import AllCertificates from "./_Component/Certificates/AllCertificates";
 import HireMe from "./_Component/HireMe/HireMe";
 import Footer from "./_Component/Footer/Footer";
 
@@ -27,8 +25,7 @@ export default function Home() {
         <EngineeringMindset />
         <Projects />
         <AllProjects />
-        {/* <Certificates />
-        <AllCertificates /> */}
+
         <Services />
         <Optical />
         <Faq />
