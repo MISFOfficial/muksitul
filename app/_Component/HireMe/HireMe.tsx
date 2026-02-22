@@ -1,9 +1,13 @@
 "use client";
 
-import React from 'react';
+import { useState } from 'react';
 import { ArrowRight, Star, Code, Palette, Rocket, Mail } from 'lucide-react';
+import ContactModal from '@/app/Global/ContactModal';
 
 export default function HireMe() {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <section id="contact" className="relative overflow-hidden">
 
@@ -89,7 +93,9 @@ export default function HireMe() {
 
                                 {/* CTA Section */}
                                 <div className="space-y-4">
-                                    <button className="w-full primary-color text-white py-4 px-6 rounded-full font-bold text-lg flex items-center justify-center gap-3 shadow-2xl hover:shadow-[#20255e]/50 hover:scale-105 transition-all group">
+                                    <button
+                                        onClick={() => setIsModalOpen(true)}
+                                        className="w-full primary-color text-white py-4 px-6 rounded-full font-bold text-lg flex items-center justify-center gap-3 shadow-2xl hover:shadow-[#20255e]/50 hover:scale-105 transition-all group">
                                         <Mail size={20} />
                                         <span>Start Your Project</span>
                                         <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
@@ -107,11 +113,11 @@ export default function HireMe() {
                     </div>
                 </div>
 
-                {/* Bottom Tagline */}
-                {/* <p className="text-center text-gray-500 mt-10 text-sm">
-                    Trusted by startups and enterprises worldwide 🌍
-                </p> */}
             </div>
+            <ContactModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
         </section>
     );
 }

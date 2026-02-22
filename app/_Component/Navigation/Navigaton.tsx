@@ -17,6 +17,7 @@ export default function Navigaton() {
         { name: "Home", id: "hero" },
         { name: "Projects", id: "projects" },
         { name: "Services", id: "services" },
+        { name: "Certificates", id: "certificates-list", href: "/certificates" },
         { name: "Faq", id: "faq" },
         { name: "Contact", id: "contact" },
         { name: "Resume", id: "resume", href: "/resume" },

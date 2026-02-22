@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
-import { MoveRight } from 'lucide-react';
 import jahin from "@/public/profile.png";
-import service1 from '@/public/servce-1.png';
-import ProjectModal from './ProjectModal';
+import ContactModal from '../../Global/ContactModal';
 
 export default function Services() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -51,7 +49,7 @@ export default function Services() {
                 </div>
             </div>
 
-            <ProjectModal
+            <ContactModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
             />

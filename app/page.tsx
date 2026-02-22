@@ -9,12 +9,11 @@ import Optical from "./_Component/Optical/Optical";
 import AllProjects from "./_Component/Projects/AllProjects";
 import HireMe from "./_Component/HireMe/HireMe";
 import Footer from "./_Component/Footer/Footer";
-import VideoResume from "./_Component/VideoResume/VideoResume";
 
 export default function Home() {
   return (
     <main className="relative">
-      <div className="sticky top-0 w-full z-50 backdrop-blur-xl ">
+      <div className="sticky top-0 w-full z-40 backdrop-blur-xl ">
         <Navigaton />
       </div>
       <div className="ratio  min-h-screen ">
@@ -26,6 +25,7 @@ export default function Home() {
         <EngineeringMindset />
         <Projects />
         <AllProjects />
+
         <Services />
         <Optical />
         <Faq />

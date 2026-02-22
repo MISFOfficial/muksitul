@@ -1,9 +1,9 @@
 "use client";
 
 export const runtime = "edge";
+export const dynamic = "force-dynamic";
 
 import { useParams, useRouter } from "next/navigation";
-import React from "react";
 import { projectsData, Project } from "@/lib/projectsData";
 import Image from "next/image";
 import {
