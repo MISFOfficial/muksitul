@@ -39,7 +39,7 @@ export const projectsData: Project[] = [
         id: "39",
         title: "Varaniben",
         slug: "varaniben.com",
-        image: "https://i.ibb.co.com/MyfJJx5r/image.png",
+        image: "https://i.ibb.co.com/Gvk4HNFz/image.png",
         tags: ["Rantal", "Solutions"],
         year: "2026",
         badge: { text: "Comming Soon", color: "bg-yellow-500" },
