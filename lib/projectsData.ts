@@ -36,6 +36,59 @@ export interface Project {
 
 export const projectsData: Project[] = [
     {
+        id: "39",
+        title: "Varaniben",
+        slug: "varaniben.com",
+        image: "https://i.ibb.co.com/Gvk4HNFz/image.png",
+        tags: ["Rantal", "Solutions"],
+        year: "2026",
+        badge: { text: "Comming Soon", color: "bg-yellow-500" },
+        description: "A Rental Soluitions Platform",
+        fullDescription:
+            "This project is a modern Rental Soluitions Platform. It features a clean, minimalist interface with smooth animations and responsive layouts that work seamlessly across all devices.",
+        role: "Lead Full Stack Engineer",
+        technologies: [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Framer Motion",
+            "Axios",
+            "Tanstack Query",
+            "Custom Authentication",
+            "Nest.js",
+            "MongoDB",
+            "Mongoose",
+            "JWT",
+            "Bcrypt js",
+            "Prettier",
+            "Cloudflare",
+            "Docker",
+        ],
+        liveUrl: "https://varaniben.com",
+        features: [
+            ""
+        ],
+        architecture: {
+            frontend: "Next.js (App Router) + Zustand",
+            backend: "Nest.js",
+            database: "MongoDB",
+            infrastructure: ["Docker Containers", "Cloudflare CDN"],
+        },
+        problemSolution: {
+            problem: "Existing hosting portals were slow and had poor UX for mobile users, causing high bounce rates during the checkout process.",
+            solution: "Implemented a server-side rendered (SSR) architecture with optimized payment flows, reducing checkout time by 45%.",
+        },
+        metrics: [
+            { label: "Performance", value: "98/100", description: "Lighthouse Score" },
+            { label: "Security", value: "A+", description: "SSL Labs Rating" },
+            { label: "Response", value: "< 200ms", description: "API Latency" },
+        ],
+        lessons: [
+            "Optimized MongoDB indexing for complex domain search queries.",
+            "Implemented robust error handling for multi-step payment callbacks.",
+        ],
+    },
+    {
         id: "40",
         title: "Minthost",
         slug: "minthost.com.bd",
