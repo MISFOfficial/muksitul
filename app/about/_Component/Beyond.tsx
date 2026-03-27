@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function Beyond() {
   return (
-    <section className="bg-black relative z-10">
+    <section className="  relative z-10">
       <div className="">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-10">
           <div className="max-w-xl">

@@ -77,7 +77,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/80 backdrop-blur-md"
+            className="absolute inset-0   backdrop-blur-md"
           />
 
           {/* Modal Content */}

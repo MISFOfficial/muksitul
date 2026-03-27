@@ -43,7 +43,7 @@ export default function CertificateCard({
               fill
               className="object-cover opacity-50 group-hover:opacity-100 transition-opacity"
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+            <div className="absolute inset-0 flex items-center justify-center  ">
               <Award
                 size={40}
                 className="text-[#FF5C58] opacity-80 group-hover:scale-110 transition-transform"

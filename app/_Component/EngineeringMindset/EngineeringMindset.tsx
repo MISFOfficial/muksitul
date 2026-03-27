@@ -45,7 +45,7 @@ const mindsetItems = [
 
 export default function EngineeringMindset() {
   return (
-    <section id="mindset" className="relative overflow-hidden bg-black">
+    <section id="mindset" className="relative overflow-hidden  ">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-color/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -96,7 +96,7 @@ export default function EngineeringMindset() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: item.delay, duration: 0.5 }}
-              className={`${item.size} group relative p-8 primary-rounded bg-black border primary-border backdrop-blur-xl overflow-hidden`}
+              className={`${item.size} group relative p-8 primary-rounded   border primary-border backdrop-blur-xl overflow-hidden`}
             >
               {/* Gradient Background */}
               <div

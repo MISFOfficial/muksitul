@@ -35,7 +35,7 @@ export default function ProjectPage() {
   // If project not found, show 404
   if (!project) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+      <div className="min-h-screen   text-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-6xl font-black mb-4">404</h1>
           <p className="text-gray-400 mb-8">Project not found</p>
@@ -51,7 +51,7 @@ export default function ProjectPage() {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen   text-white">
       {/* Hero Section */}
       <section className="ratio py-10">
         <button

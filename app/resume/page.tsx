@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function ResumePage() {
   return (
-    <main className="min-h-screen bg-black text-white relative">
+    <main className="min-h-screen   text-white relative">
       {/* Download Button - Top Right Corner */}
       <div className="fixed top-6 left-6 z-50">
         <button

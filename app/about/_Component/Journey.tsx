@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Journey({ journeyEvents }: any) {
   return (
-    <section className=" bg-black relative z-10">
+    <section className="   relative z-10">
       <div className="">
         <div className="space-y-48">
           {journeyEvents.map((event: any, index: any) => (

@@ -15,7 +15,7 @@ export default function ProjectsPage() {
   const router = useRouter();
 
   return (
-    <main className="bg-black min-h-screen ratio">
+    <main className="  min-h-screen ratio">
       {/* Specialized Header */}
       <section className=" py-10 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-color/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />

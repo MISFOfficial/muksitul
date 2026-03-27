@@ -122,7 +122,7 @@ export default function Navigaton() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-lg border-t primary-border shadow-2xl z-50"
+            className="md:hidden absolute top-full left-0 right-0   backdrop-blur-lg border-t primary-border shadow-2xl z-50"
           >
             <div className="px-6 py-4 space-y-2 text-center">
               {navLinks.map((link) => (

@@ -67,7 +67,7 @@ const cards = [
 
 export default function Optical() {
   return (
-    <section className="w-full  overflow-hidden bg-black relative">
+    <section className="w-full  overflow-hidden   relative">
       {/* Gradient Fade Edges */}
       <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-r from-black to-transparent pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-gradient-to-l from-black to-transparent pointer-events-none" />

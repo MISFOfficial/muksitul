@@ -52,7 +52,7 @@ export default function CertificateDetail() {
   }
 
   return (
-    <main className="relative min-h-screen bg-black selection:bg-[#FF5C58] selection:text-white">
+    <main className="relative min-h-screen   selection:bg-[#FF5C58] selection:text-white">
       <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
         <Navigaton />
       </div>
@@ -133,7 +133,7 @@ export default function CertificateDetail() {
 
                 {/* Badge Overlay */}
                 <div className="absolute bottom-8 right-8 pointer-events-none">
-                  <div className="w-24 h-24 rounded-full bg-black/40 backdrop-blur-xl border primary-border flex items-center justify-center">
+                  <div className="w-24 h-24 rounded-full   backdrop-blur-xl border primary-border flex items-center justify-center">
                     <Award size={40} className="text-[#FF5C58]" />
                   </div>
                 </div>
@@ -298,7 +298,7 @@ export default function CertificateDetail() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsImageModalOpen(false)}
-              className="absolute inset-0 bg-black/95 backdrop-blur-xl"
+              className="absolute inset-0   backdrop-blur-xl"
             />
 
             {/* Close Button */}

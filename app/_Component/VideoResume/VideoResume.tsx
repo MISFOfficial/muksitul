@@ -50,17 +50,17 @@ function VideoResume() {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-70 group-hover:opacity-100"
               />
               {/* Play Icon Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+              <div className="absolute inset-0 flex items-center justify-center   group-hover:  transition-colors">
                 <Play className="w-10 h-10 text-white fill-white drop-shadow-2xl translate-y-0 group-hover:-translate-y-1 transition-transform" />
               </div>
             </div>
 
-            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+            <div className="absolute inset-0   group-hover:bg-transparent transition-colors" />
 
             <motion.div
               initial={{ opacity: 0 }}
               whileHover={{ opacity: 1 }}
-              className="absolute bottom-3 right-3 bg-black/50 p-1.5 primary-rounded backdrop-blur-sm"
+              className="absolute bottom-3 right-3   p-1.5 primary-rounded backdrop-blur-sm"
             >
               <Maximize2 className="w-4 h-4 text-white" />
             </motion.div>
@@ -69,7 +69,7 @@ function VideoResume() {
           <>
             <motion.div
               layoutId="video-container"
-              className="fixed inset-0 bg-black/60  backdrop-blur-lg flex items-center justify-center "
+              className="fixed inset-0    backdrop-blur-lg flex items-center justify-center "
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
@@ -80,11 +80,11 @@ function VideoResume() {
               }}
               onAnimationComplete={() => setIsVideoReady(true)}
             >
-              <div className="relative w-full max-w-4xl aspect-video primary-rounded overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.6)] bg-black border primary-border">
+              <div className="relative w-full max-w-4xl aspect-video primary-rounded overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.6)]   border primary-border">
                 {/* Close Button */}
                 <button
                   onClick={handleClose}
-                  className="absolute top-6 right-6 z-50 p-3 bg-black/40 hover:bg-black/60 rounded-full backdrop-blur-2xl transition-all border primary-border group"
+                  className="absolute top-6 right-6 z-50 p-3   hover:  rounded-full backdrop-blur-2xl transition-all border primary-border group"
                 >
                   <X className="w-7 h-7 text-white group-hover:rotate-90 transition-transform duration-500" />
                 </button>

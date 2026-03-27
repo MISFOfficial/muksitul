@@ -97,8 +97,8 @@ export default function Experiance() {
         </motion.p>
       </div>
 
-      <div className="relative  mx-auto px-6">
-        <div className="grid grid-cols-2 gap-5">
+      <div className="relative ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {experienceData.map((exp, index) => (
             <ExperienceCard key={exp.id} exp={exp} index={index} />
           ))}

@@ -11,7 +11,7 @@ import Footer from "@/app/_Component/Footer/Footer";
 
 export default function CertificatesPage() {
   return (
-    <main className="relative min-h-screen bg-black">
+    <main className="relative min-h-screen  ">
       <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
         <Navigaton />
       </div>

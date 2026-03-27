@@ -59,7 +59,7 @@ export default function HeroBanner({
       <div className="fixed top-6 left-6 z-50">
         <Link
           href="/"
-          className="text-white cursor-pointer font-bold flex items-center gap-2 hover:scale-105 transition-transform bg-black/50 backdrop-blur-md px-6 py-3 rounded-full border primary-border group "
+          className="text-white cursor-pointer font-bold flex items-center gap-2 hover:scale-105 transition-transform   backdrop-blur-md px-6 py-3 rounded-full border primary-border group "
         >
           <ArrowLeft
             size={20}

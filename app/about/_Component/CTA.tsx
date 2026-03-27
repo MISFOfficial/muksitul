@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function CTA() {
   return (
-    <section className="py-48 text-center relative z-10 bg-black">
+    <section className="py-48 text-center relative z-10  ">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

@@ -24,7 +24,7 @@ function Philosophy() {
             <span className="primary-text2">resilience</span> for the system."
           </blockquote>
           <div className="flex flex-wrap justify-center gap-12 text-left">
-            <div className="flex-1 min-w-[300px] p-8 primary-rounded bg-black/40 border primary-border">
+            <div className="flex-1 min-w-[300px] p-8 primary-rounded   border primary-border">
               <h4 className="text-xl font-bold mb-4 flex items-center gap-3">
                 <Globe className="primary-text2" /> Adaptability
               </h4>
@@ -33,7 +33,7 @@ function Philosophy() {
                 evolution. I build systems that grow with the world.
               </p>
             </div>
-            <div className="flex-1 min-w-[300px] p-8 primary-rounded bg-black/40 border primary-border">
+            <div className="flex-1 min-w-[300px] p-8 primary-rounded   border primary-border">
               <h4 className="text-xl font-bold mb-4 flex items-center gap-3">
                 <Target className="primary-text2" /> Precision
               </h4>
