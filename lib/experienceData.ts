@@ -24,7 +24,7 @@ export const experienceData: Experience[] = [
     location: "On-site",
     logo: "https://i.ibb.co.com/p6ZkhwLJ/image.png",
     description:
-      "Working as a Junior Software Engineer at Aviro Soft, contributing to full-stack web development projects. Involved in building scalable applications, collaborating with cross-functional teams, and implementing modern development practices to deliver high-quality software solutions.",
+      "Working as a Jr Software Engineer at Aviro Soft, contributing to full-stack web development projects. Involved in building scalable applications, collaborating with cross-functional teams, and implementing modern development practices to deliver high-quality software solutions.",
     responsibilities: [
       "Developing and maintaining full-stack web applications using modern frameworks",
       "Collaborating with designers and senior engineers to implement UI/UX designs",
