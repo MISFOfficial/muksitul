@@ -53,3 +53,10 @@ body {
 .ratio {
   @apply max-w-[1450px] mx-auto px-4 xl:px-0;
 }
+
+.primary-border {
+  @apply border-white/20
+}
+.primary-rounded {
+  @apply rounded-[10px]
+}

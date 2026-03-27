@@ -22,10 +22,10 @@ const ExperienceCard = ({
         delay: index * 0.1,
         ease: "easeOut",
       }}
-      className="group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 p-6 md:p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-[#FF0055]/20 transition-all duration-300 w-full mb-6"
+      className="group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 p-6 md:p-8 primary-rounded bg-white/[0.02] border primary-border hover:bg-white/[0.04] hover:border-[#FF0055]/20 transition-all duration-300 w-full mb-6"
     >
       <div className="flex items-center gap-5 md:gap-6">
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-white/5 flex items-center justify-center p-3 border border-white/10 shrink-0">
+        <div className="w-14 h-14 md:w-16 md:h-16 primary-rounded bg-white/5 flex items-center justify-center p-3 border primary-border shrink-0">
           <img
             src={exp.logo}
             alt={exp.company}
@@ -42,8 +42,8 @@ const ExperienceCard = ({
         </div>
       </div>
 
-      <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-4 md:gap-3 w-full md:w-auto mt-2 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 border-white/5">
-        <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-white/5 rounded-full border border-white/5 text-[#FF0055] text-xs md:text-sm font-bold tracking-wider">
+      <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-4 md:gap-3 w-full md:w-auto mt-2 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 primary-border">
+        <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-white/5 rounded-full border primary-border text-[#FF0055] text-xs md:text-sm font-bold tracking-wider">
           <Calendar className="w-3.5 h-3.5" />
           <span>{exp.duration}</span>
         </div>
@@ -60,7 +60,7 @@ export default function Experiance() {
   const containerRef = useRef(null);
 
   return (
-    <section ref={containerRef} className="py-24 relative overflow-hidden">
+    <section ref={containerRef} className=" relative overflow-hidden">
       <div className="mb-10">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -97,8 +97,8 @@ export default function Experiance() {
         </motion.p>
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-6">
-        <div className="flex flex-col">
+      <div className="relative  mx-auto px-6">
+        <div className="grid grid-cols-2 gap-5">
           {experienceData.map((exp, index) => (
             <ExperienceCard key={exp.id} exp={exp} index={index} />
           ))}
