@@ -10,6 +10,7 @@ import { useRouter, usePathname } from "next/navigation";
 
 export default function Navigaton() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -47,6 +48,13 @@ export default function Navigaton() {
   };
 
   React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+
     if (typeof window !== "undefined" && window.location.hash) {
       const id = window.location.hash.replace("#", "");
       const element = document.getElementById(id);
@@ -61,13 +69,21 @@ export default function Navigaton() {
         }, 400);
       }
     }
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <nav className="flex justify-center text-white relative">
+    <nav
+      className={`flex justify-center text-white relative transition-all duration-300 ${
+        isScrolled
+          ? "bg-black/50 backdrop-blur-xl border-b border-white/5"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
