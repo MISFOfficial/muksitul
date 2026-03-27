@@ -121,7 +121,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             whileHover="hover"
-            className="mt-6 px-10 py-5 primary-color text-white primary-rounded font-bold flex items-center gap-2 transition-all shadow-lg cursor-pointer"
+            className="mt-6 px-10 py-5 primary-color text-white primary-rounded font-bold flex items-center gap-2 transition-all cursor-pointer"
           >
             My Journey
             <motion.span

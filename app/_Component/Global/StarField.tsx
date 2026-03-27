@@ -27,8 +27,7 @@ export const StarField = () => {
   const [shootingStars, setShootingStars] = useState<ShootingStar[]>([]);
   const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const starsLayerRef = useRef<HTMLDivElement>(null);
-  const glowLayerRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     setIsMounted(true);
