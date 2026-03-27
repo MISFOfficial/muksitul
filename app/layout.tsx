@@ -1,3 +1,4 @@
+import StarField from "./_Component/Global/StarField";
 import VideoResume from "./_Component/VideoResume/VideoResume";
 import "./globals.css";
 
@@ -8,7 +9,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body>
+      <body className="antialiased">
+        <StarField />
         {/* <VideoResume /> */}
         {children}
       </body>

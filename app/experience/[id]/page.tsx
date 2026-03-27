@@ -1,0 +1,334 @@
+"use client";
+
+export const runtime = "edge";
+export const dynamic = "force-dynamic";
+
+import React from "react";
+import { useParams, useRouter } from "next/navigation";
+import { getExperienceById } from "@/lib/experienceData";
+import { motion } from "framer-motion";
+import {
+  ArrowLeft,
+  Briefcase,
+  Calendar,
+  MapPin,
+  CheckCircle2,
+  Users,
+  Globe,
+  ExternalLink,
+  Zap,
+  Award,
+  Building2,
+} from "lucide-react";
+import Link from "next/link";
+import Navigaton from "@/app/_Component/Navigation/Navigaton";
+import Footer from "@/app/_Component/Footer/Footer";
+
+export default function ExperienceDetail() {
+  const { id } = useParams();
+  const router = useRouter();
+  const experience = getExperienceById(id as string);
+
+  if (!experience) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center text-white p-4">
+        <Briefcase size={64} className="text-[#FF0055] mb-4" />
+        <h1 className="text-3xl font-bold mb-4 uppercase tracking-tighter">
+          Experience Not Found
+        </h1>
+        <button
+          onClick={() => router.push("/")}
+          className="px-8 py-3 bg-white text-black rounded-full font-black text-xs uppercase"
+        >
+          Back to Home
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <main className="relative min-h-screen bg-black selection:bg-[#FF0055] selection:text-white">
+      <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
+        <Navigaton />
+      </div>
+
+      <div className="ratio py-16 md:py-24">
+        {/* Back Button */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="mb-12"
+        >
+          <button
+            onClick={() => router.back()}
+            className="inline-flex items-center gap-3 text-white/40 hover:text-white transition-colors group"
+          >
+            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#FF0055]/20 transition-colors">
+              <ArrowLeft
+                size={18}
+                className="group-hover:-translate-x-1 transition-transform"
+              />
+            </div>
+            <span className="text-xs font-black uppercase tracking-widest">
+              Back
+            </span>
+          </button>
+        </motion.div>
+
+        {/* Hero Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          {/* Main Content */}
+          <div className="lg:col-span-8 space-y-16">
+            {/* Company & Role Header */}
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center gap-5"
+              >
+                <div className="w-20 h-20 md:w-24 md:h-24 primary-rounded bg-white/5 flex items-center justify-center p-4 border primary-border">
+                  <img
+                    src={experience.logo}
+                    alt={experience.company}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 primary-rounded bg-[#FF0055]/10 text-[#FF0055] border border-[#FF0055]/20 mb-3">
+                    <Building2 size={14} />
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em]">
+                      {experience.company}
+                    </span>
+                  </div>
+                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+                    {experience.role}
+                  </h1>
+                </div>
+              </motion.div>
+
+              {/* Meta Info */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="flex flex-wrap items-center gap-4"
+              >
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border primary-border text-[#FF0055] text-sm font-bold tracking-wider">
+                  <Calendar className="w-4 h-4" />
+                  <span>{experience.duration}</span>
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border primary-border text-gray-400 text-sm font-medium">
+                  <MapPin className="w-4 h-4" />
+                  <span>{experience.location}</span>
+                </div>
+                {experience.teamSize && (
+                  <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border primary-border text-gray-400 text-sm font-medium">
+                    <Users className="w-4 h-4" />
+                    <span>{experience.teamSize} Team</span>
+                  </div>
+                )}
+              </motion.div>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-white/50 text-lg leading-relaxed font-medium"
+              >
+                {experience.description}
+              </motion.p>
+            </div>
+
+            {/* Responsibilities */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <h2 className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
+                <Zap size={24} className="text-[#FF0055]" />
+                Key Responsibilities
+                <div className="h-[2px] flex-1 max-w-[100px] bg-[#FF0055]/30 rounded-full" />
+              </h2>
+              <div className="space-y-4">
+                {experience.responsibilities.map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="flex gap-4 items-start group p-4 primary-rounded bg-white/[0.02] border primary-border hover:bg-white/[0.04] hover:border-[#FF0055]/20 transition-all"
+                  >
+                    <div className="shrink-0 w-7 h-7 rounded-full border border-[#FF0055]/40 flex items-center justify-center mt-0.5 group-hover:bg-[#FF0055] group-hover:border-[#FF0055] transition-all">
+                      <span className="text-[10px] font-black text-white">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <p className="text-white/60 group-hover:text-white/80 transition-colors leading-relaxed">
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Achievements */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <h2 className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
+                <Award size={24} className="text-[#FF0055]" />
+                Achievements
+                <div className="h-[2px] flex-1 max-w-[100px] bg-[#FF0055]/30 rounded-full" />
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {experience.achievements.map((achievement, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex items-start gap-3 p-5 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10 hover:border-[#FF0055]/30 transition-all group"
+                  >
+                    <CheckCircle2
+                      size={20}
+                      className="text-[#FF0055] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+                    />
+                    <span className="text-gray-300 leading-relaxed text-sm">
+                      {achievement}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="lg:col-span-4">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+              className="sticky top-32 space-y-6"
+            >
+              {/* Technologies */}
+              <div className="p-8 primary-rounded bg-white/[0.03] border primary-border relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF0055] opacity-[0.03] blur-3xl -mr-16 -mt-16" />
+                <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-6">
+                  Tech Stack
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {experience.technologies.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="text-sm px-4 py-2 primary-rounded bg-white/5 border primary-border text-white/80 font-semibold hover:border-[#FF0055]/40 hover:text-white transition-all"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Company Info */}
+              {experience.companyDescription && (
+                <div className="p-8 primary-rounded bg-white/[0.03] border primary-border">
+                  <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-6 flex items-center gap-2">
+                    <Building2 size={14} />
+                    About {experience.company}
+                  </h3>
+                  <p className="text-white/40 text-sm leading-relaxed mb-6">
+                    {experience.companyDescription}
+                  </p>
+                  {experience.companyWebsite && (
+                    <a
+                      href={experience.companyWebsite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[#FF0055] text-xs font-bold uppercase tracking-widest hover:underline"
+                    >
+                      <Globe size={14} />
+                      Visit Website
+                      <ExternalLink size={12} />
+                    </a>
+                  )}
+                </div>
+              )}
+
+              {/* Quick Stats */}
+              <div className="p-8 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10">
+                <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-6">
+                  Quick Stats
+                </h3>
+                <div className="space-y-6">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest flex items-center gap-2">
+                      <Briefcase size={12} /> Role
+                    </span>
+                    <span className="text-lg font-bold text-white">
+                      {experience.role}
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest flex items-center gap-2">
+                      <MapPin size={12} /> Work Mode
+                    </span>
+                    <span className="text-lg font-bold text-white">
+                      {experience.location}
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest flex items-center gap-2">
+                      <Calendar size={12} /> Duration
+                    </span>
+                    <span className="text-lg font-bold text-white">
+                      {experience.duration}
+                    </span>
+                  </div>
+                  {experience.teamSize && (
+                    <div className="flex flex-col gap-1">
+                      <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest flex items-center gap-2">
+                        <Users size={12} /> Team Size
+                      </span>
+                      <span className="text-lg font-bold text-white">
+                        {experience.teamSize} Members
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <section className="ratio py-20 border-t primary-border">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-black mb-6 text-white">
+            Want to Work Together?
+          </h2>
+          <p className="text-xl text-gray-400 mb-8">
+            I&apos;m always open to discussing new opportunities and exciting
+            projects.
+          </p>
+          <Link
+            href="/#contact"
+            className="inline-flex items-center gap-2 bg-[#FF0055] text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-xl"
+          >
+            Get In Touch
+            <ArrowLeft size={20} className="rotate-180" />
+          </Link>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}

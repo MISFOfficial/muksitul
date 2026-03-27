@@ -25,7 +25,7 @@ export default function AllProjects() {
         className="mt-16 flex justify-center"
       >
         <Link href="/projects" className="group">
-          <button className="relative px-10 py-4 bg-transparent border border-white/10 rounded-full text-white font-bold text-sm uppercase overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-3 group-hover:text-white">
+          <button className="relative px-10 py-4 bg-transparent border primary-border rounded-full text-white font-bold text-sm uppercase overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-3 group-hover:text-white">
             <span className="relative z-10 transition-colors duration-300">
               Explore All Projects
             </span>
