@@ -191,20 +191,20 @@ export default function Hero() {
         </div>
 
         {/* Right Column (About Me & Socials) */}
-        <div className="lg:col-span-3 flex flex-col gap-12 text-left order-3">
+        <div className="lg:col-span-3 flex flex-col gap-12 text-left order-3 relative z-30 mt-10 lg:mt-0">
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             className="space-y-4"
           >
-            <h3 className="font-bold text-lg dark:text-white">About Me.</h3>
-            <p className="text-neutral-500 dark:text-neutral-400 leading-relaxed font-medium">
+            <h3 className="font-bold text-2xl dark:text-white">About Me.</h3>
+            <p className="text-neutral-200 leading-relaxed font-black">
               As a{" "}
-              <span className="text-[#FF5C58] font-bold">
+              <span className="primary-text2 font-bold text-xl">
                 Professional Software Engineer
               </span>
               , I craft high-performance applications where{" "}
-              <span className="text-[#FF5C58]">innovative solutions</span> meet
+              <span className="primary-text2">innovative solutions</span> meet
               architectural excellence to drive meaningful impact.
             </p>
           </motion.div>
