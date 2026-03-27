@@ -8,7 +8,7 @@ export const StarField = () => {
     <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden bg-black">
       {/* Star field background */}
       <div className="absolute inset-0">
-        {[...Array(50)].map((_, i) => (
+        {[...Array(60)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full bg-white"
@@ -19,14 +19,41 @@ export const StarField = () => {
               top: `${(i * 19 + 11) % 100}%`,
             }}
             animate={{
-              opacity: [0.05, 0.4, 0.05],
-              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.7, 0.1],
+              scale: [1, 1.4, 1],
             }}
             transition={{
               duration: 3 + (i % 5),
               repeat: Infinity,
               delay: i * 0.1,
               ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Shooting Stars (Falling Stars) */}
+      <div className="absolute inset-0">
+        {[...Array(3)].map((_, i) => (
+          <motion.div
+            key={`shooting-${i}`}
+            className="absolute h-[1px] bg-gradient-to-r from-transparent via-white to-transparent"
+            style={{
+              width: "100px",
+              top: `${Math.random() * 40}%`,
+              left: "-10%",
+              rotate: "25deg",
+            }}
+            animate={{
+              x: ["0vw", "120vw"],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              repeatDelay: 4 + Math.random() * 8,
+              delay: i * 5,
+              ease: "linear",
             }}
           />
         ))}
@@ -52,7 +79,7 @@ export const StarField = () => {
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.02, 0.05, 0.02],
+          opacity: [0.03, 0.08, 0.03],
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -top-1/4 -left-1/4 w-full h-full bg-[#FF0055]/10 blur-[150px] rounded-full"
@@ -60,7 +87,7 @@ export const StarField = () => {
       <motion.div
         animate={{
           scale: [1.1, 1, 1.1],
-          opacity: [0.01, 0.04, 0.01],
+          opacity: [0.02, 0.06, 0.02],
         }}
         transition={{
           duration: 12,
