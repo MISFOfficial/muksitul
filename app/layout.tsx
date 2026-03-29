@@ -9,10 +9,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className="antialiased">
+      <body className="antialiased bg-black overflow-x-hidden">
         <StarField />
         {/* <VideoResume /> */}
-        {children}
+        <main className="relative z-10">{children}</main>
       </body>
     </html>
   );
