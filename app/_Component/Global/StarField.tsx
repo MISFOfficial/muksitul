@@ -1,208 +1,235 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import React, { useEffect, useRef, useCallback } from "react";
 
 interface Star {
-  id: number;
+  x: number;
+  y: number;
   size: number;
-  left: number;
-  top: number;
-  duration: number;
-  delay: number;
-  depth: number; // For parallax
+  baseOpacity: number;
+  twinkleSpeed: number;
+  twinkleOffset: number;
+  depth: number;
 }
 
 interface ShootingStar {
-  id: number;
-  top: number;
-  left: number;
-  delay: number;
-  duration: number;
+  x: number;
+  y: number;
   angle: number;
+  speed: number;
+  length: number;
+  opacity: number;
+  active: boolean;
+  cooldown: number;
+  timer: number;
 }
 
 export const StarField = () => {
-  const [stars, setStars] = useState<Star[]>([]);
-  const [shootingStars, setShootingStars] = useState<ShootingStar[]>([]);
-  const [isMounted, setIsMounted] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationRef = useRef<number>(0);
+  const mouseRef = useRef({ x: 0, y: 0, targetX: 0, targetY: 0 });
+  const starsRef = useRef<Star[]>([]);
+  const shootingStarsRef = useRef<ShootingStar[]>([]);
+  const timeRef = useRef(0);
 
+  const initStars = useCallback((width: number, height: number) => {
+    // Generate 180 static stars
+    const stars: Star[] = [];
+    for (let i = 0; i < 180; i++) {
+      const size = i % 15 === 0 ? 3 : i % 8 === 0 ? 2 : 1;
+      stars.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size,
+        baseOpacity: 0.4 + Math.random() * 0.6,
+        twinkleSpeed: 0.5 + Math.random() * 1.5,
+        twinkleOffset: Math.random() * Math.PI * 2,
+        depth: 0.2 + Math.random() * 0.8,
+      });
+    }
+    starsRef.current = stars;
 
-  useEffect(() => {
-    setIsMounted(true);
-
-    // Generate star data
-    const generatedStars = [...Array(180)].map((_, i) => ({
-      id: i,
-      size: i % 15 === 0 ? 3 : i % 8 === 0 ? 2 : 1,
-      left: Math.random() * 100,
-      top: Math.random() * 100,
-      duration: 2 + Math.random() * 3,
-      delay: Math.random() * 5,
-      depth: 0.2 + Math.random() * 0.8, // Closer stars move more
-    }));
-    setStars(generatedStars);
-
-    const generatedShootingStars = [...Array(3)].map((_, i) => ({
-      id: i,
-      top: Math.random() * 60,
-      left: Math.random() * 100,
-      delay: i * 5 + Math.random() * 10,
-      duration: 0.4 + Math.random() * 0.3,
-      angle: 25 + Math.random() * 20,
-    }));
-    setShootingStars(generatedShootingStars);
+    // Generate 3 shooting stars
+    const shooters: ShootingStar[] = [];
+    for (let i = 0; i < 3; i++) {
+      shooters.push({
+        x: -100,
+        y: Math.random() * height * 0.6,
+        angle: (25 + Math.random() * 20) * (Math.PI / 180),
+        speed: 8 + Math.random() * 6,
+        length: 120 + Math.random() * 130,
+        opacity: 0,
+        active: false,
+        cooldown: 5000 + Math.random() * 10000,
+        timer: i * 4000 + Math.random() * 3000,
+      });
+    }
+    shootingStarsRef.current = shooters;
   }, []);
 
   useEffect(() => {
-    if (!isMounted) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    let ctx = gsap.context(() => {
-      // 1. Twinkling Animation
-      gsap.utils.toArray(".star").forEach((star: any) => {
-        gsap.to(star, {
-          opacity: 0.2,
-          scale: 0.8,
-          duration: "random(1.5, 4)",
-          repeat: -1,
-          yoyo: true,
-          ease: "power1.inOut",
-          delay: "random(0, 5)",
-        });
-      });
+    const ctx = canvas.getContext("2d", { alpha: false });
+    if (!ctx) return;
 
-      // 2. Shooting Stars Animation
-      gsap.utils
-        .toArray(".shooting-star-container")
-        .forEach((container: any, i) => {
-          const star = container.querySelector(".shooting-star");
-          const head = container.querySelector(".shooting-star-head");
+    let dpr = window.devicePixelRatio || 1;
 
-          const tl = gsap.timeline({
-            repeat: -1,
-            repeatDelay: 8 + Math.random() * 10,
-            delay: i * 4,
-          });
+    const resize = () => {
+      dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.scale(dpr, dpr);
+      initStars(window.innerWidth, window.innerHeight);
+    };
 
-          tl.fromTo(
-            [star, head],
-            { x: "-100%", opacity: 0 },
-            {
-              x: "300%",
-              opacity: 1,
-              duration: shootingStars[i]?.duration || 0.6,
-              ease: "linear",
-              onComplete: () => {
-                gsap.set([star, head], { opacity: 0 });
-              },
-            },
+    resize();
+    window.addEventListener("resize", resize);
+
+    // Mouse parallax
+    const handleMouseMove = (e: MouseEvent) => {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      mouseRef.current.targetX = (e.clientX - centerX) / centerX;
+      mouseRef.current.targetY = (e.clientY - centerY) / centerY;
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
+    let lastTime = performance.now();
+
+    const draw = (now: number) => {
+      const dt = Math.min((now - lastTime) / 1000, 0.05); // cap delta
+      lastTime = now;
+      timeRef.current += dt;
+      const t = timeRef.current;
+
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+
+      // Smooth mouse interpolation
+      const mouse = mouseRef.current;
+      mouse.x += (mouse.targetX - mouse.x) * 0.03;
+      mouse.y += (mouse.targetY - mouse.y) * 0.03;
+
+      // Clear with near-black
+      ctx.fillStyle = "rgba(0, 0, 0, 0.97)";
+      ctx.fillRect(0, 0, w, h);
+
+      // Draw stars
+      const stars = starsRef.current;
+      for (let i = 0; i < stars.length; i++) {
+        const star = stars[i];
+        // Twinkling
+        const twinkle = Math.sin(t * star.twinkleSpeed + star.twinkleOffset);
+        const opacity = star.baseOpacity * (0.5 + 0.5 * twinkle);
+
+        // Parallax offset
+        const px = mouse.x * 30 * star.depth;
+        const py = mouse.y * 30 * star.depth;
+
+        const sx = star.x + px;
+        const sy = star.y + py;
+
+        // Glow for bigger stars
+        if (star.size >= 2) {
+          const gradient = ctx.createRadialGradient(
+            sx,
+            sy,
+            0,
+            sx,
+            sy,
+            star.size * 4,
           );
-        });
+          gradient.addColorStop(0, `rgba(255, 255, 255, ${opacity * 0.4})`);
+          gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(sx, sy, star.size * 4, 0, Math.PI * 2);
+          ctx.fill();
+        }
 
-      // 3. Ambient Glows Pulsing
-      gsap.to(".cosmic-glow", {
-        scale: 1.2,
-        opacity: 0.1,
-        duration: 10,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        stagger: {
-          each: 2,
-          from: "random",
-        },
-      });
+        // Star dot
+        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+        ctx.beginPath();
+        ctx.arc(sx, sy, star.size * 0.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
-      // 4. Mouse Parallax Effect
-      const handleMouseMove = (e: MouseEvent) => {
-        const { clientX, clientY } = e;
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
+      // Draw shooting stars
+      const shooters = shootingStarsRef.current;
+      for (let i = 0; i < shooters.length; i++) {
+        const s = shooters[i];
 
-        const moveX = (clientX - centerX) / centerX;
-        const moveY = (clientY - centerY) / centerY;
+        if (!s.active) {
+          s.timer -= dt * 1000;
+          if (s.timer <= 0) {
+            // Activate
+            s.active = true;
+            s.x = Math.random() * w * 0.5;
+            s.y = Math.random() * h * 0.4;
+            s.opacity = 1;
+            s.angle = (25 + Math.random() * 20) * (Math.PI / 180);
+          }
+          continue;
+        }
 
-        // Shift stars based on their depth
-        gsap.utils.toArray(".star-wrapper").forEach((wrapper: any) => {
-          const depth = parseFloat(wrapper.dataset.depth || "0.5");
-          gsap.to(wrapper, {
-            x: moveX * 30 * depth,
-            y: moveY * 30 * depth,
-            duration: 1.5,
-            ease: "power2.out",
-          });
-        });
+        // Move
+        s.x += Math.cos(s.angle) * s.speed * dt * 60;
+        s.y += Math.sin(s.angle) * s.speed * dt * 60;
 
-        // Shift glows even more subtly
-        gsap.to(".cosmic-glow", {
-          x: moveX * 15,
-          y: moveY * 15,
-          duration: 2,
-          ease: "power2.out",
-        });
-      };
+        // Tail
+        const tailX = s.x - Math.cos(s.angle) * s.length;
+        const tailY = s.y - Math.sin(s.angle) * s.length;
 
-      window.addEventListener("mousemove", handleMouseMove);
+        const gradient = ctx.createLinearGradient(tailX, tailY, s.x, s.y);
+        gradient.addColorStop(0, "rgba(255, 255, 255, 0)");
+        gradient.addColorStop(0.6, `rgba(255, 255, 255, ${s.opacity * 0.3})`);
+        gradient.addColorStop(1, `rgba(255, 255, 255, ${s.opacity})`);
 
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-      };
-    }, containerRef);
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(tailX, tailY);
+        ctx.lineTo(s.x, s.y);
+        ctx.stroke();
 
-    return () => ctx.revert();
-  }, [isMounted, stars.length, shootingStars.length]);
+        // Head glow
+        const headGlow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 4);
+        headGlow.addColorStop(0, `rgba(255, 255, 255, ${s.opacity})`);
+        headGlow.addColorStop(1, "rgba(255, 255, 255, 0)");
+        ctx.fillStyle = headGlow;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, 4, 0, Math.PI * 2);
+        ctx.fill();
 
-  if (!isMounted) return null;
+        // Check if off screen
+        if (s.x > w + 100 || s.y > h + 100) {
+          s.active = false;
+          s.timer = 8000 + Math.random() * 10000;
+        }
+      }
+
+      animationRef.current = requestAnimationFrame(draw);
+    };
+
+    animationRef.current = requestAnimationFrame(draw);
+
+    return () => {
+      cancelAnimationFrame(animationRef.current);
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [initStars]);
 
   return (
-    <div
-      ref={containerRef}
-      className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-black/95"
-    >
-      {/* Background Static Stars */}
-      <div className="absolute inset-0">
-        {stars.map((star) => (
-          <div
-            key={`star-wrapper-${star.id}`}
-            className="star-wrapper absolute"
-            data-depth={star.depth}
-            style={{ left: `${star.left}%`, top: `${star.top}%` }}
-          >
-            <div
-              className="star rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.4)]"
-              style={{
-                width: star.size,
-                height: star.size,
-              }}
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Realistic Shooting Stars (Refactored for GSAP) */}
-      <div className="absolute inset-0">
-        {shootingStars.map((star) => (
-          <div
-            key={`shooting-container-${star.id}`}
-            className="shooting-star-container absolute overflow-hidden"
-            style={{
-              top: `${star.top}%`,
-              left: `${star.left}%`,
-              transform: `rotate(${star.angle}deg)`,
-            }}
-          >
-            <div className="shooting-star h-[1px] w-[250px] bg-gradient-to-r from-transparent via-white to-transparent opacity-0" />
-            {/* Tapered Head glow */}
-            <div className="shooting-star-head absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-white rounded-full blur-[2px] opacity-0" />
-          </div>
-        ))}
-      </div>
-
-      {/* Ambient Cosmic Glows */}
-      {/* <div className="cosmic-glow absolute -top-1/4 -left-1/4 w-full h-full bg-[#FF0055]/10 blur-[180px] rounded-full" />
-      <div className="cosmic-glow absolute -bottom-1/4 -right-1/4 w-full h-full bg-[#20255e]/10 blur-[180px] rounded-full" /> */}
-    </div>
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 pointer-events-none z-0"
+      style={{ background: "#000" }}
+    />
   );
 };
 
