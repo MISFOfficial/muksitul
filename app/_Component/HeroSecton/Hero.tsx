@@ -78,7 +78,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-[80vh] overflow-hidden flex items-center justify-center"
+      className="relative min-h-[80vh] lg:mt-30 overflow-hidden flex items-center justify-center"
     >
       {/* 1. Background Typography Layer (The large gray outlines) */}
       <div className="absolute inset-0 flex lg:hidden flex-col items-center justify-center pointer-events-none select-none z-0">
