@@ -8,7 +8,7 @@ import Footer from "./_Component/Footer/Footer";
 
 export default function NotFound() {
   return (
-    <main className="relative min-h-screen bg-black selection:bg-[#FF0055] selection:text-white">
+    <main className="relative min-h-screen selection:bg-[#FF0055] selection:text-white">
       <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
         <Navigaton />
       </div>
@@ -19,7 +19,7 @@ export default function NotFound() {
           {/* 404 text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }} 
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-8 mb-2"
           >

@@ -51,7 +51,7 @@ export default function ProjectPage() {
   }
 
   return (
-    <main className="min-h-screen   text-white">
+    <main className="min-h-screen text-white relative">
       {/* Hero Section */}
       <section className="ratio py-10">
         <button
