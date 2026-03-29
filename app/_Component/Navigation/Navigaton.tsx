@@ -105,7 +105,7 @@ export default function Navigaton() {
     <>
       {/* Top Nav - Desktop Only */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 hidden lg:block ${
+        className={`fixed hidden lg:block top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
             ? "bg-black/60 backdrop-blur-xl border-b border-white/5 py-2"
             : "bg-transparent py-4"
@@ -146,7 +146,7 @@ export default function Navigaton() {
       </nav>
 
       {/* Mobile Top Header (Logo only) */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 px-6 py-4 flex items-center justify-between bg-black/40 backdrop-blur-lg border-b border-white/5">
+      {/* <div className="lg:hidden fixed top-0 left-0 right-0 z-40 px-6 py-4 flex items-center justify-between bg-black/40 backdrop-blur-lg border-b border-white/5">
         <Image src={logo} alt="Logo" width={40} height={40} className="w-10" />
         <button
           onClick={() => handleNavClick("contact")}
@@ -154,7 +154,7 @@ export default function Navigaton() {
         >
           <Mail size={18} />
         </button>
-      </div>
+      </div> */}
 
       {/* Bottom Tab Navigation - Mobile Only */}
       <nav className="lg:hidden fixed bottom-6 left-6 right-6 z-50">
