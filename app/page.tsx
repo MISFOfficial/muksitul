@@ -10,6 +10,8 @@ import AllProjects from "./_Component/Projects/AllProjects";
 import HireMe from "./_Component/HireMe/HireMe";
 import Footer from "./_Component/Footer/Footer";
 import Experiance from "./_Component/Experiance/Experiance";
+import Designs from "./_Component/Designs/Designs";
+import AllDesigns from "./_Component/Designs/AllDesigns";
 export default function Home() {
   return (
     <main className="relative">
@@ -26,6 +28,9 @@ export default function Home() {
         <Experiance />
         <Projects />
         <AllProjects />
+
+        <Designs />
+        <AllDesigns />
 
         <Services />
         <Optical />
