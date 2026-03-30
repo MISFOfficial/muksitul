@@ -20,7 +20,7 @@ export default function Home() {
         <Hero />
       </div>
 
-      <div className="ratio flex flex-col w-full  gap-30 my-20 lg:my-0">
+      <div className="ratio flex flex-col w-full  gap-30 my-20 ">
         <Skill />
         <EngineeringMindset />
         <Experiance />
