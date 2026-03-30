@@ -37,7 +37,7 @@ export default function Projects() {
           viewport={{ once: true }}
           className="relative"
         >
-          <span className="text-[60px] md:text-[100px] font-black leading-none text-[#FF5C58] tracking-tighter">
+          <span className="text-[60px] md:text-[100px] font-black leading-none primary-text2 tracking-tighter">
             {projectsData.length}+
           </span>
           <span className="absolute top-2 -right-12 text-[12px] md:text-lg font-bold bg-[#20255e] px-3 py-1 rounded-full text-white rotate-12">
@@ -52,9 +52,8 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-5xl"
         >
-          Featured Engineering{" "}
-          <span className="text-neutral-500">Solutions</span> <br />&
-          Architectural <span className="text-[#20255e]">Showcase</span>
+          Featured Engineering <span className="primary-text4">Solutions</span>{" "}
+          <br />& Architectural <span className="primary-text2">Showcase</span>
         </motion.h2>
 
         {/* Description */}
@@ -63,7 +62,7 @@ export default function Projects() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-neutral-400 max-w-2xl text-lg leading-relaxed mt-4"
+          className="primary-text4max-w-2xl text-lg leading-relaxed mt-4"
         >
           Explore a curated collection of high-performance applications and
           innovative digital experiences, demonstrating my commitment to
@@ -79,7 +78,7 @@ export default function Projects() {
                     className="flex flex-wrap justify-center gap-6 mt-12"
                 >
                     {features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-5 py-3 rounded-full border primary-border hover:border-[#FF5C58]/50 transition-colors">
+                        <div key={idx} className="flex items-center gap-2 primary-text4 backdrop-blur-sm px-5 py-3 rounded-full border primary-border hover:border-[#FF5C58]/50 transition-colors">
                             <CheckCircle2 className="text-[#22c55e]" size={20} fill="#22c55e" color="black" />
                             <span className="font-semibold text-sm md:text-base">{feature}</span>
                         </div>

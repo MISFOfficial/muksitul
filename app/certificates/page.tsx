@@ -85,7 +85,7 @@ export default function CertificatesPage() {
                     Credentials
                   </span>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border primary-border">
+                <div className="w-12 h-12 rounded-full primary-text4 flex items-center justify-center border primary-border">
                   <Trophy size={20} className="text-[#FF5652]" />
                 </div>
               </div>
@@ -144,7 +144,7 @@ export default function CertificatesPage() {
                 </button>
               </Link>
               <Link href="/">
-                <button className="px-12 py-5 bg-white/5 text-white border primary-border rounded-full font-black text-sm uppercase hover:bg-white/10 transition-all">
+                <button className="px-12 py-5 primary-text4 text-white border primary-border rounded-full font-black text-sm uppercase hover:bg-white/10 transition-all">
                   Back to Home
                 </button>
               </Link>

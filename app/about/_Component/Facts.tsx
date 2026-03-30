@@ -10,7 +10,7 @@ function Facts({ quickFacts }: any) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
-            className="p-8 primary-rounded bg-white/5 border primary-border flex flex-col items-center text-center group hover:bg-white/10 transition-colors"
+            className="p-8 primary-rounded primary-text4 border primary-border flex flex-col items-center text-center group hover:bg-white/10 transition-colors"
           >
             <div className="primary-text2 mb-4 group-hover:scale-125 transition-transform duration-300">
               {fact.icon}

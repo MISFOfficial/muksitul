@@ -23,12 +23,12 @@ export default function NotFound() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-8 mb-2"
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#FF0055]/60">
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] primary-text2">
               Error Code
             </span>
             <h1
               className="text-8xl md:text-9xl font-black text-white/[0.08] leading-none tracking-tighter"
-              style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.1)" }}
+              style={{ WebkitTextStroke: "1.5px rgba(255, 255, 255, 0.52)" }}
             >
               404
             </h1>
@@ -41,10 +41,10 @@ export default function NotFound() {
             transition={{ duration: 0.6, delay: 0.45 }}
             className="space-y-3 -mt-4"
           >
-            <h2 className="text-2xl md:text-4xl font-black text-white tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-black primary-text3 tracking-tight">
               Houston, We Have a Problem
             </h2>
-            <p className="text-gray-600 text-sm md:text-base max-w-sm mx-auto leading-relaxed">
+            <p className="primary-text4text-sm md:text-base max-w-sm mx-auto leading-relaxed">
               This page has floated off into deep space.
               <br />
               Let&apos;s navigate you back to safety.
@@ -60,7 +60,7 @@ export default function NotFound() {
           >
             <Link
               href="/"
-              className="group inline-flex items-center gap-2.5 bg-[#FF0055] text-white px-7 py-3.5 rounded-full text-sm font-bold hover:scale-105 transition-all shadow-lg shadow-[#FF0055]/15 hover:shadow-[#FF0055]/30"
+              className="group inline-flex items-center gap-2.5 primary-color2 text-white px-7 py-3.5 rounded-full text-sm font-bold hover:scale-105 transition-all"
             >
               <Home
                 size={16}
@@ -70,7 +70,7 @@ export default function NotFound() {
             </Link>
             <button
               onClick={() => history.back()}
-              className="group inline-flex items-center gap-2.5 border primary-border text-white/70 px-7 py-3.5 rounded-full text-sm font-bold hover:text-white hover:bg-white/5 hover:border-white/20 transition-all"
+              className="group cursor-pointer inline-flex items-center gap-2.5 border primary-border text-white/70 px-7 py-3.5 rounded-full text-sm font-bold hover:text-white hover:primary-text4 hover:border-white/20 transition-all"
             >
               <ArrowLeft
                 size={16}

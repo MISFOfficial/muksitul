@@ -103,10 +103,8 @@ export default function Navigaton() {
     <>
       {/* Top Nav - Desktop Only */}
       <nav
-        className={`fixed hidden lg:block top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "bg-black/60 backdrop-blur-xl border-b border-white/5 py-2"
-            : "bg-transparent py-4"
+        className={`fixed hidden lg:block top-0 py-4 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled ? "bg-black/60 backdrop-blur-xl " : "bg-transparent "
         }`}
       >
         <div className="ratio flex items-center justify-between">
@@ -130,10 +128,10 @@ export default function Navigaton() {
               <button
                 key={link.name}
                 onClick={() => handleNavClick(link.id, link.href)}
-                className={`px-5 py-2.5 text-xs font-black uppercase tracking-widest transition-all primary-rounded hover:scale-105 ${
+                className={`px-5 py-2.5 text-xs cursor-pointer font-black uppercase tracking-widest transition-all primary-rounded hover:scale-105 ${
                   link.name === "Resume"
-                    ? "bg-[#FF0055] text-white shadow-[0_0_20px_rgba(255,0,85,0.3)] mx-4"
-                    : "text-white/40 hover:text-white"
+                    ? "primary-color  mx-4"
+                    : "primary-text3 text-hover"
                 }`}
               >
                 {link.name}
@@ -168,7 +166,7 @@ export default function Navigaton() {
                     <button
                       key={link.name}
                       onClick={() => handleNavClick(link.id, link.href)}
-                      className="flex items-center gap-4 px-6 py-4 hover:bg-white/5 transition-colors text-left border-b border-white/5 last:border-none"
+                      className="flex items-center gap-4 px-6 py-4 hover:primary-text4 transition-colors text-left border-b border-white/5 last:border-none"
                     >
                       <div className="text-[#FF0055]">{link.icon}</div>
                       <span className="text-xs font-bold uppercase tracking-widest text-white/80">

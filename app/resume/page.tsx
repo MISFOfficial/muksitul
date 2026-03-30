@@ -74,43 +74,43 @@ export default function ResumePage() {
             </h3>
 
             <div className="space-y-2 text-sm">
-              <div className="bg-white/5 p-3 rounded border primary-border">
+              <div className="primary-text4 p-3 rounded border primary-border">
                 <span className="font-bold text-white">Frontend: </span>
                 <span className="text-gray-300">
                   {resumeData.skills.frontend.join(", ")}
                 </span>
               </div>
-              <div className="bg-white/5 p-3 rounded border primary-border">
+              <div className="primary-text4 p-3 rounded border primary-border">
                 <span className="font-bold text-white">Backend: </span>
                 <span className="text-gray-300">
                   {resumeData.skills.backend.join(", ")}
                 </span>
               </div>
-              <div className="bg-white/5 p-3 rounded border primary-border">
+              <div className="primary-text4 p-3 rounded border primary-border">
                 <span className="font-bold text-white">Authentication: </span>
                 <span className="text-gray-300">
                   {resumeData.skills.authentication.join(", ")}
                 </span>
               </div>
-              <div className="bg-white/5 p-3 rounded border primary-border">
+              <div className="primary-text4 p-3 rounded border primary-border">
                 <span className="font-bold text-white">Payment Gateways: </span>
                 <span className="text-gray-300">
                   {resumeData.skills.paymentGateways.join(", ")}
                 </span>
               </div>
-              <div className="bg-white/5 p-3 rounded border primary-border">
+              <div className="primary-text4 p-3 rounded border primary-border">
                 <span className="font-bold text-white">Design Tools: </span>
                 <span className="text-gray-300">
                   {resumeData.skills.designTools.join(", ")}
                 </span>
               </div>
-              <div className="bg-white/5 p-3 rounded border primary-border">
+              <div className="primary-text4 p-3 rounded border primary-border">
                 <span className="font-bold text-white">Tools: </span>
                 <span className="text-gray-300">
                   {resumeData.skills.tools.join(", ")}
                 </span>
               </div>
-              <div className="bg-white/5 p-3 rounded border primary-border">
+              <div className="primary-text4 p-3 rounded border primary-border">
                 <span className="font-bold text-white">Soft Skills: </span>
                 <span className="text-gray-300">
                   {resumeData.skills.softSkills.join(", ")}
@@ -128,7 +128,7 @@ export default function ResumePage() {
             {resumeData.experience.map((exp, idx) => (
               <div
                 key={idx}
-                className="mb-4 bg-white/5 p-4 primary-rounded border-l-4 primary-border"
+                className="mb-4 primary-text4 p-4 primary-rounded border-l-4 primary-border"
               >
                 <div className="flex justify-between items-start mb-2">
                   <div>
@@ -138,7 +138,7 @@ export default function ResumePage() {
                     </h4>
                     <p className="text-sm text-gray-400">{exp.location}</p>
                   </div>
-                  <span className="text-sm text-gray-400 whitespace-nowrap bg-white/5 px-3 py-1 rounded-full border primary-border">
+                  <span className="text-sm text-gray-400 whitespace-nowrap primary-text4 px-3 py-1 rounded-full border primary-border">
                     {exp.period}
                   </span>
                 </div>
@@ -161,7 +161,7 @@ export default function ResumePage() {
             {resumeData.projects.map((project, idx) => (
               <div
                 key={idx}
-                className="mb-4 bg-white/5 p-4 primary-rounded border-l-4 primary-border"
+                className="mb-4 primary-text4 p-4 primary-rounded border-l-4 primary-border"
               >
                 <div className="flex justify-between items-start mb-1">
                   <h4 className="font-bold text-base text-white">
@@ -209,7 +209,7 @@ export default function ResumePage() {
               Education
             </h3>
 
-            <div className="flex justify-between items-start bg-white/5 p-4 primary-rounded border-l-4 primary-border">
+            <div className="flex justify-between items-start primary-text4 p-4 primary-rounded border-l-4 primary-border">
               <div>
                 <h4 className="font-bold text-base text-white">
                   {resumeData.education.degree}
@@ -221,7 +221,7 @@ export default function ResumePage() {
                   {resumeData.education.cgpa}
                 </p>
               </div>
-              <span className="text-sm text-gray-400 bg-white/5 px-3 py-1 rounded-full border primary-border">
+              <span className="text-sm text-gray-400 primary-text4 px-3 py-1 rounded-full border primary-border">
                 {resumeData.education.period}
               </span>
             </div>
@@ -233,7 +233,7 @@ export default function ResumePage() {
               Language
             </h3>
 
-            <div className="text-sm text-gray-300 bg-white/5 p-4 primary-rounded border primary-border">
+            <div className="text-sm text-gray-300 primary-text4 p-4 primary-rounded border primary-border">
               <p>
                 <span className="font-bold text-white">Bangla:</span>{" "}
                 {resumeData.languages.bangla}

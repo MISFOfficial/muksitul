@@ -41,7 +41,7 @@ export default function Journey({ journeyEvents }: any) {
               >
                 <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none">
                   {event.title.split(" ").map((word: any, i: any) => (
-                    <span key={i} className={i === 0 ? "text-[#20255e]" : ""}>
+                    <span key={i} className={i === 0 ? "primary-text2" : ""}>
                       {word}{" "}
                     </span>
                   ))}
@@ -51,7 +51,7 @@ export default function Journey({ journeyEvents }: any) {
                 </p>
                 <div className="flex gap-4">
                   <div className="h-[1px] w-20 bg-[#FF0055] mt-4" />
-                  <div className="p-4 bg-white/5 primary-rounded border primary-border primary-text2">
+                  <div className="p-4 primary-text4 primary-rounded border primary-border primary-text2">
                     {event.icon}
                   </div>
                 </div>

@@ -124,7 +124,7 @@ export default function HeroBanner({
                 y: useTransform(springY, (val: any) => val * (0.015 * (i + 1))),
               }}
               transition={{ delay: 1 + card.delay, duration: 0.8 }}
-              className="absolute hidden md:flex items-center gap-3 px-5 py-2.5 bg-white/5 backdrop-blur-xl border primary-border primary-rounded shadow-2xl"
+              className="absolute hidden md:flex items-center gap-3 px-5 py-2.5 primary-text4 backdrop-blur-xl border primary-border primary-rounded shadow-2xl"
             >
               <span className="text-[9px] font-black uppercase tracking-[0.2em]">
                 {card.text}

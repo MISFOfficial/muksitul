@@ -16,7 +16,7 @@ export default function HireMe() {
             {/* Left Sidebar - Vertical Stats */}
             <div className="lg:col-span-2 primary-color p-8 lg:p-12 relative overflow-hidden">
               {/* Decorative Circle */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32" />
+              <div className="absolute top-0 right-0 w-64 h-64 primary-text4 rounded-full -mr-32 -mt-32" />
 
               <div className="relative z-10 h-full flex flex-col justify-between">
                 <div>
@@ -94,7 +94,7 @@ export default function HireMe() {
                   ].map((stat, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/5 primary-rounded p-4 border primary-border hover:border-[#20255e]/50 transition-all"
+                      className="primary-text4 primary-rounded p-4 border primary-border hover:border-[#20255e]/50 transition-all"
                     >
                       <div className="text-2xl font-black primary-text">
                         {stat.num}
@@ -125,7 +125,7 @@ export default function HireMe() {
                     <a
                       href="mailto:muksitul44@gmail.com"
                       target="_blank"
-                      className="text-white font-semibold hover:text-[#20255e] transition-colors"
+                      className="text-white font-semibold hover:primary-text2 transition-colors"
                     >
                       muksitul44@gmail.com
                     </a>

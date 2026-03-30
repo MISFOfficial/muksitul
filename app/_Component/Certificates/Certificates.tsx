@@ -28,7 +28,7 @@ export default function Certificates() {
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF5C58]/10 border border-[#FF5C58]/20 text-[#FF5C58]"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF5C58]/10 border border-[#FF5C58]/20 primary-text2"
         >
           <ShieldCheck size={18} />
           <span className="text-xs font-black uppercase tracking-widest">
@@ -78,7 +78,7 @@ export default function Certificates() {
               key={i}
               className="px-6 py-4 primary-rounded bg-white/[0.02] border primary-border flex flex-col items-center gap-1"
             >
-              <stat.icon size={20} className="text-[#FF5C58] mb-2" />
+              <stat.icon size={20} className="primary-text2 mb-2" />
               <span className="text-2xl font-black text-white">{stat.val}</span>
               <span className="text-[10px] uppercase tracking-widest text-white/30 font-bold">
                 {stat.label}

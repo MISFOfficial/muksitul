@@ -78,7 +78,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative min-h-[80vh] lg:mt-30 overflow-hidden flex items-center justify-center"
+      className="relative  lg:mt-30 overflow-hidden flex items-center justify-center"
     >
       {/* 1. Background Typography Layer (The large gray outlines) */}
       <div className="absolute inset-0 flex lg:hidden flex-col items-center justify-center pointer-events-none select-none z-0">
@@ -101,7 +101,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-sm font-bold tracking-widest uppercase text-neutral-500 "
+            className="text-sm font-bold tracking-widest uppercase primary-text4"
           >
             Assalamualaikum/Greatings
           </motion.p>
@@ -231,7 +231,7 @@ export default function Hero() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 primary-color text-neutral-600 dark:text-neutral-400 hover:text-white transition-all transform hover:scale-110"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 primary-color text-neutral-600 dark:primary-text4hover:text-white transition-all transform hover:scale-110"
                 >
                   <Icon size={18} />
                 </Link>

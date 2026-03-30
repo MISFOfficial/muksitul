@@ -30,24 +30,34 @@ body {
 }
 
 .text-outline-red {
-  -webkit-text-stroke: 2px #20255e;
+  -webkit-text-stroke: 2px #232c66;
   color: transparent;
 }
 
 .primary-color {
-  @apply bg-[#20255e];
+  @apply bg-[#232c66];
 }
 
 .primary-color2 {
-  @apply bg-[#FF0055];
+  @apply bg-[#0abab5];
+}
+
+.text-hover {
+  @apply hover:text-[#0abab5];
 }
 
 .primary-text {
-  @apply text-[#20255e];
+  @apply text-[#0abab5];
 }
 
 .primary-text2 {
-  @apply text-[#FF0055];
+  @apply text-[#0abab5];
+}
+.primary-text3 {
+  @apply text-white/85;
+}
+.primary-text4 {
+  @apply text-white/60;
 }
 
 .ratio {
@@ -55,8 +65,9 @@ body {
 }
 
 .primary-border {
-  @apply border-white/20
+  @apply border-white/20;
 }
 .primary-rounded {
-  @apply rounded-[10px]
+  @apply rounded-[10px];
 }
+

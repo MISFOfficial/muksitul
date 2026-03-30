@@ -104,7 +104,7 @@ export default function Optical() {
               />
 
               {/* Top row: Icon */}
-              <div className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center bg-white/5 text-white/80 mb-4 group-hover:scale-110 transition-transform">
+              <div className="relative z-10 w-12 h-12 rounded-full flex items-center justify-center primary-text4 text-white/80 mb-4 group-hover:scale-110 transition-transform">
                 <card.icon
                   size={24}
                   style={{ color: card.highlight ? "#FF0055" : "white" }}

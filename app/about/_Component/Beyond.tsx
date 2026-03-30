@@ -17,10 +17,10 @@ function Beyond() {
             </p>
           </div>
           <div className="flex gap-4">
-            <div className="px-8 py-4 rounded-full border primary-border font-bold hover:bg-white/5 transition-colors cursor-pointer">
+            <div className="px-8 py-4 rounded-full border primary-border font-bold hover:primary-text4 transition-colors cursor-pointer">
               Explorer
             </div>
-            <div className="px-8 py-4 rounded-full border primary-border font-bold hover:bg-white/5 transition-colors cursor-pointer">
+            <div className="px-8 py-4 rounded-full border primary-border font-bold hover:primary-text4 transition-colors cursor-pointer">
               Thinker
             </div>
           </div>

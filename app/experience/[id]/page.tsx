@@ -52,7 +52,7 @@ export default function ExperienceDetail() {
         <Navigaton />
       </div>
 
-      <div className="ratio py-16 md:py-24">
+      <div className="ratio py-8 md:py-24">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -61,15 +61,15 @@ export default function ExperienceDetail() {
         >
           <button
             onClick={() => router.back()}
-            className="inline-flex items-center gap-3 text-white/40 hover:text-white transition-colors group"
+            className="inline-flex items-center gap-3 cursor-pointer text-white/60 hover:text-white transition-colors group"
           >
-            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#FF0055]/20 transition-colors">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center transition-colors">
               <ArrowLeft
                 size={18}
                 className="group-hover:-translate-x-1 transition-transform"
               />
             </div>
-            <span className="text-xs font-black uppercase tracking-widest">
+            <span className="text-xs font-black uppercase tracking-widest transition-colors">
               Back
             </span>
           </button>
@@ -86,7 +86,7 @@ export default function ExperienceDetail() {
                 animate={{ opacity: 1, y: 0 }}
                 className="flex items-center gap-5"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 primary-rounded bg-white/5 flex items-center justify-center p-4 border primary-border">
+                <div className="w-20 h-20 md:w-24 md:h-24 primary-rounded primary-text4 flex items-center justify-center p-4 border primary-border">
                   <img
                     src={experience.logo}
                     alt={experience.company}
@@ -113,16 +113,16 @@ export default function ExperienceDetail() {
                 transition={{ delay: 0.1 }}
                 className="flex flex-wrap items-center gap-4"
               >
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border primary-border text-[#FF0055] text-sm font-bold tracking-wider">
+                <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border text-[#FF0055] text-sm font-bold tracking-wider">
                   <Calendar className="w-4 h-4" />
                   <span>{experience.duration}</span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border primary-border text-gray-400 text-sm font-medium">
+                <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border text-gray-400 text-sm font-medium">
                   <MapPin className="w-4 h-4" />
                   <span>{experience.location}</span>
                 </div>
                 {experience.teamSize && (
-                  <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border primary-border text-gray-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border text-gray-400 text-sm font-medium">
                     <Users className="w-4 h-4" />
                     <span>{experience.teamSize} Team</span>
                   </div>
@@ -228,7 +228,7 @@ export default function ExperienceDetail() {
                   {experience.technologies.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="text-sm px-4 py-2 primary-rounded bg-white/5 border primary-border text-white/80 font-semibold hover:border-[#FF0055]/40 hover:text-white transition-all"
+                      className="text-sm px-4 py-2 primary-rounded primary-text4 border primary-border text-white/80 font-semibold hover:border-[#FF0055]/40 hover:text-white transition-all"
                     >
                       {tech}
                     </span>

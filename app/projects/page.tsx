@@ -41,7 +41,7 @@ export default function ProjectsPage() {
 
           <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-8">
             Engineering <br />
-            <span className="text-neutral-500 italic">Showcase</span>
+            <span className="primary-text4italic">Showcase</span>
           </h1>
 
           <p className="text-gray-400 max-w-2xl text-lg leading-relaxed">

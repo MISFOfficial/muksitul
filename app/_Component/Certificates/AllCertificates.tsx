@@ -31,7 +31,7 @@ export default function AllCertificates() {
             </span>
             <ArrowRight
               size={18}
-              className="relative z-10 group-hover:translate-x-2 transition-all duration-300 text-[#FF5C58]"
+              className="relative z-10 group-hover:translate-x-2 transition-all duration-300 primary-text2"
             />
           </button>
         </Link>

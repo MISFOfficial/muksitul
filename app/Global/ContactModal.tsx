@@ -106,7 +106,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   <h3 className="text-3xl font-bold text-white mb-2">
                     Inquiry Sent!
                   </h3>
-                  <p className="text-neutral-400">
+                  <p className="primary-text4">
                     Thank you for your interest. I'll get back to you shortly to
                     discuss your project.
                   </p>
@@ -117,7 +117,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
                       Let's Build Together
                     </h2>
-                    <p className="text-neutral-400">
+                    <p className="primary-text4">
                       Share your vision and I'll help you bring it to life.
                     </p>
                   </div>
@@ -144,7 +144,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                           required
                           type="text"
                           placeholder="e.g. E-commerce Revolution"
-                          className="w-full bg-white/5 border primary-border primary-rounded px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
+                          className="w-full primary-text4 border primary-border primary-rounded px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
                           value={formData.projectName}
                           onChange={(e) =>
                             setFormData({
@@ -164,7 +164,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                           required
                           type="email"
                           placeholder="e.g. you@example.com"
-                          className="w-full bg-white/5 border primary-border primary-rounded px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
+                          className="w-full primary-text4 border primary-border primary-rounded px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
                           value={formData.userEmail}
                           onChange={(e) =>
                             setFormData({
@@ -185,7 +185,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         required
                         rows={4}
                         placeholder="Tell me more about what you're looking to achieve..."
-                        className="w-full bg-white/5 border primary-border primary-rounded px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors resize-none"
+                        className="w-full primary-text4 border primary-border primary-rounded px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors resize-none"
                         value={formData.details}
                         onChange={(e) =>
                           setFormData({ ...formData, details: e.target.value })
@@ -204,7 +204,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                           onChange={handleFileChange}
                           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                         />
-                        <div className="w-full bg-white/5 border border-dashed primary-border group-hover:primary-border primary-rounded px-4 py-6 flex flex-col items-center justify-center gap-2 transition-colors">
+                        <div className="w-full primary-text4 border border-dashed primary-border group-hover:primary-border primary-rounded px-4 py-6 flex flex-col items-center justify-center gap-2 transition-colors">
                           <Upload className="text-white/30 group-hover:text-white/50 transition-colors" />
                           <span className="text-sm text-white/40 group-hover:text-white/60 transition-colors">
                             {formData.file

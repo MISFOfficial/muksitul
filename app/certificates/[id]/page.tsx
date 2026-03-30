@@ -37,7 +37,7 @@ export default function CertificateDetail() {
   if (!certificate) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-white p-4">
-        <AlertCircle size={64} className="text-[#FF5C58] mb-4" />
+        <AlertCircle size={64} className="primary-text2 mb-4" />
         <h1 className="text-3xl font-bold mb-4 uppercase tracking-tighter">
           Credential Not Found
         </h1>
@@ -64,7 +64,7 @@ export default function CertificateDetail() {
             href="/certificates"
             className="inline-flex items-center gap-3 text-white/40 hover:text-white transition-colors group"
           >
-            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#FF5C58]/20">
+            <div className="w-10 h-10 rounded-full primary-text4 flex items-center justify-center group-hover:bg-[#FF5C58]/20">
               <ArrowLeft
                 size={18}
                 className="group-hover:-translate-x-1 transition-transform"
@@ -76,10 +76,10 @@ export default function CertificateDetail() {
           </Link>
 
           <div className="flex gap-4">
-            <button className="p-3 rounded-full bg-white/5 border primary-border hover:primary-border transition-all">
+            <button className="p-3 rounded-full primary-text4 border primary-border hover:primary-border transition-all">
               <Share2 size={18} className="text-white/60" />
             </button>
-            <button className="p-3 rounded-full bg-white/5 border primary-border hover:primary-border transition-all">
+            <button className="p-3 rounded-full primary-text4 border primary-border hover:primary-border transition-all">
               <Copy size={18} className="text-white/60" />
             </button>
           </div>
@@ -92,7 +92,7 @@ export default function CertificateDetail() {
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                className="inline-flex items-center gap-2 px-3 py-1 primary-rounded bg-[#FF5C58]/10 text-[#FF5C58] border border-[#FF5C58]/20"
+                className="inline-flex items-center gap-2 px-3 py-1 primary-rounded bg-[#FF5C58]/10 primary-text2 border border-[#FF5C58]/20"
               >
                 <Shield size={14} />
                 <span className="text-[10px] font-black uppercase tracking-[0.2em]">
@@ -114,7 +114,7 @@ export default function CertificateDetail() {
                 initial={{ clipPath: "inset(100% 0 0 0)" }}
                 animate={{ clipPath: "inset(0% 0 0 0)" }}
                 transition={{ duration: 0.8, ease: "circOut" }}
-                className="relative primary-rounded overflow-hidden border primary-border bg-white/5 cursor-zoom-in group/img"
+                className="relative primary-rounded overflow-hidden border primary-border primary-text4 cursor-zoom-in group/img"
                 onClick={() => setIsImageModalOpen(true)}
               >
                 <Image
@@ -134,7 +134,7 @@ export default function CertificateDetail() {
                 {/* Badge Overlay */}
                 <div className="absolute bottom-8 right-8 pointer-events-none">
                   <div className="w-24 h-24 rounded-full   backdrop-blur-xl border primary-border flex items-center justify-center">
-                    <Award size={40} className="text-[#FF5C58]" />
+                    <Award size={40} className="primary-text2" />
                   </div>
                 </div>
               </motion.div>
@@ -143,7 +143,7 @@ export default function CertificateDetail() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="space-y-6">
                 <h3 className="text-xl font-bold text-white uppercase tracking-tighter flex items-center gap-3">
-                  <Zap size={20} className="text-[#FF5C58]" />
+                  <Zap size={20} className="primary-text2" />
                   Learning Narrative
                 </h3>
                 <p className="text-white/50 text-lg leading-relaxed font-medium">
@@ -153,7 +153,7 @@ export default function CertificateDetail() {
 
               <div className="space-y-6">
                 <h3 className="text-xl font-bold text-white uppercase tracking-tighter flex items-center gap-3">
-                  <ShieldCheck size={20} className="text-[#FF5C58]" />
+                  <ShieldCheck size={20} className="primary-text2" />
                   Skills Verified
                 </h3>
                 <div className="flex flex-wrap gap-3">
@@ -202,7 +202,7 @@ export default function CertificateDetail() {
                 {/* Decoration */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF5C58] opacity-[0.05] blur-3xl -mr-16 -mt-16" />
 
-                <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF5C58] mb-10">
+                <h4 className="text-[10px] font-black uppercase tracking-[0.3em] primary-text2 mb-10">
                   Credential Analytics
                 </h4>
 
@@ -250,7 +250,7 @@ export default function CertificateDetail() {
                   <div className="text-[10px] font-black text-white/40 uppercase tracking-widest mb-4">
                     Verification Artifact
                   </div>
-                  <div className="p-4 primary-rounded bg-white/5 border border-dashed primary-border flex flex-col items-center gap-4">
+                  <div className="p-4 primary-rounded primary-text4 border border-dashed primary-border flex flex-col items-center gap-4">
                     {/* Placeholder QR Aesthetic */}
                     <div className="w-32 h-32 bg-white/10 primary-rounded flex items-center justify-center p-2">
                       <div className="w-full h-full border primary-border grid grid-cols-4 grid-rows-4 gap-1 opacity-20">

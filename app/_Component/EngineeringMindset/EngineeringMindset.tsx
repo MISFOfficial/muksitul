@@ -71,7 +71,7 @@ export default function EngineeringMindset() {
             className="text-4xl md:text-6xl font-black text-white leading-tight mb-6"
           >
             The Engineering <br />
-            <span className="text-neutral-500 italic">Mindset</span>
+            <span className="primary-text4italic">Mindset</span>
           </motion.h2>
 
           <motion.p
@@ -104,7 +104,7 @@ export default function EngineeringMindset() {
               />
 
               <div className="relative z-10">
-                <div className="w-12 h-12 primary-rounded bg-white/5 flex items-center justify-center mb-6 transition-colors">
+                <div className="w-12 h-12 primary-rounded primary-text4 flex items-center justify-center mb-6 transition-colors">
                   <item.icon
                     className="text-white/70 transition-colors"
                     size={24}
@@ -119,7 +119,7 @@ export default function EngineeringMindset() {
               </div>
 
               {/* Decorative element */}
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-white/5 rounded-full blur-2xl transition-all duration-500" />
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 primary-text4 rounded-full blur-2xl transition-all duration-500" />
             </motion.div>
           ))}
 

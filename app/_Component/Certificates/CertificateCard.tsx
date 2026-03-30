@@ -34,7 +34,7 @@ export default function CertificateCard({
       <Link href={`/certificates/${certificate.slug}`} className="block h-full">
         <div className="relative h-full flex flex-col primary-rounded bg-gradient-to-b from-white/[0.05] to-transparent border primary-border hover:border-[#FF5652]/40 transition-all duration-500 overflow-hidden">
           {/* Large Image Preview Section */}
-          <div className="relative aspect-[16/10] overflow-hidden bg-white/5 border-b primary-border">
+          <div className="relative aspect-[16/10] overflow-hidden primary-text4 border-b primary-border">
             <Image
               src={certificate.image}
               alt={certificate.title}
@@ -103,7 +103,7 @@ export default function CertificateCard({
               {certificate.skillsLearned.slice(0, 3).map((skill, idx) => (
                 <span
                   key={idx}
-                  className="text-[9px] font-bold px-2 py-0.5 primary-rounded bg-white/5 border primary-border text-white/30 group-hover:text-white/60 transition-colors uppercase"
+                  className="text-[9px] font-bold px-2 py-0.5 primary-rounded primary-text4 border primary-border text-white/30 group-hover:text-white/60 transition-colors uppercase"
                 >
                   {skill}
                 </span>

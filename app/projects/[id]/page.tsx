@@ -53,7 +53,7 @@ export default function ProjectPage() {
   return (
     <main className="min-h-screen text-white relative">
       {/* Hero Section */}
-      <section className="ratio py-10">
+      <section className="ratio py-8">
         <button
           onClick={() => router.back()}
           className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8 group"
@@ -94,7 +94,7 @@ export default function ProjectPage() {
               {project.tags.map((tag, idx) => (
                 <span
                   key={idx}
-                  className="flex items-center gap-1.5 text-sm px-4 py-2 rounded-full bg-white/5 text-gray-300 border primary-border hover:border-[#20255e]/50 transition-all"
+                  className="flex items-center gap-1.5 text-sm px-4 py-2 rounded-full primary-text4 text-gray-300 border primary-border hover:border-[#20255e]/50 transition-all"
                 >
                   <Tag size={14} />
                   {tag}
@@ -120,7 +120,7 @@ export default function ProjectPage() {
                   href={project?.fgithubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-2 primary-border text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-white/5 transition-all"
+                  className="border-2 primary-border text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:primary-text4 transition-all"
                 >
                   <Github size={20} />
                   Frontend Source Code
@@ -131,7 +131,7 @@ export default function ProjectPage() {
                   href={project?.bgithubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-2 primary-border text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-white/5 transition-all"
+                  className="border-2 primary-border text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:primary-text4 transition-all"
                 >
                   <Github size={20} />
                   Backend Source Code
@@ -142,7 +142,7 @@ export default function ProjectPage() {
                   href={project?.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border-2 primary-border text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-white/5 transition-all"
+                  className="border-2 primary-border text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:primary-text4 transition-all"
                 >
                   <Github size={20} />
                   Full Source Code
@@ -194,7 +194,7 @@ export default function ProjectPage() {
                   >
                     <CheckCircle2
                       size={20}
-                      className="text-[#20255e] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+                      className="primary-text2 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
                     />
                     <span className="text-gray-300 leading-relaxed">
                       {feature}
@@ -213,7 +213,7 @@ export default function ProjectPage() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="p-6 primary-rounded bg-white/[0.03] border primary-border">
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-[#20255e] mb-4 flex items-center gap-2">
+                    <h3 className="text-sm font-bold uppercase tracking-widest primary-text2 mb-4 flex items-center gap-2">
                       <AlertCircle size={16} />
                       The Problem
                     </h3>
@@ -222,7 +222,7 @@ export default function ProjectPage() {
                     </p>
                   </div>
                   <div className="p-6 primary-rounded bg-[#20255e]/5 border border-[#20255e]/10">
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-[#20255e] mb-4 flex items-center gap-2">
+                    <h3 className="text-sm font-bold uppercase tracking-widest primary-text2 mb-4 flex items-center gap-2">
                       <Lightbulb size={16} />
                       The Solution
                     </h3>
@@ -263,8 +263,8 @@ export default function ProjectPage() {
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-gray-400">
-                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-                    <Calendar size={18} className="text-[#20255e]" />
+                  <div className="w-10 h-10 rounded-full primary-text4 flex items-center justify-center">
+                    <Calendar size={18} className="primary-text2" />
                   </div>
                   <div>
                     <div className="text-xs text-gray-500">Year</div>
@@ -275,8 +275,8 @@ export default function ProjectPage() {
                 </div>
                 {project.role && (
                   <div className="flex items-center gap-3 text-gray-400">
-                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-                      <Zap size={18} className="text-[#20255e]" />
+                    <div className="w-10 h-10 rounded-full primary-text4 flex items-center justify-center">
+                      <Zap size={18} className="primary-text2" />
                     </div>
                     <div>
                       <div className="text-xs text-gray-500">Your Role</div>
@@ -302,7 +302,7 @@ export default function ProjectPage() {
                       <div className="text-2xl font-black text-white">
                         {metric.value}
                       </div>
-                      <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#20255e]">
+                      <div className="text-[10px] font-bold uppercase tracking-[0.2em] primary-text2">
                         {metric.label}
                       </div>
                     </div>
@@ -321,7 +321,7 @@ export default function ProjectPage() {
           {project.architecture && (
             <div>
               <h2 className="text-3xl md:text-5xl font-black mb-12 flex items-center gap-4">
-                <Workflow className="text-[#20255e]" size={32} />
+                <Workflow className="primary-text2" size={32} />
                 System Architecture
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -375,7 +375,7 @@ export default function ProjectPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {project.lessons.map((lesson, idx) => (
                   <div key={idx} className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 text-xs font-bold text-[#20255e]">
+                    <div className="w-8 h-8 rounded-full primary-text4 flex items-center justify-center flex-shrink-0 text-xs font-bold primary-text2">
                       0{idx + 1}
                     </div>
                     <p className="text-gray-400 text-sm leading-relaxed">

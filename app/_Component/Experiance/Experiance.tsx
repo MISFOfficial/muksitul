@@ -27,7 +27,7 @@ const ExperienceCard = ({
         className="group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 p-6 md:p-8 primary-rounded bg-white/[0.02] border primary-border hover:bg-white/[0.04] hover:border-[#FF0055]/20 transition-all duration-300 w-full mb-6 cursor-pointer"
       >
         <div className="flex items-center gap-5 md:gap-6">
-          <div className="w-14 h-14 md:w-16 md:h-16 primary-rounded bg-white/5 flex items-center justify-center p-3 border primary-border shrink-0">
+          <div className="w-14 h-14 md:w-16 md:h-16 primary-rounded primary-text4 flex items-center justify-center p-3 border primary-border shrink-0">
             <img
               src={exp.logo}
               alt={exp.company}
@@ -46,7 +46,7 @@ const ExperienceCard = ({
 
         <div className="flex items-center gap-4">
           <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-4 md:gap-3 w-full md:w-auto mt-2 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 primary-border">
-            <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-white/5 rounded-full border primary-border text-[#FF0055] text-xs md:text-sm font-bold tracking-wider">
+            <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 primary-text4 rounded-full border primary-border text-[#FF0055] text-xs md:text-sm font-bold tracking-wider">
               <Calendar className="w-3.5 h-3.5" />
               <span>{exp.duration}</span>
             </div>
@@ -79,8 +79,8 @@ export default function Experiance() {
           viewport={{ once: true }}
           className="flex items-center gap-3 mb-4"
         >
-          <Briefcase className="text-[#FF0055]" size={24} />
-          <span className="text-[#FF0055] font-bold uppercase tracking-widest text-sm">
+          <Briefcase className="" size={24} />
+          <span className=" font-bold uppercase tracking-widest text-sm">
             Experience
           </span>
         </motion.div>
@@ -93,7 +93,7 @@ export default function Experiance() {
           className="text-4xl md:text-6xl font-black text-white leading-tight mb-6"
         >
           Professional <br />
-          <span className="text-neutral-500 italic">Timeline</span>
+          <span className="primary-text4italic">Timeline</span>
         </motion.h2>
 
         <motion.p
