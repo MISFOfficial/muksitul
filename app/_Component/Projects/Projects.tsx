@@ -24,7 +24,7 @@ export default function Projects() {
           Projects
         </h2>
         <h2 className="text-[15vw] md:text-[12vw] font-black uppercase tracking-tighter text-outline leading-[0.8] ml-[20vw]">
-          Stdio
+          Studio
         </h2>
       </div>
 
