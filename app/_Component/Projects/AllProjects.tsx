@@ -7,11 +7,13 @@ import Link from "next/link";
 import ProjectCard from "./ProjectCard";
 
 import { projectsData } from "@/lib/projectsData";
+import Projects from "./Projects";
 
 export default function AllProjects() {
   return (
     <section id="projects" className="">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <Projects />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
         {projectsData.slice(0, 3).map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
         ))}

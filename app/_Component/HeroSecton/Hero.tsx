@@ -231,7 +231,7 @@ export default function Hero() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-100 primary-color text-neutral-600 dark:primary-text4hover:text-white transition-all transform hover:scale-110"
+                  className="w-10 h-10 flex items-center justify-center rounded-full primary-color text-white transition-all transform hover:scale-110"
                 >
                   <Icon size={18} />
                 </Link>

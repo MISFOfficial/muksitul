@@ -29,7 +29,7 @@ export default function Projects() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center gap-6">
+      <div className="relative z-10 container mx-auto  flex flex-col items-center gap-6">
         {/* 44+ Badge */}
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}

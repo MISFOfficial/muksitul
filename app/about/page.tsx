@@ -126,27 +126,35 @@ export default function AboutPage() {
       {/* Quick Facts Grid */}
       {/* <Facts quickFacts={quickFacts} /> */}
 
-      {/* Journey Timeline with Parallax */}
-      <Journey journeyEvents={journeyEvents} />
+      <div className="flex flex-col gap-30 mt-30">
+        <div className="ratio flex flex-col gap-30">
+          {/* Journey Timeline with Parallax */}
+          <Journey journeyEvents={journeyEvents} />
 
-      {/* Life Philosophy Section - Bold Unique Design */}
-      <Philosophy />
+          {/* Life Philosophy Section - Bold Unique Design */}
+          <Philosophy />
 
-      {/* Beyond The Screen - Hobbies Section */}
-      <Beyond />
+          {/* Beyond The Screen - Hobbies Section */}
+          <Beyond />
 
-      {/* The Sea is Calling - Emotional Poetic Section */}
-      <Travel />
-      {/* The Jahiin Way - Methodology */}
-      <WrokingStyle />
+          {/* The Sea is Calling - Emotional Poetic Section */}
+        </div>
 
-      {/* A Day in the Life - Interactive Timeline */}
-      <DailyRotin />
+        <Travel />
 
-      {/* Future Vision - High Contrast Design */}
-      <Vision />
-      {/* Final CTA / Footer */}
-      <CTA />
+        <div className="ratio flex flex-col gap-30">
+          {/* The Jahiin Way - Methodology */}
+          <WrokingStyle />
+
+          {/* A Day in the Life - Interactive Timeline */}
+        </div>
+        <DailyRotin />
+
+        {/* Future Vision - High Contrast Design */}
+        <Vision />
+        {/* Final CTA / Footer */}
+        <CTA />
+      </div>
     </main>
   );
 }

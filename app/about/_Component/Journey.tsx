@@ -5,7 +5,7 @@ export default function Journey({ journeyEvents }: any) {
   return (
     <section className="   relative z-10">
       <div className="">
-        <div className="space-y-48">
+        <div className="flex flex-col gap-30">
           {journeyEvents.map((event: any, index: any) => (
             <div
               key={index}

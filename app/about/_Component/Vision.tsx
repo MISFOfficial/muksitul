@@ -8,7 +8,7 @@ export default function Vision() {
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent" />
 
       <div className="ratio px-6">
-        <div className="max-w-4xl">
+        <div className="">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}

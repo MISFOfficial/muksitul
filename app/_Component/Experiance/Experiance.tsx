@@ -5,6 +5,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { experienceData } from "@/lib/experienceData";
 import { Calendar, MapPin, Briefcase, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const ExperienceCard = ({
   exp,
@@ -27,11 +28,12 @@ const ExperienceCard = ({
         className="group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 p-6 md:p-8 primary-rounded bg-white/[0.02] border primary-border hover:bg-white/[0.04] hover:border-[#FF0055]/20 transition-all duration-300 w-full mb-6 cursor-pointer"
       >
         <div className="flex items-center gap-5 md:gap-6">
-          <div className="w-14 h-14 md:w-16 md:h-16 primary-rounded primary-text4 flex items-center justify-center p-3 border primary-border shrink-0">
-            <img
+          <div className="w-14 h-14 md:w-16 md:h-16 primary-rounded primary-text4 relative overflow-hidden border primary-border shrink-0">
+            <Image
+              fill
               src={exp.logo}
               alt={exp.company}
-              className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+              className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
             />
           </div>
           <div>

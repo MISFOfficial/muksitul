@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 function Philosophy() {
   return (
-    <section className="py-48 bg-gradient-to-b from-black via-transparent to-black relative overflow-hidden backdrop-blur-3xl ">
+    <section className="relative overflow-hidden ">
       <div className="absolute top-0 right-0 p-20 opacity-10 pointer-events-none ">
         <Code size={400} />
       </div>
