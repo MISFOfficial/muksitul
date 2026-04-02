@@ -1,7 +1,6 @@
 export interface Design {
   id: string;
   title: string;
-  slug: string;
   image: string;
   tags: string[];
   year: string;
@@ -16,23 +15,23 @@ export interface Design {
 export const designsData: Design[] = [
   {
     id: "1",
-    title: "Finance App - Neumorphism",
-    slug: "finance-app-ui",
-    image: "https://i.ibb.co.com/84cCH7yv/image.png",
-    tags: ["UI/UX", "Mobile", "Fintech"],
+    title: "Serpolino",
+    image:
+      "https://i.ibb.co.com/ksGgf3sL/Screenshot-from-2026-04-02-13-24-43.png",
+    tags: ["UI/UX", "SEO", "Web"],
     year: "2026",
     badge: { text: "Premium", color: "bg-[#FF5652]" },
     description:
       "A sleek, neumorphic design for a modern digital banking experience with high attention to tactile detail.",
     tools: ["Figma", "Adobe Illustrator"],
-    figmaUrl: "https://figma.com",
+    figmaUrl:
+      "https://www.figma.com/design/u9ycEsMQuiPG9lsJJLiL54/serpolino?node-id=0-1&t=wuMceKGa3eTXwBEE-1",
   },
   {
     id: "2",
-    title: "Travel Platform - Glassmorphism",
-    slug: "travel-platform-ui",
+    title: "HosingProvider",
     image: "https://i.ibb.co.com/XRxQp2Lh/image.png",
-    tags: ["UI/UX", "Web", "Travel"],
+    tags: ["UI/UX", "Web", "Hosting", "Vps", "Cloude"],
     year: "2026",
     description:
       "An immersive travel booking platform focusing on transparency and accessibility through glassmorphic elements.",
@@ -41,8 +40,7 @@ export const designsData: Design[] = [
   },
   {
     id: "3",
-    title: "Smart Home Control Dashboard",
-    slug: "smart-home-ui",
+    title: "Biddaneer",
     image: "https://i.ibb.co.com/LzMScntp/image.png",
     tags: ["UI/UX", "Desktop", "IoT"],
     year: "2025",
@@ -54,6 +52,6 @@ export const designsData: Design[] = [
   },
 ];
 
-export function getDesignBySlug(slug: string) {
-  return designsData.find((design) => design.slug === slug);
+export function getDesignById(id: string) {
+  return designsData.find((design) => design.id === id);
 }

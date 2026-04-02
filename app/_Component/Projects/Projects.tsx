@@ -21,10 +21,10 @@ export default function Projects() {
       {/* Background Typography */}
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0 opacity-20">
         <h2 className="text-[15vw] md:text-[12vw] font-black uppercase tracking-tighter text-outline leading-[0.8]">
-          Muksitul
+          Projects
         </h2>
         <h2 className="text-[15vw] md:text-[12vw] font-black uppercase tracking-tighter text-outline leading-[0.8] ml-[20vw]">
-          Islam
+          Stdio
         </h2>
       </div>
 
