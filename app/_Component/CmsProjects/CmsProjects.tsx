@@ -32,8 +32,8 @@ export default function CmsProjects() {
           <span className="text-[60px] md:text-[100px] font-black leading-none primary-text2 tracking-tighter">
             {cmsProjectsData.length}+
           </span>
-          <span className="absolute top-2 -right-16 text-[10px] md:text-sm font-bold bg-[#FF5652] px-3 py-1 rounded-full text-white rotate-12 uppercase tracking-widest whitespace-nowrap">
-            Low-Code Solutions
+          <span className="absolute top-2 -right-8 text-[10px] md:text-sm font-bold bg-[#FF5652] px-3 py-1 rounded-full text-white rotate-12 uppercase tracking-widest whitespace-nowrap">
+            CMH
           </span>
         </motion.div>
 
@@ -42,10 +42,10 @@ export default function CmsProjects() {
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-5xl uppercase"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-6xl uppercase"
         >
-          High-End <span className="primary-text4 italic">CMS</span> <br />&
-          E-Commerce <span className="primary-text2">Architecture</span>
+          Professional <span className="primary-text4 italic">CMS</span> <br />&
+          Landing <span className="primary-text2">Pages</span>
         </motion.h2>
 
         {/* Description */}
@@ -56,8 +56,8 @@ export default function CmsProjects() {
           transition={{ delay: 0.1 }}
           className="primary-text4 max-w-2xl text-lg leading-relaxed mt-4"
         >
-          Mastering WordPress, Shopify, and Webflow to build fast, scalable, and
-          easily manageable digital storefronts and marketing assets.
+          Crafting clean, responsive, and functional landing pages using
+          WordPress, Shopify, and Webflow for an effective digital presence.
         </motion.p>
       </div>
     </section>
