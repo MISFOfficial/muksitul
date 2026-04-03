@@ -1,6 +1,7 @@
 import StarField from "./_Component/Global/StarField";
-import VideoResume from "./_Component/VideoResume/VideoResume";
 import "./globals.css";
+import QueryProvider from "./_Component/Global/QueryProvider";
+import { Toaster } from "sonner";
 
 export default function RootLayout({
   children,
@@ -10,9 +11,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className="antialiased bg-black overflow-x-hidden">
-        <StarField />
-        {/* <VideoResume /> */}
-        <main className="relative z-10">{children}</main>
+        <QueryProvider>
+          <StarField />
+          <Toaster position="bottom-right" theme="dark" richColors />
+          {/* <VideoResume /> */}
+          <main className="relative z-10">{children}</main>
+        </QueryProvider>
       </body>
     </html>
   );

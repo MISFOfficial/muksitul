@@ -1,0 +1,41 @@
+{
+    "success": true,
+    "responseCode": 1,
+    "statusCode": 200,
+    "message": "Experience fetched successfully",
+    "data": {
+        "_id": "69cfe5236e628bcc265d914c",
+        "company": "aviro",
+        "role": "FRONTEND_ENGINEER",
+        "duration": "2026",
+        "location": "mymen",
+        "description": "hijibiji",
+        "responsibilities": [
+            "jahin"
+        ],
+        "technologies": [
+            "siam"
+        ],
+        "achievements": [
+            "himel"
+        ],
+        "teamSize": "100",
+        "companyDescription": "valo na",
+        "companyWebsite": "https://muksitul.pages.dev",
+        "createdAt": "2026-04-03T16:04:51.119Z",
+        "updatedAt": "2026-04-03T16:37:11.300Z",
+        "__v": 0,
+        "image": {
+            "_id": "69cfe5226e628bcc265d914a",
+            "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/1fee8c3f-ba6e-4993-ad1f-22301867e658.jpg",
+            "key": "properties/1fee8c3f-ba6e-4993-ad1f-22301867e658.jpg",
+            "filename": "p1340924.jpg",
+            "mimeType": "image/jpeg",
+            "size": 667487,
+            "uploadedAt": "2026-04-03T16:04:50.894Z",
+            "createdAt": "2026-04-03T16:04:50.917Z",
+            "updatedAt": "2026-04-03T16:04:50.917Z",
+            "__v": 0
+        }
+    }
+}
