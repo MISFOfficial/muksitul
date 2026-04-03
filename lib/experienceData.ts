@@ -59,7 +59,7 @@ export const experienceData: Experience[] = [
     role: "Jr. Software Engineer",
     duration: "01-02-2026 - Present",
     location: "Part-time",
-    logo: "https://i.ibb.co.com/VcCDHdLg/image.png",
+    logo: "https://i.ibb.co.com/9xBGJpY/421388839-358339266988132-8703200930689574265-n.jpg",
     description:
       "Contributing as a part-time Junior Software Engineer at Serpolino, working on frontend and full-stack development tasks. Helping to build and enhance web products while balancing responsibilities with precision and efficiency.",
     responsibilities: [

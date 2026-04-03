@@ -33,7 +33,7 @@ const ExperienceCard = ({
               fill
               src={exp.logo}
               alt={exp.company}
-              className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+              className="object-cover transition-all duration-500"
             />
           </div>
           <div>
