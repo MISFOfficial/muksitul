@@ -10,6 +10,8 @@
     "pages:build": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.96.2",
+    "axios": "^1.14.0",
     "framer-motion": "^12.33.0",
     "gsap": "^3.14.2",
     "html2canvas": "^1.4.1",
