@@ -20,9 +20,9 @@ export const experienceData: Experience[] = [
     id: "1",
     company: "Aviro Soft",
     role: "Jr. Software Engineer",
-    duration: "12-01-2025 - Present",
+    duration: "1 December 2025 - 31 March 2026",
     location: "On-site",
-    logo: "https://i.ibb.co.com/p6ZkhwLJ/image.png",
+    logo: "https://i.ibb.co.com/9xBGJpY/421388839-358339266988132-8703200930689574265-n.jpg",
     description:
       "Working as a Jr Software Engineer at Aviro Soft, contributing to full-stack web development projects. Involved in building scalable applications, collaborating with cross-functional teams, and implementing modern development practices to deliver high-quality software solutions.",
     responsibilities: [
@@ -59,7 +59,8 @@ export const experienceData: Experience[] = [
     role: "Jr. Software Engineer",
     duration: "01-02-2026 - Present",
     location: "Part-time",
-    logo: "https://i.ibb.co.com/9xBGJpY/421388839-358339266988132-8703200930689574265-n.jpg",
+
+    logo: "https://i.ibb.co.com/67h8BLHC/5f74c517edafeabe7d0abfaef1ab0b64.webp",
     description:
       "Contributing as a part-time Junior Software Engineer at Serpolino, working on frontend and full-stack development tasks. Helping to build and enhance web products while balancing responsibilities with precision and efficiency.",
     responsibilities: [
