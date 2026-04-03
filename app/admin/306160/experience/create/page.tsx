@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import Image from "next/image";
+import { ROLE_OPTIONS } from "../RoleOptions";
 
 export default function CreateExperiencePage() {
   const router = useRouter();
@@ -45,7 +46,9 @@ export default function CreateExperiencePage() {
   const [achievements, setAchievements] = useState<string[]>([""]);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -270,14 +273,26 @@ export default function CreateExperiencePage() {
                   <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 group-focus-within:text-[#0abab5] transition-colors flex items-center gap-2">
                     <Briefcase size={12} /> Job Role
                   </label>
-                  <input
+                  <select
                     name="role"
                     value={formData.role}
                     onChange={handleInputChange}
-                    placeholder="e.g. Senior Frontend Engineer"
-                    className="w-full bg-white/[0.03] border primary-border rounded-xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 focus:ring-1 focus:ring-[#0abab5]/20 transition-all placeholder:text-white/10"
+                    className="w-full bg-white/[0.03] border primary-border rounded-xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 focus:ring-1 focus:ring-[#0abab5]/20 transition-all appearance-none cursor-pointer"
                     required
-                  />
+                  >
+                    <option value="" disabled className="bg-[#0a0a0a]">
+                      Select Role
+                    </option>
+                    {ROLE_OPTIONS.map((opt) => (
+                      <option
+                        key={opt.value}
+                        value={opt.value}
+                        className="bg-[#121212] text-white"
+                      >
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div className="space-y-2 group">
