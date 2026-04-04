@@ -233,7 +233,7 @@ export default function EditCertificatePage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto pb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
+    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
       <div className="flex items-center justify-between mb-10">
         <button
           onClick={() => router.back()}

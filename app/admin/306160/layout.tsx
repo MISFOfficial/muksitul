@@ -61,7 +61,7 @@ export default function AdminLayout({
       <aside
         className={`${
           isSidebarOpen ? "w-64" : "w-20"
-        } transition-all duration-300 border-r border-white/20 hidden lg:flex flex-col fixed h-full z-50`}
+        } transition-all duration-300 border-r border-white/20 hidden lg:flex flex-col sticky top-0 h-screen z-50`}
       >
         <div className="p-6 flex items-center justify-between">
           <AnimatePresence mode="wait">
@@ -84,7 +84,7 @@ export default function AdminLayout({
           </button>
         </div>
 
-        <nav className="flex-1 px-3 space-y-2 overflow-y-auto custom-scrollbar">
+        <nav className="flex-1 px-3 space-y-2 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {sidebarLinks.map((link) => (
             <Link
               key={link.name}
@@ -136,49 +136,7 @@ export default function AdminLayout({
       </aside>
 
       {/* Main Content */}
-      <main
-        className={`flex-1 ${isSidebarOpen ? "lg:ml-64" : "lg:ml-20"} transition-all duration-300 min-h-screen p-4 sm:p-8 relative z-10 pb-28 lg:pb-8`}
-      >
-        {/* Header - Transparent */}
-        <header className="flex flex-col md:flex-row md:items-center justify-between mb-8 sm:mb-10 gap-6">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-1 tracking-tight">
-              {activeLink.name}
-            </h2>
-            <p className="text-white/50 text-sm sm:text-base">
-              Welcome back, Jahin! Here's what's happening today.
-            </p>
-          </div>
-          <div className="flex items-center gap-3 sm:gap-4">
-            <div className="relative hidden lg:block">
-              <Search
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40"
-                size={18}
-              />
-              <input
-                type="text"
-                placeholder="Search..."
-                className="bg-transparent border border-white/20 rounded-xl py-2.5 pl-10 pr-4 focus:outline-none focus:ring-1 focus:ring-[#0abab5]/50 w-72 transition-all placeholder:text-white/20 text-sm"
-              />
-            </div>
-            <button className="p-2.5 rounded-xl border border-white/20 hover:bg-white/5 transition-colors relative group">
-              <Bell
-                size={20}
-                className="text-white/70 group-hover:text-white"
-              />
-              <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-[#0abab5] rounded-full"></span>
-            </button>
-            <button className="flex items-center gap-2 px-4 sm:px-5 py-2.5 bg-[#0abab5] hover:bg-[#0abab5]/90 text-black font-bold rounded-xl transition-all shadow-[0_0_25px_rgba(10,186,181,0.2)] text-sm">
-              <Plus size={20} />
-              <span className="hidden sm:inline">Create New</span>
-            </button>
-          </div>
-        </header>
-
-        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-          {children}
-        </div>
-      </main>
+      <div className="flex-1  p-10">{children}</div>
 
       {/* Bottom Navigation - Mobile Only */}
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-3xl border-t border-white/5 pb-[env(safe-area-inset-bottom)]">

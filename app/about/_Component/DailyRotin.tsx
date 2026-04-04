@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 function DailyRotin() {
   return (
-    <section className="py-20 bg-[#050505] relative z-10 overflow-hidden">
+    <section className="   bg-[#050505] relative z-10 overflow-hidden">
       <div className="ratio px-6">
         <div className="flex flex-col md:flex-row gap-20">
           <div className="md:w-1/3 sticky top-32 h-fit">

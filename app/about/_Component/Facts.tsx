@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 function Facts({ quickFacts }: any) {
   return (
-    <section className="py-20   backdrop-blur-sm relative z-10">
+    <section className="     backdrop-blur-sm relative z-10">
       <div className="ratio grid grid-cols-2 md:grid-cols-4 gap-4 px-6">
         {quickFacts.map((fact: any, i: any) => (
           <motion.div

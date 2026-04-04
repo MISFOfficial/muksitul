@@ -13,7 +13,7 @@ import {
 
 export default function DashboardPage() {
   return (
-    <div className="space-y-8 pb-10">
+    <div className="space-y-8 ">
       {/* Stats Grid - No backgrounds, only borders */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {[

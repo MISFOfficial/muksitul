@@ -165,7 +165,7 @@ export default function ProjectPage() {
       </section>
 
       {/* Project Details */}
-      <section className="ratio py-20 border-t primary-border">
+      <section className="ratio    border-t primary-border">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main Content - 2 columns */}
           <div className="lg:col-span-2 space-y-16">
@@ -316,7 +316,7 @@ export default function ProjectPage() {
 
       {/* New: Extended Architecture & Insights Section (Append below) */}
       {(project.architecture || project.lessons) && (
-        <section className="ratio py-20 border-t primary-border space-y-20">
+        <section className="ratio    border-t primary-border space-y-20">
           {/* Architecture Map */}
           {project.architecture && (
             <div>
@@ -390,7 +390,7 @@ export default function ProjectPage() {
       )}
 
       {/* CTA Section */}
-      <section className="ratio py-20 border-t primary-border">
+      <section className="ratio    border-t primary-border">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-black mb-6">
             Interested in a Similar Project?

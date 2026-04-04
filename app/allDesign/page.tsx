@@ -65,7 +65,7 @@ export default function AllDesignPage() {
 
         {/* Empty State */}
         {designsData.length === 0 && (
-          <div className="text-center py-20 border border-dashed primary-border primary-rounded">
+          <div className="text-center    border border-dashed primary-border primary-rounded">
             <p className="text-gray-500">No designs found in the vault.</p>
           </div>
         )}

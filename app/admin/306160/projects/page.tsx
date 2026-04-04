@@ -46,7 +46,7 @@ export default function ProjectsPage() {
 
   if (isError) {
     return (
-      <div className="flex flex-col items-center justify-center py-20 text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <div className="flex flex-col items-center justify-center    text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
         <div className="p-6 rounded-full border border-red-500/20 text-red-500 mb-6 shadow-[0_0_30px_rgba(239,68,68,0.1)]">
           <RefreshCw size={48} className="animate-spin-slow" />
         </div>
@@ -180,7 +180,7 @@ export default function ProjectsPage() {
             </div>
           ))
         ) : (
-          <div className="col-span-full py-20 flex flex-col items-center justify-center text-center">
+          <div className="col-span-full    flex flex-col items-center justify-center text-center">
             <div className="p-8 rounded-full border primary-border text-white/10 mb-6">
               <FolderDot size={64} />
             </div>

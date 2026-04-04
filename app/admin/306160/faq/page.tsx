@@ -3,7 +3,7 @@ import { HelpCircle } from "lucide-react";
 
 export default function FAQPage() {
   return (
-    <div className="flex flex-col items-center justify-center py-20 text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <div className="flex flex-col items-center justify-center    text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="p-6 rounded-full border border-[#0abab5]/20 text-[#0abab5] mb-6 shadow-[0_0_30px_rgba(10,186,181,0.1)]">
         <HelpCircle size={48} />
       </div>

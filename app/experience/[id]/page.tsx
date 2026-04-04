@@ -309,7 +309,7 @@ export default function ExperienceDetail() {
       </div>
 
       {/* CTA Section */}
-      <section className="ratio py-20 border-t primary-border">
+      <section className="ratio    border-t primary-border">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-black mb-6 text-white">
             Want to Work Together?
