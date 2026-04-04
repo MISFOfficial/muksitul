@@ -1,253 +1,54 @@
 "use client";
 
-import React, { useRef } from "react";
-import { resumeData } from "@/lib/resumeData";
+import React from "react";
 import { ArrowLeft, Download } from "lucide-react";
 import Link from "next/link";
 
 export default function ResumePage() {
+  const driveFileId = "1gdqcS1d0jb4ALWIKdPShPKQLP6NIkI2i";
+  const previewUrl = `https://drive.google.com/file/d/${driveFileId}/preview`;
+  const downloadUrl = `https://drive.google.com/uc?export=download&id=${driveFileId}`;
+
   return (
-    <main className="min-h-screen   text-white relative">
-      {/* Download Button - Top Right Corner */}
-      <div className="fixed top-6 left-6 z-50">
-        <button
-          onClick={() => window.history.back()}
-          className="text-white cursor-pointer font-bold flex items-center gap-2 hover:scale-105 transition-transform py-3 "
-        >
-          <ArrowLeft size={20} />
-          Back
-        </button>
-      </div>
-      {/* Download Button - Top Right Corner */}
-      <div className="fixed top-6 right-6 z-50">
-        <button className="cursor-pointer bg-gradient-to-r text-xs md:text-base from-[#20255e] to-[#2a2f7e] text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-transform shadow-2xl border primary-border">
-          <Download size={15} />
-          Download PDF
-        </button>
-      </div>
+    <main className="min-h-screen text-white relative bg-transparent overflow-x-hidden">
+      {/* Navigation - Top Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-transparent border-b border-white/5 px-4 md:px-8 py-4">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
+          <button
+            onClick={() => window.history.back()}
+            className="text-white cursor-pointer transition-all font-black flex items-center gap-2 md:gap-3 text-[12px] md:text-[14px] uppercase tracking-[0.3em] md:tracking-[0.4em] group shrink-0"
+          >
+            <ArrowLeft
+              size={14}
+              className="group-hover:-translate-x-1 md:group-hover:-translate-x-2 transition-transform"
+            />
+            Back
+          </button>
 
-      {/* Resume Container - Dark Theme */}
-      <div className="max-w-[210mm] mx-auto primary-color shadow-2xl  border primary-border ">
-        <div className="p-12">
-          {/* Header */}
-          <div className="text-center border-b-2 primary-border pb-6 mb-6">
-            <h1 className="text-4xl font-black mb-2 text-white">
-              {resumeData.personalInfo.name}
-            </h1>
-            <h2 className="text-lg text-white font-semibold mb-4">
-              {resumeData.personalInfo.title}
-            </h2>
-
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
-              <span>{resumeData.personalInfo.location}</span>
-              <span className="text-white">|</span>
-              <span>{resumeData.personalInfo.phone}</span>
-              <span className="text-white">|</span>
-              <span className="text-white">
-                {resumeData.personalInfo.email}
-              </span>
-            </div>
-
-            <div className="flex justify-center gap-4 mt-3 text-sm">
-              <span className="text-white font-semibold">Portfolio</span>
-              <span className="text-gray-600">•</span>
-              <span className="text-white font-semibold">GitHub</span>
-              <span className="text-gray-600">•</span>
-              <span className="text-white font-semibold">LinkedIn</span>
-            </div>
-          </div>
-
-          {/* Professional Summary */}
-          <section className="mb-6">
-            <h3 className="text-lg font-bold uppercase border-b-2 primary-border pb-1 mb-3 text-white">
-              Professional Summary
-            </h3>
-            <p className="text-sm text-gray-300 leading-relaxed text-justify">
-              {resumeData.summary}
-            </p>
-          </section>
-
-          {/* Skills */}
-          <section className="mb-6">
-            <h3 className="text-lg font-bold uppercase border-b-2 primary-border pb-1 mb-3 text-white">
-              Skills & Technologies
-            </h3>
-
-            <div className="space-y-2 text-sm">
-              <div className="primary-text4 p-3 rounded border primary-border">
-                <span className="font-bold text-white">Frontend: </span>
-                <span className="text-gray-300">
-                  {resumeData.skills.frontend.join(", ")}
-                </span>
-              </div>
-              <div className="primary-text4 p-3 rounded border primary-border">
-                <span className="font-bold text-white">Backend: </span>
-                <span className="text-gray-300">
-                  {resumeData.skills.backend.join(", ")}
-                </span>
-              </div>
-              <div className="primary-text4 p-3 rounded border primary-border">
-                <span className="font-bold text-white">Authentication: </span>
-                <span className="text-gray-300">
-                  {resumeData.skills.authentication.join(", ")}
-                </span>
-              </div>
-              <div className="primary-text4 p-3 rounded border primary-border">
-                <span className="font-bold text-white">Payment Gateways: </span>
-                <span className="text-gray-300">
-                  {resumeData.skills.paymentGateways.join(", ")}
-                </span>
-              </div>
-              <div className="primary-text4 p-3 rounded border primary-border">
-                <span className="font-bold text-white">Design Tools: </span>
-                <span className="text-gray-300">
-                  {resumeData.skills.designTools.join(", ")}
-                </span>
-              </div>
-              <div className="primary-text4 p-3 rounded border primary-border">
-                <span className="font-bold text-white">Tools: </span>
-                <span className="text-gray-300">
-                  {resumeData.skills.tools.join(", ")}
-                </span>
-              </div>
-              <div className="primary-text4 p-3 rounded border primary-border">
-                <span className="font-bold text-white">Soft Skills: </span>
-                <span className="text-gray-300">
-                  {resumeData.skills.softSkills.join(", ")}
-                </span>
-              </div>
-            </div>
-          </section>
-
-          {/* Experience */}
-          <section className="mb-6">
-            <h3 className="text-lg font-bold uppercase border-b-2 primary-border pb-1 mb-3 text-white">
-              Experience
-            </h3>
-
-            {resumeData.experience.map((exp, idx) => (
-              <div
-                key={idx}
-                className="mb-4 primary-text4 p-4 primary-rounded border-l-4 primary-border"
-              >
-                <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <h4 className="font-bold text-base text-white">
-                      {exp.position} |{" "}
-                      <span className="text-white">{exp.company}</span>
-                    </h4>
-                    <p className="text-sm text-gray-400">{exp.location}</p>
-                  </div>
-                  <span className="text-sm text-gray-400 whitespace-nowrap primary-text4 px-3 py-1 rounded-full border primary-border">
-                    {exp.period}
-                  </span>
-                </div>
-
-                <ul className="list-disc list-inside space-y-1 text-sm text-gray-300">
-                  {exp.responsibilities.map((resp, ridx) => (
-                    <li key={ridx}>{resp}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </section>
-
-          {/* Projects */}
-          <section className="mb-6">
-            <h3 className="text-lg font-bold uppercase border-b-2 primary-border pb-1 mb-3 text-white">
-              Relevant Projects
-            </h3>
-
-            {resumeData.projects.map((project, idx) => (
-              <div
-                key={idx}
-                className="mb-4 primary-text4 p-4 primary-rounded border-l-4 primary-border"
-              >
-                <div className="flex justify-between items-start mb-1">
-                  <h4 className="font-bold text-base text-white">
-                    {project.name}
-                  </h4>
-                  <Link
-                    href={project?.href || "#"}
-                    target="_blank"
-                    className="text-sm text-white font-semibold"
-                  >
-                    {project.liveLink}
-                  </Link>
-                </div>
-
-                <p className="text-sm text-gray-300 mb-2">
-                  {project.description}
-                </p>
-
-                <div className="mb-2">
-                  <span className="font-bold text-sm text-white">
-                    Key Features:
-                  </span>
-                  <ul className="list-disc list-inside text-sm text-gray-300 ml-2">
-                    {project.features.map((feature, fidx) => (
-                      <li key={fidx}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <span className="font-bold text-sm text-white">
-                    Tech Stack:{" "}
-                  </span>
-                  <span className="text-sm text-gray-300">
-                    {project.techStack.join(", ")}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </section>
-
-          {/* Education */}
-          <section className="mb-6">
-            <h3 className="text-lg font-bold uppercase border-b-2 primary-border pb-1 mb-3 text-white">
-              Education
-            </h3>
-
-            <div className="flex justify-between items-start primary-text4 p-4 primary-rounded border-l-4 primary-border">
-              <div>
-                <h4 className="font-bold text-base text-white">
-                  {resumeData.education.degree}
-                </h4>
-                <p className="text-sm text-white font-semibold">
-                  {resumeData.education.institution}
-                </p>
-                <p className="text-sm text-gray-400">
-                  {resumeData.education.cgpa}
-                </p>
-              </div>
-              <span className="text-sm text-gray-400 primary-text4 px-3 py-1 rounded-full border primary-border">
-                {resumeData.education.period}
-              </span>
-            </div>
-          </section>
-
-          {/* Languages */}
-          <section className="mb-6">
-            <h3 className="text-lg font-bold uppercase border-b-2 primary-border pb-1 mb-3 text-white">
-              Language
-            </h3>
-
-            <div className="text-sm text-gray-300 primary-text4 p-4 primary-rounded border primary-border">
-              <p>
-                <span className="font-bold text-white">Bangla:</span>{" "}
-                {resumeData.languages.bangla}
-              </p>
-              <p>
-                <span className="font-bold text-white">English:</span>{" "}
-                {resumeData.languages.english}
-              </p>
-            </div>
-          </section>
+          <Link
+            href={downloadUrl}
+            className="bg-[#0abab5] hover:bg-[#0abab5]/90 text-black px-6 md:px-10 py-2.5 md:py-3.5 primary-rounded font-black uppercase tracking-[0.15em] md:tracking-[0.2em] text-[9px] md:text-[10px] flex items-center gap-2 transition-all shadow-[0_5px_30px_rgba(10,186,181,0.15)] active:scale-95 shrink-0"
+          >
+            <Download size={14} className="hidden sm:block" />
+            Download PDF
+          </Link>
         </div>
       </div>
 
-      {/* Bottom Spacing */}
+      {/* Responsive PDF Viewer */}
+      <div className="pt-24 min-h-screen w-full flex flex-col bg-transparent items-center px-4 md:px-0 pb-10">
+        <div className="w-full md:max-w-[850px] h-[75vh] md:h-[85vh] bg-transparent relative shadow-2xl overflow-hidden rounded-sm border border-white/5">
+          <iframe
+            src={previewUrl}
+            className="w-full h-full border-none"
+            allow="autoplay"
+            title="Professional Resume"
+          />
+
+          {/* Minimal top cover for Drive viewer integration */}
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-white/5 z-10" />
+        </div>
+      </div>
     </main>
   );
 }
