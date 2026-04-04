@@ -25,16 +25,16 @@ const Skeleton = () => (
     <div className="h-[280px] w-full bg-[#1a1a1a]" />
     <div className="p-5 space-y-4">
       <div className="flex justify-between items-center">
-        <div className="h-6 w-32 bg-white/5 rounded" />
-        <div className="h-4 w-12 bg-white/5 rounded" />
+        <div className="h-6 w-32 bg-white/5 primary-rounded" />
+        <div className="h-4 w-12 bg-white/5 primary-rounded" />
       </div>
       <div className="space-y-2">
-        <div className="h-3 w-full bg-white/5 rounded" />
-        <div className="h-3 w-2/3 bg-white/5 rounded" />
+        <div className="h-3 w-full bg-white/5 primary-rounded" />
+        <div className="h-3 w-2/3 bg-white/5 primary-rounded" />
       </div>
       <div className="flex gap-2 pt-2">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="h-6 w-16 bg-white/5 rounded" />
+          <div key={i} className="h-6 w-16 bg-white/5 primary-rounded" />
         ))}
       </div>
     </div>
@@ -47,7 +47,7 @@ export default function ProjectsPage() {
   if (isError) {
     return (
       <div className="flex flex-col items-center justify-center    text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
-        <div className="p-6 rounded-full border border-red-500/20 text-red-500 mb-6 shadow-[0_0_30px_rgba(239,68,68,0.1)]">
+        <div className="p-6 primary-rounded border border-red-500/20 text-red-500 mb-6 shadow-[0_0_30px_rgba(239,68,68,0.1)]">
           <RefreshCw size={48} className="animate-spin-slow" />
         </div>
         <h2 className="text-3xl font-bold mb-2 tracking-tight">
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
         </p>
         <button
           onClick={() => refetch()}
-          className="px-8 py-3 border border-white/10 hover:border-[#0abab5] hover:text-[#0abab5] rounded-xl font-bold transition-all uppercase tracking-widest text-sm"
+          className="px-8 py-3 border primary-border hover:border-[#0abab5] primary-text primary-rounded font-bold transition-all uppercase tracking-widest text-sm"
         >
           Try Again
         </button>
@@ -79,12 +79,12 @@ export default function ProjectsPage() {
           <input
             type="text"
             placeholder="Search projects by company or role..."
-            className="w-full bg-transparent border border-white/10 rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-[#0abab5]/50 focus:ring-1 focus:ring-[#0abab5]/20 transition-all text-sm font-medium tracking-wide"
+            className="w-full bg-transparent border primary-border primary-rounded py-3.5 pl-12 pr-4 focus:outline-none focus:border-[#0abab5]/50 focus:ring-1 focus:ring-[#0abab5]/20 transition-all text-sm font-medium tracking-wide"
           />
         </div>
         <Link
           href="/admin/306160/projects/create"
-          className="flex items-center justify-center gap-2 px-8 py-3.5 bg-[#0abab5] hover:bg-[#0abab5]/90 text-black font-black uppercase tracking-[0.1em] rounded-xl transition-all shadow-[0_0_25px_rgba(10,186,181,0.2)] text-xs"
+          className="flex items-center justify-center gap-2 px-8 py-3.5 primary-color2 hover:bg-[#0abab5]/90 text-black font-black uppercase tracking-[0.1em] primary-rounded transition-all shadow-[0_0_25px_rgba(10,186,181,0.2)] text-xs"
         >
           <Plus size={20} />
           <span>Add New Projects</span>
@@ -121,17 +121,17 @@ export default function ProjectsPage() {
 
                 {/* Admin Actions Overlay */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 z-10">
-                  <button className="bg-[#232c66] text-white px-5 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-[#232c66]/90 transition-all active:scale-95 shadow-xl">
+                  <button className="primary-color text-white px-5 py-2.5 primary-rounded font-bold flex items-center gap-2 hover:bg-[#232c66]/90 transition-all active:scale-95 shadow-xl">
                     <Edit size={16} /> Edit Details
                   </button>
-                  <button className="bg-red-500/10 border border-red-500/50 backdrop-blur-md text-red-500 p-2.5 rounded-full hover:bg-red-500 hover:text-white transition-all active:scale-95 shadow-xl">
+                  <button className="bg-red-500/10 border border-red-500/50 backdrop-blur-md text-red-500 p-2.5 primary-rounded hover:bg-red-500 hover:text-white transition-all active:scale-95 shadow-xl">
                     <Trash2 size={18} />
                   </button>
                 </div>
 
                 {/* Info Badge */}
                 <div className="absolute top-4 left-4 z-20">
-                  <div className="bg-[#232c66] text-white text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest shadow-xl">
+                  <div className="primary-color text-white text-[10px] font-black px-3 py-1.5 primary-rounded uppercase tracking-widest shadow-xl">
                     {project.duration}
                   </div>
                 </div>
@@ -165,7 +165,7 @@ export default function ProjectsPage() {
                     .map((tech: string, i: number) => (
                       <span
                         key={i}
-                        className="text-[11px] font-black px-3 py-1.5 rounded primary-color text-white uppercase tracking-widest"
+                        className="text-[11px] font-black px-3 py-1.5 primary-rounded primary-color text-white uppercase tracking-widest"
                       >
                         {tech}
                       </span>
@@ -181,7 +181,7 @@ export default function ProjectsPage() {
           ))
         ) : (
           <div className="col-span-full    flex flex-col items-center justify-center text-center">
-            <div className="p-8 rounded-full border primary-border text-white/10 mb-6">
+            <div className="p-8 primary-rounded border primary-border text-white/10 mb-6">
               <FolderDot size={64} />
             </div>
             <h3 className="text-2xl font-bold tracking-tight mb-2">

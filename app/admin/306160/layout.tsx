@@ -61,7 +61,7 @@ export default function AdminLayout({
       <aside
         className={`${
           isSidebarOpen ? "w-64" : "w-20"
-        } transition-all duration-300 border-r border-white/20 hidden lg:flex flex-col sticky top-0 h-screen z-50`}
+        } transition-all duration-300 border-r primary-border hidden lg:flex flex-col sticky top-0 h-screen z-50`}
       >
         <div className="p-6 flex items-center justify-between">
           <AnimatePresence mode="wait">
@@ -78,7 +78,7 @@ export default function AdminLayout({
           </AnimatePresence>
           <button
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="p-1.5 rounded-lg border border-white/20 hover:bg-white/10 transition-colors"
+            className="p-1.5 primary-rounded border primary-border hover:bg-white/10 transition-colors"
           >
             {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -89,9 +89,9 @@ export default function AdminLayout({
             <Link
               key={link.name}
               href={link.href}
-              className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 group border ${
+              className={`w-full flex items-center gap-3 px-3 py-3 primary-rounded transition-all duration-200 group border ${
                 pathname === link.href
-                  ? "border-[#0abab5]/50 bg-[#0abab5]/5 text-[#0abab5]"
+                  ? "border-[#0abab5]/50 bg-[#0abab5]/5 primary-text"
                   : "text-white/60 border-transparent hover:border-white/10 hover:text-white"
               }`}
             >
@@ -111,18 +111,18 @@ export default function AdminLayout({
               {pathname === link.href && isSidebarOpen && (
                 <motion.div
                   layoutId="activeTab"
-                  className="ml-auto w-1.5 h-1.5 rounded-full bg-[#0abab5]"
+                  className="ml-auto w-1.5 h-1.5 primary-rounded primary-color2"
                 />
               )}
             </Link>
           ))}
         </nav>
 
-        <div className="p-4 border-t border-white/20">
+        <div className="p-4 border-t primary-border">
           <div
             className={`flex items-center gap-3 ${isSidebarOpen ? "px-2" : "justify-center"}`}
           >
-            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center font-bold text-white">
+            <div className="w-10 h-10 primary-rounded border primary-border flex items-center justify-center font-bold text-white">
               J
             </div>
             {isSidebarOpen && (
@@ -153,7 +153,7 @@ export default function AdminLayout({
               }`}
             >
               <div
-                className={`relative flex items-center justify-center p-2 rounded-full transition-all ${
+                className={`relative flex items-center justify-center p-2 primary-rounded transition-all ${
                   pathname === link.href
                     ? "bg-white/10 ring-1 ring-white/20"
                     : "hover:bg-white/5"
@@ -173,7 +173,7 @@ export default function AdminLayout({
             }`}
           >
             <div
-              className={`relative flex items-center justify-center p-2 rounded-full transition-all ${
+              className={`relative flex items-center justify-center p-2 primary-rounded transition-all ${
                 isMoreMenuOpen
                   ? "bg-white/10 ring-1 ring-white/20"
                   : "hover:bg-white/5"
@@ -203,7 +203,7 @@ export default function AdminLayout({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute bottom-[calc(100%+8px)] left-4 right-4 mb-4 z-[60] bg-zinc-900/95 backdrop-blur-3xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl lg:hidden"
+              className="absolute bottom-[calc(100%+8px)] left-4 right-4 mb-4 z-[60] bg-zinc-900/95 backdrop-blur-3xl border border-white/10 primary-rounded overflow-hidden shadow-2xl lg:hidden"
             >
               <div className="p-1 grid grid-cols-1">
                 <div className="px-6 py-3 border-b border-white/5">

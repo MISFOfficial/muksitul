@@ -140,7 +140,7 @@ export default function SkillsPage() {
   );
 
   const inputCls =
-    "w-full bg-white/[0.03] border border-white/5 rounded-xl px-5 py-3 text-sm font-medium focus:outline-none focus:border-[#0abab5]/30 transition-all placeholder:text-white/10";
+    "w-full bg-white/[0.03] border primary-border primary-rounded px-5 py-3 text-sm font-medium focus:outline-none focus:border-[#0abab5]/30 transition-all placeholder:text-white/10";
   const labelCls =
     "text-[10px] font-black uppercase tracking-[0.2em] text-white/30";
 
@@ -162,7 +162,7 @@ export default function SkillsPage() {
               setEditingSkill(null);
               setIsModalOpen(true);
             }}
-            className="flex items-center gap-3 px-6 py-3 bg-[#0abab5] hover:bg-[#0abab5]/90 text-black font-black uppercase tracking-[0.2em] text-[10px] rounded-full transition-all shadow-lg hover:shadow-[#0abab5]/20"
+            className="flex items-center gap-3 px-6 py-3 primary-color2 hover:bg-[#0abab5]/90 text-black font-black uppercase tracking-[0.2em] text-[10px] primary-rounded transition-all shadow-lg hover:shadow-[#0abab5]/20"
           >
             <Plus size={16} strokeWidth={3} />
             <span>Add New</span>
@@ -171,7 +171,7 @@ export default function SkillsPage() {
       </div>
 
       {/* Action Bar - Tight Layout */}
-      <div className="flex flex-col lg:flex-row items-center gap-4 bg-white/[0.02] p-2 rounded-2xl border border-white/5">
+      <div className="flex flex-col lg:flex-row items-center gap-4 bg-white/[0.02] p-2 primary-rounded border primary-border">
         <div className="relative flex-1 group w-full">
           <Search
             className="absolute left-4 top-1/2 -translate-y-1/2 text-white/10 group-focus-within:text-[#0abab5] transition-colors"
@@ -189,7 +189,7 @@ export default function SkillsPage() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="flex-1 lg:flex-none bg-black border border-white/10 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] text-white/60 focus:outline-none focus:border-[#0abab5]/30 cursor-pointer text-center"
+            className="flex-1 lg:flex-none bg-black border primary-border px-6 py-3 primary-rounded text-[10px] font-black uppercase tracking-[0.2em] text-white/60 focus:outline-none focus:border-[#0abab5]/30 cursor-pointer text-center"
           >
             <option value="all">ALL CATEGORIES</option>
             {CATEGORIES.map((c) => (
@@ -200,7 +200,7 @@ export default function SkillsPage() {
           </select>
           <button
             onClick={() => refetch()}
-            className="p-3 border border-white/10 rounded-xl text-white/40 hover:text-white hover:bg-white/5 transition-all"
+            className="p-3 border primary-border primary-rounded text-white/40 hover:text-white hover:bg-white/5 transition-all"
           >
             <RefreshCw size={16} />
           </button>
@@ -213,17 +213,17 @@ export default function SkillsPage() {
           ? Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
-                className="h-16 rounded-xl border border-white/5 animate-pulse bg-white/[0.01]"
+                className="h-16 primary-rounded border primary-border animate-pulse bg-white/[0.01]"
               />
             ))
           : filteredSkills?.map((skill: any) => (
               <motion.div
                 layout
                 key={skill._id}
-                className="group flex flex-col sm:flex-row items-center gap-6 bg-[#0a0a0a]/40 border border-white/5 rounded-2xl p-3 px-6 hover:bg-[#0f0f0f] hover:border-[#0abab5]/20 transition-all duration-300"
+                className="group flex flex-col sm:flex-row items-center gap-6 bg-[#0a0a0a]/40 border primary-border primary-rounded p-3 px-6 hover:bg-[#0f0f0f] hover:border-[#0abab5]/20 transition-all duration-300"
               >
                 {/* Logo - Compact */}
-                <div className="w-10 h-10 rounded-lg bg-black border border-white/10 flex items-center justify-center p-2 shrink-0 shadow-inner group-hover:scale-105 transition-transform duration-500">
+                <div className="w-10 h-10 primary-rounded bg-black border primary-border flex items-center justify-center p-2 shrink-0 shadow-inner group-hover:scale-105 transition-transform duration-500">
                   <img
                     src={skill.logo?.url || skill.logo}
                     alt={skill.name}
@@ -233,7 +233,7 @@ export default function SkillsPage() {
 
                 {/* Info - Inline side-by-side */}
                 <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
-                  <h3 className="text-sm font-bold text-white tracking-widest uppercase group-hover:text-[#0abab5] transition-colors">
+                  <h3 className="text-sm font-bold text-white tracking-widest uppercase primary-text transition-colors">
                     {skill.name}
                   </h3>
                   <div className="flex items-center gap-2 opacity-40">
@@ -253,16 +253,16 @@ export default function SkillsPage() {
                 </div>
 
                 {/* Actions - Horizontal on the right */}
-                <div className="flex items-center gap-2 border-t sm:border-t-0 sm:border-l border-white/5 pt-3 sm:pt-0 sm:pl-6 w-full sm:w-auto justify-end">
+                <div className="flex items-center gap-2 border-t sm:border-t-0 sm:border-l primary-border pt-3 sm:pt-0 sm:pl-6 w-full sm:w-auto justify-end">
                   <button
                     onClick={() => handleOpenModal(skill)}
-                    className="w-9 h-9 flex items-center justify-center rounded-lg border border-white/5 text-white/20 hover:text-[#0abab5] hover:border-[#0abab5]/30 transition-all bg-black/20"
+                    className="w-9 h-9 flex items-center justify-center primary-rounded border primary-border text-white/20 text-hover hover:border-[#0abab5]/30 transition-all bg-black/20"
                   >
                     <Edit size={14} />
                   </button>
                   <button
                     onClick={() => handleDelete(skill._id, skill.name)}
-                    className="w-9 h-9 flex items-center justify-center rounded-lg border border-white/5 text-white/20 hover:text-red-500 hover:border-red-500/30 transition-all bg-black/20"
+                    className="w-9 h-9 flex items-center justify-center primary-rounded border primary-border text-white/20 hover:text-red-500 hover:border-red-500/30 transition-all bg-black/20"
                   >
                     <Trash2 size={14} />
                   </button>
@@ -286,9 +286,9 @@ export default function SkillsPage() {
               initial={{ opacity: 0, y: 10, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.98 }}
-              className="relative w-full max-w-lg bg-[#0a0a0a] border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl"
+              className="relative w-full max-w-lg bg-[#0a0a0a] border primary-border primary-rounded overflow-hidden shadow-2xl"
             >
-              <div className="p-8 border-b border-white/5 bg-white/[0.01] flex items-center justify-between">
+              <div className="p-8 border-b primary-border bg-white/[0.01] flex items-center justify-between">
                 <div>
                   <h2 className="text-xl font-serif text-white uppercase tracking-widest">
                     {editingSkill ? "Update" : "Define"}{" "}
@@ -297,7 +297,7 @@ export default function SkillsPage() {
                 </div>
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/5 hover:bg-white/5"
+                  className="w-10 h-10 flex items-center justify-center primary-rounded border primary-border hover:bg-white/5"
                 >
                   <X size={18} />
                 </button>
@@ -319,7 +319,7 @@ export default function SkillsPage() {
                 <div className="space-y-3">
                   <label className={labelCls}>Symbol / Logo</label>
                   <div
-                    className={`relative aspect-square max-w-[120px] mx-auto rounded-3xl border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center ${isDragging ? "border-[#0abab5] bg-[#0abab5]/10" : logoPreview ? "border-[#0abab5]/20 bg-white/[0.01]" : "border-white/5 hover:bg-white/[0.02]"}`}
+                    className={`relative aspect-square max-w-[120px] mx-auto primary-rounded border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center ${isDragging ? "border-[#0abab5] bg-[#0abab5]/10" : logoPreview ? "border-[#0abab5]/20 bg-white/[0.01]" : "primary-border hover:bg-white/[0.02]"}`}
                     onClick={() =>
                       document.getElementById("logo-upload")?.click()
                     }
@@ -367,7 +367,7 @@ export default function SkillsPage() {
                         onClick={() =>
                           setFormData((p) => ({ ...p, category: c.id }))
                         }
-                        className={`flex flex-col items-center gap-2 p-4 rounded-2xl border transition-all ${formData.category === c.id ? "bg-[#0abab5]/10 border-[#0abab5] text-[#0abab5]" : "bg-white/[0.01] border-white/5 text-white/20"}`}
+                        className={`flex flex-col items-center gap-2 p-4 primary-rounded border transition-all ${formData.category === c.id ? "bg-[#0abab5]/10 border-[#0abab5] primary-text" : "bg-white/[0.01] primary-border text-white/20"}`}
                       >
                         <c.icon size={16} />
                         <span className="text-[8px] font-black tracking-widest">
@@ -381,14 +381,14 @@ export default function SkillsPage() {
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="flex-1 py-4 border border-white/5 text-white/20 hover:text-white rounded-xl font-black uppercase tracking-widest text-[9px]"
+                    className="flex-1 py-4 border primary-border text-white/20 hover:text-white primary-rounded font-black uppercase tracking-widest text-[9px]"
                   >
                     QUIT
                   </button>
                   <button
                     type="submit"
                     disabled={isCreating || isUpdating}
-                    className="flex-1 py-4 bg-[#0abab5] hover:bg-[#0abab5]/90 text-black rounded-xl font-black uppercase tracking-widest text-[9px] disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="flex-1 py-4 primary-color2 hover:bg-[#0abab5]/90 text-black primary-rounded font-black uppercase tracking-widest text-[9px] disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     {isCreating || isUpdating ? (
                       <Loader2 size={14} className="animate-spin" />
