@@ -17,6 +17,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { useGetAllProjects } from "./DataHub";
+import Link from "next/link";
 
 // Skeleton Component
 const Skeleton = () => (
@@ -81,10 +82,13 @@ export default function ProjectsPage() {
             className="w-full bg-transparent border border-white/10 rounded-xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-[#0abab5]/50 focus:ring-1 focus:ring-[#0abab5]/20 transition-all text-sm font-medium tracking-wide"
           />
         </div>
-        <button className="flex items-center justify-center gap-2 px-8 py-3.5 bg-[#0abab5] hover:bg-[#0abab5]/90 text-black font-black uppercase tracking-[0.1em] rounded-xl transition-all shadow-[0_0_25px_rgba(10,186,181,0.2)] text-xs">
+        <Link
+          href="/admin/306160/projects/create"
+          className="flex items-center justify-center gap-2 px-8 py-3.5 bg-[#0abab5] hover:bg-[#0abab5]/90 text-black font-black uppercase tracking-[0.1em] rounded-xl transition-all shadow-[0_0_25px_rgba(10,186,181,0.2)] text-xs"
+        >
           <Plus size={20} />
-          <span>Add New Work</span>
-        </button>
+          <span>Add New Projects</span>
+        </Link>
       </div>
 
       {/* Main Grid */}
