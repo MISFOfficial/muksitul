@@ -21,6 +21,7 @@ import {
   Bell,
   Settings,
   MoreHorizontal,
+  Award,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -30,6 +31,7 @@ const sidebarLinks = [
   { name: "Experience", icon: Briefcase, href: "/admin/306160/experience" },
   { name: "Projects", icon: FolderDot, href: "/admin/306160/projects" },
   { name: "Design", icon: Palette, href: "/admin/306160/design" },
+  { name: "Certificates", icon: Award, href: "/admin/306160/certificates" },
   { name: "CMH", icon: Layers, href: "/admin/306160/cmh" },
   { name: "Resume", icon: FileText, href: "/admin/306160/resume" },
   { name: "Bio", icon: User, href: "/admin/306160/bio" },
