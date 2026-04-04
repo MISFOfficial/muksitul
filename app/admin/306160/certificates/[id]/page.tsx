@@ -1,5 +1,7 @@
 "use client";
 
+export const runtime = "edge";
+
 import React, { useState, useCallback, useEffect } from "react";
 import {
   useGetCertificateById,
