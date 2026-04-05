@@ -265,7 +265,7 @@ export default function EditExperiencePage() {
               }}
               className="flex items-center gap-2 px-6 py-3.5 border primary-border text-white/40 hover:text-white hover:bg-white/5 transition-all font-black uppercase tracking-[0.15em] text-xs rounded-xl active:scale-95"
             >
-              Abort
+              Abort ....
             </button>
             <button
               onClick={handleSubmit}
