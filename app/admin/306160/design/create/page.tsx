@@ -25,6 +25,7 @@ import {
 import { useCreateDesign } from "../DataHub";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import Image from "next/image";
 
 export default function CreateDesignPage() {
   const router = useRouter();
@@ -178,9 +179,12 @@ export default function CreateDesignPage() {
               >
                 {coverPreview ? (
                   <>
-                    <img
+                    <Image
                       src={coverPreview}
-                      className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      alt="Cover Preview"
+                      fill
+                      unoptimized
+                      className="object-cover transition-transform duration-700 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/60 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
                       <Upload
@@ -260,7 +264,13 @@ export default function CreateDesignPage() {
                     key={i}
                     className="group relative aspect-square primary-rounded overflow-hidden border primary-border bg-black shadow-lg"
                   >
-                    <img src={src} className="w-full h-full object-cover" />
+                    <Image
+                      src={src}
+                      alt={`Gallery ${i}`}
+                      fill
+                      unoptimized
+                      className="object-cover"
+                    />
                     <button
                       type="button"
                       onClick={(e) => {

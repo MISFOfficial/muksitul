@@ -1,0 +1,92 @@
+{
+    "success": true,
+    "responseCode": 1,
+    "statusCode": 200,
+    "message": "Designs fetched successfully",
+    "data": [
+        {
+            "_id": "69d3b5e3168304a90d3699d8",
+            "title": "dfasdf",
+            "images": [
+                {
+                    "_id": "69d3b5e1168304a90d3699ce",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/071a4388-6a03-40ef-a0f5-63d98e68cd1e.jpg",
+                    "key": "properties/071a4388-6a03-40ef-a0f5-63d98e68cd1e.jpg",
+                    "filename": "Edgbaston_Village_tram_stop,_geograph_7247771_by_Mark_Percy.jpg",
+                    "mimeType": "image/jpeg",
+                    "size": 2549833,
+                    "uploadedAt": "2026-04-06T13:32:17.195Z",
+                    "createdAt": "2026-04-06T13:32:17.200Z",
+                    "updatedAt": "2026-04-06T13:32:17.200Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "69d3b5e2168304a90d3699d0",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/c6f34b4b-2911-442b-8dbf-8384cf7a2b89.jpg",
+                    "key": "properties/c6f34b4b-2911-442b-8dbf-8384cf7a2b89.jpg",
+                    "filename": "GettyImages-1466308860-1-scaled-e1732054333377-1920x1279.jpg",
+                    "mimeType": "image/jpeg",
+                    "size": 141287,
+                    "uploadedAt": "2026-04-06T13:32:18.265Z",
+                    "createdAt": "2026-04-06T13:32:18.270Z",
+                    "updatedAt": "2026-04-06T13:32:18.270Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "69d3b5e2168304a90d3699d1",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/b7719042-9aa1-425f-9613-9d6d16faeebf.jpg",
+                    "key": "properties/b7719042-9aa1-425f-9613-9d6d16faeebf.jpg",
+                    "filename": "p1340924.jpg",
+                    "mimeType": "image/jpeg",
+                    "size": 667487,
+                    "uploadedAt": "2026-04-06T13:32:18.266Z",
+                    "createdAt": "2026-04-06T13:32:18.271Z",
+                    "updatedAt": "2026-04-06T13:32:18.271Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "69d3b5e2168304a90d3699d2",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/490972b9-9de0-49f2-870e-a64e90a3d556.jpg",
+                    "key": "properties/490972b9-9de0-49f2-870e-a64e90a3d556.jpg",
+                    "filename": "station.jpg",
+                    "mimeType": "image/jpeg",
+                    "size": 66958,
+                    "uploadedAt": "2026-04-06T13:32:18.267Z",
+                    "createdAt": "2026-04-06T13:32:18.271Z",
+                    "updatedAt": "2026-04-06T13:32:18.271Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "69d3b5e2168304a90d3699d3",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/720aa264-d763-4068-9df6-0ca383c49041.jpg",
+                    "key": "properties/720aa264-d763-4068-9df6-0ca383c49041.jpg",
+                    "filename": "st-chads-tram-stop-2.jpg",
+                    "mimeType": "image/jpeg",
+                    "size": 149660,
+                    "uploadedAt": "2026-04-06T13:32:18.268Z",
+                    "createdAt": "2026-04-06T13:32:18.271Z",
+                    "updatedAt": "2026-04-06T13:32:18.271Z",
+                    "__v": 0
+                }
+            ],
+            "tags": [
+                "adsfad"
+            ],
+            "year": "2026adfasd",
+            "badge": {
+                "text": "d fasdf",
+                "color": "bg-[#0abab5]"
+            },
+            "description": "f aesdef asdfd",
+            "tools": [
+                "adfasdf"
+            ],
+            "behanceUrl": "f adsfa",
+            "dribbbleUrl": "d asdfas",
+            "figmaUrl": " adsfasd",
+            "createdAt": "2026-04-06T13:32:19.189Z",
+            "updatedAt": "2026-04-06T13:32:19.189Z",
+            "__v": 0
+        }
+    ]
+}

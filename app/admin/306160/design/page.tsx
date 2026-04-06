@@ -18,6 +18,7 @@ import { motion } from "framer-motion";
 import { toast } from "sonner";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function DesignPage() {
   const router = useRouter();
@@ -135,11 +136,13 @@ export default function DesignPage() {
                 className="group flex flex-col md:flex-row items-center gap-6 bg-[#0a0a0a]/40 border primary-border primary-rounded p-4 px-6 hover:bg-[#0f0f0f] hover:border-[#0abab5]/20 transition-all duration-300"
               >
                 {/* Preview */}
-                <div className="w-24 h-16 md:w-32 md:h-20 primary-rounded overflow-hidden border primary-border shrink-0 bg-black">
-                  <img
-                    src={design.image?.url || design.image}
-                    alt={design.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                <div className="w-24 h-16 md:w-32 md:h-20 primary-rounded overflow-hidden border primary-border shrink-0 bg-black relative">
+                  <Image
+                    src={design.images?.[0]?.url || design.image?.url}
+                    alt={design.title || "Design Preview"}
+                    fill
+                    unoptimized
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
 
