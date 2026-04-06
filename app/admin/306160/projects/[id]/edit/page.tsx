@@ -68,7 +68,7 @@ export default function EditProjectPage({
   // --- Multiple images ---
   const [images, setImages] = useState<File[]>([]);
   const [imagePreviews, setImagePreviews] = useState<string[]>([]);
-  const [existingImages, setExistingImages] = useState<string[]>([]);
+  const [existingImages, setExistingImages] = useState<any[]>([]);
 
   // --- Array fields ---
   const [tags, setTags] = useState<string[]>([""]);
@@ -110,14 +110,12 @@ export default function EditProjectPage({
         role: project.role || "",
         liveUrl: project.liveUrl || "",
         githubUrl: project.githubUrl || "",
-        fgithubUrl: project.fgithubUrl || "",
-        bgithubUrl: project.bgithubUrl || "",
+        fgithubUrl: project.frontendGithubUrl || project.fgithubUrl || "",
+        bgithubUrl: project.backendGithubUrl || project.bgithubUrl || "",
       });
 
       if (project.images && project.images.length > 0) {
-        setImagePreview(
-          `https://api.varaniben.com/images/${project.images[0]}`,
-        );
+        setImagePreview(project.images[0].url || project.images[0]);
         setExistingImages(project.images.slice(1));
       }
 
@@ -321,13 +319,20 @@ export default function EditProjectPage({
     images.forEach((img) => data.append("images", img));
 
     // We also need to send the existing images that were NOT removed
-    // Some backends use a separate field like 'existingImages'
     if (existingImages.length > 0) {
-      data.append("remainingImages", JSON.stringify(existingImages));
+      data.append(
+        "remainingImages",
+        JSON.stringify(existingImages.map((img) => img._id || img)),
+      );
     }
 
     Object.entries(formData).forEach(([key, value]) => {
-      if (value.trim()) data.append(key, value.trim());
+      if (value.trim()) {
+        let finalKey = key;
+        if (key === "fgithubUrl") finalKey = "frontendGithubUrl";
+        if (key === "bgithubUrl") finalKey = "backendGithubUrl";
+        data.append(finalKey, value.trim());
+      }
     });
 
     // Send arrays as JSON strings
@@ -566,7 +571,7 @@ export default function EditProjectPage({
                         className="relative aspect-video rounded-xl overflow-hidden group border border-white/5"
                       >
                         <Image
-                          src={`https://api.varaniben.com/images/${src}`}
+                          src={existingImages[i]?.url || existingImages[i]}
                           alt={`existing-${i}`}
                           fill
                           className="object-cover opacity-80 group-hover:opacity-100 transition-opacity"

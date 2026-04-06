@@ -234,7 +234,12 @@ export default function CreateProjectPage() {
     images.forEach((img) => data.append("images", img));
 
     Object.entries(formData).forEach(([key, value]) => {
-      if (value.trim()) data.append(key, value.trim());
+      if (value.trim()) {
+        let finalKey = key;
+        if (key === "fgithubUrl") finalKey = "frontendGithubUrl";
+        if (key === "bgithubUrl") finalKey = "backendGithubUrl";
+        data.append(finalKey, value.trim());
+      }
     });
 
     // Send arrays as JSON strings

@@ -121,7 +121,10 @@ export default function ProjectsPage() {
               <div className="relative h-[280px] w-full overflow-hidden bg-[#1a1a1a]">
                 {project.images && project.images.length > 0 ? (
                   <img
-                    src={`https://api.varaniben.com/images/${project.images[0]}`}
+                    src={
+                      project.images[0].url ||
+                      `https://api.varaniben.com/images/${project.images[0]}`
+                    }
                     alt={project.company}
                     className="w-full h-full object-cover group-hover:scale-110 duration-300 transition-transform"
                     onError={(e: any) => {

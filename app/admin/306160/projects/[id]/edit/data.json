@@ -1,0 +1,98 @@
+{
+    "success": true,
+    "responseCode": 1,
+    "statusCode": 200,
+    "message": "Project fetched successfully",
+    "data": {
+        "badge": null,
+        "_id": "69d38434e097b8d392cda1ff",
+        "title": "Portfolio 2v2",
+        "tags": [
+            "FullStack",
+            "Next.js",
+            "NestJS"
+        ],
+        "year": "2026",
+        "overlayText": "Modern Portfolio",
+        "description": "A feature-rich personal portfolio backend.",
+        "fullDescription": "Detailed description of the portfolio v2 project, explaining its architecture, features, and technical challenges.",
+        "technologies": [
+            "TypeScript",
+            "NestJS",
+            "MongoDB",
+            "Express"
+        ],
+        "liveUrl": "https://portfolio.example.com",
+        "githubUrl": "https://portfolio.example.com",
+        "frontendGithubUrl": "https://portfolio.example.com",
+        "backendGithubUrl": "https://portfolio.example.com",
+        "features": [
+            "Dynamic Content",
+            "Responsive Design",
+            "Secure API"
+        ],
+        "role": "Lead Developer",
+        "metrics": [
+            {
+                "_id": "69d38434e097b8d392cda200"
+            }
+        ],
+        "lessons": [
+            "Learned to implement consistent error handling in NestJS.",
+            "Mastered Mongoose Schema definitions."
+        ],
+        "images": [
+            {
+                "_id": "69d38434e097b8d392cda1f7",
+                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/c8013656-4f30-4eac-b7c9-b19c7901d067.jpg",
+                "key": "properties/c8013656-4f30-4eac-b7c9-b19c7901d067.jpg",
+                "filename": "p1340924.jpg",
+                "mimeType": "image/jpeg",
+                "size": 667487,
+                "uploadedAt": "2026-04-06T10:00:20.165Z",
+                "createdAt": "2026-04-06T10:00:20.178Z",
+                "updatedAt": "2026-04-06T10:00:20.178Z",
+                "__v": 0
+            },
+            {
+                "_id": "69d38434e097b8d392cda1f8",
+                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/ad66f592-a64f-4fbc-b305-d7ea5177e59b.jpg",
+                "key": "properties/ad66f592-a64f-4fbc-b305-d7ea5177e59b.jpg",
+                "filename": "p1340924.jpg",
+                "mimeType": "image/jpeg",
+                "size": 667487,
+                "uploadedAt": "2026-04-06T10:00:20.167Z",
+                "createdAt": "2026-04-06T10:00:20.178Z",
+                "updatedAt": "2026-04-06T10:00:20.178Z",
+                "__v": 0
+            },
+            {
+                "_id": "69d38434e097b8d392cda1f9",
+                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/17df9b01-c72e-4555-9ee7-15dec330d73a.jpg",
+                "key": "properties/17df9b01-c72e-4555-9ee7-15dec330d73a.jpg",
+                "filename": "station.jpg",
+                "mimeType": "image/jpeg",
+                "size": 66958,
+                "uploadedAt": "2026-04-06T10:00:20.169Z",
+                "createdAt": "2026-04-06T10:00:20.179Z",
+                "updatedAt": "2026-04-06T10:00:20.179Z",
+                "__v": 0
+            },
+            {
+                "_id": "69d38434e097b8d392cda1fa",
+                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/9393d3ed-e092-40b0-921f-260ffbeefe20.jpg",
+                "key": "properties/9393d3ed-e092-40b0-921f-260ffbeefe20.jpg",
+                "filename": "st-chads-tram-stop-2.jpg",
+                "mimeType": "image/jpeg",
+                "size": 149660,
+                "uploadedAt": "2026-04-06T10:00:20.172Z",
+                "createdAt": "2026-04-06T10:00:20.179Z",
+                "updatedAt": "2026-04-06T10:00:20.179Z",
+                "__v": 0
+            }
+        ],
+        "createdAt": "2026-04-06T10:00:20.627Z",
+        "updatedAt": "2026-04-06T10:00:20.627Z",
+        "__v": 0
+    }
+}
