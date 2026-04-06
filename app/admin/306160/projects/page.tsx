@@ -16,8 +16,9 @@ import {
   Edit,
   ArrowUpRight,
 } from "lucide-react";
-import { useGetAllProjects } from "./DataHub";
+import { useGetAllProjects, useDeleteProject } from "./DataHub";
 import Link from "next/link";
+import { toast } from "sonner";
 
 // Skeleton Component
 const Skeleton = () => (
@@ -43,6 +44,21 @@ const Skeleton = () => (
 
 export default function ProjectsPage() {
   const { allProjects, isLoading, isError, refetch } = useGetAllProjects();
+  const { mutate: deleteProject, isPending: isDeleting } = useDeleteProject();
+
+  const handleDelete = (id: string, title: string) => {
+    if (confirm(`Are you sure you want to delete "${title}"?`)) {
+      deleteProject(id, {
+        onSuccess: () => {
+          toast.success("Project deleted successfully");
+          refetch();
+        },
+        onError: () => {
+          toast.error("Failed to delete project");
+        },
+      });
+    }
+  };
 
   if (isError) {
     return (
@@ -121,10 +137,17 @@ export default function ProjectsPage() {
 
                 {/* Admin Actions Overlay */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 z-10">
-                  <button className="primary-color text-white px-5 py-2.5 primary-rounded font-bold flex items-center gap-2 hover:bg-[#232c66]/90 transition-all active:scale-95 shadow-xl">
+                  <Link
+                    href={`/admin/306160/projects/${project._id}/edit`}
+                    className="primary-color text-white px-5 py-2.5 primary-rounded font-bold flex items-center gap-2 hover:bg-[#232c66]/90 transition-all active:scale-95 shadow-xl"
+                  >
                     <Edit size={16} /> Edit Details
-                  </button>
-                  <button className="bg-red-500/10 border border-red-500/50 backdrop-blur-md text-red-500 p-2.5 primary-rounded hover:bg-red-500 hover:text-white transition-all active:scale-95 shadow-xl">
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(project._id, project.title)}
+                    disabled={isDeleting}
+                    className="bg-red-500/10 border border-red-500/50 backdrop-blur-md text-red-500 p-2.5 primary-rounded hover:bg-red-500 hover:text-white transition-all active:scale-95 shadow-xl disabled:opacity-50"
+                  >
                     <Trash2 size={18} />
                   </button>
                 </div>

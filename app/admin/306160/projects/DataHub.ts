@@ -47,3 +47,25 @@ export const useCreateProjects = () => {
     },
   });
 };
+
+// update projects
+export const useUpdateProject = (id: string) => {
+  return useMutation({
+    mutationFn: async (data: FormData) => {
+      const res = await api.patch(`/projects/update/${id}`, data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      return res.data;
+    },
+  });
+};
+
+// delete projects
+export const useDeleteProject = () => {
+  return useMutation({
+    mutationFn: async (id: string) => {
+      const res = await api.delete(`/projects/delete/${id}`);
+      return res.data;
+    },
+  });
+};
