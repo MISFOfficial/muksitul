@@ -208,9 +208,9 @@ export default function SkillsPage() {
       </div>
 
       {/* Skills "Row" List - Horizontal Table-like Content */}
-      <div className="space-y-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2  gap-3">
         {isLoading
-          ? Array.from({ length: 5 }).map((_, i) => (
+          ? Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
                 className="h-16 primary-rounded border primary-border animate-pulse bg-white/[0.01]"

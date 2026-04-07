@@ -61,7 +61,7 @@ const row2 = [
 ];
 
 const row3 = [
-  { name: "Modern UI/UX", logo: "https://cdn.simpleicons.org/figma/F24E1E" },
+  { name: "Figma", logo: "https://cdn.simpleicons.org/figma/F24E1E" },
   { name: "Adobe XD", logo: "https://cdn.simpleicons.org/adobexd/white" },
   { name: "Figma Design", logo: "https://cdn.simpleicons.org/figma/F24E1E" },
   { name: "Pixso", logo: "https://cdn.simpleicons.org/pixso/white" },
