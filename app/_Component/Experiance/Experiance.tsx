@@ -19,9 +19,9 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
           delay: index * 0.1,
           ease: "easeOut",
         }}
-        className="group flex flex-col md:flex-row items-start md:items-center justify-between gap-6 p-6 md:p-8 primary-rounded bg-white/[0.02] border primary-border hover:bg-white/[0.04] hover:border-[#FF0055]/20 transition-all duration-300 w-full mb-6 cursor-pointer"
+        className="group flex flex-col xl:flex-row items-center justify-between gap-6 p-6 md:p-8 primary-rounded bg-white/[0.02] border primary-border hover:bg-white/[0.04] hover:border-[#FF0055]/20 transition-all duration-300 w-full mb-6 cursor-pointer"
       >
-        <div className="flex items-center gap-5 md:gap-6">
+        <div className="flex items-center gap-5 md:gap-6 flex-1 min-w-0 w-full">
           <div className="w-14 h-14 md:w-16 md:h-16 primary-rounded primary-text4 relative overflow-hidden border primary-border shrink-0">
             {exp.image?.url && (
               <Image
@@ -32,23 +32,23 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
               />
             )}
           </div>
-          <div>
+          <div className="flex-1 min-w-0">
             <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-[#FF0055] transition-colors leading-tight">
               {exp.role}
             </h3>
-            <p className="text-sm md:text-base font-medium text-gray-400 mt-1">
+            <p className="text-sm md:text-base font-medium text-gray-400 mt-1 truncate">
               {exp.company}
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
-          <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-4 md:gap-3 w-full md:w-auto mt-2 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 primary-border">
-            <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 primary-text4 rounded-full border primary-border text-[#FF0055] text-xs md:text-sm font-bold tracking-wider">
+        <div className="flex items-center gap-4 shrink-0 w-full xl:w-auto justify-between xl:justify-end border-t xl:border-t-0 pt-4 xl:pt-0 primary-border">
+          <div className="flex flex-col items-start xl:items-end gap-1.5">
+            <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 primary-text4 rounded-full border primary-border text-[#FF0055] text-xs md:text-sm font-bold tracking-wider whitespace-nowrap">
               <Calendar className="w-3.5 h-3.5" />
               <span>{exp.duration}</span>
             </div>
-            <div className="flex items-center gap-1.5 text-gray-500 text-xs md:text-sm font-medium md:pr-2">
+            <div className="flex items-center gap-1.5 text-gray-500 text-xs md:text-sm font-medium xl:pr-2">
               <MapPin className="w-3.5 h-3.5" />
               <span>{exp.location}</span>
             </div>
@@ -127,7 +127,7 @@ export default function Experiance() {
       </div>
 
       <div className="relative ">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 2xl:grid-cols-2 gap-5">
           {experiences.map((exp: any, index: number) => (
             <ExperienceCard key={exp._id} exp={exp} index={index} />
           ))}

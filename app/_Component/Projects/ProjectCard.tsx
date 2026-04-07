@@ -7,9 +7,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Project {
-  id: string;
+  _id: string;
   title: string;
-  image: string;
+  images: {
+    url: string;
+  }[];
   tags: string[];
   overlayText?: string;
   badge?: {
@@ -32,12 +34,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true }}
       className="group w-full"
     >
-      <Link href={`/projects/${project.id}`}>
+      <Link href={`/projects/${project._id}`}>
         <div className="relative primary-rounded overflow-hidden transition-all duration-300 bg-[#121212] border primary-border cursor-pointer">
           {/* Image / Preview Area */}
           <div className="relative h-[380px] w-full overflow-hidden bg-[#1a1a1a]">
             <Image
-              src={project.image}
+              src={project.images[0]?.url || ""}
               alt={project.title}
               fill
               className="object-cover group-hover:scale-110 duration-300 transition-transform"

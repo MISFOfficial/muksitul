@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useInfiniteQuery } from "@tanstack/react-query";
 import api from "@/hooks/useAxios";
 
-export const useGetAllProjects = () => {
+export const useGetAllProjects = (limit: number = 10) => {
   const {
     data: allProjects,
     isLoading,
@@ -11,19 +11,19 @@ export const useGetAllProjects = () => {
     isFetchingNextPage,
     fetchNextPage,
   } = useInfiniteQuery({
-    queryKey: ["projects"],
+    queryKey: ["projects", limit],
     initialPageParam: 0,
     queryFn: async ({ pageParam = 0 }) => {
       const res = await api.get("/projects/all", {
         params: {
-          limit: 10,
+          limit: limit,
           skip: pageParam,
         },
       });
       return res.data.data;
     },
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.length === 10 ? allPages.length * 10 : undefined;
+      return lastPage.length === limit ? allPages.length * limit : undefined;
     },
   });
 

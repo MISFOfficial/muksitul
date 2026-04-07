@@ -4,7 +4,7 @@ export const runtime = "edge";
 export const dynamic = "force-dynamic";
 
 import { useParams, useRouter } from "next/navigation";
-import { projectsData, Project } from "@/lib/projectsData";
+import { useGetProjectsById } from "@/app/Global/data/useProjects";
 import Image from "next/image";
 import {
   ArrowLeft,
@@ -29,11 +29,24 @@ export default function ProjectPage() {
   const { id } = useParams();
   const router = useRouter();
 
-  // Find project by ID
-  const project = projectsData.find((p) => p.id === id) as Project;
+  // Fetch project by ID from API
+  const {
+    allProjects: project,
+    isLoading,
+    isError,
+  } = useGetProjectsById(id as string);
 
-  // If project not found, show 404
-  if (!project) {
+  // If loading, show spinner
+  if (isLoading) {
+    return (
+      <div className="min-h-screen text-white flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF0055]"></div>
+      </div>
+    );
+  }
+
+  // If project not found or error, show 404
+  if (isError || !project) {
     return (
       <div className="min-h-screen   text-white flex items-center justify-center">
         <div className="text-center">
@@ -154,7 +167,7 @@ export default function ProjectPage() {
           {/* Right - Project Image */}
           <div className="lg:col-span-2 relative h-[400px] lg:h-[600px] primary-rounded overflow-hidden border-2 primary-border group">
             <Image
-              src={project.image}
+              src={project.images[0]?.url || ""}
               alt={project.title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-500"

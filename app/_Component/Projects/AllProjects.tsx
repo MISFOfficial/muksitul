@@ -6,16 +6,35 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import ProjectCard from "./ProjectCard";
 
-import { projectsData } from "@/lib/projectsData";
 import Projects from "./Projects";
+import { useGetAllProjects } from "@/app/Global/data/useProjects";
 
 export default function AllProjects() {
+  const { allProjects, isLoading, isError } = useGetAllProjects(3);
+  const projects = allProjects?.pages.flatMap((page: any) => page) || [];
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF0055]"></div>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="text-center text-gray-400 py-10">
+        Failed to load projects.
+      </div>
+    );
+  }
+
   return (
     <section id="projects" className="">
       <Projects />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-        {projectsData.slice(0, 3).map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
+        {projects.map((project: any, index: number) => (
+          <ProjectCard key={project._id} project={project} index={index} />
         ))}
       </div>
 

@@ -7,12 +7,15 @@ import Link from "next/link";
 import Navigation from "../_Component/Navigation/Navigaton";
 import Footer from "../_Component/Footer/Footer";
 import ProjectCard from "../_Component/Projects/ProjectCard";
-import { projectsData } from "@/lib/projectsData";
+import { useGetAllProjects } from "../Global/data/useProjects";
 
 import { useRouter } from "next/navigation";
 
 export default function ProjectsPage() {
   const router = useRouter();
+  const { allProjects, isLoading, isError } = useGetAllProjects();
+
+  const projects = allProjects?.pages.flatMap((page: any) => page) || [];
 
   return (
     <main className="  min-h-screen ratio">
@@ -56,15 +59,21 @@ export default function ProjectsPage() {
       <section className="pb-32">
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projectsData.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
+            {projects.map((project: any, index: number) => (
+              <ProjectCard key={project._id} project={project} index={index} />
             ))}
           </div>
 
           {/* Empty State if no projects (unlikely but good for safety) */}
-          {projectsData.length === 0 && (
+          {!isLoading && projects.length === 0 && (
             <div className="text-center    border border-dashed primary-border primary-rounded">
               <p className="text-gray-500">No projects found in the archive.</p>
+            </div>
+          )}
+
+          {isLoading && (
+            <div className="flex justify-center items-center h-64">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF0055]"></div>
             </div>
           )}
         </div>

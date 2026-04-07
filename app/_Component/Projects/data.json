@@ -1,0 +1,207 @@
+{
+    "success": true,
+    "responseCode": 1,
+    "statusCode": 200,
+    "message": "Projects fetched successfully",
+    "data": [
+        {
+            "_id": "69d4c3fab5a54ca0fc27de76",
+            "title": "Group Study's Assignment",
+            "tags": [
+                "LMS",
+                "Collaboration",
+                "Productivity"
+            ],
+            "year": "2025",
+            "badge": null,
+            "overlayText": "hi",
+            "description": "Collaborative LMS for Peer Learning",
+            "fullDescription": "A collaborative learning management system where students can create assignments, submit work, and engage in peer-to-peer marking.",
+            "technologies": [
+                "React",
+                "Redux Toolkit",
+                "Firebase",
+                "MongoDB",
+                "Express"
+            ],
+            "liveUrl": "https://group-study-cfcff.web.app/",
+            "githubUrl": null,
+            "frontendGithubUrl": null,
+            "backendGithubUrl": null,
+            "features": [
+                "Peer Marking System",
+                "Collaborative Workspace",
+                "Grade Tracking",
+                "Dynamic Quiz Builder"
+            ],
+            "role": "JR_SOFTWARE_ENGINEER",
+            "metrics": [
+                {
+                    "_id": "69d4c3fab5a54ca0fc27de77"
+                },
+                {
+                    "_id": "69d4c3fab5a54ca0fc27de78"
+                },
+                {
+                    "_id": "69d4c3fab5a54ca0fc27de79"
+                }
+            ],
+            "lessons": [
+                "nothing"
+            ],
+            "images": [
+                {
+                    "_id": "69d4c3f3b5a54ca0fc27de6e",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/9c3cf77c-8b4a-4a6e-a6ed-72d2a340ef39.png",
+                    "key": "properties/9c3cf77c-8b4a-4a6e-a6ed-72d2a340ef39.png",
+                    "filename": "image.png",
+                    "mimeType": "image/png",
+                    "size": 1389335,
+                    "uploadedAt": "2026-04-07T08:44:35.773Z",
+                    "createdAt": "2026-04-07T08:44:35.775Z",
+                    "updatedAt": "2026-04-07T08:44:35.775Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "69d4c3fab5a54ca0fc27de70",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/b8bf4ef4-6018-4176-8977-bbcaf9f967fe.png",
+                    "key": "properties/b8bf4ef4-6018-4176-8977-bbcaf9f967fe.png",
+                    "filename": "image.png",
+                    "mimeType": "image/png",
+                    "size": 294864,
+                    "uploadedAt": "2026-04-07T08:44:42.326Z",
+                    "createdAt": "2026-04-07T08:44:42.330Z",
+                    "updatedAt": "2026-04-07T08:44:42.330Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "69d4c3fab5a54ca0fc27de71",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/e1e756c0-61aa-45e3-bc41-a85737f9ad24.png",
+                    "key": "properties/e1e756c0-61aa-45e3-bc41-a85737f9ad24.png",
+                    "filename": "image.png",
+                    "mimeType": "image/png",
+                    "size": 283952,
+                    "uploadedAt": "2026-04-07T08:44:42.328Z",
+                    "createdAt": "2026-04-07T08:44:42.330Z",
+                    "updatedAt": "2026-04-07T08:44:42.330Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "69d4c3fab5a54ca0fc27de72",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/f702c549-3ad5-4643-b459-9db42babe7e7.png",
+                    "key": "properties/f702c549-3ad5-4643-b459-9db42babe7e7.png",
+                    "filename": "image.png",
+                    "mimeType": "image/png",
+                    "size": 238622,
+                    "uploadedAt": "2026-04-07T08:44:42.329Z",
+                    "createdAt": "2026-04-07T08:44:42.331Z",
+                    "updatedAt": "2026-04-07T08:44:42.331Z",
+                    "__v": 0
+                }
+            ],
+            "createdAt": "2026-04-07T08:44:42.405Z",
+            "updatedAt": "2026-04-07T08:44:42.405Z",
+            "__v": 0
+        },
+        {
+            "_id": "69d4c238b5a54ca0fc27de63",
+            "title": "Green Gardening",
+            "tags": [
+                "Environment",
+                "Community",
+                "Social"
+            ],
+            "year": "2025",
+            "badge": null,
+            "overlayText": "hi",
+            "description": "Community Hub for Sustainable Gardening",
+            "fullDescription": "A niche social network for plant enthusiasts to share sustainable gardening tips, ask expert questions, and promote eco-friendly urban farming.",
+            "technologies": [
+                "React",
+                "Firebase",
+                "Stripe",
+                "MongoDB",
+                "Express",
+                "ImgBB"
+            ],
+            "liveUrl": "https://green-gardening-2df7b.web.app/",
+            "githubUrl": null,
+            "frontendGithubUrl": null,
+            "backendGithubUrl": null,
+            "features": [
+                "Rich Text Knowledge Base",
+                "Expert Q&A System",
+                "Donation/Stripe Support",
+                "AI Plant Identification"
+            ],
+            "role": "JR_SOFTWARE_ENGINEER",
+            "metrics": [
+                {
+                    "_id": "69d4c238b5a54ca0fc27de64"
+                },
+                {
+                    "_id": "69d4c238b5a54ca0fc27de65"
+                },
+                {
+                    "_id": "69d4c238b5a54ca0fc27de66"
+                }
+            ],
+            "lessons": [
+                "None"
+            ],
+            "images": [
+                {
+                    "_id": "69d4c237b5a54ca0fc27de5b",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/87609ee2-75ab-428f-9a53-cf25947297c6.png",
+                    "key": "properties/87609ee2-75ab-428f-9a53-cf25947297c6.png",
+                    "filename": "image.png",
+                    "mimeType": "image/png",
+                    "size": 1247104,
+                    "uploadedAt": "2026-04-07T08:37:11.508Z",
+                    "createdAt": "2026-04-07T08:37:11.517Z",
+                    "updatedAt": "2026-04-07T08:37:11.517Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "69d4c238b5a54ca0fc27de5d",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/85622172-de4a-4930-bf4c-ce715e035469.png",
+                    "key": "properties/85622172-de4a-4930-bf4c-ce715e035469.png",
+                    "filename": "image.png",
+                    "mimeType": "image/png",
+                    "size": 206420,
+                    "uploadedAt": "2026-04-07T08:37:12.853Z",
+                    "createdAt": "2026-04-07T08:37:12.869Z",
+                    "updatedAt": "2026-04-07T08:37:12.869Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "69d4c238b5a54ca0fc27de5e",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/b60f71ee-0d31-48c9-8318-0f753ca4750c.png",
+                    "key": "properties/b60f71ee-0d31-48c9-8318-0f753ca4750c.png",
+                    "filename": "image.png",
+                    "mimeType": "image/png",
+                    "size": 248340,
+                    "uploadedAt": "2026-04-07T08:37:12.856Z",
+                    "createdAt": "2026-04-07T08:37:12.870Z",
+                    "updatedAt": "2026-04-07T08:37:12.870Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "69d4c238b5a54ca0fc27de5f",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/2c09d963-7b5c-4ea2-8a14-132359e95b24.png",
+                    "key": "properties/2c09d963-7b5c-4ea2-8a14-132359e95b24.png",
+                    "filename": "image.png",
+                    "mimeType": "image/png",
+                    "size": 146410,
+                    "uploadedAt": "2026-04-07T08:37:12.858Z",
+                    "createdAt": "2026-04-07T08:37:12.870Z",
+                    "updatedAt": "2026-04-07T08:37:12.870Z",
+                    "__v": 0
+                }
+            ],
+            "createdAt": "2026-04-07T08:37:12.975Z",
+            "updatedAt": "2026-04-07T08:37:12.975Z",
+            "__v": 0
+        }
+    ]
+}
