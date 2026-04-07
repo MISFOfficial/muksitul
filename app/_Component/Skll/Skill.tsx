@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import Marquee from "react-fast-marquee";
 import {
   useGetBackendSkills,
   useGetFrontendSkills,
@@ -11,7 +11,7 @@ import {
 const TagRow = ({
   items,
   loading,
-  speed = 100,
+  speed = 60,
   direction = "left",
 }: {
   items: any[];
@@ -19,37 +19,36 @@ const TagRow = ({
   speed?: number;
   direction?: "left" | "right";
 }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <div className="h-[52px]" />; // Spacer to avoid layout shift
+
   if (loading) {
     return (
-      <div className="flex overflow-hidden w-full relative group-mask">
-        <div className="absolute inset-y-0 left-0 w-36 bg-gradient-to-r from-[var(--background)] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-36 bg-gradient-to-l from-[var(--background)] to-transparent z-10 pointer-events-none" />
-
-        <motion.div
-          animate={{
-            x: direction === "left" ? [0, "-50%"] : ["-50%", 0],
-          }}
-          transition={{
-            duration: speed,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="flex flex-nowrap gap-6 min-w-max py-2 animate-pulse"
+      <div className="flex overflow-hidden w-full relative">
+        <Marquee
+          direction={direction}
+          speed={speed}
+          gradient={true}
+          gradientColor="rgb(0, 0, 0)"
+          autoFill={true}
+          className="overflow-hidden py-2"
         >
-          {/* Quadruple the skeleton items for perfect continuity */}
-          {[
-            1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5,
-            6,
-          ].map((i, idx) => (
+          {/* Skeleton items */}
+          {[1, 2, 3, 4, 5, 6].map((i, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-3 py-2 px-4 primary-border0 primary-rounded bg-white/5 min-w-[150px]"
+              className="flex items-center gap-3 py-2 px-4 primary-border0 primary-rounded bg-white/5 min-w-[150px] mx-3 animate-pulse"
             >
               <div className="w-6 h-6 rounded-full bg-white/10" />
               <div className="h-3 w-20 bg-white/10 rounded" />
             </div>
           ))}
-        </motion.div>
+        </Marquee>
       </div>
     );
   }
@@ -57,27 +56,20 @@ const TagRow = ({
   if (!items || items.length === 0) return null;
 
   return (
-    <div className="flex overflow-hidden w-full relative group-mask">
-      {/* Edge Fading Mask (Dynamic to Theme) */}
-      <div className="absolute inset-y-0 left-0 w-36 bg-gradient-to-r from-[var(--background)] to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-36 bg-gradient-to-l from-[var(--background)] to-transparent z-10 pointer-events-none" />
-
-      <motion.div
-        animate={{
-          x: direction === "left" ? [0, "-50%"] : ["-50%", 0],
-        }}
-        transition={{
-          duration: speed,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        className="flex flex-nowrap gap-6 min-w-max py-2"
+    <div className="flex overflow-hidden w-full relative">
+      <Marquee
+        direction={direction}
+        speed={speed}
+        pauseOnHover={false}
+        gradient={true}
+        gradientColor="rgb(0, 0, 0)" // Use RGB string for more consistent results
+        autoFill={true}
+        className="overflow-hidden py-2"
       >
-        {/* Quadruple the items for perfect continuity */}
-        {[...items, ...items, ...items, ...items].map((item, idx) => (
+        {items.map((item, idx) => (
           <div
             key={idx}
-            className="flex items-center gap-3 py-2  primary-border0 primary-rounded whitespace-nowrap  hover:shadow-lg dark:hover:shadow-[#FF5C58]/5 transition-all duration-300 group cursor-pointer"
+            className="flex items-center gap-3 py-2 mx-3 primary-border0 primary-rounded whitespace-nowrap transition-all duration-300 group cursor-pointer"
           >
             <div className="w-6 h-6 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-all transform group-hover:scale-125 duration-300">
               <img
@@ -92,7 +84,7 @@ const TagRow = ({
             </span>
           </div>
         ))}
-      </motion.div>
+      </Marquee>
     </div>
   );
 };
@@ -103,23 +95,23 @@ export default function Skill() {
   const { softSkills, isLoading: softLoading } = useGetSoftSkills();
 
   return (
-    <section className="  flex flex-col overflow-hidden">
+    <section className="flex flex-col overflow-hidden">
       <TagRow
         items={frontendSkills || []}
         loading={frontLoading}
-        speed={90}
+        speed={50}
         direction="left"
       />
       <TagRow
         items={backendSkills || []}
         loading={backLoading}
-        speed={90}
+        speed={50}
         direction="right"
       />
       <TagRow
         items={softSkills || []}
         loading={softLoading}
-        speed={90}
+        speed={50}
         direction="left"
       />
     </section>
