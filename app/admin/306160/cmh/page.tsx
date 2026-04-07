@@ -14,7 +14,10 @@ import {
   ArrowUpRight,
   ExternalLink,
 } from "lucide-react";
-import { useGetAllCmsProjects, useDeleteCmsProject } from "./DataHub";
+import {
+  useGetAllCmsProjects,
+  useDeleteCmsProject,
+} from "@/app/Global/data/useCmsProjects";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";

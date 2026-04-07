@@ -7,7 +7,7 @@ import {
   useGetCertificateById,
   useUpdateCertificate,
   useDeleteCertificate,
-} from "../DataHub";
+} from "@/app/Global/data/useCertificates";
 import { useRouter, useParams } from "next/navigation";
 import {
   ArrowLeft,

@@ -1,7 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, use } from "react";
-import { useGetProjectsById, useUpdateProject } from "../../DataHub";
+import {
+  useGetProjectsById,
+  useUpdateProject,
+} from "@/app/Global/data/useProjects";
 import { useRouter } from "next/navigation";
 import {
   ArrowLeft,

@@ -7,7 +7,7 @@ import {
   useGetCmsProjectById,
   useUpdateCmsProject,
   useDeleteCmsProject,
-} from "../DataHub";
+} from "@/app/Global/data/useCmsProjects";
 import { useRouter, useParams } from "next/navigation";
 import {
   ArrowLeft,

@@ -15,7 +15,10 @@ import {
   ArrowUpRight,
   Clock,
 } from "lucide-react";
-import { useGetAllCertificates, useDeleteCertificate } from "./DataHub";
+import {
+  useGetAllCertificates,
+  useDeleteCertificate,
+} from "@/app/Global/data/useCertificates";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";

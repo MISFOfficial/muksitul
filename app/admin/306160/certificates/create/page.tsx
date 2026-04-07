@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useCallback, useEffect } from "react";
-import { useCreateCertificate } from "../DataHub";
+import { useCreateCertificate } from "@/app/Global/data/useCertificates";
 import { useRouter } from "next/navigation";
 import {
   ArrowLeft,

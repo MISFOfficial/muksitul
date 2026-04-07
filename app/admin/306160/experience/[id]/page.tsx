@@ -8,7 +8,7 @@ import {
   useGetExperienceById,
   useUpdateExperience,
   useDeleteExperience,
-} from "../DataHub";
+} from "@/app/Global/data/useExperience";
 import {
   ArrowLeft,
   Save,

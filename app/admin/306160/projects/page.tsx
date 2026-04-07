@@ -16,7 +16,10 @@ import {
   Edit,
   ArrowUpRight,
 } from "lucide-react";
-import { useGetAllProjects, useDeleteProject } from "./DataHub";
+import {
+  useGetAllProjects,
+  useDeleteProject,
+} from "@/app/Global/data/useProjects";
 import Link from "next/link";
 import { toast } from "sonner";
 import { ROLE_OPTIONS } from "../experience/RoleOptions";

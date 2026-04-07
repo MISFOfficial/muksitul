@@ -23,7 +23,10 @@ import {
   Save,
   AlertCircle,
 } from "lucide-react";
-import { useGetDesignById, useUpdateDesign } from "../DataHub";
+import {
+  useGetDesignById,
+  useUpdateDesign,
+} from "@/app/Global/data/useDesigns";
 import { useRouter, useParams } from "next/navigation";
 import { toast } from "sonner";
 import Image from "next/image";

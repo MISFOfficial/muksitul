@@ -23,7 +23,7 @@ import {
   useUpdateSkill,
   useDeleteSkill,
   useSeedSkills,
-} from "./DataHub";
+} from "@/app/Global/data/useSkills";
 import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 

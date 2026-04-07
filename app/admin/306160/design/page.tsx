@@ -13,7 +13,10 @@ import {
   Globe,
   AlertCircle,
 } from "lucide-react";
-import { useGetAllDesigns, useDeleteDesign } from "./DataHub";
+import {
+  useGetAllDesigns,
+  useDeleteDesign,
+} from "@/app/Global/data/useDesigns";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import Link from "next/link";

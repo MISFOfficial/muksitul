@@ -16,7 +16,7 @@ import {
   Edit,
   ArrowUpRight,
 } from "lucide-react";
-import { useGetAllExperience } from "./DataHub";
+import { useGetAllExperience } from "@/app/Global/data/useExperience";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
