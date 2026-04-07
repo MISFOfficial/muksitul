@@ -39,7 +39,17 @@ const Skeleton = () => (
 export default function ExperiencePage() {
   const route = useRouter();
 
-  const { allExperience, isLoading, isError, refetch } = useGetAllExperience();
+  const {
+    allExperience,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useGetAllExperience();
+
+  const experiences = allExperience?.pages.flatMap((page: any) => page) || [];
 
   if (isError) {
     return (
@@ -92,8 +102,8 @@ export default function ExperiencePage() {
       <div className="flex flex-col gap-4">
         {isLoading ? (
           Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} />)
-        ) : allExperience && allExperience.length > 0 ? (
-          allExperience.map((exp: any) => (
+        ) : experiences && experiences.length > 0 ? (
+          experiences.map((exp: any) => (
             <div
               onClick={() => route.push(`/admin/306160/experience/${exp._id}`)}
               key={exp._id}
@@ -186,6 +196,31 @@ export default function ExperiencePage() {
           </div>
         )}
       </div>
+
+      {hasNextPage && (
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => fetchNextPage()}
+            disabled={isFetchingNextPage}
+            className="flex items-center gap-3 px-10 py-4 border primary-border hover:border-[#0abab5] primary-text primary-rounded font-black uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_30px_rgba(10,186,181,0.15)] disabled:opacity-50 disabled:cursor-not-allowed group"
+          >
+            {isFetchingNextPage ? (
+              <>
+                <RefreshCw size={20} className="animate-spin" />
+                <span>Loading...</span>
+              </>
+            ) : (
+              <>
+                <span>Load More Experience</span>
+                <Plus
+                  size={20}
+                  className="group-hover:rotate-90 transition-transform duration-300"
+                />
+              </>
+            )}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

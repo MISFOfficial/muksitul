@@ -22,8 +22,18 @@ import Image from "next/image";
 
 export default function DesignPage() {
   const router = useRouter();
-  const { allDesigns, isLoading, isError, refetch } = useGetAllDesigns();
-  const { mutate: deleteDesign } = useDeleteDesign();
+  const {
+    allDesigns,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useGetAllDesigns();
+  const { mutate: deleteDesign, isPending: isDeleting } = useDeleteDesign();
+
+  const designs = allDesigns?.pages.flatMap((page: any) => page) || [];
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -37,7 +47,7 @@ export default function DesignPage() {
     }
   };
 
-  const filteredDesigns = allDesigns?.filter(
+  const filteredDesigns = designs?.filter(
     (d: any) =>
       d.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       d.tags.some((t: string) =>
@@ -201,6 +211,31 @@ export default function DesignPage() {
               </motion.div>
             ))}
       </div>
+
+      {hasNextPage && (
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => fetchNextPage()}
+            disabled={isFetchingNextPage}
+            className="flex items-center gap-3 px-10 py-4 border primary-border hover:border-[#0abab5] primary-text primary-rounded font-black uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_30px_rgba(10,186,181,0.15)] disabled:opacity-50 disabled:cursor-not-allowed group"
+          >
+            {isFetchingNextPage ? (
+              <>
+                <RefreshCw size={20} className="animate-spin" />
+                <span>Loading...</span>
+              </>
+            ) : (
+              <>
+                <span>Load More Designs</span>
+                <Plus
+                  size={20}
+                  className="group-hover:rotate-90 transition-transform duration-300"
+                />
+              </>
+            )}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

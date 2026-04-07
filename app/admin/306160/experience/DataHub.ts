@@ -1,4 +1,9 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  useInfiniteQuery,
+} from "@tanstack/react-query";
 import api from "@/hooks/useAxios";
 
 export const useGetAllExperience = () => {
@@ -7,15 +12,35 @@ export const useGetAllExperience = () => {
     isLoading,
     isError,
     refetch,
-  } = useQuery({
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  } = useInfiniteQuery({
     queryKey: ["experiences"],
-    queryFn: async () => {
-      const res = await api.get("/experiences/all");
+    initialPageParam: 0,
+    queryFn: async ({ pageParam = 0 }) => {
+      const res = await api.get("/experiences/all", {
+        params: {
+          limit: 10,
+          skip: pageParam,
+        },
+      });
       return res.data.data;
+    },
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage.length === 10 ? allPages.length * 10 : undefined;
     },
   });
 
-  return { allExperience, isLoading, isError, refetch };
+  return {
+    allExperience,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  };
 };
 
 export const useGetExperienceById = (id: string) => {

@@ -43,8 +43,18 @@ const Skeleton = () => (
 );
 
 export default function ProjectsPage() {
-  const { allProjects, isLoading, isError, refetch } = useGetAllProjects();
+  const {
+    allProjects,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useGetAllProjects();
   const { mutate: deleteProject, isPending: isDeleting } = useDeleteProject();
+
+  const projects = allProjects?.pages.flatMap((page: any) => page) || [];
 
   const handleDelete = (id: string, title: string) => {
     if (confirm(`Are you sure you want to delete "${title}"?`)) {
@@ -111,8 +121,8 @@ export default function ProjectsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8">
         {isLoading ? (
           Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} />)
-        ) : allProjects && allProjects.length > 0 ? (
-          allProjects.map((project: any) => (
+        ) : projects && projects.length > 0 ? (
+          projects.map((project: any) => (
             <div
               key={project._id}
               className="group primary-rounded border primary-border transition-all duration-300 bg-[#121212] overflow-hidden hover:shadow-2xl hover:shadow-white/5"
@@ -220,6 +230,31 @@ export default function ProjectsPage() {
           </div>
         )}
       </div>
+
+      {hasNextPage && (
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => fetchNextPage()}
+            disabled={isFetchingNextPage}
+            className="flex items-center gap-3 px-10 py-4 border primary-border hover:border-[#0abab5] primary-text primary-rounded font-black uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_30px_rgba(10,186,181,0.15)] disabled:opacity-50 disabled:cursor-not-allowed group"
+          >
+            {isFetchingNextPage ? (
+              <>
+                <RefreshCw size={20} className="animate-spin" />
+                <span>Loading...</span>
+              </>
+            ) : (
+              <>
+                <span>Load More Projects</span>
+                <Plus
+                  size={20}
+                  className="group-hover:rotate-90 transition-transform duration-300"
+                />
+              </>
+            )}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,4 +1,9 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  useMutation,
+  useQuery,
+  useQueryClient,
+  useInfiniteQuery,
+} from "@tanstack/react-query";
 import api from "@/hooks/useAxios";
 
 export const useGetAllCertificates = () => {
@@ -7,15 +12,35 @@ export const useGetAllCertificates = () => {
     isLoading,
     isError,
     refetch,
-  } = useQuery({
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  } = useInfiniteQuery({
     queryKey: ["certificates"],
-    queryFn: async () => {
-      const res = await api.get("/certificates/all");
+    initialPageParam: 0,
+    queryFn: async ({ pageParam = 0 }) => {
+      const res = await api.get("/certificates/all", {
+        params: {
+          limit: 10,
+          skip: pageParam,
+        },
+      });
       return res.data.data;
+    },
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage.length === 10 ? allPages.length * 10 : undefined;
     },
   });
 
-  return { allCertificates, isLoading, isError, refetch };
+  return {
+    allCertificates,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  };
 };
 
 export const useGetCertificateById = (id: string) => {

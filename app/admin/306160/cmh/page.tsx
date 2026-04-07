@@ -36,9 +36,18 @@ const Skeleton = () => (
 
 export default function CMHPage() {
   const router = useRouter();
-  const { allCmsProjects, isLoading, isError, refetch } =
-    useGetAllCmsProjects();
+  const {
+    allCmsProjects,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useGetAllCmsProjects();
   const { mutate: deleteCmsProject } = useDeleteCmsProject();
+
+  const cmsProjects = allCmsProjects?.pages.flatMap((page: any) => page) || [];
 
   const handleDelete = (id: string, title: string) => {
     if (confirm(`Are you sure you want to delete "${title}"?`)) {
@@ -97,8 +106,8 @@ export default function CMHPage() {
       <div className="flex flex-col gap-4">
         {isLoading ? (
           Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} />)
-        ) : allCmsProjects && allCmsProjects.length > 0 ? (
-          allCmsProjects.map((project: any) => (
+        ) : cmsProjects && cmsProjects.length > 0 ? (
+          cmsProjects.map((project: any) => (
             <div
               onClick={() => router.push(`/admin/306160/cmh/${project._id}`)}
               key={project._id}
@@ -212,6 +221,31 @@ export default function CMHPage() {
           </div>
         )}
       </div>
+
+      {hasNextPage && (
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => fetchNextPage()}
+            disabled={isFetchingNextPage}
+            className="flex items-center gap-3 px-10 py-4 border primary-border hover:border-[#0abab5] primary-text primary-rounded font-black uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_30px_rgba(10,186,181,0.15)] disabled:opacity-50 disabled:cursor-not-allowed group"
+          >
+            {isFetchingNextPage ? (
+              <>
+                <RefreshCw size={20} className="animate-spin" />
+                <span>Loading...</span>
+              </>
+            ) : (
+              <>
+                <span>Load More CMS Projects</span>
+                <Plus
+                  size={20}
+                  className="group-hover:rotate-90 transition-transform duration-300"
+                />
+              </>
+            )}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

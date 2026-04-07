@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useInfiniteQuery } from "@tanstack/react-query";
 import api from "@/hooks/useAxios";
 
 export const useGetAllProjects = () => {
@@ -7,15 +7,35 @@ export const useGetAllProjects = () => {
     isLoading,
     isError,
     refetch,
-  } = useQuery({
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  } = useInfiniteQuery({
     queryKey: ["projects"],
-    queryFn: async () => {
-      const res = await api.get("/projects/all");
+    initialPageParam: 0,
+    queryFn: async ({ pageParam = 0 }) => {
+      const res = await api.get("/projects/all", {
+        params: {
+          limit: 10,
+          skip: pageParam,
+        },
+      });
       return res.data.data;
+    },
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage.length === 10 ? allPages.length * 10 : undefined;
     },
   });
 
-  return { allProjects, isLoading, isError, refetch };
+  return {
+    allProjects,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  };
 };
 
 export const useGetProjectsById = (id: string) => {

@@ -37,9 +37,19 @@ const Skeleton = () => (
 
 export default function CertificatesPage() {
   const router = useRouter();
-  const { allCertificates, isLoading, isError, refetch } =
-    useGetAllCertificates();
+  const {
+    allCertificates,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useGetAllCertificates();
   const { mutate: deleteCertificate } = useDeleteCertificate();
+
+  const certificates =
+    allCertificates?.pages.flatMap((page: any) => page) || [];
 
   const handleDelete = (id: string, name: string) => {
     if (confirm(`Are you sure you want to delete "${name}"?`)) {
@@ -98,8 +108,8 @@ export default function CertificatesPage() {
       <div className="flex flex-col gap-4">
         {isLoading ? (
           Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} />)
-        ) : allCertificates && allCertificates.length > 0 ? (
-          allCertificates.map((cert: any) => (
+        ) : certificates && certificates.length > 0 ? (
+          certificates.map((cert: any) => (
             <div
               onClick={() =>
                 router.push(`/admin/306160/certificates/${cert._id}`)
@@ -200,6 +210,31 @@ export default function CertificatesPage() {
           </div>
         )}
       </div>
+
+      {hasNextPage && (
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => fetchNextPage()}
+            disabled={isFetchingNextPage}
+            className="flex items-center gap-3 px-10 py-4 border primary-border hover:border-[#0abab5] primary-text primary-rounded font-black uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_30px_rgba(10,186,181,0.15)] disabled:opacity-50 disabled:cursor-not-allowed group"
+          >
+            {isFetchingNextPage ? (
+              <>
+                <RefreshCw size={20} className="animate-spin" />
+                <span>Loading...</span>
+              </>
+            ) : (
+              <>
+                <span>Load More Certificates</span>
+                <Plus
+                  size={20}
+                  className="group-hover:rotate-90 transition-transform duration-300"
+                />
+              </>
+            )}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

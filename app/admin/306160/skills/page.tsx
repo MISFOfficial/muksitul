@@ -34,11 +34,21 @@ const CATEGORIES = [
 ];
 
 export default function SkillsPage() {
-  const { allSkills, isLoading, isError, refetch } = useGetAllSkills();
+  const {
+    allSkills,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    fetchNextPage,
+    isFetchingNextPage,
+  } = useGetAllSkills();
   const { mutate: createSkill, isPending: isCreating } = useCreateSkill();
   const { mutate: updateSkill, isPending: isUpdating } = useUpdateSkill();
   const { mutate: deleteSkill } = useDeleteSkill();
   const { mutate: seedSkills, isPending: isSeeding } = useSeedSkills();
+
+  const skills = allSkills?.pages.flatMap((page: any) => page) || [];
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -133,7 +143,7 @@ export default function SkillsPage() {
       deleteSkill(id, { onSuccess: () => toast.success("Deleted") });
   };
 
-  const filteredSkills = allSkills?.filter(
+  const filteredSkills = skills?.filter(
     (s: any) =>
       s.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
       (selectedCategory === "all" || s.category === selectedCategory),
@@ -270,6 +280,31 @@ export default function SkillsPage() {
               </motion.div>
             ))}
       </div>
+
+      {hasNextPage && (
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={() => fetchNextPage()}
+            disabled={isFetchingNextPage}
+            className="flex items-center gap-3 px-10 py-4 border primary-border hover:border-[#0abab5] primary-text primary-rounded font-black uppercase tracking-[0.2em] transition-all hover:shadow-[0_0_30px_rgba(10,186,181,0.15)] disabled:opacity-50 disabled:cursor-not-allowed group"
+          >
+            {isFetchingNextPage ? (
+              <>
+                <RefreshCw size={20} className="animate-spin" />
+                <span>Loading...</span>
+              </>
+            ) : (
+              <>
+                <span>Load More Skills</span>
+                <Plus
+                  size={20}
+                  className="group-hover:rotate-90 transition-transform duration-300"
+                />
+              </>
+            )}
+          </button>
+        </div>
+      )}
 
       {/* Modal - Compact & Clean */}
       <AnimatePresence>

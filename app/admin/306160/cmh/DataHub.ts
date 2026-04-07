@@ -1,4 +1,9 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  useMutation,
+  useQuery,
+  useQueryClient,
+  useInfiniteQuery,
+} from "@tanstack/react-query";
 import api from "@/hooks/useAxios";
 
 export const useGetAllCmsProjects = () => {
@@ -7,15 +12,35 @@ export const useGetAllCmsProjects = () => {
     isLoading,
     isError,
     refetch,
-  } = useQuery({
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  } = useInfiniteQuery({
     queryKey: ["cms-projects"],
-    queryFn: async () => {
-      const res = await api.get("/cms-projects/all");
+    initialPageParam: 0,
+    queryFn: async ({ pageParam = 0 }) => {
+      const res = await api.get("/cms-projects/all", {
+        params: {
+          limit: 10,
+          skip: pageParam,
+        },
+      });
       return res.data.data;
+    },
+    getNextPageParam: (lastPage, allPages) => {
+      return lastPage.length === 10 ? allPages.length * 10 : undefined;
     },
   });
 
-  return { allCmsProjects, isLoading, isError, refetch };
+  return {
+    allCmsProjects,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  };
 };
 
 export const useGetCmsProjectById = (id: string) => {
