@@ -23,6 +23,7 @@ import {
 import { toast } from "sonner";
 import Image from "next/image";
 import { ROLE_OPTIONS } from "../RoleOptions";
+import { JOB_TYPE_OPTIONS } from "../JobTypeOptions";
 
 export default function CreateExperiencePage() {
   const router = useRouter();
@@ -37,6 +38,7 @@ export default function CreateExperiencePage() {
     teamSize: "",
     companyDescription: "",
     companyWebsite: "",
+    jobType: "ON_SITE",
   });
 
   const [image, setImage] = useState<File | null>(null);
@@ -319,8 +321,30 @@ export default function CreateExperiencePage() {
                     onChange={handleInputChange}
                     placeholder="e.g. Remote / New York, NY"
                     className="w-full bg-white/[0.03] border primary-border rounded-xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 focus:ring-1 focus:ring-[#0abab5]/20 transition-all placeholder:text-white/10"
-                    required
                   />
+                </div>
+
+                <div className="space-y-2 group">
+                  <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 group-focus-within:text-[#0abab5] transition-colors flex items-center gap-2">
+                    <Briefcase size={12} /> Job Type
+                  </label>
+                  <select
+                    name="jobType"
+                    value={formData.jobType}
+                    onChange={handleInputChange}
+                    className="w-full bg-white/[0.03] border primary-border rounded-xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 focus:ring-1 focus:ring-[#0abab5]/20 transition-all appearance-none cursor-pointer"
+                    required
+                  >
+                    {JOB_TYPE_OPTIONS.map((opt) => (
+                      <option
+                        key={opt.value}
+                        value={opt.value}
+                        className="bg-[#121212] text-white"
+                      >
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
 

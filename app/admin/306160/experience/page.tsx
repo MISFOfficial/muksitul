@@ -20,6 +20,7 @@ import { useGetAllExperience } from "./DataHub";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { JOB_TYPE_OPTIONS } from "./JobTypeOptions";
 
 // Skeleton Component for compact layout
 const Skeleton = () => (
@@ -133,7 +134,8 @@ export default function ExperiencePage() {
 
                 <div className="space-y-1.5">
                   <h3 className="text-xl font-bold tracking-tight text-white primary-text transition-colors leading-tight">
-                    {exp.role}
+                    {ROLE_OPTIONS.find((opt) => opt.value === exp.role)
+                      ?.label || exp.role}
                   </h3>
                   <div className="flex items-center gap-2 group-hover:text-white/90 transition-colors">
                     <span className="text-base font-semibold text-white/50">
@@ -145,6 +147,12 @@ export default function ExperiencePage() {
                       {exp.location}
                     </div>
                   </div>
+                  {exp.jobType && (
+                    <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#0abab5]/10 border border-[#0abab5]/20 text-[#0abab5] text-[9px] font-black uppercase tracking-[0.1em]">
+                      {JOB_TYPE_OPTIONS.find((opt) => opt.value === exp.jobType)
+                        ?.label || exp.jobType}
+                    </div>
+                  )}
                 </div>
               </div>
 

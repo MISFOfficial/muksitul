@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import Image from "next/image";
+import { ROLE_OPTIONS } from "../../../experience/RoleOptions";
 
 export default function EditProjectPage({
   params,
@@ -163,7 +164,9 @@ export default function EditProjectPage({
 
   // --- Handlers ---
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -693,13 +696,26 @@ export default function EditProjectPage({
                   <label className={labelCls}>
                     <Star size={12} /> Your Role
                   </label>
-                  <input
+                  <select
                     name="role"
                     value={formData.role}
                     onChange={handleInputChange}
-                    placeholder="e.g. Lead Developer"
                     className={inputCls}
-                  />
+                    required
+                  >
+                    <option value="" disabled className="bg-[#0a0a0a]">
+                      Select Your Role
+                    </option>
+                    {ROLE_OPTIONS.map((role) => (
+                      <option
+                        key={role.value}
+                        value={role.value}
+                        className="bg-[#121212] text-white"
+                      >
+                        {role.label}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
 

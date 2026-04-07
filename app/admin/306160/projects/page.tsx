@@ -19,6 +19,7 @@ import {
 import { useGetAllProjects, useDeleteProject } from "./DataHub";
 import Link from "next/link";
 import { toast } from "sonner";
+import { ROLE_OPTIONS } from "../experience/RoleOptions";
 
 // Skeleton Component
 const Skeleton = () => (
@@ -178,7 +179,8 @@ export default function ProjectsPage() {
                 <div className="flex justify-between items-start mb-4">
                   <div className="space-y-1">
                     <h3 className="text-xl font-bold tracking-tight text-white group-hover:primary-text transition-colors duration-300">
-                      {project.role}
+                      {ROLE_OPTIONS.find((opt) => opt.value === project.role)
+                        ?.label || project.role}
                     </h3>
                     <div className="flex items-center gap-2 text-white/40 text-xs font-bold uppercase tracking-widest">
                       <Building2 size={12} className="primary-text" />
