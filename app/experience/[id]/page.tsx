@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 import React from "react";
 import { useParams, useRouter } from "next/navigation";
-import { getExperienceById } from "@/lib/experienceData";
+import { useGetExperienceById } from "@/app/Global/data/useExperience";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -27,9 +27,17 @@ import Footer from "@/app/_Component/Footer/Footer";
 export default function ExperienceDetail() {
   const { id } = useParams();
   const router = useRouter();
-  const experience = getExperienceById(id as string);
+  const { experience, isLoading, isError } = useGetExperienceById(id as string);
 
-  if (!experience) {
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center text-white p-4">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF0055]"></div>
+      </div>
+    );
+  }
+
+  if (isError || !experience) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-white p-4">
         <Briefcase size={64} className="text-[#FF0055] mb-4" />
@@ -86,12 +94,14 @@ export default function ExperienceDetail() {
                 animate={{ opacity: 1, y: 0 }}
                 className="flex items-center gap-5"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 primary-rounded primary-text4 flex items-center justify-center p-4 border primary-border">
-                  <img
-                    src={experience.logo}
-                    alt={experience.company}
-                    className="w-full h-full object-contain"
-                  />
+                <div className="w-20 h-20 md:w-24 md:h-24 primary-rounded primary-text4 flex items-center justify-center p-4 border primary-border overflow-hidden relative">
+                  {experience.image?.url && (
+                    <img
+                      src={experience.image.url}
+                      alt={experience.company}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </div>
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1 primary-rounded bg-[#FF0055]/10 text-[#FF0055] border border-[#FF0055]/20 mb-3">

@@ -6,7 +6,7 @@ import {
 } from "@tanstack/react-query";
 import api from "@/hooks/useAxios";
 
-export const useGetAllExperience = () => {
+export const useGetAllExperience = (limit: number = 10) => {
   const {
     data: allExperience,
     isLoading,
@@ -16,19 +16,19 @@ export const useGetAllExperience = () => {
     isFetchingNextPage,
     fetchNextPage,
   } = useInfiniteQuery({
-    queryKey: ["experiences"],
+    queryKey: ["experiences", limit],
     initialPageParam: 0,
     queryFn: async ({ pageParam = 0 }) => {
       const res = await api.get("/experiences/all", {
         params: {
-          limit: 10,
+          limit: limit,
           skip: pageParam,
         },
       });
       return res.data.data;
     },
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.length === 10 ? allPages.length * 10 : undefined;
+      return lastPage.length === limit ? allPages.length * limit : undefined;
     },
   });
 

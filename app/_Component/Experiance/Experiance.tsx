@@ -2,20 +2,14 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { experienceData } from "@/lib/experienceData";
 import { Calendar, MapPin, Briefcase, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useGetAllExperience } from "@/app/Global/data/useExperience";
 
-const ExperienceCard = ({
-  exp,
-  index,
-}: {
-  exp: (typeof experienceData)[0];
-  index: number;
-}) => {
+const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
   return (
-    <Link href={`/experience/${exp.id}`}>
+    <Link href={`/experience/${exp._id}`}>
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -29,12 +23,14 @@ const ExperienceCard = ({
       >
         <div className="flex items-center gap-5 md:gap-6">
           <div className="w-14 h-14 md:w-16 md:h-16 primary-rounded primary-text4 relative overflow-hidden border primary-border shrink-0">
-            <Image
-              fill
-              src={exp.logo}
-              alt={exp.company}
-              className="object-cover transition-all duration-500"
-            />
+            {exp.image?.url && (
+              <Image
+                fill
+                src={exp.image.url}
+                alt={exp.company}
+                className="object-cover transition-all duration-500"
+              />
+            )}
           </div>
           <div>
             <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-[#FF0055] transition-colors leading-tight">
@@ -71,6 +67,26 @@ const ExperienceCard = ({
 
 export default function Experiance() {
   const containerRef = useRef(null);
+
+  const { allExperience, isLoading, isError } = useGetAllExperience(4);
+
+  const experiences = allExperience?.pages.flatMap((page: any) => page) || [];
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF0055]"></div>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="text-center text-gray-400 py-10">
+        Failed to load experiences.
+      </div>
+    );
+  }
 
   return (
     <section ref={containerRef} className=" relative overflow-hidden">
@@ -112,8 +128,8 @@ export default function Experiance() {
 
       <div className="relative ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          {experienceData.map((exp, index) => (
-            <ExperienceCard key={exp.id} exp={exp} index={index} />
+          {experiences.map((exp: any, index: number) => (
+            <ExperienceCard key={exp._id} exp={exp} index={index} />
           ))}
         </div>
       </div>

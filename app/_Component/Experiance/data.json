@@ -1,0 +1,122 @@
+{
+    "success": true,
+    "responseCode": 1,
+    "statusCode": 200,
+    "message": "Experiences fetched successfully",
+    "data": [
+        {
+            "_id": "69d4be55b5a54ca0fc27de3c",
+            "company": "Serpolino",
+            "role": "JR_SOFTWARE_ENGINEER",
+            "jobType": "PART_TIME",
+            "duration": "01 June 2024 - Presant",
+            "location": "Dhaka, Bangladesh",
+            "description": "Contributing as a part-time Junior Software Engineer at Serpolino, working on frontend and full-stack development tasks. Helping to build and enhance web products while balancing responsibilities with precision and efficiency.",
+            "responsibilities": [
+                "Building responsive and interactive frontend interfaces",
+                "Integrating APIs and managing application state",
+                "Contributing to sprint planning and agile development processes",
+                "Implementing pixel-perfect designs from Figma mockups",
+                "Optimizing web performance and ensuring cross-browser compatibility"
+            ],
+            "technologies": [
+                "React",
+                "Next.js",
+                "Tailwind CSS",
+                "JavaScript",
+                "TypeScript",
+                "Node.js",
+                "Express.js",
+                "Nest.js",
+                "Framer Motion",
+                "GSAP",
+                "Git",
+                "Jira",
+                "Nginix",
+                "Mongoose",
+                "MongoDB",
+                "CloudeFlare"
+            ],
+            "achievements": [
+                "Delivered key frontend features ahead of deadlines",
+                "Improved UI consistency across the product",
+                "Enhanced user experience with smooth animations and transitions"
+            ],
+            "teamSize": "15",
+            "companyDescription": "Serpolino is a tech company focused on building modern web applications and digital products with a strong emphasis on design and user experience.",
+            "companyWebsite": "https://muksitul.pages.dev",
+            "image": {
+                "_id": "69d4be55b5a54ca0fc27de3a",
+                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/792cf839-a459-4078-bb32-ddd2bbc1ecdd.webp",
+                "key": "properties/792cf839-a459-4078-bb32-ddd2bbc1ecdd.webp",
+                "filename": "5f74c517edafeabe7d0abfaef1ab0b64.webp",
+                "mimeType": "image/webp",
+                "size": 3048,
+                "uploadedAt": "2026-04-07T08:20:37.378Z",
+                "createdAt": "2026-04-07T08:20:37.400Z",
+                "updatedAt": "2026-04-07T08:20:37.400Z",
+                "__v": 0
+            },
+            "badge": null,
+            "createdAt": "2026-04-07T08:20:37.476Z",
+            "updatedAt": "2026-04-07T08:23:46.247Z",
+            "__v": 0
+        },
+        {
+            "_id": "69d4bcabb5a54ca0fc27de31",
+            "company": "Aviro Soft",
+            "role": "JR_SOFTWARE_ENGINEER",
+            "jobType": "ON_SITE",
+            "duration": "1 December 2025 - 31 March 2024",
+            "location": "Mymensigh, Dhaka, Bangladesh",
+            "description": "Working as a Jr Software Engineer at Aviro Soft, contributing to full-stack web development projects. Involved in building scalable applications, collaborating with cross-functional teams, and implementing modern development practices to deliver high-quality software solutions.\r\n\r\n",
+            "responsibilities": [
+                "Aviro Soft is a software development company specializing in building innovative digital solutions for businesses. They focus on delivering high-quality web and mobile applications.",
+                "Collaborating with designers and senior engineers to implement UI/UX designs",
+                "Writing clean, maintainable, and well-documented code following best practices",
+                " Participating in code reviews and contributing to team knowledge sharing",
+                " Debugging and resolving complex technical issues across the stack",
+                "Working with REST APIs and database design for application features"
+            ],
+            "technologies": [
+                "React",
+                "Next.js",
+                "Axios",
+                "Tailwind CSS",
+                "TypeScript",
+                "JavaScript",
+                "Node.js",
+                "MongoDB",
+                "Mongoose",
+                "Git",
+                "REST APIs",
+                "Express.js",
+                "Nest.js"
+            ],
+            "achievements": [
+                "Successfully delivered multiple client projects on schedule",
+                "Improved application performance through code optimization",
+                "Adopted modern development workflows and CI/CD practices"
+            ],
+            "teamSize": "5",
+            "companyDescription": "Aviro Soft is a software development company specializing in building innovative digital solutions for businesses. They focus on delivering high-quality web and mobile applications.",
+            "companyWebsite": "https://avirosoft.com",
+            "image": {
+                "_id": "69d4bcabb5a54ca0fc27de2f",
+                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/8148bd2d-7afd-4df2-863e-2bc6d9be3ace.jpg",
+                "key": "properties/8148bd2d-7afd-4df2-863e-2bc6d9be3ace.jpg",
+                "filename": "421388839_358339266988132_8703200930689574265_n.jpg",
+                "mimeType": "image/jpeg",
+                "size": 7837,
+                "uploadedAt": "2026-04-07T08:13:31.290Z",
+                "createdAt": "2026-04-07T08:13:31.315Z",
+                "updatedAt": "2026-04-07T08:13:31.315Z",
+                "__v": 0
+            },
+            "badge": null,
+            "createdAt": "2026-04-07T08:13:31.427Z",
+            "updatedAt": "2026-04-07T08:13:31.427Z",
+            "__v": 0
+        }
+    ]
+}
