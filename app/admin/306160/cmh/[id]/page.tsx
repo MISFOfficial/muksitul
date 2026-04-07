@@ -139,7 +139,7 @@ export default function EditCmsProjectPage() {
 
     const data = new FormData();
     if (image) {
-      data.append("image", image);
+      data.append("images", image);
     }
 
     Object.entries(formData).forEach(([key, value]) => {
@@ -149,7 +149,7 @@ export default function EditCmsProjectPage() {
     data.append("tags", JSON.stringify(tags.filter((t) => t.trim())));
 
     if (badge.text && badge.color) {
-      data.append("badge", JSON.stringify(badge));
+      data.append("badge", JSON.stringify({ properties: badge }));
     }
 
     updateCmsProject(

@@ -108,7 +108,7 @@ export default function CreateCmsProjectPage() {
     }
 
     const data = new FormData();
-    data.append("image", image);
+    data.append("images", image);
 
     Object.entries(formData).forEach(([key, value]) => {
       data.append(key, value);
@@ -117,7 +117,7 @@ export default function CreateCmsProjectPage() {
     data.append("tags", JSON.stringify(tags.filter((t) => t.trim())));
 
     if (badge.text && badge.color) {
-      data.append("badge", JSON.stringify(badge));
+      data.append("badge", JSON.stringify({ properties: badge }));
     }
 
     createCmsProject(data, {

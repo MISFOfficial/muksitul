@@ -21,6 +21,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { JOB_TYPE_OPTIONS } from "./JobTypeOptions";
+import { ROLE_OPTIONS } from "./RoleOptions";
 
 // Skeleton Component for compact layout
 const Skeleton = () => (

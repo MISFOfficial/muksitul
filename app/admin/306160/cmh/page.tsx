@@ -115,11 +115,11 @@ export default function CMHPage() {
             >
               <div className="flex items-center gap-6">
                 <div className="w-16 h-16 rounded-2xl border primary-border flex items-center justify-center overflow-hidden shrink-0 shadow-lg bg-black/40">
-                  {project.image?.url ? (
+                  {project.image?.url || project.images?.[0]?.url ? (
                     <Image
                       width={100}
                       height={100}
-                      src={project.image.url}
+                      src={project.image?.url || project.images?.[0]?.url}
                       alt={project.title}
                       className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-110"
                     />

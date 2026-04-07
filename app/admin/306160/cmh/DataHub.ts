@@ -19,7 +19,7 @@ export const useGetAllCmsProjects = () => {
     queryKey: ["cms-projects"],
     initialPageParam: 0,
     queryFn: async ({ pageParam = 0 }) => {
-      const res = await api.get("/cms-projects/all", {
+      const res = await api.get("/cms/all", {
         params: {
           limit: 10,
           skip: pageParam,
@@ -52,7 +52,7 @@ export const useGetCmsProjectById = (id: string) => {
   } = useQuery({
     queryKey: ["cms-projects", id],
     queryFn: async () => {
-      const res = await api.get(`/cms-projects/one/${id}`);
+      const res = await api.get(`/cms/one/${id}`);
       return res.data.data;
     },
     enabled: !!id,
@@ -65,7 +65,7 @@ export const useCreateCmsProject = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (data: FormData) => {
-      const res = await api.post("/cms-projects/create", data, {
+      const res = await api.post("/cms/create", data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       return res.data;
@@ -80,7 +80,7 @@ export const useUpdateCmsProject = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async ({ id, data }: { id: string; data: FormData }) => {
-      const res = await api.patch(`/cms-projects/update/${id}`, data, {
+      const res = await api.patch(`/cms/update/${id}`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       return res.data;
@@ -98,7 +98,7 @@ export const useDeleteCmsProject = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      const res = await api.delete(`/cms-projects/delete/${id}`);
+      const res = await api.delete(`/cms/delete/${id}`);
       return res.data;
     },
     onSuccess: () => {
