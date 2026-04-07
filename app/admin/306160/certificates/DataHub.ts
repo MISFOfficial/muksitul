@@ -88,6 +88,7 @@ export const useDeleteCertificate = () => {
     },
   });
 };
+
 export const useUpdateCertificate = () => {
   const queryClient = useQueryClient();
   return useMutation({
