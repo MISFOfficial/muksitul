@@ -12,23 +12,11 @@ export const useGetAllSkills = () => {
     isLoading,
     isError,
     refetch,
-    hasNextPage,
-    isFetchingNextPage,
-    fetchNextPage,
-  } = useInfiniteQuery({
+  } = useQuery({
     queryKey: ["skills"],
-    initialPageParam: 0,
-    queryFn: async ({ pageParam = 0 }) => {
-      const res = await api.get("/skills/all", {
-        params: {
-          limit: 10,
-          skip: pageParam,
-        },
-      });
+    queryFn: async () => {
+      const res = await api.get("/skills/all");
       return res.data.data;
-    },
-    getNextPageParam: (lastPage, allPages) => {
-      return lastPage.length === 10 ? allPages.length * 10 : undefined;
     },
   });
 
@@ -37,9 +25,6 @@ export const useGetAllSkills = () => {
     isLoading,
     isError,
     refetch,
-    hasNextPage,
-    isFetchingNextPage,
-    fetchNextPage,
   };
 };
 
