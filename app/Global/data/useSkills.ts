@@ -64,6 +64,57 @@ export const useGetSkillById = (id: string) => {
   return { skill, isLoading, isError, refetch };
 };
 
+export const useGetFrontendSkills = () => {
+  const {
+    data: frontendSkills,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery({
+    queryKey: ["skills", "frontend"],
+    queryFn: async () => {
+      const res = await api.get("/skills/frontend");
+      return res.data.data;
+    },
+  });
+
+  return { frontendSkills, isLoading, isError, refetch };
+};
+
+export const useGetBackendSkills = () => {
+  const {
+    data: backendSkills,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery({
+    queryKey: ["skills", "backend"],
+    queryFn: async () => {
+      const res = await api.get("/skills/backend");
+      return res.data.data;
+    },
+  });
+
+  return { backendSkills, isLoading, isError, refetch };
+};
+
+export const useGetSoftSkills = () => {
+  const {
+    data: softSkills,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery({
+    queryKey: ["skills", "softskill"],
+    queryFn: async () => {
+      const res = await api.get("/skills/softskill");
+      return res.data.data;
+    },
+  });
+
+  return { softSkills, isLoading, isError, refetch };
+};
+
 export const useCreateSkill = () => {
   const queryClient = useQueryClient();
   return useMutation({
