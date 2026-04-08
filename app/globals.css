@@ -80,3 +80,23 @@ body {
   animation: shimmer 2s infinite;
 }
 
+/* Swiper Overrides */
+.project-swiper .swiper-button-next,
+.project-swiper .swiper-button-prev {
+  @apply text-[#0abab5] bg-black/30 backdrop-blur-md w-12 h-12 rounded-full border border-white/10 hover:bg-[#0abab5] hover:text-black transition-all transition-transform active:scale-95;
+  z-index: 10;
+}
+
+.project-swiper .swiper-button-next:after,
+.project-swiper .swiper-button-prev:after {
+  @apply text-lg font-bold;
+}
+
+.project-swiper .swiper-pagination-bullet {
+  @apply bg-white/30 opacity-100 w-2.5 h-2.5;
+}
+
+.project-swiper .swiper-pagination-bullet-active {
+  @apply bg-[#0abab5] w-8 rounded-full transition-all duration-300;
+}
+

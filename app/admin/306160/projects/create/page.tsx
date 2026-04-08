@@ -23,7 +23,6 @@ import {
   Puzzle,
   Calendar,
   Globe,
-  Eye,
 } from "lucide-react";
 import { toast } from "sonner";
 import Image from "next/image";
@@ -39,7 +38,6 @@ export default function CreateProjectPage() {
     year: "",
     description: "",
     fullDescription: "",
-    overlayText: "",
     role: "",
     liveUrl: "",
     githubUrl: "",
@@ -232,10 +230,73 @@ export default function CreateProjectPage() {
       return;
     }
 
+    // --- Validate DTO-required fields ---
+    const validTags = tags.filter((t) => t.trim());
+    if (validTags.length === 0) {
+      toast.error("At least 1 tag is required");
+      return;
+    }
+
+    const validTechnologies = technologies.filter((t) => t.trim());
+    if (validTechnologies.length === 0) {
+      toast.error("At least 1 technology is required");
+      return;
+    }
+
+    const validFeatures = features.filter((f) => f.trim());
+    if (validFeatures.length === 0) {
+      toast.error("At least 1 feature is required");
+      return;
+    }
+
+    const validLessons = lessons.filter((l) => l.trim());
+    if (validLessons.length === 0) {
+      toast.error("At least 1 lesson is required");
+      return;
+    }
+
+    if (!architecture.frontend.trim()) {
+      toast.error("Architecture frontend is required");
+      return;
+    }
+    if (!architecture.backend.trim()) {
+      toast.error("Architecture backend is required");
+      return;
+    }
+    if (!architecture.database.trim()) {
+      toast.error("Architecture database is required");
+      return;
+    }
+    const validInfrastructure = infrastructure.filter((i) => i.trim());
+    if (validInfrastructure.length === 0) {
+      toast.error("At least 1 infrastructure item is required");
+      return;
+    }
+
+    if (!problemSolution.problem.trim()) {
+      toast.error("Problem description is required");
+      return;
+    }
+    if (!problemSolution.solution.trim()) {
+      toast.error("Solution description is required");
+      return;
+    }
+
+    const validMetrics = metrics.filter(
+      (m) => m.label.trim() && m.value.trim() && m.description.trim(),
+    );
+    if (validMetrics.length === 0) {
+      toast.error(
+        "At least 1 complete metric (label, value, description) is required",
+      );
+      return;
+    }
+
     const data = new FormData();
     data.append("image", image);
     images.forEach((img) => data.append("images", img));
 
+    // Simple string fields
     Object.entries(formData).forEach(([key, value]) => {
       if (value.trim()) {
         let finalKey = key;
@@ -245,7 +306,7 @@ export default function CreateProjectPage() {
       }
     });
 
-    // Send arrays as JSON strings
+    // Arrays — send as JSON strings (backend parses them)
     data.append("tags", JSON.stringify(tags.filter((t) => t.trim())));
     data.append(
       "technologies",
@@ -254,33 +315,29 @@ export default function CreateProjectPage() {
     data.append("features", JSON.stringify(features.filter((f) => f.trim())));
     data.append("lessons", JSON.stringify(lessons.filter((l) => l.trim())));
 
+    // Badge — send as { text, color } directly (no properties wrapper)
     if (badge.text.trim()) {
-      data.append("badge", JSON.stringify({ properties: badge }));
+      data.append(
+        "badge",
+        JSON.stringify({ text: badge.text, color: badge.color }),
+      );
     }
 
+    // Architecture — always send (required by DTO)
     const archData = {
       ...architecture,
       infrastructure: infrastructure.filter((i) => i.trim()),
     };
-    if (
-      archData.frontend.trim() ||
-      archData.backend.trim() ||
-      archData.database.trim() ||
-      archData.infrastructure.length > 0
-    ) {
-      data.append("architecture", JSON.stringify(archData));
-    }
+    data.append("architecture", JSON.stringify(archData));
 
-    if (problemSolution.problem.trim() || problemSolution.solution.trim()) {
-      data.append("problemSolution", JSON.stringify(problemSolution));
-    }
+    // Problem & Solution — always send (required by DTO)
+    data.append("problemSolution", JSON.stringify(problemSolution));
 
+    // Metrics — always send (required by DTO)
     const filteredMetrics = metrics.filter(
       (m) => m.label.trim() || m.value.trim() || m.description.trim(),
     );
-    if (filteredMetrics.length > 0) {
-      data.append("metrics", JSON.stringify(filteredMetrics));
-    }
+    data.append("metrics", JSON.stringify(filteredMetrics));
 
     createProject(data, {
       onSuccess: () => {
@@ -599,20 +656,6 @@ export default function CreateProjectPage() {
                   placeholder="Detailed description of the project..."
                   rows={4}
                   className={textareaCls}
-                />
-              </div>
-
-              {/* Overlay Text */}
-              <div className="space-y-2 group">
-                <label className={labelCls}>
-                  <Eye size={12} /> Overlay Text
-                </label>
-                <input
-                  name="overlayText"
-                  value={formData.overlayText}
-                  onChange={handleInputChange}
-                  placeholder="Text shown on image hover overlay"
-                  className={inputCls}
                 />
               </div>
             </div>

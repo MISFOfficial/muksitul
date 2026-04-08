@@ -13,7 +13,6 @@ interface Project {
     url: string;
   }[];
   tags: string[];
-  overlayText?: string;
   badge?: {
     text: string;
     color: string;
@@ -45,29 +44,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               className="object-cover group-hover:scale-110 duration-300 transition-transform"
             />
 
-            {/* Coming Soon Overlay */}
-            {project.overlayText && (
-              <div className="absolute inset-0   backdrop-blur-[2px] z-20 flex items-center justify-center p-4">
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="bg-white/10 border primary-border px-8 py-3 rounded-full backdrop-blur-md"
-                >
-                  <span className="text-white font-black tracking-[0.2em] text-sm md:text-base">
-                    {project.overlayText}
-                  </span>
-                </motion.div>
+            {/* Hover Overlay */}
+            <div className="absolute inset-0   opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+              <div className="primary-color text-white px-6 py-3 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
+                View Details <ArrowUpRight size={18} />
               </div>
-            )}
-
-            {/* Hover Overlay (Only if not overlayText) */}
-            {!project.overlayText && (
-              <div className="absolute inset-0   opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                <div className="primary-color text-white px-6 py-3 rounded-full font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex items-center gap-2">
-                  View Details <ArrowUpRight size={18} />
-                </div>
-              </div>
-            )}
+            </div>
           </div>
 
           {/* Footer Area */}

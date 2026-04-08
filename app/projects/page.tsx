@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 
 export default function ProjectsPage() {
   const router = useRouter();
-  const { allProjects, isLoading, isError } = useGetAllProjects();
+  const { allProjects, isLoading, isError } = useGetAllProjects(10);
 
   const projects = allProjects?.pages.flatMap((page: any) => page) || [];
 

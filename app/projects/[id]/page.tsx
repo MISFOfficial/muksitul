@@ -25,6 +25,15 @@ import {
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+// Swiper Imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+// Swiper Styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 export default function ProjectPage() {
   const { id } = useParams();
   const router = useRouter();
@@ -128,9 +137,9 @@ export default function ProjectPage() {
                   Live Demo
                 </a>
               )}
-              {project?.fgithubUrl && (
+              {project?.frontendGithubUrl && (
                 <a
-                  href={project?.fgithubUrl}
+                  href={project?.frontendGithubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-2 primary-border text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:primary-text4 transition-all"
@@ -139,9 +148,9 @@ export default function ProjectPage() {
                   Frontend Source Code
                 </a>
               )}
-              {project?.bgithubUrl && (
+              {project?.backendGithubUrl && (
                 <a
-                  href={project?.bgithubUrl}
+                  href={project?.backendGithubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border-2 primary-border text-white px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:primary-text4 transition-all"
@@ -164,15 +173,29 @@ export default function ProjectPage() {
             </div>
           </div>
 
-          {/* Right - Project Image */}
-          <div className="lg:col-span-2 relative h-[400px] lg:h-[600px] primary-rounded overflow-hidden border-2 primary-border group">
-            <Image
-              src={project.images[0]?.url || ""}
-              alt={project.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          {/* Right - Project Image Gallery with Swiper */}
+          <div className="lg:col-span-2 relative h-[400px] lg:h-[600px] primary-rounded overflow-hidden border-2 primary-border group project-swiper">
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 5000, disableOnInteraction: false }}
+              className="h-full w-full"
+            >
+              {project.images.map((image: any, idx: number) => (
+                <SwiperSlide key={idx}>
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={image.url || image}
+                      alt={`${project.title} - image ${idx + 1}`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none z-[1]"></div>
           </div>
         </div>
       </section>
@@ -302,27 +325,30 @@ export default function ProjectPage() {
               </div>
             </div>
 
-            {/* New: Performance Metrics in Sidebar */}
-            {project.metrics && (
-              <div className="bg-gradient-to-br from-[#20255e]/5 to-transparent primary-rounded p-6 border border-[#20255e]/10">
-                <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                  <BarChart3 size={20} className="primary-text" />
-                  Key Metrics
-                </h3>
-                <div className="space-y-6">
-                  {project.metrics.map((metric, idx) => (
-                    <div key={idx}>
-                      <div className="text-2xl font-black text-white">
-                        {metric.value}
-                      </div>
-                      <div className="text-[10px] font-bold uppercase tracking-[0.2em] primary-text2">
-                        {metric.label}
-                      </div>
-                    </div>
-                  ))}
+            {/* Performance Metrics in Sidebar */}
+            {project.metrics &&
+              project.metrics.some((m: any) => m.label && m.value) && (
+                <div className="bg-gradient-to-br from-[#20255e]/5 to-transparent primary-rounded p-6 border border-[#20255e]/10">
+                  <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                    <BarChart3 size={20} className="primary-text" />
+                    Key Metrics
+                  </h3>
+                  <div className="space-y-6">
+                    {project.metrics
+                      .filter((m: any) => m.label && m.value)
+                      .map((metric: any, idx: number) => (
+                        <div key={idx}>
+                          <div className="text-2xl font-black text-white">
+                            {metric.value}
+                          </div>
+                          <div className="text-[10px] font-bold uppercase tracking-[0.2em] primary-text2">
+                            {metric.label}
+                          </div>
+                        </div>
+                      ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
           </div>
         </div>
       </section>

@@ -1,0 +1,103 @@
+{
+    "success": true,
+    "responseCode": 1,
+    "statusCode": 200,
+    "message": "Project fetched successfully",
+    "data": {
+        "_id": "69d4c3fab5a54ca0fc27de76",
+        "title": "Group Study's Assignment",
+        "tags": [
+            "LMS",
+            "Collaboration",
+            "Productivity"
+        ],
+        "year": "2025",
+        "description": "Collaborative LMS for Peer Learning",
+        "fullDescription": "A collaborative learning management system where students can create assignments, submit work, and engage in peer-to-peer marking.",
+        "technologies": [
+            "React",
+            "Redux Toolkit",
+            "Firebase",
+            "MongoDB",
+            "Express"
+        ],
+        "liveUrl": "https://group-study-cfcff.web.app/",
+        "githubUrl": null,
+        "frontendGithubUrl": "sdfg",
+        "backendGithubUrl": "sdfgsdfgsdfdg",
+        "features": [
+            "Peer Marking System",
+            "Collaborative Workspace",
+            "Grade Tracking",
+            "Dynamic Quiz Builder"
+        ],
+        "role": "JR_SOFTWARE_ENGINEER",
+        "metrics": [
+            {
+                "_id": "69d559abb2e72909ccc790fa"
+            },
+            {
+                "_id": "69d559abb2e72909ccc790fb"
+            },
+            {
+                "_id": "69d559abb2e72909ccc790fc"
+            }
+        ],
+        "lessons": [
+            "nothing"
+        ],
+        "images": [
+            {
+                "_id": "69d4c3f3b5a54ca0fc27de6e",
+                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/9c3cf77c-8b4a-4a6e-a6ed-72d2a340ef39.png",
+                "key": "properties/9c3cf77c-8b4a-4a6e-a6ed-72d2a340ef39.png",
+                "filename": "image.png",
+                "mimeType": "image/png",
+                "size": 1389335,
+                "uploadedAt": "2026-04-07T08:44:35.773Z",
+                "createdAt": "2026-04-07T08:44:35.775Z",
+                "updatedAt": "2026-04-07T08:44:35.775Z",
+                "__v": 0
+            },
+            {
+                "_id": "69d4c3fab5a54ca0fc27de70",
+                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/b8bf4ef4-6018-4176-8977-bbcaf9f967fe.png",
+                "key": "properties/b8bf4ef4-6018-4176-8977-bbcaf9f967fe.png",
+                "filename": "image.png",
+                "mimeType": "image/png",
+                "size": 294864,
+                "uploadedAt": "2026-04-07T08:44:42.326Z",
+                "createdAt": "2026-04-07T08:44:42.330Z",
+                "updatedAt": "2026-04-07T08:44:42.330Z",
+                "__v": 0
+            },
+            {
+                "_id": "69d4c3fab5a54ca0fc27de71",
+                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/e1e756c0-61aa-45e3-bc41-a85737f9ad24.png",
+                "key": "properties/e1e756c0-61aa-45e3-bc41-a85737f9ad24.png",
+                "filename": "image.png",
+                "mimeType": "image/png",
+                "size": 283952,
+                "uploadedAt": "2026-04-07T08:44:42.328Z",
+                "createdAt": "2026-04-07T08:44:42.330Z",
+                "updatedAt": "2026-04-07T08:44:42.330Z",
+                "__v": 0
+            },
+            {
+                "_id": "69d4c3fab5a54ca0fc27de72",
+                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/f702c549-3ad5-4643-b459-9db42babe7e7.png",
+                "key": "properties/f702c549-3ad5-4643-b459-9db42babe7e7.png",
+                "filename": "image.png",
+                "mimeType": "image/png",
+                "size": 238622,
+                "uploadedAt": "2026-04-07T08:44:42.329Z",
+                "createdAt": "2026-04-07T08:44:42.331Z",
+                "updatedAt": "2026-04-07T08:44:42.331Z",
+                "__v": 0
+            }
+        ],
+        "createdAt": "2026-04-07T08:44:42.405Z",
+        "updatedAt": "2026-04-07T19:23:23.636Z",
+        "__v": 0
+    }
+}

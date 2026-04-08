@@ -26,7 +26,6 @@ import {
   Puzzle,
   Calendar,
   Globe,
-  Eye,
   RefreshCw,
 } from "lucide-react";
 import { toast } from "sonner";
@@ -53,7 +52,6 @@ export default function EditProjectPage({
     year: "",
     description: "",
     fullDescription: "",
-    overlayText: "",
     role: "",
     liveUrl: "",
     githubUrl: "",
@@ -110,7 +108,6 @@ export default function EditProjectPage({
         year: project.year || "",
         description: project.description || "",
         fullDescription: project.fullDescription || "",
-        overlayText: project.overlayText || "",
         role: project.role || "",
         liveUrl: project.liveUrl || "",
         githubUrl: project.githubUrl || "",
@@ -317,14 +314,10 @@ export default function EditProjectPage({
       data.append("image", image);
     }
 
-    // For update, the backend needs to know which images to keep and which to add.
-    // Usually, you send NEW images and maybe a list of REMAINING existing images.
-    // However, looking at the pattern, we'll just send the new files and let the backend handle the logic.
-    // If the backend expects all images every time, we might have an issue.
-    // But since the user provided the endpoints, I'll assume standard multipart handling.
+    // Send new gallery images
     images.forEach((img) => data.append("images", img));
 
-    // We also need to send the existing images that were NOT removed
+    // Send remaining existing images that were NOT removed
     if (existingImages.length > 0) {
       data.append(
         "remainingImages",
@@ -332,6 +325,7 @@ export default function EditProjectPage({
       );
     }
 
+    // Simple string fields
     Object.entries(formData).forEach(([key, value]) => {
       if (value.trim()) {
         let finalKey = key;
@@ -341,7 +335,7 @@ export default function EditProjectPage({
       }
     });
 
-    // Send arrays as JSON strings
+    // Arrays — send as JSON strings (backend parses them)
     data.append("tags", JSON.stringify(tags.filter((t) => t.trim())));
     data.append(
       "technologies",
@@ -350,33 +344,29 @@ export default function EditProjectPage({
     data.append("features", JSON.stringify(features.filter((f) => f.trim())));
     data.append("lessons", JSON.stringify(lessons.filter((l) => l.trim())));
 
+    // Badge — send as { text, color } directly (no properties wrapper)
     if (badge.text.trim()) {
-      data.append("badge", JSON.stringify({ properties: badge }));
+      data.append(
+        "badge",
+        JSON.stringify({ text: badge.text, color: badge.color }),
+      );
     }
 
+    // Architecture — always send (required by DTO)
     const archData = {
       ...architecture,
       infrastructure: infrastructure.filter((i) => i.trim()),
     };
-    if (
-      archData.frontend.trim() ||
-      archData.backend.trim() ||
-      archData.database.trim() ||
-      archData.infrastructure.length > 0
-    ) {
-      data.append("architecture", JSON.stringify(archData));
-    }
+    data.append("architecture", JSON.stringify(archData));
 
-    if (problemSolution.problem.trim() || problemSolution.solution.trim()) {
-      data.append("problemSolution", JSON.stringify(problemSolution));
-    }
+    // Problem & Solution — always send (required by DTO)
+    data.append("problemSolution", JSON.stringify(problemSolution));
 
+    // Metrics — always send (required by DTO)
     const filteredMetrics = metrics.filter(
       (m) => m.label.trim() || m.value.trim() || m.description.trim(),
     );
-    if (filteredMetrics.length > 0) {
-      data.append("metrics", JSON.stringify(filteredMetrics));
-    }
+    data.append("metrics", JSON.stringify(filteredMetrics));
 
     updateProject(data, {
       onSuccess: () => {
@@ -750,20 +740,6 @@ export default function EditProjectPage({
                   placeholder="Detailed description of the project..."
                   rows={4}
                   className={textareaCls}
-                />
-              </div>
-
-              {/* Overlay Text */}
-              <div className="space-y-2 group">
-                <label className={labelCls}>
-                  <Eye size={12} /> Overlay Text
-                </label>
-                <input
-                  name="overlayText"
-                  value={formData.overlayText}
-                  onChange={handleInputChange}
-                  placeholder="Text shown on image hover overlay"
-                  className={inputCls}
                 />
               </div>
             </div>
