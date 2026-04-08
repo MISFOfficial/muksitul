@@ -54,6 +54,22 @@ export const useGetProjectsById = (id: string) => {
 
   return { allProjects, isLoading, isError, refetch };
 };
+export const useGetProjectsCount = () => {
+  const {
+    data: count,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery({
+    queryKey: ["projects", "count"],
+    queryFn: async () => {
+      const res = await api.get(`/projects/count`);
+      return res.data.data;
+    },
+  });
+
+  return { count, isLoading, isError, refetch };
+};
 
 // create projects
 

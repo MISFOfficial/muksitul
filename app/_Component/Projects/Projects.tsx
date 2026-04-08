@@ -3,10 +3,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowUpRight } from "lucide-react";
-import { useGetAllProjects } from "@/app/Global/data/useProjects";
+import {
+  useGetAllProjects,
+  useGetProjectsCount,
+} from "@/app/Global/data/useProjects";
 export default function Projects() {
-  const { allProjects } = useGetAllProjects(1);
-  const totalProjects = allProjects?.pages[0]?.total || 44; // Fallback to 44 if total not in API response
+  const { count } = useGetProjectsCount();
 
   const features = [
     "A+ Speed Test(Super Fast)",
@@ -40,7 +42,7 @@ export default function Projects() {
           className="relative"
         >
           <span className="text-[60px] md:text-[100px] font-black leading-none primary-text2 tracking-tighter">
-            {totalProjects}+
+            {count?.total || "0"}+
           </span>
           <span className="absolute top-2 -right-12 text-[12px] md:text-lg font-bold bg-[#20255e] px-3 py-1 rounded-full text-white rotate-12">
             Projects
