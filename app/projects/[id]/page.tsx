@@ -113,7 +113,7 @@ export default function ProjectPage() {
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag, idx) => (
+              {project.tags.map((tag: any, idx: any) => (
                 <span
                   key={idx}
                   className="flex items-center gap-1.5 text-sm px-4 py-2 rounded-full primary-text4 text-gray-300 border primary-border hover:border-[#20255e]/50 transition-all"
@@ -177,7 +177,7 @@ export default function ProjectPage() {
           <div className="lg:col-span-2 relative h-[400px] lg:h-[600px] primary-rounded overflow-hidden border-2 primary-border group project-swiper">
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
-              navigation
+              // navigation
               pagination={{ clickable: true }}
               autoplay={{ delay: 5000, disableOnInteraction: false }}
               className="h-full w-full"
@@ -189,7 +189,7 @@ export default function ProjectPage() {
                       src={image.url || image}
                       alt={`${project.title} - image ${idx + 1}`}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover  transition-transform duration-500"
                     />
                   </div>
                 </SwiperSlide>
@@ -223,7 +223,7 @@ export default function ProjectPage() {
                 <div className="h-1 flex-1 max-w-[100px] primary-color rounded-full"></div>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {project.features.map((feature, idx) => (
+                {project.features.map((feature: any, idx: any) => (
                   <div
                     key={idx}
                     className="flex items-start gap-3 bg-gradient-to-br from-white/5 to-white/[0.02] p-5 primary-rounded border primary-border hover:borderTechnologies Used-[#20255e]/30 transition-all group"
@@ -280,7 +280,7 @@ export default function ProjectPage() {
                 Technologies Used
               </h3>
               <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, idx) => (
+                {project.technologies.map((tech: any, idx: any) => (
                   <span
                     key={idx}
                     className="text-sm px-4 py-2 rounded-full primary-color text-white font-semibold hover:scale-105 transition-transform"
@@ -328,7 +328,7 @@ export default function ProjectPage() {
             {/* Performance Metrics in Sidebar */}
             {project.metrics &&
               project.metrics.some((m: any) => m.label && m.value) && (
-                <div className="bg-gradient-to-br from-[#20255e]/5 to-transparent primary-rounded p-6 border border-[#20255e]/10">
+                <div className="bg-gradient-to-br from-[#20255e]/20 to-[#20255e]/40 primary-rounded p-6 border border-[#20255e]/10">
                   <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                     <BarChart3 size={20} className="primary-text" />
                     Key Metrics
@@ -355,7 +355,7 @@ export default function ProjectPage() {
 
       {/* New: Extended Architecture & Insights Section (Append below) */}
       {(project.architecture || project.lessons) && (
-        <section className="ratio  pt-10  border-t primary-border space-y-20">
+        <section className="ratio mt-20  pt-10  border-t primary-border space-y-20">
           {/* Architecture Map */}
           {project.architecture && (
             <div>
@@ -412,7 +412,7 @@ export default function ProjectPage() {
                 Key Engineering Takeaways
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {project.lessons.map((lesson, idx) => (
+                {project.lessons.map((lesson: any, idx: any) => (
                   <div key={idx} className="flex gap-4">
                     <div className="w-8 h-8 rounded-full primary-text4 flex items-center justify-center flex-shrink-0 text-xs font-bold primary-text2">
                       0{idx + 1}
