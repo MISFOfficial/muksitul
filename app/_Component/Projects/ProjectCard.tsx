@@ -58,7 +58,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               <h3 className="text-xl font-bold">{project.title}</h3>
               {project.badge && (
                 <span
-                  className={`${project.badge.color} text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider`}
+                  className="text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider"
+                  style={{ backgroundColor: project.badge.color }}
                 >
                   {project.badge.text}
                 </span>

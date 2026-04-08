@@ -980,37 +980,53 @@ export default function EditProjectPage({
               <label className={labelCls}>
                 <Tag size={12} /> Badge Color
               </label>
-              <div className="flex gap-2">
-                <div className="relative flex-1">
-                  <input
-                    value={badge.color}
-                    onChange={(e) =>
-                      setBadge((b) => ({ ...b, color: e.target.value }))
-                    }
-                    placeholder="e.g. #0abab5"
-                    className={inputCls}
-                  />
-                </div>
-                <div className="relative w-14 h-auto shrink-0">
-                  <input
-                    type="color"
-                    value={
-                      badge.color.startsWith("#") ? badge.color : "#0abab5"
-                    }
-                    onChange={(e) =>
-                      setBadge((b) => ({ ...b, color: e.target.value }))
-                    }
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                  />
-                  <div
-                    className="w-full h-full rounded-xl border primary-border pointer-events-none"
-                    style={{
-                      backgroundColor: badge.color.startsWith("#")
-                        ? badge.color
-                        : "#0abab5",
-                    }}
-                  />
-                </div>
+              <div className="flex gap-3 items-center">
+                {(() => {
+                  const presets = [
+                    { color: "#EF4444", name: "Red" },
+                    { color: "#F97316", name: "Orange" },
+                    { color: "#EAB308", name: "Yellow" },
+                    { color: "#22C55E", name: "Green" },
+                    { color: "#0ABAB5", name: "Teal" },
+                    { color: "#A855F7", name: "Purple" },
+                  ];
+                  const currentMatchesPreset =
+                    badge.color &&
+                    presets.some(
+                      (p) =>
+                        p.color.toLowerCase() === badge.color.toLowerCase(),
+                    );
+                  return (
+                    <>
+                      {badge.color && !currentMatchesPreset && (
+                        <button
+                          type="button"
+                          title={`Current: ${badge.color}`}
+                          onClick={() => {}}
+                          className="w-9 h-9 rounded-full border-2 border-white scale-110 shadow-[0_0_12px_rgba(255,255,255,0.3)] transition-all duration-200"
+                          style={{ backgroundColor: badge.color }}
+                        />
+                      )}
+                      {presets.map((preset) => (
+                        <button
+                          key={preset.color}
+                          type="button"
+                          title={preset.name}
+                          onClick={() =>
+                            setBadge((b) => ({ ...b, color: preset.color }))
+                          }
+                          className={`w-9 h-9 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
+                            badge.color.toLowerCase() ===
+                            preset.color.toLowerCase()
+                              ? "border-white scale-110 shadow-[0_0_12px_rgba(255,255,255,0.3)]"
+                              : "border-white/10 hover:border-white/30"
+                          }`}
+                          style={{ backgroundColor: preset.color }}
+                        />
+                      ))}
+                    </>
+                  );
+                })()}
               </div>
             </div>
           </div>
