@@ -307,13 +307,10 @@ export default function CreateProjectPage() {
     });
 
     // Arrays — send as JSON strings (backend parses them)
-    data.append("tags", JSON.stringify(tags.filter((t) => t.trim())));
-    data.append(
-      "technologies",
-      JSON.stringify(technologies.filter((t) => t.trim())),
-    );
-    data.append("features", JSON.stringify(features.filter((f) => f.trim())));
-    data.append("lessons", JSON.stringify(lessons.filter((l) => l.trim())));
+    data.append("tags", JSON.stringify(validTags));
+    data.append("technologies", JSON.stringify(validTechnologies));
+    data.append("features", JSON.stringify(validFeatures));
+    data.append("lessons", JSON.stringify(validLessons));
 
     // Badge — send as { text, color } directly (no properties wrapper)
     if (badge.text.trim()) {
@@ -326,7 +323,7 @@ export default function CreateProjectPage() {
     // Architecture — always send (required by DTO)
     const archData = {
       ...architecture,
-      infrastructure: infrastructure.filter((i) => i.trim()),
+      infrastructure: validInfrastructure,
     };
     data.append("architecture", JSON.stringify(archData));
 
@@ -334,10 +331,7 @@ export default function CreateProjectPage() {
     data.append("problemSolution", JSON.stringify(problemSolution));
 
     // Metrics — always send (required by DTO)
-    const filteredMetrics = metrics.filter(
-      (m) => m.label.trim() || m.value.trim() || m.description.trim(),
-    );
-    data.append("metrics", JSON.stringify(filteredMetrics));
+    data.append("metrics", JSON.stringify(validMetrics));
 
     createProject(data, {
       onSuccess: () => {
