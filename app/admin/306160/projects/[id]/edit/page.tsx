@@ -127,10 +127,10 @@ export default function EditProjectPage({
       setFeatures(project.features?.length ? project.features : [""]);
       setLessons(project.lessons?.length ? project.lessons : [""]);
 
-      if (project.badge?.properties) {
+      if (project.badge) {
         setBadge({
-          text: project.badge.properties.text || "",
-          color: project.badge.properties.color || "",
+          text: project.badge.text || "",
+          color: project.badge.color || "",
         });
       }
 

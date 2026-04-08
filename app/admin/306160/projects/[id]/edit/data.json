@@ -1,80 +1,71 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, Schema as MongooseSchema } from 'mongoose';
-import { Image } from 'src/image/entities/image.entity';
-
-export type ProjectDocument = Project & Document;
-
-@Schema({ timestamps: true })
-export class Project {
-  @Prop({ required: true })
-  title: string;
-
-  @Prop({ type: [String], required: true })
-  tags: string[];
-
-  @Prop({ required: true })
-  year: string;
-
-  @Prop({ type: Object, default: null })
-  badge?: { text: string; color: string } | null;
-
-  @Prop({ required: true })
-  description: string;
-
-  @Prop({ required: true })
-  fullDescription: string;
-
-  @Prop({ type: [String], required: true })
-  technologies: string[];
-
-  @Prop({ required: true })
-  liveUrl: string;
-
-  @Prop({ type: String, required: false, default: null })
-  githubUrl?: string | null;
-  @Prop({ type: String, required: false, default: null })
-  frontendGithubUrl?: string | null;
-  @Prop({ type: String, required: false, default: null })
-  backendGithubUrl?: string | null;
-
-  @Prop({ type: [String], required: true })
-  features: string[];
-
-  @Prop({ required: true })
-  role: string;
-
-  @Prop({ type: Object, required: true })
-  architecture: {
-    frontend: string;
-    backend: string;
-    database: string;
-    infrastructure: string[];
-  };
-
-  @Prop({ type: Object, required: true })
-  problemSolution: {
-    problem: string;
-    solution: string;
-  };
-
-  @Prop({
-    type: [{ label: String, value: String, description: String }],
-    required: true,
-  })
-  metrics: {
-    label: string;
-    value: string;
-    description: string;
-  }[];
-
-  @Prop({ type: [String], required: true })
-  lessons: string[];
-
-  @Prop({
-    type: [{ type: MongooseSchema.Types.ObjectId, ref: 'Image' }],
-    required: true,
-  })
-  images: (Image | string)[];
+{
+    "success": true,
+    "responseCode": 1,
+    "statusCode": 200,
+    "message": "Project fetched successfully",
+    "data": {
+        "_id": "69d5f63af627a8641c31c17a",
+        "title": "g",
+        "tags": [
+            "ccvxc"
+        ],
+        "year": "2025",
+        "badge": {
+            "text": "cvxcv",
+            "color": "#3cb4b0"
+        },
+        "description": "hdfgh",
+        "fullDescription": "hdfgh",
+        "technologies": [
+            "vzxcv"
+        ],
+        "liveUrl": "ghdf",
+        "githubUrl": "https://varaniben.com/",
+        "frontendGithubUrl": "https://varaniben.com/",
+        "backendGithubUrl": "https://varaniben.com/",
+        "features": [
+            "xcvxcv"
+        ],
+        "role": "FRONTEND_DEVELOPER",
+        "architecture": {
+            "frontend": "vxcv",
+            "backend": "xcv",
+            "database": "xcv",
+            "infrastructure": [
+                "xcv"
+            ]
+        },
+        "problemSolution": {
+            "problem": "vxcv",
+            "solution": "xcvcxv"
+        },
+        "metrics": [
+            {
+                "label": "cvxc",
+                "value": "xcvxc",
+                "description": "xvcvxc",
+                "_id": "69d5f63af627a8641c31c17b"
+            }
+        ],
+        "lessons": [
+            "xcvxcv"
+        ],
+        "images": [
+            {
+                "_id": "69d5f63af627a8641c31c178",
+                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/8cff1c19-671c-47eb-a973-d321cb613520.jpg",
+                "key": "properties/8cff1c19-671c-47eb-a973-d321cb613520.jpg",
+                "filename": "Birmingham-New-Street-station-front-900x600-c.jpg",
+                "mimeType": "image/jpeg",
+                "size": 102284,
+                "uploadedAt": "2026-04-08T06:31:22.785Z",
+                "createdAt": "2026-04-08T06:31:22.788Z",
+                "updatedAt": "2026-04-08T06:31:22.788Z",
+                "__v": 0
+            }
+        ],
+        "createdAt": "2026-04-08T06:31:22.877Z",
+        "updatedAt": "2026-04-08T06:31:22.877Z",
+        "__v": 0
+    }
 }
-
-export const ProjectSchema = SchemaFactory.createForClass(Project);
