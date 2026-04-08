@@ -163,7 +163,7 @@ export default function ExperienceDetail() {
                 <div className="h-[2px] flex-1 max-w-[100px] bg-[#FF0055]/30 rounded-full" />
               </h2>
               <div className="space-y-4">
-                {experience.responsibilities.map((item, idx) => (
+                {experience.responsibilities.map((item: any, idx: any) => (
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, x: -20 }}
@@ -198,7 +198,7 @@ export default function ExperienceDetail() {
                 <div className="h-[2px] flex-1 max-w-[100px] bg-[#FF0055]/30 rounded-full" />
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {experience.achievements.map((achievement, idx) => (
+                {experience.achievements.map((achievement: any, idx: any) => (
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 10 }}
@@ -235,7 +235,7 @@ export default function ExperienceDetail() {
                   Tech Stack
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {experience.technologies.map((tech, idx) => (
+                  {experience.technologies.map((tech: any, idx: any) => (
                     <span
                       key={idx}
                       className="text-sm px-4 py-2 primary-rounded primary-text4 border primary-border text-white/80 font-semibold hover:border-[#FF0055]/40 hover:text-white transition-all"
