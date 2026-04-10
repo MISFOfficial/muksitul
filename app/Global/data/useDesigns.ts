@@ -36,7 +36,7 @@ export interface Design {
   __v?: number;
 }
 
-export const useGetAllDesigns = () => {
+export const useGetAllDesigns = (limit: number = 10) => {
   const {
     data: allDesigns,
     isLoading,
@@ -46,19 +46,19 @@ export const useGetAllDesigns = () => {
     isFetchingNextPage,
     fetchNextPage,
   } = useInfiniteQuery({
-    queryKey: ["designs"],
+    queryKey: ["designs", limit],
     initialPageParam: 0,
     queryFn: async ({ pageParam = 0 }) => {
       const res = await api.get("/designs/all", {
         params: {
-          limit: 10,
+          limit,
           skip: pageParam,
         },
       });
       return res.data.data;
     },
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.length === 10 ? allPages.length * 10 : undefined;
+      return lastPage.length === limit ? allPages.length * limit : undefined;
     },
   });
 

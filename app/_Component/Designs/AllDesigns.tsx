@@ -10,7 +10,7 @@ import { useGetAllDesigns, Design } from "@/app/Global/data/useDesigns";
 
 export default function AllDesigns() {
 
-  const { allDesigns, isLoading, isError, refetch } = useGetAllDesigns();
+  const { allDesigns, isLoading, isError, refetch } = useGetAllDesigns(3);
   
   const designs = allDesigns?.pages.flatMap((page: any) => page) || [];
 
@@ -40,7 +40,7 @@ export default function AllDesigns() {
     <section id="design-grid">
       <Designs />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
-        {designs.slice(0, 3).map((design: Design, index: number) => (
+        {designs.map((design: Design, index: number) => (
           <DesignCard key={design._id} design={design} index={index} />
         ))}
       </div>
