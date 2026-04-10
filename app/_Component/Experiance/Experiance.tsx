@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import { Calendar, MapPin, Briefcase, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -44,7 +45,7 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
             </div>
           </div>
           <div className="shrink-0 w-10 h-10 rounded-full border primary-border flex items-center justify-center group-hover:bg-[#FF0055] group-hover:border-[#FF0055]">
-              <ArrowUpRight
+            <ArrowUpRight
               size={18}
               className="text-white"
             />
@@ -56,7 +57,7 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
 };
 
 export default function Experiance() {
-  const containerRef = useRef(null);
+
 
   const { allExperience, isLoading, isError } = useGetAllExperience(4);
 

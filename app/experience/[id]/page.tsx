@@ -204,19 +204,19 @@ export default function ExperienceDetail() {
             {/* Achievements */}
             <div className="space-y-8">
               <h2 className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
-                <Award size={24} className="text-[#FF0055]" />
+                <Award size={24} className="primary-text2" />
                 Achievements
-                <div className="h-[2px] flex-1 max-w-[100px] bg-[#FF0055]/30 rounded-full" />
+                <div className="h-[2px] flex-1 max-w-[100px] primary-color rounded-full" />
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {experience.achievements.map((achievement: any, idx: any) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 p-5 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10 hover:border-[#FF0055]/30 group"
+                    className="flex items-start gap-3 p-5 primary-rounded bg-white/5 border primary-border "
                   >
                     <CheckCircle2
                       size={20}
-                      className="text-[#FF0055] flex-shrink-0 mt-0.5"
+                      className="text-[#FF0055] shrink-0 mt-0.5"
                     />
                     <span className="text-gray-300 leading-relaxed text-sm">
                       {achievement}
@@ -231,7 +231,7 @@ export default function ExperienceDetail() {
           <div className="lg:col-span-4">
             <div className="sticky top-32 space-y-6">
               {/* Technologies */}
-              <div className="p-8 primary-rounded bg-white/[0.03] border primary-border relative overflow-hidden">
+              <div className="p-8 primary-rounded bg-white/5 border primary-border relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF0055] opacity-[0.03] blur-3xl -mr-16 -mt-16" />
                 <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-6">
                   Tech Stack
@@ -274,8 +274,8 @@ export default function ExperienceDetail() {
               )}
 
               {/* Quick Stats */}
-              <div className="p-8 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10">
-                <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-6">
+              <div className="p-8 primary-rounded bg-[#232c66]/30">
+                <h3 className=" font-black uppercase tracking-[0.3em]  mb-6">
                   Quick Stats
                 </h3>
                 <div className="space-y-6">

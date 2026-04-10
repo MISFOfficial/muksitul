@@ -28,12 +28,13 @@ import Footer from "@/app/_Component/Footer/Footer";
 
 // Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 // Swiper Styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 export default function ProjectPage() {
   const { id } = useParams();
@@ -224,7 +225,12 @@ export default function ProjectPage() {
           {/* Right - Project Image Gallery with Swiper */}
           <div className="lg:col-span-2 relative h-[400px] lg:h-[600px] primary-rounded overflow-hidden border-2 primary-border group project-swiper">
             <Swiper
-              modules={[Navigation, Pagination]}
+              modules={[Navigation, Pagination, Autoplay]}
+              loop={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
               // navigation
               pagination={{ clickable: true }}
               className="h-full w-full"
@@ -293,11 +299,11 @@ export default function ProjectPage() {
                 <h2 className="text-3xl md:text-4xl font-black text-white flex items-center gap-3">
                   <Zap size={24} className="" />
                   Strategic Analysis
-                  <div className="h-[2px] flex-1 max-w-[100px] bg-[#FF0055]/30 rounded-full" />
+                  <div className="h-[2px] flex-1 max-w-[100px] primary-color rounded-full" />
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="p-6 primary-rounded bg-white/5 border primary-border hover:border-[#FF0055]/20">
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] primary-text mb-4 flex items-center gap-2">
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-white mb-4 flex items-center gap-2">
                       <AlertCircle size={16} />
                       The Problem
                     </h3>
@@ -306,7 +312,7 @@ export default function ProjectPage() {
                     </p>
                   </div>
                   <div className="p-6 primary-rounded bg-white/5 border primary-border">
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] primary-text mb-4 flex items-center gap-2">
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-white mb-4 flex items-center gap-2">
                       <Lightbulb size={16} />
                       The Solution
                     </h3>
