@@ -9,8 +9,6 @@ export default function Vision() {
       <div className="ratio px-6">
         <div className="">
           <h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
             className="text-7xl md:text-9xl text-white font-black tracking-tighter mb-16 leading-[0.8]"
           >
             THE <br /> FUTURE <br />
@@ -18,9 +16,6 @@ export default function Vision() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
             <div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
             >
               <h4 className="text-2xl primary-text4 font-bold mb-6 border-l-4 primary-border pl-6">
                 Mastering AI Systems
@@ -32,9 +27,6 @@ export default function Vision() {
               </p>
             </div>
             <div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
             >
               <h4 className="text-2xl primary-text4 font-bold mb-6 border-l-4 primary-border pl-6">
                 Building Open Legacies

@@ -143,7 +143,6 @@ export default function DesignPage() {
             ))
           : filteredDesigns?.map((design: any) => (
               <div
-                layout
                 key={design._id}
                 className="group flex flex-col md:flex-row items-center gap-6 bg-[#0a0a0a]/40 border primary-border primary-rounded p-4 px-6 hover:bg-[#0f0f0f] hover:border-[#0abab5]/20 transition-all duration-300"
               >

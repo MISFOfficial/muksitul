@@ -5,8 +5,6 @@ function CTA() {
   return (
     <section className="py-48 text-center relative z-10  ">
       <div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
         className="ratio px-6"
       >
         <h2 className="text-5xl md:text-8xl font-black mb-12 leading-none">

@@ -64,7 +64,6 @@ export default function Navigaton() {
     }
     const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
     const scrollBlock = id === "hero" && isMobile ? "start" : "center";
-
     if (pathname !== "/") {
       router.push(`/#${id}`);
     } else {
@@ -80,13 +79,9 @@ export default function Navigaton() {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     handleScroll();
-
     if (typeof window !== "undefined" && window.location.hash) {
       const id = window.location.hash.replace("#", "");
       const element = document.getElementById(id);
@@ -94,14 +89,10 @@ export default function Navigaton() {
         setTimeout(() => {
           const isMobile = window.innerWidth < 1024;
           const scrollBlock = id === "hero" && isMobile ? "start" : "center";
-          element.scrollIntoView({
-            behavior: "smooth",
-            block: scrollBlock as ScrollLogicalPosition,
-          });
+          element.scrollIntoView({ behavior: "smooth", block: scrollBlock as ScrollLogicalPosition });
         }, 400);
       }
     }
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
@@ -118,14 +109,10 @@ export default function Navigaton() {
       >
         <div className="ratio flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => handleNavClick("hero")}
-              className="hover:scale-105 transition-transform"
-            >
+            <button onClick={() => handleNavClick("hero")} className="hover:scale-105 transition-transform">
               <Image src={logo} alt="Profile" width={80} height={80} className="w-14" />
             </button>
           </div>
-
           <div className="flex gap-2 items-center">
             {navLinks.map((link) => (
               <div
@@ -137,33 +124,24 @@ export default function Navigaton() {
                 <button
                   onClick={() => !link.subLinks && handleNavClick(link.id, link.href)}
                   className={`px-5 py-2.5 text-xs cursor-pointer font-black uppercase tracking-widest transition-all primary-rounded hover:scale-105 flex items-center gap-1 ${
-                    link.name === "Resume"
-                      ? "primary-color2 mx-4"
-                      : "primary-text3 text-hover"
+                    link.name === "Resume" ? "primary-color2 mx-4" : "primary-text3 text-hover"
                   }`}
                 >
                   {link.name}
                   {link.subLinks && (
                     <ChevronDown
                       size={14}
-                      className={`transition-transform duration-300 ${
-                        isProjectsDropdownOpen ? "rotate-180" : ""
-                      }`}
+                      className={`transition-transform duration-300 ${isProjectsDropdownOpen ? "rotate-180" : ""}`}
                     />
                   )}
                 </button>
-
-                {/* Desktop Dropdown */}
                 {link.subLinks && isProjectsDropdownOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-48 z-50">
                     <div className="bg-zinc-900/90 backdrop-blur-xl border border-white/10 rounded-xl overflow-hidden shadow-2xl p-2">
                       {link.subLinks.map((sub) => (
                         <button
                           key={sub.id}
-                          onClick={() => {
-                            handleNavClick(sub.id);
-                            setIsProjectsDropdownOpen(false);
-                          }}
+                          onClick={() => { handleNavClick(sub.id); setIsProjectsDropdownOpen(false); }}
                           className="w-full text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest primary-text4 hover:text-white hover:bg-white/5 rounded-lg transition-all"
                         >
                           {sub.name}
@@ -180,7 +158,6 @@ export default function Navigaton() {
 
       {/* Bottom Tab Navigation - Mobile Only */}
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-3xl border-t border-white/5 pb-[env(safe-area-inset-bottom)]">
-        {/* Sub Links Menu (Projects) */}
         {isProjectsDropdownOpen && (
           <>
             <div
@@ -190,38 +167,25 @@ export default function Navigaton() {
             <div className="absolute bottom-full left-4 right-4 mb-4 bg-zinc-900/95 backdrop-blur-3xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
               <div className="p-1 grid grid-cols-1">
                 <div className="px-6 py-3 border-b border-white/5">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">
-                    Project Categories
-                  </span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">Project Categories</span>
                 </div>
-                {navLinks
-                  .find((l) => l.name === "Projects")
-                  ?.subLinks?.map((sub) => (
-                    <button
-                      key={sub.id}
-                      onClick={() => {
-                        handleNavClick(sub.id);
-                        setIsProjectsDropdownOpen(false);
-                      }}
-                      className="flex items-center gap-4 px-6 py-4 hover:primary-text4 transition-colors text-left border-b border-white/5 last:border-none"
-                    >
-                      <span className="text-xs font-bold uppercase tracking-widest text-white/80">
-                        {sub.name}
-                      </span>
-                    </button>
-                  ))}
+                {navLinks.find((l) => l.name === "Projects")?.subLinks?.map((sub) => (
+                  <button
+                    key={sub.id}
+                    onClick={() => { handleNavClick(sub.id); setIsProjectsDropdownOpen(false); }}
+                    className="flex items-center gap-4 px-6 py-4 hover:primary-text4 transition-colors text-left border-b border-white/5 last:border-none"
+                  >
+                    <span className="text-xs font-bold uppercase tracking-widest text-white/80">{sub.name}</span>
+                  </button>
+                ))}
               </div>
             </div>
           </>
         )}
 
-        {/* More Menu content */}
         {isMenuOpen && (
           <>
-            <div
-              onClick={closeMenu}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm -z-10"
-            />
+            <div onClick={closeMenu} className="fixed inset-0 bg-black/60 backdrop-blur-sm -z-10" />
             <div className="absolute bottom-full left-4 right-4 mb-4 bg-zinc-900/95 backdrop-blur-3xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
               <div className="p-1 grid grid-cols-1">
                 {moreLinks.map((link) => (
@@ -231,9 +195,7 @@ export default function Navigaton() {
                     className="flex items-center gap-4 px-6 py-4 hover:primary-text4 transition-colors text-left border-b border-white/5 last:border-none"
                   >
                     <div className="primary-text">{link.icon}</div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-white/80">
-                      {link.name}
-                    </span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-white/80">{link.name}</span>
                   </button>
                 ))}
               </div>
@@ -254,8 +216,7 @@ export default function Navigaton() {
                 }
               }}
               className={`flex flex-col items-center gap-1.5 w-full transition-colors ${
-                (link.subLinks && isProjectsDropdownOpen) ||
-                (!link.subLinks && pathname === link.href)
+                (link.subLinks && isProjectsDropdownOpen) || (!link.subLinks && pathname === link.href)
                   ? "primary-text"
                   : "text-white/40 hover:primary-text"
               }`}
@@ -267,9 +228,7 @@ export default function Navigaton() {
                     <div className="absolute -right-1.5 -bottom-0.5 primary-color rounded-full p-0.5 shadow-sm">
                       <ChevronDown
                         size={8}
-                        className={`text-white transition-transform duration-300 ${
-                          isProjectsDropdownOpen ? "rotate-180" : ""
-                        }`}
+                        className={`text-white transition-transform duration-300 ${isProjectsDropdownOpen ? "rotate-180" : ""}`}
                       />
                     </div>
                   )}
@@ -278,16 +237,9 @@ export default function Navigaton() {
               <span className="text-[10px] font-black uppercase">{link.name}</span>
             </button>
           ))}
-
-          {/* More Trigger */}
           <button
-            onClick={() => {
-              toggleMenu();
-              setIsProjectsDropdownOpen(false);
-            }}
-            className={`flex flex-col items-center gap-1 w-full transition-colors ${
-              isMenuOpen ? "primary-text" : "text-white/40"
-            }`}
+            onClick={() => { toggleMenu(); setIsProjectsDropdownOpen(false); }}
+            className={`flex flex-col items-center gap-1 w-full transition-colors ${isMenuOpen ? "primary-text" : "text-white/40"}`}
           >
             <MoreHorizontal size={20} />
             <span className="text-[10px] font-bold uppercase tracking-wider">More</span>

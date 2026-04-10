@@ -10,8 +10,6 @@ function Philosophy() {
 
       <div className="ratio px-6 text-center ">
         <div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
           className="max-w-5xl mx-auto"
         >
           <h2 className="text-sm font-black primary-text2 uppercase tracking-[0.5em] mb-12">

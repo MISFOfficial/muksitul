@@ -52,8 +52,6 @@ function DailyRotin() {
             ].map((item, i) => (
               <div
                 key={i}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
                 className="flex gap-8 group"
               >
                 <div className="flex flex-col items-center">

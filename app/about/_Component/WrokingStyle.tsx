@@ -7,8 +7,6 @@ function WrokingStyle() {
       <div className="">
         <div className="text-center mb-24">
           <span
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
             className="primary-text2 font-black uppercase tracking-[0.4em] text-xs mb-4 block"
           >
             Process
@@ -59,9 +57,6 @@ function WrokingStyle() {
           ].map((m, i) => (
             <div
               key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1 }}
               className="group p-10 rounded-[2.5rem] primary-text4  primary-color  transition-all duration-500 w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(25%-1.5rem)] min-w-[300px]"
             >
               <span className="text-5xl font-black text-white/10 group-hover:text-white/20 transition-colors block mb-6">

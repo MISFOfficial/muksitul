@@ -17,9 +17,6 @@ export default function NotFound() {
         <div className="relative z-10 flex flex-col items-center text-center">
           {/* 404 text */}
           <div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-8 mb-2"
           >
             <span className="text-[10px] font-black uppercase tracking-[0.5em] primary-text2">
@@ -35,9 +32,6 @@ export default function NotFound() {
 
           {/* Message */}
           <div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
             className="space-y-3 -mt-4"
           >
             <h2 className="text-2xl md:text-4xl font-black primary-text3 tracking-tight">
@@ -52,9 +46,6 @@ export default function NotFound() {
 
           {/* Buttons */}
           <div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
             className="flex flex-wrap items-center justify-center gap-3 mt-10"
           >
             <Link
@@ -82,9 +73,6 @@ export default function NotFound() {
 
         {/* Bottom coordinates */}
         <div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
           className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 text-white/[0.08] text-[9px] font-mono tracking-[0.3em] uppercase"
         >
           <span>SYS::LOST</span>

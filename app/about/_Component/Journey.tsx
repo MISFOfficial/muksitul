@@ -12,9 +12,6 @@ export default function Journey({ journeyEvents }: any) {
             >
               <div
                 className="flex-1 w-full"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1 }}
               >
                 <div className="relative aspect-[16/10] primary-rounded overflow-hidden group shadow-2xl">
                   <Image
@@ -34,9 +31,6 @@ export default function Journey({ journeyEvents }: any) {
 
               <div
                 className="flex-1 space-y-8"
-                initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
               >
                 <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none">
                   {event.title.split(" ").map((word: any, i: any) => (

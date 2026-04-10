@@ -217,7 +217,6 @@ export default function SkillsPage() {
           ))
           : filteredSkills?.map((skill: any) => (
             <div
-              layout
               key={skill._id}
               className="group flex flex-col sm:flex-row items-center gap-6 bg-[#0a0a0a]/40 border primary-border primary-rounded p-3 px-6 hover:bg-[#0f0f0f] hover:border-[#0abab5]/20 transition-all duration-300"
             >
@@ -271,20 +270,13 @@ export default function SkillsPage() {
       </div>
 
       {/* Modal - Compact & Clean */}
-      
         {isModalOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             <div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
               onClick={() => setIsModalOpen(false)}
               className="absolute inset-0 bg-black/90 backdrop-blur-md"
             />
             <div
-              initial={{ opacity: 0, y: 10, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 10, scale: 0.98 }}
               className="relative w-full max-w-lg bg-[#0a0a0a] border primary-border primary-rounded overflow-hidden shadow-2xl"
             >
               <div className="p-8 border-b primary-border bg-white/[0.01] flex items-center justify-between">
@@ -401,7 +393,6 @@ export default function SkillsPage() {
             </div>
           </div>
         )}
-      
     </div>
   );
 }

@@ -35,9 +35,6 @@ export default function Projects() {
       <div className="relative z-10 container mx-auto  flex flex-col items-center gap-6">
         {/* 44+ Badge */}
         <div
-          initial={{ scale: 0.5, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
           className="relative"
         >
           <span className="text-[60px] md:text-[100px] font-black leading-none primary-text2 tracking-tighter">
@@ -50,9 +47,6 @@ export default function Projects() {
 
         {/* Heading */}
         <h2
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-5xl"
         >
           Featured Engineering <span className="primary-text4">Solutions</span>{" "}
@@ -61,10 +55,6 @@ export default function Projects() {
 
         {/* Description */}
         <p
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
           className="primary-text4 max-w-2xl text-lg leading-relaxed mt-4"
         >
           Explore a curated collection of high-performance applications and
@@ -74,10 +64,6 @@ export default function Projects() {
 
         {/* Features List */}
         {/* <div
-                    initial={{ y: 30, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
                     className="flex flex-wrap justify-center gap-6 mt-12"
                 >
                     {features.map((feature, idx) => (
