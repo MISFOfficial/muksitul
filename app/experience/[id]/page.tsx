@@ -31,11 +31,8 @@ export default function ExperienceDetail() {
   if (isLoading) {
     return (
       <main className="relative min-h-screen">
-        <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
-          <Navigaton />
-        </div>
 
-        <div className="ratio py-8 md:py-24">
+        <div className="ratio py-10">
           {/* Back Button Skeleton */}
           <div className="h-10 w-24 bg-white/5 rounded-full mb-12"></div>
 
@@ -109,11 +106,8 @@ export default function ExperienceDetail() {
 
   return (
     <main className="relative min-h-screen selection:bg-[#FF0055] selection:text-white">
-      <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
-        <Navigaton />
-      </div>
 
-      <div className="ratio py-8 md:py-24">
+      <div className="ratio py-10">
         {/* Back Button */}
         <div className="mb-12">
           <button
@@ -347,7 +341,6 @@ export default function ExperienceDetail() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }
