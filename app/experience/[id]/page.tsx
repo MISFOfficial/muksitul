@@ -20,8 +20,9 @@ import {
   Building2,
 } from "lucide-react";
 import Link from "next/link";
-import Navigaton from "@/app/_Component/Navigation/Navigaton";
-import Footer from "@/app/_Component/Footer/Footer";
+import { formatRole } from "@/app/Global/utils";
+import Image from "next/image";
+
 
 export default function ExperienceDetail() {
   const { id } = useParams();
@@ -132,22 +133,20 @@ export default function ExperienceDetail() {
               <div className="flex items-center gap-5">
                 <div className="w-20 h-20 md:w-24 md:h-24 primary-rounded primary-text4 flex items-center justify-center p-4 border primary-border overflow-hidden relative">
                   {experience.image?.url && (
-                    <img
+                    <Image
+                      fill
                       src={experience.image.url}
                       alt={experience.company}
                       className="w-full h-full object-cover"
                     />
                   )}
                 </div>
-                <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 primary-rounded bg-[#FF0055]/10 text-[#FF0055] border border-[#FF0055]/20 mb-3">
-                    <Building2 size={14} />
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em]">
-                      {experience.company}
-                    </span>
-                  </div>
+                <div className="flex-1 min-w-0">
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] primary-color2 w-fit px-2 py-1 rounded-full border primary-border mb-2 block">
+                    {experience.company}
+                  </span>
                   <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-                    {experience.role}
+                    {formatRole(experience.role)}
                   </h1>
                 </div>
               </div>
@@ -179,17 +178,17 @@ export default function ExperienceDetail() {
             {/* Responsibilities */}
             <div className="space-y-8">
               <h2 className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
-                <Zap size={24} className="text-[#FF0055]" />
+                <Zap size={24} className="primary-text2" />
                 Key Responsibilities
-                <div className="h-[2px] flex-1 max-w-[100px] bg-[#FF0055]/30 rounded-full" />
+                <div className="h-[2px] flex-1 max-w-[100px] primary-color rounded-full" />
               </h2>
               <div className="space-y-4">
                 {experience.responsibilities.map((item: any, idx: any) => (
                   <div
                     key={idx}
-                    className="flex gap-4 items-start group p-4 primary-rounded bg-white/[0.02] border primary-border hover:bg-white/[0.04] hover:border-[#FF0055]/20"
+                    className="flex gap-4 items-start group p-4 primary-rounded bg-white/5 border primary-border hover:bg-white/5 hover:border-primary-color/20"
                   >
-                    <div className="shrink-0 w-7 h-7 rounded-full border border-[#FF0055]/40 flex items-center justify-center mt-0.5 group-hover:bg-[#FF0055] group-hover:border-[#FF0055]">
+                    <div className="shrink-0 w-7 h-7 rounded-full  flex items-center justify-center mt-0.5 primary-color ">
                       <span className="text-[10px] font-black text-white">
                         {String(idx + 1).padStart(2, "0")}
                       </span>
@@ -285,7 +284,7 @@ export default function ExperienceDetail() {
                       <Briefcase size={12} /> Role
                     </span>
                     <span className="text-lg font-bold text-white">
-                      {experience.role}
+                      {formatRole(experience.role)}
                     </span>
                   </div>
                   <div className="flex flex-col gap-1">

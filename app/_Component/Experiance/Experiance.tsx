@@ -1,34 +1,15 @@
-"use client";
-
-import React, { useRef } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import React from "react";
 import { Calendar, MapPin, Briefcase, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useGetAllExperience } from "@/app/Global/data/useExperience";
-
-const formatRole = (role: string) => {
-  if (!role) return "";
-  return role
-    .split("_")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(" ")
-    .replace("Jr ", "Jr. ");
-};
+import { formatRole } from "@/app/Global/utils";
 
 const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
   return (
     <Link href={`/experience/${exp._id}`}>
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{
-          duration: 0.6,
-          delay: index * 0.1,
-          ease: "easeOut",
-        }}
-        className="group flex flex-col xl:flex-row items-center justify-between gap-6 p-6 md:p-8 primary-rounded bg-white/5 border primary-border hover:bg-white/10 transition-all duration-300 w-full mb-6 cursor-pointer"
+      <div
+        className="group flex flex-col xl:flex-row items-center justify-between gap-6 p-6 md:p-8 primary-rounded bg-white/5 border primary-border hover:bg-white/10 w-full mb-6 cursor-pointer"
       >
         <div className="flex items-center gap-5 md:gap-6 flex-1 min-w-0 w-full">
           <div className="w-14 h-14 md:w-16 md:h-16 primary-rounded primary-text4 relative overflow-hidden border primary-border shrink-0">
@@ -37,7 +18,7 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
                 fill
                 src={exp.image.url}
                 alt={exp.company}
-                className="object-cover transition-all duration-500"
+                className="object-cover"
               />
             )}
           </div>
@@ -62,14 +43,14 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
               <span>{exp.location}</span>
             </div>
           </div>
-          <div className="shrink-0 w-10 h-10 rounded-full border primary-border flex items-center justify-center group-hover:bg-[#FF0055] group-hover:border-[#FF0055] transition-all duration-300">
-            <ArrowUpRight
+          <div className="shrink-0 w-10 h-10 rounded-full border primary-border flex items-center justify-center group-hover:bg-[#FF0055] group-hover:border-[#FF0055]">
+              <ArrowUpRight
               size={18}
-              className="text-white group-hover:scale-110 transition-transform"
+              className="text-white"
             />
           </div>
         </div>
-      </motion.div>
+      </div>
     </Link>
   );
 };
@@ -98,41 +79,30 @@ export default function Experiance() {
   }
 
   return (
-    <section ref={containerRef} className=" relative overflow-hidden">
+    <section className=" relative overflow-hidden">
       <div className="mb-10">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+        <div
           className="flex items-center gap-3 mb-4"
         >
           <Briefcase className="" size={24} />
           <span className=" font-bold uppercase tracking-widest text-sm">
             Experience
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
+        <h2
           className="text-4xl md:text-6xl font-black text-white leading-tight mb-6"
         >
           Professional <br />
           <span className="primary-text4italic">Timeline</span>
-        </motion.h2>
+        </h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
+        <p
           className="text-gray-400 max-w-2xl text-lg leading-relaxed"
         >
           Tracing the evolution of professional expertise through diverse roles
           and impactful contributions.
-        </motion.p>
+        </p>
       </div>
 
       <div className="relative ">
