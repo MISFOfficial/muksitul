@@ -23,6 +23,11 @@ export default function CertificateCard({
   certificate,
   index,
 }: CertificateCardProps) {
+  // Safe data accessors
+  const imageUrl = typeof certificate.image === "string" ? certificate.image : certificate.image?.url || "";
+  const identifier = certificate._id || certificate.id;
+  const slug = certificate.slug || certificate._id || "";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -31,12 +36,12 @@ export default function CertificateCard({
       viewport={{ once: true }}
       className="group h-full"
     >
-      <Link href={`/certificates/${certificate.slug}`} className="block h-full">
+      <Link href={`/certificates/${slug}`} className="block h-full">
         <div className="relative h-full flex flex-col primary-rounded bg-gradient-to-b from-white/[0.05] to-transparent border primary-border hover:border-[#FF5652]/40 transition-all duration-500 overflow-hidden">
           {/* Large Image Preview Section */}
           <div className="relative aspect-[16/10] overflow-hidden primary-text4 border-b primary-border">
             <Image
-              src={certificate.image}
+              src={imageUrl}
               alt={certificate.title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -48,7 +53,7 @@ export default function CertificateCard({
             <div className="absolute bottom-4 left-4 flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center p-1.5 overflow-hidden">
                 <Image
-                  src={certificate.image}
+                  src={imageUrl}
                   alt="icon"
                   width={20}
                   height={20}

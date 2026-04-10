@@ -6,7 +6,7 @@ import {
 } from "@tanstack/react-query";
 import api from "@/hooks/useAxios";
 
-export const useGetAllCertificates = () => {
+export const useGetAllCertificates = (limit: number = 10) => {
   const {
     data: allCertificates,
     isLoading,
@@ -16,19 +16,19 @@ export const useGetAllCertificates = () => {
     isFetchingNextPage,
     fetchNextPage,
   } = useInfiniteQuery({
-    queryKey: ["certificates"],
+    queryKey: ["certificates", limit],
     initialPageParam: 0,
     queryFn: async ({ pageParam = 0 }) => {
       const res = await api.get("/certificates/all", {
         params: {
-          limit: 10,
+          limit: limit,
           skip: pageParam,
         },
       });
       return res.data.data;
     },
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.length === 10 ? allPages.length * 10 : undefined;
+      return lastPage.length === limit ? allPages.length * limit : undefined;
     },
   });
 
@@ -42,6 +42,8 @@ export const useGetAllCertificates = () => {
     fetchNextPage,
   };
 };
+
+
 
 export const useGetCertificateById = (id: string) => {
   const {

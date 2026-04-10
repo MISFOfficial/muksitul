@@ -1,18 +1,19 @@
 export interface Certificate {
-    id: string;
-    title: string;
-    slug: string;
-    image: string;
-    provider: string;
-    duration: string;
-    timeTaken: string;
-    challenges: string[];
-    rating: number;
-    description: string;
-    fullDescription: string;
-    skillsLearned: string[];
-    certifiedAt: string;
-    issueDate: string;
+  _id?: string; // Backend
+  id?: string; // Static
+  title: string;
+  slug?: string;
+  image: string | { url: string };
+  provider: string;
+  duration: string;
+  timeTaken: string;
+  challenges: string[];
+  rating: number;
+  description: string;
+  fullDescription: string;
+  skillsLearned: string[];
+  certifiedAt: string;
+  issueDate: string;
 }
 
 export const certificatesData: Certificate[] = [

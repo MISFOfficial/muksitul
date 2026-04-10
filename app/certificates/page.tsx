@@ -8,19 +8,36 @@ import {
   Award,
   GraduationCap,
   Trophy,
+  ChevronLeft,
+  ChevronRight,
+  RefreshCw,
 } from "lucide-react";
 import Link from "next/link";
 import CertificateCard from "@/app/_Component/Certificates/CertificateCard";
-import { certificatesData } from "@/lib/certificatesData";
 import Navigaton from "@/app/_Component/Navigation/Navigaton";
 import Footer from "@/app/_Component/Footer/Footer";
+
+import { Certificate } from "@/lib/certificatesData";
 import { useGetAllCertificates } from "../Global/data/useCertificates";
 
 
 export default function CertificatesPage() {
+  const limit = 10;
 
-  const { allCertificates, isLoading, isError, refetch } = useGetAllCertificates();
-  console.log(allCertificates)
+  const {
+    allCertificates,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  } = useGetAllCertificates(limit);
+
+  const certificatesList = React.useMemo(() => {
+    if (!allCertificates) return [];
+    return allCertificates.pages.flatMap((page: any) => page);
+  }, [allCertificates]);
 
   return (
     <main className="relative min-h-screen">
@@ -83,7 +100,7 @@ export default function CertificatesPage() {
               <div className="flex items-center gap-6 pl-0 md:pl-8 border-l-0 md:border-l primary-border">
                 <div className="flex flex-col">
                   <span className="text-5xl font-black text-white">
-                    {certificatesData.length}
+                    {certificatesList.length}
                   </span>
                   <span className="text-[10px] font-bold text-white/20 uppercase tracking-widest">
                     Credentials
@@ -101,12 +118,42 @@ export default function CertificatesPage() {
       {/* Grid Content */}
       <section className="ratio pb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {certificatesData.map((cert, index) => (
-            <CertificateCard key={cert.id} certificate={cert} index={index} />
-          ))}
+          {isLoading ? (
+            // Skeleton State
+            Array.from({ length: 6 }).map((_, i) => (
+              <div
+                key={i}
+                className="aspect-[16/10] primary-rounded bg-white/[0.03] border primary-border animate-pulse"
+              />
+            ))
+          ) : isError ? (
+            <div className="col-span-full py-20 text-center space-y-6">
+              <div className="inline-flex p-6 rounded-full bg-red-500/10 border border-red-500/20 text-red-500">
+                <RefreshCw size={32} />
+              </div>
+              <div>
+                <h3 className="text-xl font-black text-white uppercase">
+                  Failed to load certificates
+                </h3>
+                <p className="text-white/40 text-sm mt-2">
+                  There was an error while connecting to the vault.
+                </p>
+              </div>
+              <button
+                onClick={() => refetch()}
+                className="px-8 py-3 bg-white/5 hover:bg-white/10 text-white rounded-full font-bold text-xs uppercase transition-all"
+              >
+                Try Again
+              </button>
+            </div>
+          ) : (
+            certificatesList.map((cert: any, index: number) => (
+              <CertificateCard key={cert._id || cert.id} certificate={cert} index={index} />
+            ))
+          )}
 
           {/* Constant Learning Tile */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="p-8 primary-rounded bg-[#FF5652]/5 border border-[#FF5652]/20 flex flex-col justify-center items-center text-center gap-6 group"
@@ -123,8 +170,34 @@ export default function CertificatesPage() {
                 Architecture and AI Security.
               </p>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
+
+        {/* See More Button */}
+        {!isLoading && !isError && hasNextPage && (
+          <div className="mt-20 flex items-center justify-center">
+            <button
+              onClick={() => fetchNextPage()}
+              disabled={isFetchingNextPage}
+              className="group relative flex items-center gap-3 px-12 py-5 bg-[#FF5652]/10 border border-[#FF5652]/20 text-white rounded-full font-black text-sm uppercase tracking-[0.2em] transition-all hover:bg-[#FF5652] hover:shadow-[0_0_40px_rgba(255,86,82,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isFetchingNextPage ? (
+                <>
+                  <RefreshCw size={18} className="animate-spin" />
+                  <span>Loading...</span>
+                </>
+              ) : (
+                <>
+                  <span>See More Artifacts</span>
+                  <ChevronRight
+                    size={18}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </>
+              )}
+            </button>
+          </div>
+        )}
       </section>
 
       {/* Footer CTA */}
