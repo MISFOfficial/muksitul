@@ -330,7 +330,7 @@ export default function ProjectPage() {
             {/* Technologies */}
             <div className="p-8 primary-rounded bg-white/5 border primary-border relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF0055] opacity-[0.03] blur-3xl -mr-16 -mt-16" />
-              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] primary-text mb-6">
+              <h3 className="text-xl font-bold text-white mb-6">
                 Technologies Used
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -347,7 +347,7 @@ export default function ProjectPage() {
 
             {/* Project Info */}
             <div className="p-8 primary-rounded bg-white/5 border primary-border relative overflow-hidden">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] primary-text mb-6">
+              <h3 className="text-xl font-bold text-white mb-6">
                 Project Details
               </h3>
               <div className="space-y-6">
@@ -377,7 +377,7 @@ export default function ProjectPage() {
               project.metrics.some((m: any) => m.label && m.value) && (
                 <div className="bg-linear-to-br from-[#20255e]/20 to-[#20255e]/40 primary-rounded p-6 border border-[#20255e]/10">
                   <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                    <BarChart3 size={20} className="primary-text" />
+                    <BarChart3 size={20} className="primary-text2" />
                     Key Metrics
                   </h3>
                   <div className="space-y-6">
@@ -453,7 +453,7 @@ export default function ProjectPage() {
 
           {/* Lessons Learned */}
           {project.lessons && (
-            <div className="p-8 md:p-12 primary-rounded bg-linear-to-br from-[#20255e]/20 to-[#20255e]/40 primary-rounded p-6 border border-[#20255e]/10">
+            <div className="p-8 md:p-12 primary-rounded bg-linear-to-br from-[#20255e]/20 to-[#20255e]/40 primary-rounded border border-[#20255e]/10">
               <h2 className="text-3xl font-black mb-10 flex items-center gap-3">
                 <Lightbulb className="text-yellow-400" />
                 Key Engineering Takeaways
@@ -461,7 +461,7 @@ export default function ProjectPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {project.lessons.map((lesson: any, idx: any) => (
                   <div key={idx} className="flex items-center gap-4">
-                    <div className="w-8 h-8 rounded-full text-white primary-text primary-color2 flex items-center justify-center shrink-0 text-xs font-bold ">
+                    <div className="w-8 h-8 rounded-full primary-color2 flex items-center justify-center shrink-0 text-xs font-bold ">
                       0{idx + 1}
                     </div>
                     <p className="text-gray-400 text-sm  leading-relaxed">
