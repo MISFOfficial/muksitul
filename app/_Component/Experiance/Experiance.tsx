@@ -56,6 +56,46 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
   );
 };
 
+const SkeletonCard = () => (
+  <div className="flex flex-col xl:flex-row items-center justify-between gap-6 p-6 md:p-8 primary-rounded bg-white/5 border primary-border animate-pulse w-full">
+    <div className="flex items-center gap-5 md:gap-6 flex-1 min-w-0 w-full">
+      <div className="w-14 h-14 md:w-16 md:h-16 primary-rounded bg-white/10 shrink-0"></div>
+      <div className="flex-1 space-y-3">
+        <div className="h-6 w-3/4 bg-white/10 rounded"></div>
+        <div className="h-4 w-1/2 bg-white/5 rounded"></div>
+      </div>
+    </div>
+    <div className="flex items-center gap-4 shrink-0 w-full xl:w-auto justify-between xl:justify-end">
+      <div className="flex flex-col items-start xl:items-end gap-2">
+        <div className="h-9 w-32 bg-white/10 rounded-full"></div>
+        <div className="h-4 w-24 bg-white/5 rounded"></div>
+      </div>
+      <div className="w-10 h-10 rounded-full bg-white/10 shrink-0"></div>
+    </div>
+  </div>
+);
+
+const ExperienceSkeleton = () => (
+  <section className="relative overflow-hidden">
+    <div className="mb-10 space-y-6">
+      <div className="flex items-center gap-3">
+        <div className="w-6 h-6 bg-white/10 rounded animate-pulse"></div>
+        <div className="h-4 w-24 bg-white/10 rounded animate-pulse"></div>
+      </div>
+      <div className="space-y-3">
+        <div className="h-12 md:h-16 w-1/2 bg-white/5 rounded-lg animate-pulse"></div>
+        <div className="h-12 md:h-16 w-1/3 bg-white/5 rounded-lg animate-pulse"></div>
+      </div>
+      <div className="h-4 w-2/3 bg-white/5 rounded animate-pulse mt-4"></div>
+    </div>
+    <div className="grid grid-cols-1 2xl:grid-cols-2 gap-5">
+      {[1, 2, 3, 4].map((i) => (
+        <SkeletonCard key={i} />
+      ))}
+    </div>
+  </section>
+);
+
 export default function Experiance() {
 
 
@@ -64,11 +104,7 @@ export default function Experiance() {
   const experiences = allExperience?.pages.flatMap((page: any) => page) || [];
 
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF0055]"></div>
-      </div>
-    );
+    return <ExperienceSkeleton />;
   }
 
   if (isError) {
