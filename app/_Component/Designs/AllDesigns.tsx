@@ -42,7 +42,7 @@ export default function AllDesigns() {
   return (
     <section id="design-grid">
       <Designs />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
         {designs.map((design: Design, index: number) => (
           <DesignCard key={design._id} design={design} index={index} />
         ))}

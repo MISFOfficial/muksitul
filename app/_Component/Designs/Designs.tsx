@@ -2,9 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { designsData } from "@/lib/designsData";
+import { useGetDesignCount } from "@/app/Global/data/useDesigns";
 
 export default function Designs() {
+  const { count, isLoading } = useGetDesignCount();
+
   return (
     <section
       id="designs"
@@ -30,7 +32,7 @@ export default function Designs() {
           className="relative"
         >
           <span className="text-[60px] md:text-[100px] font-black leading-none primary-text2 tracking-tighter">
-            {designsData.length}+
+            {count || "0"}+
           </span>
           <span className="absolute top-2 -right-12 text-[12px] md:text-lg font-bold bg-[#FF5652] px-3 py-1 rounded-full text-white -rotate-12 uppercase tracking-widest">
             UI/UX

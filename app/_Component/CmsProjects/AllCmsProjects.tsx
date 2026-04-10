@@ -7,8 +7,13 @@ import Link from "next/link";
 import CmsProjectCard from "./CmsProjectCard";
 import { cmsProjectsData } from "@/lib/cmsProjectsData";
 import CmsProjects from "./CmsProjects";
+import { useGetAllCmsProjects } from "@/app/Global/data/useCmsProjects";
 
 export default function AllCmsProjects() {
+
+  const { allCmsProjects, isError, isLoading, refetch } = useGetAllCmsProjects()
+  console.log(allCmsProjects)
+
   return (
     <section id="cms-grid" className="">
       <CmsProjects />
@@ -26,9 +31,9 @@ export default function AllCmsProjects() {
         className="mt-12 flex flex-col items-center gap-8"
       >
         <div className="flex items-center gap-4 text-white/20">
-          <div className="h-[1px] w-20 bg-white/10" />
+          <div className="h-px w-20 bg-white/10" />
           <Layout size={20} />
-          <div className="h-[1px] w-20 bg-white/10" />
+          <div className="h-px w-20 bg-white/10" />
         </div>
 
         <Link href="/projects#cms-projects" className="group">

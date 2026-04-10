@@ -134,3 +134,14 @@ export const useDeleteDesign = () => {
     },
   });
 };
+
+export const useGetDesignCount = () => {
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["designs", "count"],
+    queryFn: async () => {
+      const res = await api.get("/designs/count");
+      return res.data.data.count;
+    },
+  });
+  return { count: data, isLoading, isError };
+};
