@@ -72,18 +72,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
           {/* Backdrop */}
           <div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+
             onClick={onClose}
             className="absolute inset-0   backdrop-blur-md"
           />
 
           {/* Modal Content */}
           <div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+
             className="relative w-full max-w-2xl  border-2 primary-border primary-rounded overflow-hidden shadow-2xl"
           >
             {/* Close Button */}
@@ -97,8 +93,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             <div className="p-8 md:p-12">
               {isSuccess ? (
                 <div
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
+
                   className="flex flex-col items-center justify-center text-center py-10"
                 >
                   <CheckCircle2 size={80} className="text-green-500 mb-6" />
@@ -125,8 +120,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     {/* Error Message */}
                     {error && (
                       <div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
+
                         className="bg-red-500/10 border border-red-500/20 text-red-500 px-4 py-3 primary-rounded text-sm font-medium"
                       >
                         {error}

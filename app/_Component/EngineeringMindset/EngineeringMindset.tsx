@@ -51,9 +51,7 @@ export default function EngineeringMindset() {
       <div className="relative z-10">
         <div className="mb-16">
           <div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+
             className="flex items-center gap-3 mb-4"
           >
             <Brain className="text-primary-color2" size={24} />
@@ -63,10 +61,7 @@ export default function EngineeringMindset() {
           </div>
 
           <h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+
             className="text-4xl md:text-6xl font-black text-white leading-tight mb-6"
           >
             The Engineering <br />
@@ -74,10 +69,7 @@ export default function EngineeringMindset() {
           </h2>
 
           <p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+
             className="text-gray-400 max-w-2xl text-lg leading-relaxed"
           >
             Great software isn't just about syntax—it's about mental models and
@@ -90,11 +82,7 @@ export default function EngineeringMindset() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {mindsetItems.map((item, index) => (
             <div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: item.delay, duration: 0.5 }}
+
               className={`${item.size} group relative p-8 primary-rounded   border primary-border backdrop-blur-xl overflow-hidden`}
             >
               {/* Gradient Background */}
@@ -124,10 +112,7 @@ export default function EngineeringMindset() {
 
           {/* Meta Card: Decision Making */}
           <div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
+
             className="md:col-span-3 mt-4 p-8 primary-rounded bg-primary-color/10 border primary-border flex flex-col md:flex-row items-center justify-between gap-8 group"
           >
             <div className="max-w-xl">

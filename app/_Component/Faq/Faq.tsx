@@ -62,8 +62,7 @@ export default function Faq() {
             </div>
             {/* Floating red bubble with question mark */}
             <div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+
               className="absolute top-0 right-0 w-20 h-20 md:w-24 md:h-24 primary-color2 rounded-full flex items-center justify-center "
             >
               <span className="text-white text-4xl font-bold">?</span>
@@ -93,24 +92,21 @@ export default function Faq() {
                   ) : (
                     <Plus size={20} />
                   )}
-                </div> 
+                </div>
               </button>
 
-              
-                {openIndex === index && (
-                  <div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="px-6 pb-6 pt-0 text-gray-400 leading-relaxed  mt-2">
-                      {item.answer}
-                    </div>
+
+              {openIndex === index && (
+                <div
+
+                  className="overflow-hidden"
+                >
+                  <div className="px-6 pb-6 pt-0 text-gray-400 leading-relaxed  mt-2">
+                    {item.answer}
                   </div>
-                )}
-              
+                </div>
+              )}
+
             </div>
           ))}
         </div>

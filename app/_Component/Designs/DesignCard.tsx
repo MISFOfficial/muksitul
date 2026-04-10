@@ -14,10 +14,7 @@ interface DesignCardProps {
 export default function DesignCard({ design, index }: DesignCardProps) {
   return (
     <div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
-      viewport={{ once: true }}
+
       className="group w-full"
     >
       <div className="relative primary-rounded overflow-hidden transition-all duration-500 bg-[#121212] border primary-border hover:border-[#FF5652]/40">

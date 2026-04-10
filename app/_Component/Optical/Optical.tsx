@@ -75,12 +75,6 @@ export default function Optical() {
       <div className="flex">
         <div
           className="flex gap-6 pr-6"
-          animate={{ x: "-50%" }}
-          transition={{
-            repeat: Infinity,
-            duration: 30,
-            ease: "linear",
-          }}
           style={{ width: "fit-content" }}
         >
           {/* Render cards twice for seamless loop */}

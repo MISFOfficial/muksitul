@@ -24,9 +24,7 @@ export default function Certificates() {
       <div className="relative z-10 container mx-auto px-4 flex flex-col items-center gap-8">
         {/* Header Badge */}
         <div
-          initial={{ y: -20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
+
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF5C58]/10 border border-[#FF5C58]/20 primary-text2"
         >
           <ShieldCheck size={18} />
@@ -37,9 +35,6 @@ export default function Certificates() {
 
         <div className="space-y-4">
           <h2
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
             className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-white uppercase"
           >
             My Professional <br />
@@ -47,10 +42,6 @@ export default function Certificates() {
           </h2>
 
           <p
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
             className="text-white/40 max-w-2xl text-lg font-medium"
           >
             Beyond building projects, I am committed to deep technical mastery.
@@ -61,10 +52,7 @@ export default function Certificates() {
 
         {/* Stat Grid for uniqueness */}
         <div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
+
           className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8"
         >
           {[
@@ -75,7 +63,7 @@ export default function Certificates() {
           ].map((stat, i) => (
             <div
               key={i}
-              className="px-6 py-4 primary-rounded bg-white/[0.02] border primary-border flex flex-col items-center gap-1"
+              className="px-6 py-4 primary-rounded bg-white/5 border primary-border flex flex-col items-center gap-1"
             >
               <stat.icon size={20} className="primary-text2 mb-2" />
               <span className="text-2xl font-black text-white">{stat.val}</span>
