@@ -5,16 +5,43 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Palette } from "lucide-react";
 import Link from "next/link";
 import DesignCard from "./DesignCard";
-import { designsData } from "@/lib/designsData";
 import Designs from "./Designs";
+import { useGetAllDesigns, Design } from "@/app/Global/data/useDesigns";
 
 export default function AllDesigns() {
+
+  const { allDesigns, isLoading, isError, refetch } = useGetAllDesigns();
+  
+  const designs = allDesigns?.pages.flatMap((page: any) => page) || [];
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-[400px]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF5652]"></div>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="flex flex-col justify-center items-center h-[400px] text-white/60">
+        <p>Failed to load designs.</p>
+        <button 
+          onClick={() => refetch()} 
+          className="mt-4 px-6 py-2 bg-white/10 hover:bg-[#FF5652] rounded-full transition-colors"
+        >
+          Try Again
+        </button>
+      </div>
+    );
+  }
+
   return (
     <section id="design-grid">
       <Designs />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
-        {designsData.slice(0, 3).map((design, index) => (
-          <DesignCard key={design.id} design={design} index={index} />
+        {designs.slice(0, 3).map((design: Design, index: number) => (
+          <DesignCard key={design._id} design={design} index={index} />
         ))}
       </div>
 

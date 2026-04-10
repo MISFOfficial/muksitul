@@ -1,0 +1,56 @@
+{
+    "success": true,
+    "responseCode": 1,
+    "statusCode": 200,
+    "message": "Designs fetched successfully",
+    "data": [
+        {
+            "_id": "69d9397668e17affbac6415a",
+            "title": "titl",
+            "images": [
+                {
+                    "_id": "69d9397568e17affbac64156",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/97bccdb6-ea0b-4366-ae34-ffeeb58c6240.png",
+                    "key": "properties/97bccdb6-ea0b-4366-ae34-ffeeb58c6240.png",
+                    "filename": "screencapture-palm-med-design-webflow-2026-04-09-01_53_47.png",
+                    "mimeType": "image/png",
+                    "size": 1913491,
+                    "uploadedAt": "2026-04-10T17:55:01.169Z",
+                    "createdAt": "2026-04-10T17:55:01.175Z",
+                    "updatedAt": "2026-04-10T17:55:01.175Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "69d9397668e17affbac64158",
+                    "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/a1f39010-3df6-4ccb-baa3-4d49e2293f5a.png",
+                    "key": "properties/a1f39010-3df6-4ccb-baa3-4d49e2293f5a.png",
+                    "filename": "Interior sanctuary.png",
+                    "mimeType": "image/png",
+                    "size": 388995,
+                    "uploadedAt": "2026-04-10T17:55:02.364Z",
+                    "createdAt": "2026-04-10T17:55:02.364Z",
+                    "updatedAt": "2026-04-10T17:55:02.364Z",
+                    "__v": 0
+                }
+            ],
+            "tags": [
+                "asdfasdf"
+            ],
+            "year": "2026",
+            "badge": {
+                "text": "dfasdfadsfasdfadsf",
+                "color": "bg-[#F7DF1E]"
+            },
+            "description": "dfasdfadf",
+            "tools": [
+                "adsfasdfadf"
+            ],
+            "behanceUrl": "asdfasdfadf",
+            "dribbbleUrl": "asdfadsf",
+            "figmaUrl": "asdfadsf",
+            "createdAt": "2026-04-10T17:55:02.583Z",
+            "updatedAt": "2026-04-10T17:55:02.583Z",
+            "__v": 0
+        }
+    ]
+}

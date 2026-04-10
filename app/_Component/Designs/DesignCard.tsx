@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Figma, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Design } from "@/lib/designsData";
+import { Design } from "@/app/Global/data/useDesigns";
 
 interface DesignCardProps {
   design: Design;
@@ -25,7 +25,7 @@ export default function DesignCard({ design, index }: DesignCardProps) {
         {/* Preview Image */}
         <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden bg-[#1a1a1a]">
           <Image
-            src={design.image}
+            src={design.images[0].url}
             alt={design.title}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-700"

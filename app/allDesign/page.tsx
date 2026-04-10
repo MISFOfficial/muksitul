@@ -7,11 +7,14 @@ import Link from "next/link";
 import Navigaton from "../_Component/Navigation/Navigaton";
 import Footer from "../_Component/Footer/Footer";
 import DesignCard from "../_Component/Designs/DesignCard";
-import { designsData } from "@/lib/designsData";
 import { useRouter } from "next/navigation";
+import { useGetAllDesigns, Design } from "@/app/Global/data/useDesigns";
 
 export default function AllDesignPage() {
   const router = useRouter();
+  const { allDesigns, isLoading, isError, refetch } = useGetAllDesigns();
+
+  const designs = allDesigns?.pages.flatMap((page: any) => page) || [];
 
   return (
     <main className="min-h-screen ratio">
@@ -57,17 +60,35 @@ export default function AllDesignPage() {
 
       {/* Full Designs Grid */}
       <section className="pb-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {designsData.map((design, index) => (
-            <DesignCard key={design.id} design={design} index={index} />
-          ))}
-        </div>
-
-        {/* Empty State */}
-        {designsData.length === 0 && (
-          <div className="text-center    border border-dashed primary-border primary-rounded">
-            <p className="text-gray-500">No designs found in the vault.</p>
+        {isLoading ? (
+          <div className="flex justify-center items-center h-[200px]">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF5652]"></div>
           </div>
+        ) : isError ? (
+          <div className="flex flex-col justify-center items-center h-[200px] text-white/60">
+            <p>Failed to load designs.</p>
+            <button
+              onClick={() => refetch()}
+              className="mt-4 px-6 py-2 bg-white/10 hover:bg-[#FF5652] rounded-full transition-colors"
+            >
+              Try Again
+            </button>
+          </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {designs.map((design: Design, index: number) => (
+                <DesignCard key={design._id} design={design} index={index} />
+              ))}
+            </div>
+
+            {/* Empty State */}
+            {designs.length === 0 && (
+              <div className="text-center p-12 border border-dashed primary-border primary-rounded">
+                <p className="text-gray-500">No designs found in the vault.</p>
+              </div>
+            )}
+          </>
         )}
       </section>
 

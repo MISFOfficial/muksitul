@@ -7,14 +7,21 @@ import {
 import api from "@/hooks/useAxios";
 
 export interface DesignImage {
+  _id: string;
   url: string;
-  public_id: string;
+  key: string;
+  filename: string;
+  mimeType: string;
+  size: number;
+  uploadedAt: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
 }
 
 export interface Design {
   _id: string;
   title: string;
-  image: DesignImage;
   images: DesignImage[];
   tags: string[];
   year: string;
@@ -26,6 +33,7 @@ export interface Design {
   figmaUrl?: string | null;
   createdAt?: string;
   updatedAt?: string;
+  __v?: number;
 }
 
 export const useGetAllDesigns = () => {
