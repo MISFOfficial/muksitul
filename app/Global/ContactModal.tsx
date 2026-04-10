@@ -67,7 +67,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   };
 
   return (
-    
+    <>
       {isOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
           {/* Backdrop */}
@@ -242,6 +242,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           </div>
         </div>
       )}
-    
+    </>
   );
 }

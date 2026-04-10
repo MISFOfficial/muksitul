@@ -1,13 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
-import {
- motion,
- useScroll,
- useTransform,
- useSpring,
- useMotionValue,
-} from "framer-motion";
+import React, { useRef } from "react";
 import Image from "next/image";
 import {
  ArrowLeft,
@@ -39,32 +32,6 @@ import VideoResume from "../_Component/VideoResume/VideoResume";
 
 export default function AboutPage() {
  const containerRef = useRef(null);
- const heroRef = useRef(null);
- const { scrollYProgress } = useScroll({
- target: containerRef,
- offset: ["start start", "end end"],
- });
-
- // Mouse Tracking for Interactive Hero
- const mouseX = useMotionValue(0);
- const mouseY = useMotionValue(0);
- const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
- const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
-
- const handleMouseMove = (e: React.MouseEvent) => {
- const { clientX, clientY } = e;
- const { innerWidth, innerHeight } = window;
- mouseX.set(clientX - innerWidth / 2);
- mouseY.set(clientY - innerHeight / 2);
- };
-
- const parallaxY = useTransform(springY, [-500, 500], [20, -20]);
- const parallaxX = useTransform(springX, [-500, 500], [20, -20]);
-
- const smoothProgress = useSpring(scrollYProgress, {
- stiffness: 100,
- damping: 30,
- });
 
  const journeyEvents = [
  {
@@ -113,15 +80,7 @@ export default function AboutPage() {
  ref={containerRef}
  className="min-h-screen text-white selection:bg-[#FF0055] selection:text-white overflow-hidden relative"
  >
- <HeroBanner
- ref={heroRef}
- handleMouseMove={handleMouseMove}
- scrollProgress={smoothProgress}
- parallaxY={parallaxY}
- parallaxX={parallaxX}
- springX={springX}
- springY={springY}
- />
+ <HeroBanner />
 
  {/* Quick Facts Grid */}
  {/* <Facts quickFacts={quickFacts} /> */}
