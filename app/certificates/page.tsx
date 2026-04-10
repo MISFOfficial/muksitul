@@ -139,7 +139,7 @@ export default function CertificatesPage() {
               {isFetchingNextPage ? (
                 <>
                   <RefreshCw size={18} className="animate-spin" />
-                  <span>Loading...</span>
+                  <span>Loading....</span>
                 </>
               ) : (
                 <>
