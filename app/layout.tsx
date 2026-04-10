@@ -1,3 +1,8 @@
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
+
+
 import StarField from "./_Component/Global/StarField";
 import "./globals.css";
 import QueryProvider from "./_Component/Global/QueryProvider";
