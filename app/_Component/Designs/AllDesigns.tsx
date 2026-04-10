@@ -11,7 +11,7 @@ import { useGetAllDesigns, Design } from "@/app/Global/data/useDesigns";
 export default function AllDesigns() {
 
   const { allDesigns, isLoading, isError, refetch } = useGetAllDesigns(3);
-  
+
   const designs = allDesigns?.pages.flatMap((page: any) => page) || [];
 
   if (isLoading) {
@@ -24,10 +24,10 @@ export default function AllDesigns() {
 
   if (isError) {
     return (
-      <div className="flex flex-col justify-center items-center h-[400px] text-white/60">
+      <div className="flex flex-col justify-center items-center h-[400px] primary-text4">
         <p>Failed to load designs.</p>
-        <button 
-          onClick={() => refetch()} 
+        <button
+          onClick={() => refetch()}
           className="mt-4 px-6 py-2 bg-white/10 hover:bg-[#FF5652] rounded-full transition-colors"
         >
           Try Again

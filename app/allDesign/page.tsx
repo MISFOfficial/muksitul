@@ -13,14 +13,14 @@ import { useGetAllDesigns, Design } from "@/app/Global/data/useDesigns";
 
 export default function AllDesignPage() {
   const router = useRouter();
-  const { 
-    allDesigns, 
-    isLoading, 
-    isError, 
-    refetch, 
-    hasNextPage, 
-    isFetchingNextPage, 
-    fetchNextPage 
+  const {
+    allDesigns,
+    isLoading,
+    isError,
+    refetch,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage
   } = useGetAllDesigns(10);
 
   const designs = allDesigns?.pages.flatMap((page: any) => page) || [];
@@ -29,7 +29,7 @@ export default function AllDesignPage() {
     <main className="min-h-screen ratio">
       {/* Specialized Header */}
       <section className="py-10 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FF5652]/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none" />
 
         <div className="relative z-10">
           <button
@@ -44,8 +44,8 @@ export default function AllDesignPage() {
           </button>
 
           <div className="flex items-center gap-3 mb-6">
-            <Palette className="text-[#FF5652]" size={24} />
-            <span className="text-[#FF5652] font-bold uppercase tracking-widest text-sm underline decoration-[#FF5652]/30">
+            <Palette className="primary-text2" size={24} />
+            <span className="primary-text2 font-bold uppercase tracking-widest text-sm  decoration-[#FF5652]/30">
               Design Vault
             </span>
           </div>
