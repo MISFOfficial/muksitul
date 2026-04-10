@@ -6,7 +6,35 @@ import {
 } from "@tanstack/react-query";
 import api from "@/hooks/useAxios";
 
-export const useGetAllCmsProjects = () => {
+export interface CmsProjectImage {
+  _id: string;
+  url: string;
+  key: string;
+  filename: string;
+  mimeType: string;
+  size: number;
+  uploadedAt: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
+export interface CmsProject {
+  _id: string;
+  title: string;
+  images: CmsProjectImage[];
+  tags: string[];
+  year: string;
+  platform: "WordPress" | "Shopify" | "Webflow" | "Wix" | "Squarespace";
+  badge?: { text: string; color: string } | null;
+  description: string;
+  liveUrl?: string | null;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
+}
+
+export const useGetAllCmsProjects = (limit: number = 10) => {
   const {
     data: allCmsProjects,
     isLoading,
@@ -16,19 +44,19 @@ export const useGetAllCmsProjects = () => {
     isFetchingNextPage,
     fetchNextPage,
   } = useInfiniteQuery({
-    queryKey: ["cms-projects"],
+    queryKey: ["cms-projects", limit],
     initialPageParam: 0,
     queryFn: async ({ pageParam = 0 }) => {
       const res = await api.get("/cms/all", {
         params: {
-          limit: 10,
+          limit,
           skip: pageParam,
         },
       });
       return res.data.data;
     },
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.length === 10 ? allPages.length * 10 : undefined;
+      return lastPage.length === limit ? allPages.length * limit : undefined;
     },
   });
 

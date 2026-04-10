@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { CmsProject } from "@/lib/cmsProjectsData";
+import { CmsProject } from "@/app/Global/data/useCmsProjects";
 
 interface CmsProjectCardProps {
   project: CmsProject;
@@ -36,12 +36,14 @@ export default function CmsProjectCard({
       <div className="relative primary-rounded overflow-hidden transition-all duration-500 bg-[#121212] border primary-border hover:border-[#FF5652]/40">
         {/* Preview Image */}
         <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden bg-[#1a1a1a]">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
-          />
+          {project.images?.[0]?.url && (
+            <Image
+              src={project.images[0].url}
+              alt={project.title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+          )}
 
           {/* Glass Overlay on Hover */}
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center gap-4 backdrop-blur-[2px]">
