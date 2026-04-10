@@ -66,7 +66,7 @@ export default function Projects() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="primary-text4max-w-2xl text-lg leading-relaxed mt-4"
+          className="primary-text4 max-w-2xl text-lg leading-relaxed mt-4"
         >
           Explore a curated collection of high-performance applications and
           innovative digital experiences, demonstrating my commitment to
