@@ -10,10 +10,9 @@ import AllProjects from "./_Component/Projects/AllProjects";
 import HireMe from "./_Component/HireMe/HireMe";
 import Footer from "./_Component/Footer/Footer";
 import Experiance from "./_Component/Experiance/Experiance";
-import Designs from "./_Component/Designs/Designs";
 import AllDesigns from "./_Component/Designs/AllDesigns";
-import CmsProjects from "./_Component/CmsProjects/CmsProjects";
 import AllCmsProjects from "./_Component/CmsProjects/AllCmsProjects";
+
 export default function Home() {
   return (
     <main className="relative">

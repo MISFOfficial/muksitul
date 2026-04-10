@@ -14,16 +14,20 @@ import CertificateCard from "@/app/_Component/Certificates/CertificateCard";
 import { certificatesData } from "@/lib/certificatesData";
 import Navigaton from "@/app/_Component/Navigation/Navigaton";
 import Footer from "@/app/_Component/Footer/Footer";
+import { useGetAllCertificates } from "../Global/data/useCertificates";
+
 
 export default function CertificatesPage() {
+
+  const { allCertificates, isLoading, isError, refetch } = useGetAllCertificates();
+  console.log(allCertificates)
+
   return (
     <main className="relative min-h-screen">
-      <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
-        <Navigaton />
-      </div>
+
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative py-10 overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FF5652]/5 blur-[120px] rounded-full -mr-64 -mt-64" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#20255e]/5 blur-[120px] rounded-full -ml-64 -mb-64" />

@@ -11,7 +11,7 @@ export default function AllCertificates() {
   return (
     <section id="certificates-list" className="py-12">
       {/* 1-column list to differ from Projects grid */}
-      <div className="max-w-5xl mx-auto space-y-6 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {certificatesData.slice(0, 3).map((cert, index) => (
           <CertificateCard key={cert.id} certificate={cert} index={index} />
         ))}
