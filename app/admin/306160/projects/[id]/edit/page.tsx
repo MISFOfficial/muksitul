@@ -32,6 +32,8 @@ import { toast } from "sonner";
 import Image from "next/image";
 import { ROLE_OPTIONS } from "../../../experience/RoleOptions";
 
+export const runtime = 'edge';
+
 export default function EditProjectPage({
   params,
 }: {
@@ -548,8 +550,8 @@ export default function EditProjectPage({
               {/* Drag-and-drop zone for extra images */}
               <div
                 className={`rounded-xl border-2 border-dashed transition-all duration-300 ${isDraggingExtra
-                    ? "border-[#0abab5] bg-[#0abab5]/10"
-                    : "border-white/5 hover:border-white/10"
+                  ? "border-[#0abab5] bg-[#0abab5]/10"
+                  : "border-white/5 hover:border-white/10"
                   }`}
                 onDragOver={onExtraDragOver}
                 onDragEnter={onExtraDragOver}
@@ -1014,9 +1016,9 @@ export default function EditProjectPage({
                             setBadge((b) => ({ ...b, color: preset.color }))
                           }
                           className={`w-9 h-9 rounded-full border-2 transition-all duration-200 hover:scale-110 ${badge.color.toLowerCase() ===
-                              preset.color.toLowerCase()
-                              ? "border-white scale-110 shadow-[0_0_12px_rgba(255,255,255,0.3)]"
-                              : "border-white/10 hover:border-white/30"
+                            preset.color.toLowerCase()
+                            ? "border-white scale-110 shadow-[0_0_12px_rgba(255,255,255,0.3)]"
+                            : "border-white/10 hover:border-white/30"
                             }`}
                           style={{ backgroundColor: preset.color }}
                         />

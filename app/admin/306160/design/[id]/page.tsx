@@ -31,6 +31,8 @@ import { useRouter, useParams } from "next/navigation";
 import { toast } from "sonner";
 import Image from "next/image";
 
+export const runtime = 'edge';
+
 export default function EditDesignPage() {
   const router = useRouter();
   const params = useParams();
