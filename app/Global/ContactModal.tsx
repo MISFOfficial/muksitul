@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { X, Upload, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { sendInquiry } from "@/app/_actions/sendInquiry";
 
@@ -68,11 +67,11 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   };
 
   return (
-    <AnimatePresence>
+    
       {isOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
           {/* Backdrop */}
-          <motion.div
+          <div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -81,7 +80,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           />
 
           {/* Modal Content */}
-          <motion.div
+          <div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -97,7 +96,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
             <div className="p-8 md:p-12">
               {isSuccess ? (
-                <motion.div
+                <div
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center text-center py-10"
@@ -110,7 +109,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     Thank you for your interest. I'll get back to you shortly to
                     discuss your project.
                   </p>
-                </motion.div>
+                </div>
               ) : (
                 <>
                   <div className="mb-8">
@@ -125,13 +124,13 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Error Message */}
                     {error && (
-                      <motion.div
+                      <div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="bg-red-500/10 border border-red-500/20 text-red-500 px-4 py-3 primary-rounded text-sm font-medium"
                       >
                         {error}
-                      </motion.div>
+                      </div>
                     )}
 
                     <div className="grid grid-cols-2 gap-4">
@@ -240,9 +239,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </>
               )}
             </div>
-          </motion.div>
+          </div>
         </div>
       )}
-    </AnimatePresence>
+    
   );
 }

@@ -1,7 +1,6 @@
 import { Globe } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
-import { motion } from 'framer-motion'
 
 function Travel() {
     return (
@@ -13,7 +12,7 @@ function Travel() {
                     fill
                     className="object-cover opacity-60 scale-105"
                 />
-                <motion.div
+                <div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"
@@ -21,7 +20,7 @@ function Travel() {
             </div>
 
             <div className="relative z-10 text-center ratio px-6">
-                <motion.div
+                <div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2 }}
@@ -37,23 +36,23 @@ function Travel() {
                         <p className="text-lg md:text-xl text-gray-200 italic">
                             Professional life keeps me anchored, but in my soul, I am always sailing.
                         </p>
-                        <motion.div
+                        <div
                             animate={{ scaleX: [0, 1, 0] }}
                             transition={{ duration: 4, repeat: Infinity }}
                             className="absolute -bottom-4 left-0 w-full h-[4px] bg-[#FF0055]/50 origin-left"
                         />
                     </div>
-                </motion.div>
+                </div>
             </div>
 
             {/* Subtle Floating Drift Elements */}
-            {/* <motion.div
+            {/* <div
                 animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
                 transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute top-1/4 right-1/4 opacity-20"
             >
                 <Globe size={150} className="primary-text2" />
-            </motion.div> */}
+            </div> */}
         </section>
 
     )

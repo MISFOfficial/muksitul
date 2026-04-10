@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Briefcase, Code, Target, Zap } from "lucide-react";
 
 function WrokingStyle() {
@@ -7,13 +6,13 @@ function WrokingStyle() {
     <section className="  relative z-10 ">
       <div className="">
         <div className="text-center mb-24">
-          <motion.span
+          <span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="primary-text2 font-black uppercase tracking-[0.4em] text-xs mb-4 block"
           >
             Process
-          </motion.span>
+          </span>
           <h2 className="text-5xl md:text-8xl font-black tracking-tighter">
             <span className="text-outline">My</span> Way.
           </h2>
@@ -58,7 +57,7 @@ function WrokingStyle() {
               icon: <Zap size={20} />,
             },
           ].map((m, i) => (
-            <motion.div
+            <div
               key={i}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -77,7 +76,7 @@ function WrokingStyle() {
               <p className="text-gray-400 group-hover:text-white/80 transition-colors leading-relaxed">
                 {m.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

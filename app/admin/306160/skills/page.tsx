@@ -24,7 +24,6 @@ import {
   useDeleteSkill,
   useSeedSkills,
 } from "@/app/Global/data/useSkills";
-import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 
 const CATEGORIES = [
@@ -217,7 +216,7 @@ export default function SkillsPage() {
             />
           ))
           : filteredSkills?.map((skill: any) => (
-            <motion.div
+            <div
               layout
               key={skill._id}
               className="group flex flex-col sm:flex-row items-center gap-6 bg-[#0a0a0a]/40 border primary-border primary-rounded p-3 px-6 hover:bg-[#0f0f0f] hover:border-[#0abab5]/20 transition-all duration-300"
@@ -267,22 +266,22 @@ export default function SkillsPage() {
                   <Trash2 size={14} />
                 </button>
               </div>
-            </motion.div>
+            </div>
           ))}
       </div>
 
       {/* Modal - Compact & Clean */}
-      <AnimatePresence>
+      
         {isModalOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <motion.div
+            <div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsModalOpen(false)}
               className="absolute inset-0 bg-black/90 backdrop-blur-md"
             />
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 10, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.98 }}
@@ -399,10 +398,10 @@ export default function SkillsPage() {
                   </button>
                 </div>
               </form>
-            </motion.div>
+            </div>
           </div>
         )}
-      </AnimatePresence>
+      
     </div>
   );
 }

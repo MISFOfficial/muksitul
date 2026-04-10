@@ -1,11 +1,10 @@
-import { motion } from "framer-motion";
 
 function Facts({ quickFacts }: any) {
   return (
     <section className="     backdrop-blur-sm relative z-10">
       <div className="ratio grid grid-cols-2 md:grid-cols-4 gap-4 px-6">
         {quickFacts.map((fact: any, i: any) => (
-          <motion.div
+          <div
             key={i}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -19,7 +18,7 @@ function Facts({ quickFacts }: any) {
               {fact.label}
             </span>
             <span className="text-sm font-bold text-white">{fact.value}</span>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

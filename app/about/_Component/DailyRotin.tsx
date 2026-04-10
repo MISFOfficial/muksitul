@@ -1,6 +1,5 @@
 import { BookOpen, Briefcase, Globe, Heart, Zap } from "lucide-react";
 import React from "react";
-import { motion } from "framer-motion";
 
 function DailyRotin() {
   return (
@@ -51,7 +50,7 @@ function DailyRotin() {
                   "Pure creation. When the world goes quiet, the most brilliant code flows.",
               },
             ].map((item, i) => (
-              <motion.div
+              <div
                 key={i}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -69,7 +68,7 @@ function DailyRotin() {
                     {item.detail}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -166,9 +165,9 @@ export default function Navigaton() {
 
                 {/* Desktop Dropdown */}
                 {link.subLinks && (
-                  <AnimatePresence>
+                  
                     {isProjectsDropdownOpen && (
-                      <motion.div
+                      <div
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -189,9 +188,9 @@ export default function Navigaton() {
                             </button>
                           ))}
                         </div>
-                      </motion.div>
+                      </div>
                     )}
-                  </AnimatePresence>
+                  
                 )}
               </div>
             ))}
@@ -202,17 +201,17 @@ export default function Navigaton() {
       {/* Bottom Tab Navigation - Mobile Only */}
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-3xl border-t border-white/5 pb-[env(safe-area-inset-bottom)]">
         {/* Sub Links Menu (Projects) */}
-        <AnimatePresence>
+        
           {isProjectsDropdownOpen && (
             <>
-              <motion.div
+              <div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={() => setIsProjectsDropdownOpen(false)}
                 className="fixed inset-0 bg-black/60 backdrop-blur-sm -z-10"
               />
-              <motion.div
+              <div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
@@ -241,24 +240,24 @@ export default function Navigaton() {
                       </button>
                     ))}
                 </div>
-              </motion.div>
+              </div>
             </>
           )}
-        </AnimatePresence>
+        
 
         {/* More Menu content */}
-        <AnimatePresence>
+        
           {isMenuOpen && (
             <>
               {/* Backdrop */}
-              <motion.div
+              <div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onClick={closeMenu}
                 className="fixed inset-0 bg-black/60 backdrop-blur-sm -z-10"
               />
-              <motion.div
+              <div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
@@ -278,10 +277,10 @@ export default function Navigaton() {
                     </button>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </>
           )}
-        </AnimatePresence>
+        
 
         <div className="flex items-center justify-around py-3 px-2 max-w-md mx-auto">
           {visibleLinks.map((link) => (

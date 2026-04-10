@@ -1,6 +1,5 @@
 import { Code, Globe, Target } from "lucide-react";
 import React from "react";
-import { motion } from "framer-motion";
 
 function Philosophy() {
   return (
@@ -10,7 +9,7 @@ function Philosophy() {
       </div>
 
       <div className="ratio px-6 text-center ">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           className="max-w-5xl mx-auto"
@@ -43,7 +42,7 @@ function Philosophy() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

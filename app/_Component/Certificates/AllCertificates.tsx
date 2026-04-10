@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import CertificateCard from "./CertificateCard";
@@ -17,7 +16,7 @@ export default function AllCertificates() {
         ))}
       </div>
 
-      <motion.div
+      <div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -35,7 +34,7 @@ export default function AllCertificates() {
             />
           </button>
         </Link>
-      </motion.div>
+      </div>
     </section>
   );
 }

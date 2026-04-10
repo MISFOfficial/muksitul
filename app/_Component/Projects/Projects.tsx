@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import {
   useGetAllProjects,
@@ -35,7 +34,7 @@ export default function Projects() {
       {/* Main Content */}
       <div className="relative z-10 container mx-auto  flex flex-col items-center gap-6">
         {/* 44+ Badge */}
-        <motion.div
+        <div
           initial={{ scale: 0.5, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
@@ -47,10 +46,10 @@ export default function Projects() {
           <span className="absolute top-2 -right-12 text-[12px] md:text-lg font-bold bg-[#20255e] px-3 py-1 rounded-full text-white rotate-12">
             Projects
           </span>
-        </motion.div>
+        </div>
 
         {/* Heading */}
-        <motion.h2
+        <h2
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -58,10 +57,10 @@ export default function Projects() {
         >
           Featured Engineering <span className="primary-text4">Solutions</span>{" "}
           <br />& Architectural <span className="primary-text2">Showcase</span>
-        </motion.h2>
+        </h2>
 
         {/* Description */}
-        <motion.p
+        <p
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -71,10 +70,10 @@ export default function Projects() {
           Explore a curated collection of high-performance applications and
           innovative digital experiences, demonstrating my commitment to
           technical excellence and professional problem-solving.
-        </motion.p>
+        </p>
 
         {/* Features List */}
-        {/* <motion.div
+        {/* <div
                     initial={{ y: 30, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
@@ -87,7 +86,7 @@ export default function Projects() {
                             <span className="font-semibold text-sm md:text-base">{feature}</span>
                         </div>
                     ))}
-                </motion.div> */}
+                </div> */}
       </div>
     </section>
   );

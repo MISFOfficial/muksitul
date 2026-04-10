@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { ArrowUpRight, Palette } from "lucide-react";
 import Link from "next/link";
 import DesignCard from "./DesignCard";
@@ -48,7 +47,7 @@ export default function AllDesigns() {
         ))}
       </div>
 
-      <motion.div
+      <div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -72,7 +71,7 @@ export default function AllDesigns() {
             <div className="absolute inset-0 primary-color scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 z-0" />
           </button>
         </Link>
-      </motion.div>
+      </div>
     </section>
   );
 }

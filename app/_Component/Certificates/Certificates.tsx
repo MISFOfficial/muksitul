@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { ShieldCheck, Award, Zap } from "lucide-react";
 import { certificatesData } from "@/lib/certificatesData";
 
@@ -24,7 +23,7 @@ export default function Certificates() {
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 flex flex-col items-center gap-8">
         {/* Header Badge */}
-        <motion.div
+        <div
           initial={{ y: -20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -34,10 +33,10 @@ export default function Certificates() {
           <span className="text-xs font-black uppercase tracking-widest">
             Verified Credentials
           </span>
-        </motion.div>
+        </div>
 
         <div className="space-y-4">
-          <motion.h2
+          <h2
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
@@ -45,9 +44,9 @@ export default function Certificates() {
           >
             My Professional <br />
             <span className="primary-text italic">Milestones</span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
+          <p
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
@@ -57,11 +56,11 @@ export default function Certificates() {
             Beyond building projects, I am committed to deep technical mastery.
             Each certificate represents hundreds of hours of focused learning
             and validation.
-          </motion.p>
+          </p>
         </div>
 
         {/* Stat Grid for uniqueness */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -85,7 +84,7 @@ export default function Certificates() {
               </span>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

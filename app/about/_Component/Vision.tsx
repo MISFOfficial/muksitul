@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Zap } from "lucide-react";
 
 export default function Vision() {
@@ -9,16 +8,16 @@ export default function Vision() {
 
       <div className="ratio px-6">
         <div className="">
-          <motion.h2
+          <h2
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-7xl md:text-9xl text-white font-black tracking-tighter mb-16 leading-[0.8]"
           >
             THE <br /> FUTURE <br />
             <span className="primary-text2">BEYOND</span>.
-          </motion.h2>
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-            <motion.div
+            <div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -31,8 +30,8 @@ export default function Vision() {
                 architecture and autonomous AI-driven applications. The goal is
                 predictable, resilient, and intelligent systems.
               </p>
-            </motion.div>
-            <motion.div
+            </div>
+            <div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -45,7 +44,7 @@ export default function Vision() {
                 want to build tools that empower the next generation of
                 engineers in Bangladesh and beyond.
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

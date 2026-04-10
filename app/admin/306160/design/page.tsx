@@ -17,7 +17,6 @@ import {
   useGetAllDesigns,
   useDeleteDesign,
 } from "@/app/Global/data/useDesigns";
-import { motion } from "framer-motion";
 import { toast } from "sonner";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -143,7 +142,7 @@ export default function DesignPage() {
               />
             ))
           : filteredDesigns?.map((design: any) => (
-              <motion.div
+              <div
                 layout
                 key={design._id}
                 className="group flex flex-col md:flex-row items-center gap-6 bg-[#0a0a0a]/40 border primary-border primary-rounded p-4 px-6 hover:bg-[#0f0f0f] hover:border-[#0abab5]/20 transition-all duration-300"
@@ -211,7 +210,7 @@ export default function DesignPage() {
                     <Trash2 size={14} />
                   </button>
                 </div>
-              </motion.div>
+              </div>
             ))}
       </div>
 

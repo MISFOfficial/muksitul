@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { ArrowUpRight, Figma, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +13,7 @@ interface DesignCardProps {
 
 export default function DesignCard({ design, index }: DesignCardProps) {
   return (
-    <motion.div
+    <div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
@@ -101,6 +100,6 @@ export default function DesignCard({ design, index }: DesignCardProps) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

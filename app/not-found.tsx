@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowLeft, Home } from "lucide-react";
 import Navigaton from "./_Component/Navigation/Navigaton";
 import Footer from "./_Component/Footer/Footer";
@@ -17,7 +16,7 @@ export default function NotFound() {
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center">
           {/* 404 text */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -32,10 +31,10 @@ export default function NotFound() {
             >
               404
             </h1>
-          </motion.div>
+          </div>
 
           {/* Message */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
@@ -49,10 +48,10 @@ export default function NotFound() {
               <br />
               Let&apos;s navigate you back to safety.
             </p>
-          </motion.div>
+          </div>
 
           {/* Buttons */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
@@ -78,11 +77,11 @@ export default function NotFound() {
               />
               Go Back
             </button>
-          </motion.div>
+          </div>
         </div>
 
         {/* Bottom coordinates */}
-        <motion.div
+        <div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
@@ -93,7 +92,7 @@ export default function NotFound() {
           <span>COORD::NULL</span>
           <span>·</span>
           <span>SIGNAL::NONE</span>
-        </motion.div>
+        </div>
       </div>
 
       <Footer />

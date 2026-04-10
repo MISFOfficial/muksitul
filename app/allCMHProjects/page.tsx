@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { Layers, ArrowLeft, ArrowDown } from "lucide-react";
 import CmsProjectCard from "../_Component/CmsProjects/CmsProjectCard";
 import CmsProjectCardSkeleton from "../_Component/CmsProjects/CmsProjectCardSkeleton";

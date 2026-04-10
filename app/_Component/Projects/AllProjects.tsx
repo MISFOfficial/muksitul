@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import ProjectCard from "./ProjectCard";
@@ -61,7 +60,7 @@ export default function AllProjects() {
         ))}
       </div>
 
-      <motion.div
+      <div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -82,7 +81,7 @@ export default function AllProjects() {
             <div className="absolute inset-0 primary-color2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />
           </button>
         </Link>
-      </motion.div>
+      </div>
     </section>
   );
 }

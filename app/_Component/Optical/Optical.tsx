@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import {
   Code,
   PenTool,
@@ -74,7 +73,7 @@ export default function Optical() {
 
       {/* Marquee Container */}
       <div className="flex">
-        <motion.div
+        <div
           className="flex gap-6 pr-6"
           animate={{ x: "-50%" }}
           transition={{
@@ -125,7 +124,7 @@ export default function Optical() {
                             )} */}
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

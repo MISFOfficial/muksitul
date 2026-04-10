@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { Brain, Cpu, Layers, Zap, Code2, Workflow } from "lucide-react";
 
 const mindsetItems = [
@@ -51,7 +50,7 @@ export default function EngineeringMindset() {
 
       <div className="relative z-10">
         <div className="mb-16">
-          <motion.div
+          <div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -61,9 +60,9 @@ export default function EngineeringMindset() {
             <span className="text-primary-color2 font-bold uppercase tracking-widest text-sm">
               Philosophy
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h2
+          <h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -72,9 +71,9 @@ export default function EngineeringMindset() {
           >
             The Engineering <br />
             <span className="primary-text4italic">Mindset</span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
+          <p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -84,13 +83,13 @@ export default function EngineeringMindset() {
             Great software isn't just about syntax—it's about mental models and
             architectural decisions. Here is how I approach complex technical
             challenges.
-          </motion.p>
+          </p>
         </div>
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {mindsetItems.map((item, index) => (
-            <motion.div
+            <div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -120,11 +119,11 @@ export default function EngineeringMindset() {
 
               {/* Decorative element */}
               <div className="absolute -bottom-4 -right-4 w-24 h-24 primary-text4 rounded-full blur-2xl transition-all duration-500" />
-            </motion.div>
+            </div>
           ))}
 
           {/* Meta Card: Decision Making */}
-          <motion.div
+          <div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -151,7 +150,7 @@ export default function EngineeringMindset() {
                 Trade-off Analysis
               </span>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

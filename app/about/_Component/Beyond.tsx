@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 function Beyond() {
@@ -44,7 +43,7 @@ function Beyond() {
               image: "/kg.jpg",
             },
           ].map((hobby, i) => (
-            <motion.div
+            <div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +62,7 @@ function Beyond() {
                   {hobby.desc}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

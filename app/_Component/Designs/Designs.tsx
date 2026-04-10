@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { useGetDesignCount } from "@/app/Global/data/useDesigns";
 
 export default function Designs() {
@@ -25,7 +24,7 @@ export default function Designs() {
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 flex flex-col items-center gap-6">
         {/* Count Badge */}
-        <motion.div
+        <div
           initial={{ scale: 0.5, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
@@ -37,10 +36,10 @@ export default function Designs() {
           <span className="absolute top-2 -right-12 text-[12px] md:text-lg font-bold bg-[#FF5652] px-3 py-1 rounded-full text-white -rotate-12 uppercase tracking-widest">
             UI/UX
           </span>
-        </motion.div>
+        </div>
 
         {/* Heading */}
-        <motion.h2
+        <h2
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -48,10 +47,10 @@ export default function Designs() {
         >
           Creative <span className="primary-text4 italic">Visual</span> <br />
           Experience <span className="primary-text2">Showcase</span>
-        </motion.h2>
+        </h2>
 
         {/* Description */}
-        <motion.p
+        <p
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -61,7 +60,7 @@ export default function Designs() {
           Translating complex ideas into intuitive, aesthetically pleasing
           digital products. A focus on user-centric design principles and modern
           aesthetic excellence.
-        </motion.p>
+        </p>
       </div>
     </section>
   );

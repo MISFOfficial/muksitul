@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 export default function Journey({ journeyEvents }: any) {
   return (
@@ -11,7 +10,7 @@ export default function Journey({ journeyEvents }: any) {
               key={index}
               className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-16 md:gap-32`}
             >
-              <motion.div
+              <div
                 className="flex-1 w-full"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -31,9 +30,9 @@ export default function Journey({ journeyEvents }: any) {
                     </span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <motion.div
+              <div
                 className="flex-1 space-y-8"
                 initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -55,7 +54,7 @@ export default function Journey({ journeyEvents }: any) {
                     {event.icon}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           ))}
         </div>
