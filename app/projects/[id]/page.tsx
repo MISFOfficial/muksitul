@@ -50,7 +50,9 @@ export default function ProjectPage() {
   if (isLoading) {
     return (
       <main className="relative min-h-screen">
-        <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border h-20 bg-black/20"></div>
+        <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
+          <Navigaton />
+        </div>
 
         <div className="ratio py-8 md:py-24 animate-pulse">
           {/* Back Button Skeleton */}
