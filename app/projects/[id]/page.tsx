@@ -23,6 +23,8 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import Link from "next/link";
+import Navigaton from "@/app/_Component/Navigation/Navigaton";
+import Footer from "@/app/_Component/Footer/Footer";
 
 // Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -47,20 +49,22 @@ export default function ProjectPage() {
   // If loading, show skeleton
   if (isLoading) {
     return (
-      <main className="min-h-screen text-white relative">
-        {/* Hero Section Skeleton */}
-        <section className="ratio py-8">
-          <div className="h-6 w-32 bg-white/5 rounded-full mb-8"></div>
+      <main className="relative min-h-screen">
+        <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border h-20 bg-black/20"></div>
+
+        <div className="ratio py-8 md:py-24 animate-pulse">
+          {/* Back Button Skeleton */}
+          <div className="h-10 w-24 bg-white/5 rounded-full mb-12"></div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             {/* Left - Project Info Skeleton */}
             <div className="space-y-6 lg:col-span-1">
-              <div>
-                <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 flex-wrap">
                   <div className="h-12 md:h-16 w-3/4 bg-white/5 rounded-lg"></div>
                   <div className="h-8 w-20 bg-white/5 rounded-full"></div>
                 </div>
-                <div className="h-1 w-24 bg-white/10 rounded-full mb-6"></div>
+                <div className="h-1 w-24 bg-white/10 rounded-full"></div>
               </div>
 
               <div className="space-y-3">
@@ -71,7 +75,10 @@ export default function ProjectPage() {
 
               <div className="flex flex-wrap gap-2">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="h-8 w-20 bg-white/5 rounded-full"></div>
+                  <div
+                    key={i}
+                    className="h-8 w-20 bg-white/5 rounded-full"
+                  ></div>
                 ))}
               </div>
 
@@ -84,41 +91,7 @@ export default function ProjectPage() {
             {/* Right - Project Image Skeleton */}
             <div className="lg:col-span-2 h-[400px] lg:h-[600px] bg-white/5 primary-rounded border-2 border-white/5"></div>
           </div>
-        </section>
-
-        {/* Project Details Skeleton */}
-        <section className="ratio pt-10 border-t border-white/5">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2 space-y-16">
-              {/* About Skeleton */}
-              <div>
-                <div className="h-10 w-48 bg-white/5 rounded-lg mb-6"></div>
-                <div className="space-y-3">
-                  <div className="h-4 w-full bg-white/5 rounded-full"></div>
-                  <div className="h-4 w-full bg-white/5 rounded-full"></div>
-                  <div className="h-4 w-3/4 bg-white/5 rounded-full"></div>
-                </div>
-              </div>
-
-              {/* Key Features Skeleton */}
-              <div>
-                <div className="h-10 w-48 bg-white/5 rounded-lg mb-8"></div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="h-20 bg-white/5 primary-rounded border border-white/5"></div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Sidebar Skeleton */}
-            <div className="space-y-6">
-              <div className="h-40 bg-white/5 primary-rounded border border-white/5"></div>
-              <div className="h-48 bg-white/5 primary-rounded border border-white/5"></div>
-              <div className="h-56 bg-white/5 primary-rounded border border-white/5"></div>
-            </div>
-          </div>
-        </section>
+        </div>
       </main>
     );
   }
@@ -142,7 +115,11 @@ export default function ProjectPage() {
   }
 
   return (
-    <main className="min-h-screen text-white relative">
+    <main className="relative min-h-screen selection:bg-[#FF0055] selection:text-white">
+      <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
+        <Navigaton />
+      </div>
+
       {/* Hero Section */}
       <section className="ratio py-8">
         <button
@@ -166,12 +143,11 @@ export default function ProjectPage() {
                   {project.title}
                 </h1>
                 {project.badge && (
-                  <span
-                    className={` text-white text-xs font-bold px-3 py-1.5 rounded-sm uppercase tracking-wider`}
-                    style={{ backgroundColor: project.badge.color }}
-                  >
-                    {project.badge.text}
-                  </span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 primary-rounded bg-[#FF0055]/10 text-[#FF0055] border border-[#FF0055]/20 mb-1">
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em]">
+                      {project.badge.text}
+                    </span>
+                  </div>
                 )}
               </div>
               <div className="h-1 w-24 primary-color rounded-full mb-6"></div>
@@ -295,13 +271,13 @@ export default function ProjectPage() {
                 {project.features.map((feature: any, idx: any) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 bg-linear-to-br from-white/5 to-white/2 p-5 primary-rounded border primary-border hover:borderTechnologies Used-[#20255e]/30 group"
+                    className="flex items-start gap-3 p-5 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10 hover:border-[#FF0055]/30 group"
                   >
                     <CheckCircle2
                       size={20}
-                      className="primary-text2 shrink-0 mt-0.5"
+                      className="text-[#FF0055] shrink-0 mt-0.5"
                     />
-                    <span className="text-gray-300 leading-relaxed">
+                    <span className="text-gray-300 leading-relaxed text-sm">
                       {feature}
                     </span>
                   </div>
@@ -312,26 +288,27 @@ export default function ProjectPage() {
             {/* New: Problem vs Solution */}
             {project.problemSolution && (
               <div className="space-y-8 pt-8 border-t primary-border">
-                <h2 className="text-3xl font-black flex items-center gap-3 italic">
+                <h2 className="text-3xl md:text-4xl font-black text-white flex items-center gap-3">
+                  <Zap size={24} className="text-[#FF0055]" />
                   Strategic Analysis
-                  <div className="h-[2px] flex-1 primary-color/30 rounded-full"></div>
+                  <div className="h-[2px] flex-1 max-w-[100px] bg-[#FF0055]/30 rounded-full" />
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="p-6 primary-rounded bg-white/3 border primary-border">
-                    <h3 className="text-sm font-bold uppercase tracking-widest primary-text2 mb-4 flex items-center gap-2">
+                  <div className="p-6 primary-rounded bg-white/[0.02] border primary-border hover:border-[#FF0055]/20">
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-4 flex items-center gap-2">
                       <AlertCircle size={16} />
                       The Problem
                     </h3>
-                    <p className="text-gray-400 leading-relaxed text-sm">
+                    <p className="text-white/50 leading-relaxed text-sm">
                       {project.problemSolution.problem}
                     </p>
                   </div>
-                  <div className="p-6 primary-rounded bg-[#20255e]/5 border border-[#20255e]/10">
-                    <h3 className="text-sm font-bold uppercase tracking-widest primary-text2 mb-4 flex items-center gap-2">
+                  <div className="p-6 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10 hover:border-[#FF0055]/30">
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-4 flex items-center gap-2">
                       <Lightbulb size={16} />
                       The Solution
                     </h3>
-                    <p className="text-gray-300 leading-relaxed text-sm">
+                    <p className="text-gray-300 leading-relaxed text-sm font-medium">
                       {project.problemSolution.solution}
                     </p>
                   </div>
@@ -343,16 +320,16 @@ export default function ProjectPage() {
           {/* Sidebar - 1 column */}
           <div className="space-y-6">
             {/* Technologies */}
-            <div className="bg-linear-to-br from-white/5 to-white/2 primary-rounded p-6 border primary-border hover:border-[#20255e]/30">
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                <div className="w-1 h-6 primary-color rounded-full"></div>
+            <div className="p-8 primary-rounded bg-white/[0.03] border primary-border relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF0055] opacity-[0.03] blur-3xl -mr-16 -mt-16" />
+              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-6">
                 Technologies Used
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech: any, idx: any) => (
                   <span
                     key={idx}
-                    className="text-sm px-4 py-2 rounded-full primary-color text-white font-semibold"
+                    className="text-sm px-4 py-2 primary-rounded primary-text4 border primary-border text-white/80 font-semibold hover:border-[#FF0055]/40"
                   >
                     {tech}
                   </span>
@@ -361,34 +338,27 @@ export default function ProjectPage() {
             </div>
 
             {/* Project Info */}
-            <div className="bg-linear-to-br from-white/5 to-white/2 primary-rounded p-6 border primary-border hover:border-[#20255e]/30">
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
-                <div className="w-1 h-6 primary-color rounded-full"></div>
-                Project Info
+            <div className="p-8 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-6">
+                Project Details
               </h3>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 text-gray-400">
-                  <div className="w-10 h-10 rounded-full primary-text4 flex items-center justify-center">
-                    <Calendar size={18} className="primary-text2" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-gray-500">Year</div>
-                    <div className="text-white font-semibold">
-                      {project.year}
-                    </div>
-                  </div>
+              <div className="space-y-6">
+                <div className="flex flex-col gap-1">
+                  <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest flex items-center gap-2">
+                    <Calendar size={12} /> Year
+                  </span>
+                  <span className="text-lg font-bold text-white">
+                    {project.year}
+                  </span>
                 </div>
                 {project.role && (
-                  <div className="flex items-center gap-3 text-gray-400">
-                    <div className="w-10 h-10 rounded-full primary-text4 flex items-center justify-center">
-                      <Zap size={18} className="primary-text2" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-gray-500">Your Role</div>
-                      <div className="text-white font-semibold flex-wrap">
-                        {project.role}
-                      </div>
-                    </div>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest flex items-center gap-2">
+                      <Zap size={12} /> Your Role
+                    </span>
+                    <span className="text-lg font-bold text-white">
+                      {project.role}
+                    </span>
                   </div>
                 )}
               </div>
@@ -516,6 +486,8 @@ export default function ProjectPage() {
           </Link>
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 }

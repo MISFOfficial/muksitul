@@ -6,7 +6,6 @@ export const dynamic = "force-dynamic";
 import React from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useGetExperienceById } from "@/app/Global/data/useExperience";
-import { motion } from "framer-motion";
 import {
   ArrowLeft,
   Briefcase,
@@ -31,9 +30,63 @@ export default function ExperienceDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center text-white p-4">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF0055]"></div>
-      </div>
+      <main className="relative min-h-screen">
+        <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
+          <Navigaton />
+        </div>
+
+        <div className="ratio py-8 md:py-24">
+          {/* Back Button Skeleton */}
+          <div className="h-10 w-24 bg-white/5 rounded-full mb-12"></div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+            <div className="lg:col-span-8 space-y-16">
+              {/* Hero Header Skeleton */}
+              <div className="space-y-6">
+                <div className="flex items-center gap-5">
+                  <div className="w-20 h-20 md:w-24 md:h-24 primary-rounded bg-white/5 border primary-border"></div>
+                  <div className="space-y-3 flex-1">
+                    <div className="h-6 w-32 bg-white/10 rounded-full"></div>
+                    <div className="h-12 md:h-16 w-3/4 bg-white/5 rounded-lg"></div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-4">
+                  <div className="h-10 w-40 bg-white/5 rounded-full"></div>
+                  <div className="h-10 w-40 bg-white/5 rounded-full"></div>
+                  <div className="h-10 w-32 bg-white/5 rounded-full"></div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="h-4 w-full bg-white/5 rounded-full"></div>
+                  <div className="h-4 w-full bg-white/5 rounded-full"></div>
+                  <div className="h-4 w-2/3 bg-white/5 rounded-full"></div>
+                </div>
+              </div>
+
+              {/* Responsibilities Skeleton */}
+              <div className="space-y-8">
+                <div className="h-10 w-64 bg-white/5 rounded-lg"></div>
+                <div className="space-y-4">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div
+                      key={i}
+                      className="h-20 w-full bg-white/5 primary-rounded border primary-border"
+                    ></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar Skeleton */}
+            <div className="lg:col-span-4 space-y-6">
+              <div className="h-48 w-full bg-white/5 primary-rounded border primary-border"></div>
+              <div className="h-64 w-full bg-white/5 primary-rounded border primary-border"></div>
+              <div className="h-80 w-full bg-white/5 primary-rounded border primary-border"></div>
+            </div>
+          </div>
+        </div>
+      </main>
     );
   }
 
@@ -62,26 +115,19 @@ export default function ExperienceDetail() {
 
       <div className="ratio py-8 md:py-24">
         {/* Back Button */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="mb-12"
-        >
+        <div className="mb-12">
           <button
             onClick={() => router.back()}
-            className="inline-flex items-center gap-3 cursor-pointer text-white/60 hover:text-white transition-colors group"
+            className="inline-flex items-center gap-3 cursor-pointer text-white/60 hover:text-white group"
           >
-            <div className="w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-              <ArrowLeft
-                size={18}
-                className="group-hover:-translate-x-1 transition-transform"
-              />
+            <div className="w-10 h-10 rounded-full flex items-center justify-center">
+              <ArrowLeft size={18} />
             </div>
-            <span className="text-xs font-black uppercase tracking-widest transition-colors">
+            <span className="text-xs font-black uppercase tracking-widest">
               Back
             </span>
           </button>
-        </motion.div>
+        </div>
 
         {/* Hero Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
@@ -89,11 +135,7 @@ export default function ExperienceDetail() {
           <div className="lg:col-span-8 space-y-16">
             {/* Company & Role Header */}
             <div className="space-y-6">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex items-center gap-5"
-              >
+              <div className="flex items-center gap-5">
                 <div className="w-20 h-20 md:w-24 md:h-24 primary-rounded primary-text4 flex items-center justify-center p-4 border primary-border overflow-hidden relative">
                   {experience.image?.url && (
                     <img
@@ -114,15 +156,10 @@ export default function ExperienceDetail() {
                     {experience.role}
                   </h1>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Meta Info */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="flex flex-wrap items-center gap-4"
-              >
+              <div className="flex flex-wrap items-center gap-4">
                 <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border text-[#FF0055] text-sm font-bold tracking-wider">
                   <Calendar className="w-4 h-4" />
                   <span>{experience.duration}</span>
@@ -137,26 +174,16 @@ export default function ExperienceDetail() {
                     <span>{experience.teamSize} Team</span>
                   </div>
                 )}
-              </motion.div>
+              </div>
 
               {/* Description */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-white/50 text-lg leading-relaxed font-medium"
-              >
+              <p className="text-white/50 text-lg leading-relaxed font-medium">
                 {experience.description}
-              </motion.p>
+              </p>
             </div>
 
             {/* Responsibilities */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
+            <div className="space-y-8">
               <h2 className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
                 <Zap size={24} className="text-[#FF0055]" />
                 Key Responsibilities
@@ -164,34 +191,25 @@ export default function ExperienceDetail() {
               </h2>
               <div className="space-y-4">
                 {experience.responsibilities.map((item: any, idx: any) => (
-                  <motion.div
+                  <div
                     key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.05 }}
-                    className="flex gap-4 items-start group p-4 primary-rounded bg-white/[0.02] border primary-border hover:bg-white/[0.04] hover:border-[#FF0055]/20 transition-all"
+                    className="flex gap-4 items-start group p-4 primary-rounded bg-white/[0.02] border primary-border hover:bg-white/[0.04] hover:border-[#FF0055]/20"
                   >
-                    <div className="shrink-0 w-7 h-7 rounded-full border border-[#FF0055]/40 flex items-center justify-center mt-0.5 group-hover:bg-[#FF0055] group-hover:border-[#FF0055] transition-all">
+                    <div className="shrink-0 w-7 h-7 rounded-full border border-[#FF0055]/40 flex items-center justify-center mt-0.5 group-hover:bg-[#FF0055] group-hover:border-[#FF0055]">
                       <span className="text-[10px] font-black text-white">
                         {String(idx + 1).padStart(2, "0")}
                       </span>
                     </div>
-                    <p className="text-white/60 group-hover:text-white/80 transition-colors leading-relaxed">
+                    <p className="text-white/60 group-hover:text-white/80 leading-relaxed">
                       {item}
                     </p>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
             {/* Achievements */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
+            <div className="space-y-8">
               <h2 className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
                 <Award size={24} className="text-[#FF0055]" />
                 Achievements
@@ -199,35 +217,26 @@ export default function ExperienceDetail() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {experience.achievements.map((achievement: any, idx: any) => (
-                  <motion.div
+                  <div
                     key={idx}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="flex items-start gap-3 p-5 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10 hover:border-[#FF0055]/30 transition-all group"
+                    className="flex items-start gap-3 p-5 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10 hover:border-[#FF0055]/30 group"
                   >
                     <CheckCircle2
                       size={20}
-                      className="text-[#FF0055] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"
+                      className="text-[#FF0055] flex-shrink-0 mt-0.5"
                     />
                     <span className="text-gray-300 leading-relaxed text-sm">
                       {achievement}
                     </span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Sidebar */}
           <div className="lg:col-span-4">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="sticky top-32 space-y-6"
-            >
+            <div className="sticky top-32 space-y-6">
               {/* Technologies */}
               <div className="p-8 primary-rounded bg-white/[0.03] border primary-border relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF0055] opacity-[0.03] blur-3xl -mr-16 -mt-16" />
@@ -238,7 +247,7 @@ export default function ExperienceDetail() {
                   {experience.technologies.map((tech: any, idx: any) => (
                     <span
                       key={idx}
-                      className="text-sm px-4 py-2 primary-rounded primary-text4 border primary-border text-white/80 font-semibold hover:border-[#FF0055]/40 hover:text-white transition-all"
+                      className="text-sm px-4 py-2 primary-rounded primary-text4 border primary-border text-white/80 font-semibold hover:border-[#FF0055]/40 hover:text-white"
                     >
                       {tech}
                     </span>
@@ -313,7 +322,7 @@ export default function ExperienceDetail() {
                   )}
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -330,7 +339,7 @@ export default function ExperienceDetail() {
           </p>
           <Link
             href="/#contact"
-            className="inline-flex items-center gap-2 bg-[#FF0055] text-white px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-xl"
+            className="inline-flex items-center gap-2 bg-[#FF0055] text-white px-8 py-4 rounded-full font-bold shadow-xl"
           >
             Get In Touch
             <ArrowLeft size={20} className="rotate-180" />
