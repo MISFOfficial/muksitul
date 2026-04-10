@@ -50,11 +50,9 @@ export default function ProjectPage() {
   if (isLoading) {
     return (
       <main className="relative min-h-screen">
-        <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
-          <Navigaton />
-        </div>
 
-        <div className="ratio py-8 md:py-24 animate-pulse">
+
+        <div className="ratio py-10 animate-pulse">
           {/* Back Button Skeleton */}
           <div className="h-10 w-24 bg-white/5 rounded-full mb-12"></div>
 
@@ -118,12 +116,10 @@ export default function ProjectPage() {
 
   return (
     <main className="relative min-h-screen selection:bg-[#FF0055] selection:text-white">
-      <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
-        <Navigaton />
-      </div>
+
 
       {/* Hero Section */}
-      <section className="ratio py-8">
+      <section className="ratio py-10">
         <button
           onClick={() => router.back()}
           className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 group"
@@ -145,7 +141,11 @@ export default function ProjectPage() {
                   {project.title}
                 </h1>
                 {project.badge && (
-                  <div className="inline-flex items-center gap-2 px-3 py-1 primary-rounded bg-[#FF0055]/10 text-[#FF0055] border border-[#FF0055]/20 mb-1">
+                  <div
+                    style={{
+                      backgroundColor: project.badge.color,
+                    }}
+                    className="inline-flex items-center gap-2 px-3 py-1 rounded-sm mb-1">
                     <span className="text-[10px] font-black uppercase tracking-[0.2em]">
                       {project.badge.text}
                     </span>
@@ -273,11 +273,11 @@ export default function ProjectPage() {
                 {project.features.map((feature: any, idx: any) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 p-5 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10 hover:border-[#FF0055]/30 group"
+                    className="flex items-start gap-3 p-5 primary-rounded bg-white/5 to-transparent border primary-border "
                   >
                     <CheckCircle2
                       size={20}
-                      className="text-[#FF0055] shrink-0 mt-0.5"
+                      className="primary-text shrink-0 mt-0.5"
                     />
                     <span className="text-gray-300 leading-relaxed text-sm">
                       {feature}
@@ -291,13 +291,13 @@ export default function ProjectPage() {
             {project.problemSolution && (
               <div className="space-y-8 pt-8 border-t primary-border">
                 <h2 className="text-3xl md:text-4xl font-black text-white flex items-center gap-3">
-                  <Zap size={24} className="text-[#FF0055]" />
+                  <Zap size={24} className="" />
                   Strategic Analysis
                   <div className="h-[2px] flex-1 max-w-[100px] bg-[#FF0055]/30 rounded-full" />
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="p-6 primary-rounded bg-white/[0.02] border primary-border hover:border-[#FF0055]/20">
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-4 flex items-center gap-2">
+                  <div className="p-6 primary-rounded bg-white/5 border primary-border hover:border-[#FF0055]/20">
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] primary-text mb-4 flex items-center gap-2">
                       <AlertCircle size={16} />
                       The Problem
                     </h3>
@@ -305,8 +305,8 @@ export default function ProjectPage() {
                       {project.problemSolution.problem}
                     </p>
                   </div>
-                  <div className="p-6 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10 hover:border-[#FF0055]/30">
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-4 flex items-center gap-2">
+                  <div className="p-6 primary-rounded bg-white/5 border primary-border">
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.3em] primary-text mb-4 flex items-center gap-2">
                       <Lightbulb size={16} />
                       The Solution
                     </h3>
@@ -322,9 +322,9 @@ export default function ProjectPage() {
           {/* Sidebar - 1 column */}
           <div className="space-y-6">
             {/* Technologies */}
-            <div className="p-8 primary-rounded bg-white/[0.03] border primary-border relative overflow-hidden">
+            <div className="p-8 primary-rounded bg-white/5 border primary-border relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF0055] opacity-[0.03] blur-3xl -mr-16 -mt-16" />
-              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-6">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] primary-text mb-6">
                 Technologies Used
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -340,8 +340,8 @@ export default function ProjectPage() {
             </div>
 
             {/* Project Info */}
-            <div className="p-8 primary-rounded bg-gradient-to-br from-[#FF0055]/5 to-transparent border border-[#FF0055]/10">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-6">
+            <div className="p-8 primary-rounded bg-white/5 border primary-border relative overflow-hidden">
+              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] primary-text mb-6">
                 Project Details
               </h3>
               <div className="space-y-6">
@@ -405,7 +405,7 @@ export default function ProjectPage() {
                 System Architecture
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="p-8 primary-rounded bg-white/2 border primary-border hover:bg-white/4">
+                <div className="p-8 primary-rounded bg-white/5 border primary-border hover:bg-white/4">
                   <Cpu className="text-blue-400 mb-6" size={24} />
                   <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">
                     Frontend
@@ -414,7 +414,7 @@ export default function ProjectPage() {
                     {project.architecture.frontend}
                   </p>
                 </div>
-                <div className="p-8 primary-rounded bg-white/2 border primary-border hover:bg-white/4">
+                <div className="p-8 primary-rounded bg-white/5 border primary-border hover:bg-white/4">
                   <Zap className="text-yellow-400 mb-6" size={24} />
                   <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">
                     Backend
@@ -423,7 +423,7 @@ export default function ProjectPage() {
                     {project.architecture.backend}
                   </p>
                 </div>
-                <div className="p-8 primary-rounded bg-white/2 border primary-border hover:bg-white/4">
+                <div className="p-8 primary-rounded bg-white/5 border primary-border hover:bg-white/4">
                   <Database className="text-green-400 mb-6" size={24} />
                   <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">
                     Database
@@ -432,7 +432,7 @@ export default function ProjectPage() {
                     {project.architecture.database}
                   </p>
                 </div>
-                <div className="p-8 primary-rounded bg-white/2 border primary-border hover:bg-white/4">
+                <div className="p-8 primary-rounded bg-white/5 border primary-border hover:bg-white/4">
                   <ShieldCheck className="text-purple-400 mb-6" size={24} />
                   <h4 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">
                     Infra
@@ -447,18 +447,18 @@ export default function ProjectPage() {
 
           {/* Lessons Learned */}
           {project.lessons && (
-            <div className="p-8 md:p-12 primary-rounded bg-linear-to-br from-[#20255e]/10 to-transparent border primary-border">
+            <div className="p-8 md:p-12 primary-rounded bg-linear-to-br from-[#20255e]/20 to-[#20255e]/40 primary-rounded p-6 border border-[#20255e]/10">
               <h2 className="text-3xl font-black mb-10 flex items-center gap-3">
                 <Lightbulb className="text-yellow-400" />
                 Key Engineering Takeaways
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {project.lessons.map((lesson: any, idx: any) => (
-                  <div key={idx} className="flex gap-4">
-                    <div className="w-8 h-8 rounded-full primary-text4 flex items-center justify-center shrink-0 text-xs font-bold primary-text2">
+                  <div key={idx} className="flex items-center gap-4">
+                    <div className="w-8 h-8 rounded-full text-white primary-text primary-color2 flex items-center justify-center shrink-0 text-xs font-bold ">
                       0{idx + 1}
                     </div>
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-gray-400 text-sm  leading-relaxed">
                       {lesson}
                     </p>
                   </div>
@@ -488,8 +488,6 @@ export default function ProjectPage() {
           </Link>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

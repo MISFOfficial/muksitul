@@ -7,6 +7,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { useGetAllExperience } from "@/app/Global/data/useExperience";
 
+const formatRole = (role: string) => {
+  if (!role) return "";
+  return role
+    .split("_")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ")
+    .replace("Jr ", "Jr. ");
+};
+
 const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
   return (
     <Link href={`/experience/${exp._id}`}>
@@ -19,7 +28,7 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
           delay: index * 0.1,
           ease: "easeOut",
         }}
-        className="group flex flex-col xl:flex-row items-center justify-between gap-6 p-6 md:p-8 primary-rounded bg-white/[0.02] border primary-border hover:bg-white/[0.04] hover:border-[#FF0055]/20 transition-all duration-300 w-full mb-6 cursor-pointer"
+        className="group flex flex-col xl:flex-row items-center justify-between gap-6 p-6 md:p-8 primary-rounded bg-white/5 border primary-border hover:bg-white/10 transition-all duration-300 w-full mb-6 cursor-pointer"
       >
         <div className="flex items-center gap-5 md:gap-6 flex-1 min-w-0 w-full">
           <div className="w-14 h-14 md:w-16 md:h-16 primary-rounded primary-text4 relative overflow-hidden border primary-border shrink-0">
@@ -33,8 +42,8 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
             )}
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-[#FF0055] transition-colors leading-tight">
-              {exp.role}
+            <h3 className="text-lg md:text-xl font-bold text-white group-hover:primary-text transition-colors leading-tight">
+              {formatRole(exp.role)}
             </h3>
             <p className="text-sm md:text-base font-medium text-gray-400 mt-1 truncate">
               {exp.company}

@@ -114,9 +114,8 @@ export default function Navigaton() {
     <>
       {/* Top Nav - Desktop Only */}
       <nav
-        className={`fixed hidden lg:block top-0 py-4 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? "bg-black/60 backdrop-blur-xl " : "bg-transparent "
-        }`}
+        className={`fixed hidden lg:block top-0 py-4 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-black/60 backdrop-blur-xl " : "bg-transparent "
+          }`}
       >
         <div className="ratio flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -150,19 +149,17 @@ export default function Navigaton() {
                   onClick={() =>
                     !link.subLinks && handleNavClick(link.id, link.href)
                   }
-                  className={`px-5 py-2.5 text-xs cursor-pointer font-black uppercase tracking-widest transition-all primary-rounded hover:scale-105 flex items-center gap-1 ${
-                    link.name === "Resume"
-                      ? "primary-color  mx-4"
-                      : "primary-text3 text-hover"
-                  }`}
+                  className={`px-5 py-2.5 text-xs cursor-pointer font-black uppercase tracking-widest transition-all primary-rounded hover:scale-105 flex items-center gap-1 ${link.name === "Resume"
+                    ? "primary-color2  mx-4"
+                    : "primary-text3 text-hover"
+                    }`}
                 >
                   {link.name}
                   {link.subLinks && (
                     <ChevronDown
                       size={14}
-                      className={`transition-transform duration-300 ${
-                        isProjectsDropdownOpen ? "rotate-180" : ""
-                      }`}
+                      className={`transition-transform duration-300 ${isProjectsDropdownOpen ? "rotate-180" : ""
+                        }`}
                     />
                   )}
                 </button>
@@ -274,7 +271,7 @@ export default function Navigaton() {
                       onClick={() => handleNavClick(link.id, link.href)}
                       className="flex items-center gap-4 px-6 py-4 hover:primary-text4 transition-colors text-left border-b border-white/5 last:border-none"
                     >
-                      <div className="text-[#FF0055]">{link.icon}</div>
+                      <div className="primary-text">{link.icon}</div>
                       <span className="text-xs font-bold uppercase tracking-widest text-white/80">
                         {link.name}
                       </span>
@@ -298,29 +295,27 @@ export default function Navigaton() {
                   handleNavClick(link.id, link.href);
                 }
               }}
-              className={`flex flex-col items-center gap-1.5 w-full transition-colors ${
-                (link.subLinks && isProjectsDropdownOpen) ||
+              className={`flex flex-col items-center gap-1.5 w-full transition-colors ${(link.subLinks && isProjectsDropdownOpen) ||
                 (!link.subLinks && pathname === link.href)
-                  ? "text-[#FF0055]"
-                  : "text-white/40 hover:text-[#FF0055]"
-              }`}
+                ? "primary-text"
+                : "text-white/40 hover:primary-text"
+                }`}
             >
               <div className="relative flex items-center justify-center p-1.5 rounded-xl transition-all group-hover:bg-white/5">
                 <div className="relative">
                   {link.icon}
                   {link.subLinks && (
-                    <div className="absolute -right-1.5 -bottom-0.5 bg-[#FF0055] rounded-full p-0.5 shadow-sm">
+                    <div className="absolute -right-1.5 -bottom-0.5 primary-color rounded-full p-0.5 shadow-sm">
                       <ChevronDown
                         size={8}
-                        className={`text-white transition-transform duration-300 ${
-                          isProjectsDropdownOpen ? "rotate-180" : ""
-                        }`}
+                        className={`text-white transition-transform duration-300 ${isProjectsDropdownOpen ? "rotate-180" : ""
+                          }`}
                       />
                     </div>
                   )}
                 </div>
               </div>
-              <span className="text-[10px] font-black uppercase tracking-[0.1em]">
+              <span className="text-[10px] font-black uppercase">
                 {link.name}
               </span>
             </button>
@@ -332,9 +327,8 @@ export default function Navigaton() {
               toggleMenu();
               setIsProjectsDropdownOpen(false);
             }}
-            className={`flex flex-col items-center gap-1 w-full transition-colors ${
-              isMenuOpen ? "text-[#FF0055]" : "text-white/40"
-            }`}
+            className={`flex flex-col items-center gap-1 w-full transition-colors ${isMenuOpen ? "primary-text" : "text-white/40"
+              }`}
           >
             <MoreHorizontal size={20} />
             <span className="text-[10px] font-bold uppercase tracking-wider">
