@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,13 +25,7 @@ export default function CmsProjectCard({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
-      viewport={{ once: true }}
-      className="group w-full"
-    >
+    <div className="group w-full">
       <div className="relative primary-rounded overflow-hidden transition-all duration-500 bg-[#121212] border primary-border hover:border-[#FF5652]/40">
         {/* Preview Image */}
         <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden bg-[#1a1a1a]">
@@ -118,6 +111,6 @@ export default function CmsProjectCard({
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
