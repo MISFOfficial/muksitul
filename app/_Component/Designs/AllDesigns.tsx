@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Palette } from "lucide-react";
 import Link from "next/link";
 import DesignCard from "./DesignCard";
+import DesignCardSkeleton from "./DesignCardSkeleton";
 import Designs from "./Designs";
 import { useGetAllDesigns, Design } from "@/app/Global/data/useDesigns";
 
@@ -16,8 +17,10 @@ export default function AllDesigns() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-[400px]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#FF5652]"></div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
+        {[1, 2, 3].map((i) => (
+          <DesignCardSkeleton key={i} />
+        ))}
       </div>
     );
   }
