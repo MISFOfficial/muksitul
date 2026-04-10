@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import {
   ArrowUpRight,
   Award,
@@ -25,21 +24,14 @@ export default function CertificateCard({
 }: CertificateCardProps) {
   // Safe data accessors
   const imageUrl = typeof certificate.image === "string" ? certificate.image : certificate.image?.url || "";
-  const identifier = certificate._id || certificate.id;
-  const slug = certificate.slug || certificate._id || "";
+
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.05, duration: 0.5 }}
-      viewport={{ once: true }}
-      className="group h-full"
-    >
-      <Link href={`/certificates/${slug}`} className="block h-full">
-        <div className="relative h-full flex flex-col primary-rounded bg-gradient-to-b from-white/[0.05] to-transparent border primary-border hover:border-[#FF5652]/40 transition-all duration-500 overflow-hidden">
+    <div className="group h-full">
+      <Link href={`/certificates/${certificate._id}`} className="block h-full">
+        <div className="relative h-full flex flex-col primary-rounded border primary-border  transition-all duration-500 overflow-hidden">
           {/* Large Image Preview Section */}
-          <div className="relative aspect-[16/10] overflow-hidden primary-text4 border-b primary-border">
+          <div className="relative aspect-16/10 overflow-hidden primary-text4 border-b primary-border">
             <Image
               src={imageUrl}
               alt={certificate.title}
@@ -47,7 +39,7 @@ export default function CertificateCard({
               className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
             {/* Overlay Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent text-white" />
+            <div className="absolute inset-0 bg-white/5 to-transparent text-white" />
 
             {/* Provider Badge on Image */}
             <div className="absolute bottom-4 left-4 flex items-center gap-2">
@@ -66,7 +58,7 @@ export default function CertificateCard({
             </div>
 
             {/* Verified Badge */}
-            <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FF5652] text-[9px] font-black uppercase tracking-widest text-white shadow-lg">
+            <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 rounded-full primary-color2 text-[9px] font-black uppercase tracking-widest text-white shadow-lg">
               <ShieldCheck size={10} />
               Verified
             </div>
@@ -74,7 +66,7 @@ export default function CertificateCard({
 
           {/* Content Section */}
           <div className="p-6 flex-1 flex flex-col gap-4">
-            <h3 className="text-xl font-black text-white leading-tight group-hover:text-[#FF5652] transition-colors line-clamp-2 uppercase tracking-tighter">
+            <h3 className="text-xl font-black text-white leading-tight  transition-colors line-clamp-2 uppercase tracking-tighter">
               {certificate.title}
             </h3>
 
@@ -95,10 +87,10 @@ export default function CertificateCard({
                 </div>
               </div>
 
-              <div className="w-10 h-10 rounded-full border primary-border flex items-center justify-center group-hover:bg-[#FF5652] group-hover:border-[#FF5652] transition-all duration-300">
+              <div className="w-10 h-10 rounded-full border primary-border flex items-center justify-center transition-all duration-300">
                 <ArrowUpRight
                   size={18}
-                  className="text-white group-hover:scale-110 transition-transform"
+                  className="text-white transition-transform"
                 />
               </div>
             </div>
@@ -108,7 +100,7 @@ export default function CertificateCard({
               {certificate.skillsLearned.slice(0, 3).map((skill, idx) => (
                 <span
                   key={idx}
-                  className="text-[9px] font-bold px-2 py-0.5 primary-rounded primary-text4 border primary-border text-white/30 group-hover:primary-text4 transition-colors uppercase"
+                  className="text-[9px] font-bold px-2 py-0.5 primary-rounded primary-text4 border primary-border transition-colors uppercase"
                 >
                   {skill}
                 </span>
@@ -117,6 +109,6 @@ export default function CertificateCard({
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }

@@ -2,41 +2,39 @@
     "success": true,
     "responseCode": 1,
     "statusCode": 200,
-    "message": "Certificates fetched successfully",
-    "data": [
-        {
-            "_id": "69d4c93bb883d16c5ce9899b",
-            "title": "gsdfg",
-            "image": {
-                "_id": "69d4c93bb883d16c5ce98999",
-                "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/975bb546-4cd4-4fbf-bd9a-e28b51f08818.jpg",
-                "key": "properties/975bb546-4cd4-4fbf-bd9a-e28b51f08818.jpg",
-                "filename": "Birmingham-New-Street-station-front-900x600-c.jpg",
-                "mimeType": "image/jpeg",
-                "size": 102284,
-                "uploadedAt": "2026-04-07T09:07:07.190Z",
-                "createdAt": "2026-04-07T09:07:07.216Z",
-                "updatedAt": "2026-04-07T09:07:07.216Z",
-                "__v": 0
-            },
-            "provider": "sfgsdf",
-            "duration": "gsdfgsd",
-            "timeTaken": "fgsdfg",
-            "challenges": [
-                "fgdfg",
-                "dgfg"
-            ],
-            "rating": 5,
-            "description": "gsdfgsdfg",
-            "fullDescription": "sdfgsdfgsdfg",
-            "skillsLearned": [
-                "gdfgdfgfd"
-            ],
-            "certifiedAt": "sdfgsdfgsdf",
-            "issueDate": "2026-04-16",
-            "createdAt": "2026-04-07T09:07:07.314Z",
-            "updatedAt": "2026-04-07T09:18:03.858Z",
+    "message": "Certificate fetched successfully",
+    "data": {
+        "_id": "69d4c93bb883d16c5ce9899b",
+        "title": "gsdfg",
+        "image": {
+            "_id": "69d4c93bb883d16c5ce98999",
+            "url": "https://muksitul.biddaneer.com/muksitul-portfolio/properties/975bb546-4cd4-4fbf-bd9a-e28b51f08818.jpg",
+            "key": "properties/975bb546-4cd4-4fbf-bd9a-e28b51f08818.jpg",
+            "filename": "Birmingham-New-Street-station-front-900x600-c.jpg",
+            "mimeType": "image/jpeg",
+            "size": 102284,
+            "uploadedAt": "2026-04-07T09:07:07.190Z",
+            "createdAt": "2026-04-07T09:07:07.216Z",
+            "updatedAt": "2026-04-07T09:07:07.216Z",
             "__v": 0
-        }
-    ]
+        },
+        "provider": "sfgsdf",
+        "duration": "gsdfgsd",
+        "timeTaken": "fgsdfg",
+        "challenges": [
+            "fgdfg",
+            "dgfg"
+        ],
+        "rating": 5,
+        "description": "gsdfgsdfg",
+        "fullDescription": "sdfgsdfgsdfg",
+        "skillsLearned": [
+            "gdfgdfgfd"
+        ],
+        "certifiedAt": "sdfgsdfgsdf",
+        "issueDate": "2026-04-16",
+        "createdAt": "2026-04-07T09:07:07.314Z",
+        "updatedAt": "2026-04-07T09:18:03.858Z",
+        "__v": 0
+    }
 }
