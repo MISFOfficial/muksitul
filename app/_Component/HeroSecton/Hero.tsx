@@ -78,7 +78,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className="relative  lg:mt-30 overflow-hidden flex items-center justify-center"
+      className="relative lg:mt-32 overflow-hidden flex items-center justify-center"
     >
       {/* 1. Background Typography Layer (The large gray outlines) */}
       <div className="absolute inset-0 flex lg:hidden flex-col items-center justify-center pointer-events-none select-none z-0">
@@ -136,7 +136,7 @@ export default function Hero() {
         {/* Center Column (Image & Dynamic Text Layering) */}
         <div className="lg:col-span-6 relative flex items-center justify-center order-1 lg:order-2 ">
           {/* 1. Software (Red Outline) - Responsive Layering (Hidden on Mobile, Behind on Desktop) */}
-          <div className="absolute inset-0 hidden lg:flex flex-col items-center justify-center pointer-events-none z-[20] lg:z-5">
+          <div className="absolute inset-0 hidden lg:flex flex-col items-center justify-center pointer-events-none z-20 lg:z-5">
             <h2
               ref={fgSoftwareRef}
               className="text-[60px] md:text-[100px] lg:text-[140px] xl:text-[180px] font-black uppercase tracking-tighter text-outline-red leading-none"

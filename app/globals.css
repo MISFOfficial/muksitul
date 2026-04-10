@@ -9,6 +9,16 @@
   --outline-opacity: 0.5;
 }
 
+@utility text-outline {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  -webkit-text-fill-color: transparent;
+}
+
+@utility text-outline-red {
+  -webkit-text-stroke: 2px #232c66;
+  -webkit-text-fill-color: transparent;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -39,19 +49,19 @@ body {
   @apply hover:primary-text2;
 }
 
-.primary-text {
+@utility primary-text {
   @apply text-[#232c66];
 }
 
-.primary-text2 {
-  @apply primary-text2;
+@utility primary-text2 {
+  color: #FF0055;
 }
 
-.primary-text3 {
+@utility primary-text3 {
   @apply text-white/85;
 }
 
-.primary-text4 {
+@utility primary-text4 {
   @apply text-white/60;
 }
 
