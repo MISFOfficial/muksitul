@@ -103,7 +103,7 @@ export default function CertificateCard({
               {certificate.skillsLearned.slice(0, 3).map((skill, idx) => (
                 <span
                   key={idx}
-                  className="text-[9px] font-bold px-2 py-0.5 primary-rounded primary-text4 border primary-border text-white/30 group-hover:text-white/60 transition-colors uppercase"
+                  className="text-[9px] font-bold px-2 py-0.5 primary-rounded primary-text4 border primary-border text-white/30 group-hover:primary-text4 transition-colors uppercase"
                 >
                   {skill}
                 </span>

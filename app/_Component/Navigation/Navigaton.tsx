@@ -183,7 +183,7 @@ export default function Navigaton() {
                                 handleNavClick(sub.id);
                                 setIsProjectsDropdownOpen(false);
                               }}
-                              className="w-full text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-all"
+                              className="w-full text-left px-4 py-3 text-[10px] font-black uppercase tracking-widest primary-text4 hover:text-white hover:bg-white/5 rounded-lg transition-all"
                             >
                               {sub.name}
                             </button>

@@ -59,9 +59,8 @@ export default function AdminLayout({
     <div className="min-h-screen bg-transparent text-white flex flex-col lg:flex-row font-outfit relative">
       {/* Sidebar - Desktop Only */}
       <aside
-        className={`${
-          isSidebarOpen ? "w-64" : "w-20"
-        } transition-all duration-300 border-r primary-border hidden lg:flex flex-col sticky top-0 h-screen z-50`}
+        className={`${isSidebarOpen ? "w-64" : "w-20"
+          } transition-all duration-300 border-r primary-border hidden lg:flex flex-col sticky top-0 h-screen z-50`}
       >
         <div className="p-6 flex items-center justify-between">
           <AnimatePresence mode="wait">
@@ -89,18 +88,17 @@ export default function AdminLayout({
             <Link
               key={link.name}
               href={link.href}
-              className={`w-full flex items-center gap-3 px-3 py-3 primary-rounded transition-all duration-200 group border ${
-                pathname === link.href
+              className={`w-full flex items-center gap-3 px-3 py-3 primary-rounded transition-all duration-200 group border ${pathname === link.href
                   ? "border-[#0abab5]/50 bg-[#0abab5]/5 primary-text"
-                  : "text-white/60 border-transparent hover:border-white/10 hover:text-white"
-              }`}
+                  : "primary-text4 border-transparent hover:border-white/10 hover:text-white"
+                }`}
             >
               <link.icon
                 size={22}
                 className={
                   pathname === link.href
                     ? "text-[#0abab5]"
-                    : "text-white/60 group-hover:text-white"
+                    : "primary-text4 group-hover:text-white"
                 }
               />
               {isSidebarOpen && (
@@ -146,18 +144,16 @@ export default function AdminLayout({
               key={link.name}
               href={link.href}
               onClick={() => setIsMoreMenuOpen(false)}
-              className={`flex flex-col items-center gap-1.5 w-full transition-colors ${
-                pathname === link.href
+              className={`flex flex-col items-center gap-1.5 w-full transition-colors ${pathname === link.href
                   ? "text-[#0abab5]"
                   : "text-white/40 hover:text-white"
-              }`}
+                }`}
             >
               <div
-                className={`relative flex items-center justify-center p-2 primary-rounded transition-all ${
-                  pathname === link.href
+                className={`relative flex items-center justify-center p-2 primary-rounded transition-all ${pathname === link.href
                     ? "bg-white/10 ring-1 ring-white/20"
                     : "hover:bg-white/5"
-                }`}
+                  }`}
               >
                 <link.icon size={20} />
               </div>
@@ -168,16 +164,14 @@ export default function AdminLayout({
           ))}
           <button
             onClick={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
-            className={`flex flex-col items-center gap-1.5 w-full transition-colors ${
-              isMoreMenuOpen ? "text-[#0abab5]" : "text-white/40"
-            }`}
+            className={`flex flex-col items-center gap-1.5 w-full transition-colors ${isMoreMenuOpen ? "text-[#0abab5]" : "text-white/40"
+              }`}
           >
             <div
-              className={`relative flex items-center justify-center p-2 primary-rounded transition-all ${
-                isMoreMenuOpen
+              className={`relative flex items-center justify-center p-2 primary-rounded transition-all ${isMoreMenuOpen
                   ? "bg-white/10 ring-1 ring-white/20"
                   : "hover:bg-white/5"
-              }`}
+                }`}
             >
               <MoreHorizontal size={20} />
             </div>
@@ -223,15 +217,14 @@ export default function AdminLayout({
                       className={
                         pathname === link.href
                           ? "text-[#0abab5]"
-                          : "text-white/60 group-hover:text-white"
+                          : "primary-text4 group-hover:text-white"
                       }
                     />
                     <span
-                      className={`text-xs font-bold uppercase tracking-widest ${
-                        pathname === link.href
+                      className={`text-xs font-bold uppercase tracking-widest ${pathname === link.href
                           ? "text-[#0abab5]"
                           : "text-white/80 group-hover:text-white"
-                      }`}
+                        }`}
                     >
                       {link.name}
                     </span>

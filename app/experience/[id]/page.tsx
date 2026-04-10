@@ -113,7 +113,7 @@ export default function ExperienceDetail() {
         <div className="mb-12">
           <button
             onClick={() => router.back()}
-            className="inline-flex items-center gap-3 cursor-pointer text-white/60 hover:text-white group"
+            className="inline-flex items-center gap-3 cursor-pointer primary-text4 hover:text-white group"
           >
             <div className="w-10 h-10 rounded-full flex items-center justify-center">
               <ArrowLeft size={18} />
@@ -193,7 +193,7 @@ export default function ExperienceDetail() {
                         {String(idx + 1).padStart(2, "0")}
                       </span>
                     </div>
-                    <p className="text-white/60 group-hover:text-white/80 leading-relaxed">
+                    <p className="primary-text4 group-hover:text-white/80 leading-relaxed">
                       {item}
                     </p>
                   </div>

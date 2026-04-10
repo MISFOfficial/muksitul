@@ -89,7 +89,7 @@ export default function DashboardPage() {
               </div>
             </div>
             <button className="self-start p-2.5 primary-rounded border primary-border hover:bg-white/5 transition-colors">
-              <Settings size={22} className="text-white/60" />
+              <Settings size={22} className="primary-text4" />
             </button>
           </div>
 
@@ -173,7 +173,7 @@ export default function DashboardPage() {
               </div>
             ))}
           </div>
-          <button className="w-full mt-10 py-3.5 primary-rounded border primary-border text-sm font-bold hover:bg-white/5 transition-all uppercase tracking-widest text-white/60 hover:text-white">
+          <button className="w-full mt-10 py-3.5 primary-rounded border primary-border text-sm font-bold hover:bg-white/5 transition-all uppercase tracking-widest primary-text4 hover:text-white">
             View Full Logs
           </button>
         </div>

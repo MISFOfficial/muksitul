@@ -77,10 +77,10 @@ export default function CertificateDetail() {
 
           <div className="flex gap-4">
             <button className="p-3 rounded-full primary-text4 border primary-border hover:primary-border transition-all">
-              <Share2 size={18} className="text-white/60" />
+              <Share2 size={18} className="primary-text4" />
             </button>
             <button className="p-3 rounded-full primary-text4 border primary-border hover:primary-border transition-all">
-              <Copy size={18} className="text-white/60" />
+              <Copy size={18} className="primary-text4" />
             </button>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function CertificateDetail() {
                   {certificate.skillsLearned.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="px-5 py-2.5 primary-rounded bg-white/[0.03] border primary-border text-white/60 font-bold text-xs hover:border-[#FF5C58]/40 hover:text-white transition-all"
+                      className="px-5 py-2.5 primary-rounded bg-white/[0.03] border primary-border primary-text4 font-bold text-xs hover:border-[#FF5C58]/40 hover:text-white transition-all"
                     >
                       {skill}
                     </span>
@@ -181,7 +181,7 @@ export default function CertificateDetail() {
                         {idx + 1}
                       </span>
                     </div>
-                    <p className="text-white/60 group-hover:text-white transition-colors">
+                    <p className="primary-text4 group-hover:text-white transition-colors">
                       {challenge}
                     </p>
                   </div>

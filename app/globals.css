@@ -33,19 +33,19 @@ body {
   font-family: var(--font-outfit), sans-serif;
 }
 
-.primary-color {
+@utility primary-color {
   @apply bg-[#232c66];
 }
 
-.primary-color2 {
+@utility primary-color2 {
   @apply bg-[#FF0055];
 }
 
-.primary-color-hover {
+@utility primary-color-hover {
   @apply hover:bg-[#FF0055];
 }
 
-.text-hover {
+@utility text-hover {
   @apply hover:primary-text2;
 }
 
@@ -69,11 +69,11 @@ body {
   @apply max-w-[1450px] mx-auto px-4 xl:px-0;
 }
 
-.primary-border {
+@utility primary-border {
   @apply border-white/20;
 }
 
-.primary-rounded {
+@utility primary-rounded {
   @apply rounded-[10px];
 }
 

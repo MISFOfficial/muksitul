@@ -338,7 +338,7 @@ export default function EditExperiencePage() {
                       <div className="p-4 rounded-full bg-white/5 text-white/20 mb-4 group-hover:text-[#0abab5] group-hover:bg-[#0abab5]/10 transition-all">
                         <Upload size={32} />
                       </div>
-                      <p className="text-xs font-bold text-white/30 group-hover:text-white/60">
+                      <p className="text-xs font-bold text-white/30 group-hover:primary-text4">
                         {isEditMode ? "Click to upload" : "No image"}
                       </p>
                       <p className="text-[10px] text-white/20 mt-1 uppercase tracking-widest">
@@ -719,7 +719,7 @@ export default function EditExperiencePage() {
                   Critical Protocol Override
                 </p>
               </div>
-              <p className="text-white/60 text-sm leading-relaxed max-w-sm">
+              <p className="primary-text4 text-sm leading-relaxed max-w-sm">
                 Confirm total deletion of{" "}
                 <span className="text-white font-black">{formData.role}</span>{" "}
                 at{" "}

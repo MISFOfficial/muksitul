@@ -14,7 +14,7 @@ export default function RolePage() {
         This module is currently being prepared. Soon you'll be able to manage
         roles and permissions here with our dynamic CMS.
       </p>
-      <button className="mt-8 px-10 py-3.5 border border-white/10 hover:border-white/20 hover:bg-white/5 rounded-xl font-bold transition-all uppercase tracking-widest text-sm text-white/60 hover:text-white">
+      <button className="mt-8 px-10 py-3.5 border border-white/10 hover:border-white/20 hover:bg-white/5 rounded-xl font-bold transition-all uppercase tracking-widest text-sm primary-text4 hover:text-white">
         Coming Soon
       </button>
     </div>

@@ -147,7 +147,7 @@ export default function EngineeringMindset() {
                 size={48}
               />
               <div className="h-12 w-[1px] bg-white/10 hidden md:block" />
-              <span className="text-white/40 font-mono text-sm uppercase tracking-widest group-hover:text-white/60 transition-colors underline decoration-primary-color2/30">
+              <span className="text-white/40 font-mono text-sm uppercase tracking-widest group-hover:primary-text4 transition-colors underline decoration-primary-color2/30">
                 Trade-off Analysis
               </span>
             </div>

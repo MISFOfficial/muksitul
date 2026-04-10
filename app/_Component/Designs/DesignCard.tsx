@@ -53,7 +53,7 @@ export default function DesignCard({ design, index }: DesignCardProps) {
                 </Link>
               )}
             </div>
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] primary-text4">
               View Case Study
             </span>
           </div>

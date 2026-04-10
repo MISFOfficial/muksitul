@@ -189,7 +189,7 @@ export default function SkillsPage() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="flex-1 lg:flex-none bg-black border primary-border px-6 py-3 primary-rounded text-[10px] font-black uppercase tracking-[0.2em] text-white/60 focus:outline-none focus:border-[#0abab5]/30 cursor-pointer text-center"
+            className="flex-1 lg:flex-none bg-black border primary-border px-6 py-3 primary-rounded text-[10px] font-black uppercase tracking-[0.2em] primary-text4 focus:outline-none focus:border-[#0abab5]/30 cursor-pointer text-center"
           >
             <option value="all">ALL CATEGORIES</option>
             {CATEGORIES.map((c) => (
@@ -211,64 +211,64 @@ export default function SkillsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2  gap-3">
         {isLoading
           ? Array.from({ length: 6 }).map((_, i) => (
-              <div
-                key={i}
-                className="h-16 primary-rounded border primary-border animate-pulse bg-white/[0.01]"
-              />
-            ))
+            <div
+              key={i}
+              className="h-16 primary-rounded border primary-border animate-pulse bg-white/[0.01]"
+            />
+          ))
           : filteredSkills?.map((skill: any) => (
-              <motion.div
-                layout
-                key={skill._id}
-                className="group flex flex-col sm:flex-row items-center gap-6 bg-[#0a0a0a]/40 border primary-border primary-rounded p-3 px-6 hover:bg-[#0f0f0f] hover:border-[#0abab5]/20 transition-all duration-300"
-              >
-                {/* Logo - Compact */}
-                <div className="w-10 h-10 primary-rounded bg-black border primary-border flex items-center justify-center p-2 shrink-0 shadow-inner group-hover:scale-105 transition-transform duration-500">
-                  <img
-                    src={skill.logo?.url || skill.logo}
-                    alt={skill.name}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+            <motion.div
+              layout
+              key={skill._id}
+              className="group flex flex-col sm:flex-row items-center gap-6 bg-[#0a0a0a]/40 border primary-border primary-rounded p-3 px-6 hover:bg-[#0f0f0f] hover:border-[#0abab5]/20 transition-all duration-300"
+            >
+              {/* Logo - Compact */}
+              <div className="w-10 h-10 primary-rounded bg-black border primary-border flex items-center justify-center p-2 shrink-0 shadow-inner group-hover:scale-105 transition-transform duration-500">
+                <img
+                  src={skill.logo?.url || skill.logo}
+                  alt={skill.name}
+                  className="w-full h-full object-contain"
+                />
+              </div>
 
-                {/* Info - Inline side-by-side */}
-                <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
-                  <h3 className="text-sm font-bold text-white tracking-widest uppercase primary-text transition-colors">
-                    {skill.name}
-                  </h3>
-                  <div className="flex items-center gap-2 opacity-40">
-                    {(() => {
-                      const cat = CATEGORIES.find(
-                        (c) => c.id === skill.category,
-                      );
-                      const Icon = cat?.icon || Zap;
-                      return (
-                        <div className="flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.2em]">
-                          <Icon size={12} className="stroke-[2.5]" />
-                          {cat?.label}
-                        </div>
-                      );
-                    })()}
-                  </div>
+              {/* Info - Inline side-by-side */}
+              <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
+                <h3 className="text-sm font-bold text-white tracking-widest uppercase primary-text transition-colors">
+                  {skill.name}
+                </h3>
+                <div className="flex items-center gap-2 opacity-40">
+                  {(() => {
+                    const cat = CATEGORIES.find(
+                      (c) => c.id === skill.category,
+                    );
+                    const Icon = cat?.icon || Zap;
+                    return (
+                      <div className="flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.2em]">
+                        <Icon size={12} className="stroke-[2.5]" />
+                        {cat?.label}
+                      </div>
+                    );
+                  })()}
                 </div>
+              </div>
 
-                {/* Actions - Horizontal on the right */}
-                <div className="flex items-center gap-2 border-t sm:border-t-0 sm:border-l primary-border pt-3 sm:pt-0 sm:pl-6 w-full sm:w-auto justify-end">
-                  <button
-                    onClick={() => handleOpenModal(skill)}
-                    className="w-9 h-9 flex items-center justify-center primary-rounded border primary-border text-white/20 text-hover hover:border-[#0abab5]/30 transition-all bg-black/20"
-                  >
-                    <Edit size={14} />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(skill._id, skill.name)}
-                    className="w-9 h-9 flex items-center justify-center primary-rounded border primary-border text-white/20 hover:text-red-500 hover:border-red-500/30 transition-all bg-black/20"
-                  >
-                    <Trash2 size={14} />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
+              {/* Actions - Horizontal on the right */}
+              <div className="flex items-center gap-2 border-t sm:border-t-0 sm:border-l primary-border pt-3 sm:pt-0 sm:pl-6 w-full sm:w-auto justify-end">
+                <button
+                  onClick={() => handleOpenModal(skill)}
+                  className="w-9 h-9 flex items-center justify-center primary-rounded border primary-border text-white/20 text-hover hover:border-[#0abab5]/30 transition-all bg-black/20"
+                >
+                  <Edit size={14} />
+                </button>
+                <button
+                  onClick={() => handleDelete(skill._id, skill.name)}
+                  className="w-9 h-9 flex items-center justify-center primary-rounded border primary-border text-white/20 hover:text-red-500 hover:border-red-500/30 transition-all bg-black/20"
+                >
+                  <Trash2 size={14} />
+                </button>
+              </div>
+            </motion.div>
+          ))}
       </div>
 
       {/* Modal - Compact & Clean */}

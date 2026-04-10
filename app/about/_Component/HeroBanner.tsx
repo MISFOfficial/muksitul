@@ -142,7 +142,7 @@ export default function HeroBanner({
                 transition={{ duration: 1, ease: "circOut" }}
                 className="absolute -inset-x-8 -bottom-2 h-[2px] bg-[#FF0055] origin-left"
               />
-              <span className="text-white/60 font-black uppercase tracking-[0.6em] text-[10px] block">
+              <span className="primary-text4 font-black uppercase tracking-[0.6em] text-[10px] block">
                 Life of Mine
               </span>
             </div>

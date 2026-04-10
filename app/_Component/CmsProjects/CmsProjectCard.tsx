@@ -57,7 +57,7 @@ export default function CmsProjectCard({
                 <ExternalLink size={18} className="text-white" />
               </Link>
             )}
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] primary-text4">
               {project.platform} Project
             </span>
           </div>

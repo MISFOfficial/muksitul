@@ -23,7 +23,7 @@ export default function Vision() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <h4 className="text-2xl text-white/60 font-bold mb-6 border-l-4 primary-border pl-6">
+              <h4 className="text-2xl primary-text4 font-bold mb-6 border-l-4 primary-border pl-6">
                 Mastering AI Systems
               </h4>
               <p className="text-gray-600 text-lg leading-relaxed">
@@ -37,7 +37,7 @@ export default function Vision() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <h4 className="text-2xl text-white/60 font-bold mb-6 border-l-4 primary-border pl-6">
+              <h4 className="text-2xl primary-text4 font-bold mb-6 border-l-4 primary-border pl-6">
                 Building Open Legacies
               </h4>
               <p className="text-gray-600 text-lg leading-relaxed">

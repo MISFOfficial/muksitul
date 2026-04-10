@@ -72,7 +72,7 @@ export default function AllDesignPage() {
             ))}
           </div>
         ) : isError ? (
-          <div className="flex flex-col justify-center items-center h-[200px] text-white/60">
+          <div className="flex flex-col justify-center items-center h-[200px] primary-text4">
             <p>Failed to load designs.</p>
             <button
               onClick={() => refetch()}

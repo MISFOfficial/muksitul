@@ -402,12 +402,11 @@ export default function CreateProjectPage() {
               </label>
               <div
                 className={`relative group aspect-square rounded-2xl border-2 border-dashed transition-all duration-300 overflow-hidden flex flex-col items-center justify-center cursor-pointer
-                  ${
-                    isDraggingCover
-                      ? "border-[#0abab5] bg-[#0abab5]/10 scale-[1.02]"
-                      : imagePreview
-                        ? "border-[#0abab5]/50 bg-[#0abab5]/5"
-                        : "border-white/10 hover:border-[#0abab5]/30 hover:bg-white/[0.05]"
+                  ${isDraggingCover
+                    ? "border-[#0abab5] bg-[#0abab5]/10 scale-[1.02]"
+                    : imagePreview
+                      ? "border-[#0abab5]/50 bg-[#0abab5]/5"
+                      : "border-white/10 hover:border-[#0abab5]/30 hover:bg-white/[0.05]"
                   }`}
                 onClick={() => document.getElementById("cover-upload")?.click()}
                 onDragOver={onCoverDragOver}
@@ -444,7 +443,7 @@ export default function CreateProjectPage() {
                     <div className="p-4 rounded-full bg-white/5 text-white/20 mb-3 group-hover:text-[#0abab5] group-hover:bg-[#0abab5]/10 transition-all">
                       <ImageIcon size={32} />
                     </div>
-                    <p className="text-xs font-bold text-white/30 group-hover:text-white/60">
+                    <p className="text-xs font-bold text-white/30 group-hover:primary-text4">
                       Click or drag & drop
                     </p>
                     <p className="text-[10px] text-white/20 mt-1 uppercase tracking-widest">
@@ -488,11 +487,10 @@ export default function CreateProjectPage() {
               />
               {/* Drag-and-drop zone for extra images */}
               <div
-                className={`rounded-xl border-2 border-dashed transition-all duration-300 ${
-                  isDraggingExtra
+                className={`rounded-xl border-2 border-dashed transition-all duration-300 ${isDraggingExtra
                     ? "border-[#0abab5] bg-[#0abab5]/10"
                     : "border-white/5 hover:border-white/10"
-                }`}
+                  }`}
                 onDragOver={onExtraDragOver}
                 onDragEnter={onExtraDragOver}
                 onDragLeave={onExtraDragLeave}
@@ -906,11 +904,10 @@ export default function CreateProjectPage() {
                     onClick={() =>
                       setBadge((b) => ({ ...b, color: preset.color }))
                     }
-                    className={`w-9 h-9 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
-                      badge.color === preset.color
+                    className={`w-9 h-9 rounded-full border-2 transition-all duration-200 hover:scale-110 ${badge.color === preset.color
                         ? "border-white scale-110 shadow-[0_0_12px_rgba(255,255,255,0.3)]"
                         : "border-white/10 hover:border-white/30"
-                    }`}
+                      }`}
                     style={{ backgroundColor: preset.color }}
                   />
                 ))}

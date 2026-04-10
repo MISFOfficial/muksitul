@@ -206,7 +206,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         />
                         <div className="w-full primary-text4 border border-dashed primary-border group-hover:primary-border primary-rounded px-4 py-6 flex flex-col items-center justify-center gap-2 transition-colors">
                           <Upload className="text-white/30 group-hover:text-white/50 transition-colors" />
-                          <span className="text-sm text-white/40 group-hover:text-white/60 transition-colors">
+                          <span className="text-sm text-white/40 group-hover:primary-text4 transition-colors">
                             {formData.file
                               ? formData.file.name
                               : "Click or drop files here"}

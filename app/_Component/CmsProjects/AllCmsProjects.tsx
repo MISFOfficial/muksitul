@@ -60,7 +60,7 @@ export default function AllCmsProjects() {
           <div className="h-px w-20 bg-white/10" />
         </div>
 
-        <Link href="/projects#cms-projects" className="group">
+        <Link href="/allCMHProjects" className="group">
           <button className="relative px-12 py-5 bg-transparent border-2 primary-border rounded-full text-white font-black text-sm uppercase overflow-hidden transition-all duration-500 hover:scale-105 active:scale-95 flex items-center gap-3">
             <span className="relative z-10">Explore All CMS Work</span>
             <ArrowUpRight
