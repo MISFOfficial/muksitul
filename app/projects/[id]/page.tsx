@@ -35,6 +35,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
+import { formatRole } from "@/app/Global/utils";
 
 export default function ProjectPage() {
   const { id } = useParams();
@@ -329,7 +330,7 @@ export default function ProjectPage() {
           <div className="space-y-6">
             {/* Technologies */}
             <div className="p-8 primary-rounded bg-white/5 border primary-border relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF0055] opacity-[0.03] blur-3xl -mr-16 -mt-16" />
+
               <h3 className="text-xl font-bold text-white mb-6">
                 Technologies Used
               </h3>
@@ -337,7 +338,7 @@ export default function ProjectPage() {
                 {project.technologies.map((tech: any, idx: any) => (
                   <span
                     key={idx}
-                    className="text-sm px-4 py-2 primary-rounded primary-text4 border primary-border text-white/80 font-semibold hover:border-[#FF0055]/40"
+                    className="text-sm px-4 py-2 primary-rounded primary-color border primary-border text-white/70 hover:text-white cursor-pointer font-semibold"
                   >
                     {tech}
                   </span>
@@ -362,10 +363,10 @@ export default function ProjectPage() {
                 {project.role && (
                   <div className="flex flex-col gap-1">
                     <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest flex items-center gap-2">
-                      <Zap size={12} /> Your Role
+                      <Zap size={12} /> Project Role
                     </span>
                     <span className="text-lg font-bold text-white">
-                      {project.role}
+                      {formatRole(project.role)}
                     </span>
                   </div>
                 )}

@@ -48,7 +48,7 @@ body {
 
 
 .text-hover {
-  @apply hover:text-[#FF0055];
+  @apply hover:primary-text2;
 }
 
 .primary-text {
@@ -56,7 +56,7 @@ body {
 }
 
 .primary-text2 {
-  @apply text-[#FF0055];
+  @apply primary-text2;
 }
 
 .primary-text3 {

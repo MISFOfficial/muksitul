@@ -113,7 +113,7 @@ export default function Optical() {
 
               {/* Bottom row: Content */}
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-[#FF0055] transition-colors">
+                <h3 className="text-2xl font-bold text-white mb-1 group-hover:primary-text2 transition-colors">
                   {card.title}
                 </h3>
                 <p className="text-gray-400 text-sm">{card.desc}</p>
@@ -121,7 +121,7 @@ export default function Optical() {
 
               {/* Decor: Number or accent */}
               {/* {card.highlight && (
-                                <div className="absolute top-4 right-4 text-[#FF0055]/20 text-6xl font-black">1</div>
+                                <div className="absolute top-4 right-4 primary-text2/20 text-6xl font-black">1</div>
                             )} */}
             </div>
           ))}

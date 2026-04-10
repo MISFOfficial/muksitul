@@ -35,7 +35,7 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
 
         <div className="flex items-center gap-4 shrink-0 w-full xl:w-auto justify-between xl:justify-end border-t xl:border-t-0 pt-4 xl:pt-0 primary-border">
           <div className="flex flex-col items-start xl:items-end gap-1.5">
-            <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 primary-text4 rounded-full border primary-border text-[#FF0055] text-xs md:text-sm font-bold tracking-wider whitespace-nowrap">
+            <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 primary-text4 rounded-full border primary-border primary-text2 text-xs md:text-sm font-bold tracking-wider whitespace-nowrap">
               <Calendar className="w-3.5 h-3.5" />
               <span>{exp.duration}</span>
             </div>

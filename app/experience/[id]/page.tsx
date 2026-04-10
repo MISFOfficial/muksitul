@@ -91,7 +91,7 @@ export default function ExperienceDetail() {
   if (isError || !experience) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-white p-4">
-        <Briefcase size={64} className="text-[#FF0055] mb-4" />
+        <Briefcase size={64} className="primary-text2 mb-4" />
         <h1 className="text-3xl font-bold mb-4 uppercase tracking-tighter">
           Experience Not Found
         </h1>
@@ -153,7 +153,7 @@ export default function ExperienceDetail() {
 
               {/* Meta Info */}
               <div className="flex flex-wrap items-center gap-4">
-                <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border text-[#FF0055] text-sm font-bold tracking-wider">
+                <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border primary-text2 text-sm font-bold tracking-wider">
                   <Calendar className="w-4 h-4" />
                   <span>{experience.duration}</span>
                 </div>
@@ -216,7 +216,7 @@ export default function ExperienceDetail() {
                   >
                     <CheckCircle2
                       size={20}
-                      className="text-[#FF0055] shrink-0 mt-0.5"
+                      className="primary-text2 shrink-0 mt-0.5"
                     />
                     <span className="text-gray-300 leading-relaxed text-sm">
                       {achievement}
@@ -233,14 +233,14 @@ export default function ExperienceDetail() {
               {/* Technologies */}
               <div className="p-8 primary-rounded bg-white/5 border primary-border relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF0055] opacity-[0.03] blur-3xl -mr-16 -mt-16" />
-                <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-6">
+                <h3 className="text-xl font-bold   mb-6">
                   Tech Stack
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {experience.technologies.map((tech: any, idx: any) => (
                     <span
                       key={idx}
-                      className="text-sm px-4 py-2 primary-rounded primary-text4 border primary-border text-white/80 font-semibold hover:border-[#FF0055]/40 hover:text-white"
+                      className="text-sm px-4 py-2 primary-rounded primary-color cursor-pointer primary-text4 border primary-border text-white/80 hover:text-white font-semibold"
                     >
                       {tech}
                     </span>
@@ -250,8 +250,8 @@ export default function ExperienceDetail() {
 
               {/* Company Info */}
               {experience.companyDescription && (
-                <div className="p-8 primary-rounded bg-white/[0.03] border primary-border">
-                  <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#FF0055] mb-6 flex items-center gap-2">
+                <div className="p-8 primary-rounded bg-white/5 border primary-border">
+                  <h3 className="text-xl font-bold   mb-6 flex items-center gap-2">
                     <Building2 size={14} />
                     About {experience.company}
                   </h3>
@@ -263,7 +263,7 @@ export default function ExperienceDetail() {
                       href={experience.companyWebsite}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[#FF0055] text-xs font-bold uppercase tracking-widest hover:underline"
+                      className="inline-flex items-center gap-2  text-xs font-bold uppercase tracking-widest hover:underline"
                     >
                       <Globe size={14} />
                       Visit Website
@@ -275,7 +275,7 @@ export default function ExperienceDetail() {
 
               {/* Quick Stats */}
               <div className="p-8 primary-rounded bg-[#232c66]/30">
-                <h3 className=" font-black uppercase tracking-[0.3em]  mb-6">
+                <h3 className=" font-black text-xl  mb-6">
                   Quick Stats
                 </h3>
                 <div className="space-y-6">
