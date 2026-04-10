@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 "use client";
 
 import React, { useState, useCallback, useEffect } from "react";
@@ -30,8 +33,6 @@ import {
 import { useRouter, useParams } from "next/navigation";
 import { toast } from "sonner";
 import Image from "next/image";
-
-export const runtime = 'edge';
 
 export default function EditDesignPage() {
   const router = useRouter();

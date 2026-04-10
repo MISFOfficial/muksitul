@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
+
 "use client";
 
 import React, { useState, useEffect, useCallback, use } from "react";
@@ -31,8 +34,6 @@ import {
 import { toast } from "sonner";
 import Image from "next/image";
 import { ROLE_OPTIONS } from "../../../experience/RoleOptions";
-
-export const runtime = 'edge';
 
 export default function EditProjectPage({
   params,
