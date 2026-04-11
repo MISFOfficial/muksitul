@@ -9,9 +9,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import CertificateCard from "@/app/_Component/Certificates/CertificateCard";
-import Navigaton from "@/app/_Component/Navigation/Navigaton";
-import Footer from "@/app/_Component/Footer/Footer";
-
 import { useGetAllCertificates } from "../Global/data/useCertificates";
 
 

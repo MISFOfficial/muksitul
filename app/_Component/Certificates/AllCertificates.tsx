@@ -4,16 +4,30 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import CertificateCard from "./CertificateCard";
-import { certificatesData } from "@/lib/certificatesData";
+import { useGetAllCertificates } from "@/app/Global/data/useCertificates";
+
 
 export default function AllCertificates() {
+  const { allCertificates, isLoading, isError } = useGetAllCertificates(3);
+
+  const certificates = React.useMemo(() => {
+    if (!allCertificates) return [];
+    return allCertificates.pages.flatMap((page: any) => page);
+  }, [allCertificates]);
+
   return (
     <section id="certificates-list" className="py-12">
       {/* 1-column list to differ from Projects grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {certificatesData.slice(0, 3).map((cert, index) => (
-          <CertificateCard key={cert.id} certificate={cert} index={index} />
-        ))}
+        {isLoading ? (
+          Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="aspect-16/10 primary-rounded bg-white/5 border primary-border animate-pulse" />
+          ))
+        ) : (
+          certificates.map((cert: any, index: number) => (
+            <CertificateCard key={cert._id || index} certificate={cert} index={index} />
+          ))
+        )}
       </div>
 
       <div

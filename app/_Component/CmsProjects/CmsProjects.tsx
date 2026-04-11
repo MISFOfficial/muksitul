@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { cmsProjectsData } from "@/lib/cmsProjectsData";
 import { useGetAllCmsProjects, useGetCmsCount } from "@/app/Global/data/useCmsProjects";
 
 export default function CmsProjects() {

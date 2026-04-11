@@ -11,7 +11,19 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Certificate } from "@/lib/certificatesData";
+
+
+interface Certificate {
+  _id: string;
+  id?: string;
+  title: string;
+  description: string;
+  image: string | { url: string };
+  provider: string;
+  certifiedAt: string;
+  rating: number;
+  skillsLearned: string[];
+}
 
 interface CertificateCardProps {
   certificate: Certificate;
@@ -52,9 +64,7 @@ export default function CertificateCard({
                   className="object-cover"
                 />
               </div>
-              <span className="text-[10px] font-black uppercase tracking-widest text-white drop-shadow-md">
-                {certificate.provider}
-              </span>
+
             </div>
 
             {/* Verified Badge */}
