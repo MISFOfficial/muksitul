@@ -103,9 +103,8 @@ export default function Navigaton() {
     <>
       {/* Top Nav - Desktop Only */}
       <nav
-        className={`fixed hidden lg:block top-0 py-4 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? "bg-black/60 backdrop-blur-xl" : "bg-transparent"
-        }`}
+        className={`fixed hidden lg:block top-0 py-4 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "bg-black/60 backdrop-blur-xl" : "bg-transparent"
+          }`}
       >
         <div className="ratio flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -123,9 +122,8 @@ export default function Navigaton() {
               >
                 <button
                   onClick={() => !link.subLinks && handleNavClick(link.id, link.href)}
-                  className={`px-5 py-2.5 text-xs cursor-pointer font-black uppercase tracking-widest transition-all primary-rounded hover:scale-105 flex items-center gap-1 ${
-                    link.name === "Resume" ? "primary-color2 mx-4" : "primary-text3 text-hover"
-                  }`}
+                  className={`px-5 py-2.5 text-xs cursor-pointer font-black uppercase tracking-widest transition-all primary-rounded hover:scale-105 flex items-center gap-1 ${link.name === "Resume" ? "primary-color2 mx-4" : "primary-text3 text-hover"
+                    }`}
                 >
                   {link.name}
                   {link.subLinks && (
@@ -194,7 +192,7 @@ export default function Navigaton() {
                     onClick={() => handleNavClick(link.id, link.href)}
                     className="flex items-center gap-4 px-6 py-4 hover:primary-text4 transition-colors text-left border-b border-white/5 last:border-none"
                   >
-                    <div className="primary-text">{link.icon}</div>
+                    <div className="primary-text2">{link.icon}</div>
                     <span className="text-xs font-bold uppercase tracking-widest text-white/80">{link.name}</span>
                   </button>
                 ))}
@@ -215,17 +213,16 @@ export default function Navigaton() {
                   handleNavClick(link.id, link.href);
                 }
               }}
-              className={`flex flex-col items-center gap-1.5 w-full transition-colors ${
-                (link.subLinks && isProjectsDropdownOpen) || (!link.subLinks && pathname === link.href)
-                  ? "primary-text"
-                  : "text-white/40 hover:primary-text"
-              }`}
+              className={`flex flex-col items-center gap-1.5 w-full transition-colors ${(link.subLinks && isProjectsDropdownOpen) || (!link.subLinks && pathname === link.href)
+                ? "primary-text2"
+                : "text-white/40 hover:primary-text2"
+                }`}
             >
               <div className="relative flex items-center justify-center p-1.5 rounded-xl transition-all">
                 <div className="relative">
                   {link.icon}
                   {link.subLinks && (
-                    <div className="absolute -right-1.5 -bottom-0.5 primary-color rounded-full p-0.5 shadow-sm">
+                    <div className="absolute -right-1.5 -bottom-0.5 primary-color2 rounded-full p-0.5 shadow-sm">
                       <ChevronDown
                         size={8}
                         className={`text-white transition-transform duration-300 ${isProjectsDropdownOpen ? "rotate-180" : ""}`}
@@ -239,10 +236,12 @@ export default function Navigaton() {
           ))}
           <button
             onClick={() => { toggleMenu(); setIsProjectsDropdownOpen(false); }}
-            className={`flex flex-col items-center gap-1 w-full transition-colors ${isMenuOpen ? "primary-text" : "text-white/40"}`}
+            className={`flex flex-col items-center gap-1.5 w-full transition-colors ${isMenuOpen ? "primary-text2" : "text-white/40"}`}
           >
-            <MoreHorizontal size={20} />
-            <span className="text-[10px] font-bold uppercase tracking-wider">More</span>
+            <div className="relative flex items-center justify-center p-1.5 rounded-xl transition-all">
+              <MoreHorizontal size={20} />
+            </div>
+            <span className="text-[10px] font-black uppercase">More</span>
           </button>
         </div>
       </nav>
