@@ -5,6 +5,7 @@ import { ArrowUpRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { CmsProject } from "@/app/Global/data/useCmsProjects";
+import { useRouter } from "next/navigation";
 
 interface CmsProjectCardProps {
   project: CmsProject;
@@ -24,11 +25,14 @@ export default function CmsProjectCard({
     Squarespace: "bg-[#222222]",
   };
 
+
   return (
-    <div className="group w-full">
-      <div className="relative primary-rounded overflow-hidden transition-all duration-500 bg-[#121212] border primary-border hover:border-[#FF5652]/40">
+    <div
+      onClick={() => project.liveUrl && window.open(project.liveUrl, "_blank")}
+      className="group w-full cursor-pointer">
+      <div className="relative primary-rounded overflow-hidden transition-all duration-500 border primary-border">
         {/* Preview Image */}
-        <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden bg-[#1a1a1a]">
+        <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden">
           {project.images?.[0]?.url && (
             <Image
               src={project.images[0].url}
@@ -44,7 +48,7 @@ export default function CmsProjectCard({
               <Link
                 href={project.liveUrl}
                 target="_blank"
-                className="p-4 bg-white/10 hover:bg-[#FF5652] rounded-full border primary-border transition-all hover:scale-110 flex items-center gap-2 group/btn"
+                className="p-4 bg-white/10 hover:primary-color rounded-full border primary-border transition-all hover:scale-110 flex items-center gap-2 group/btn"
               >
                 <span className="text-white font-bold text-xs">Live Site</span>
                 <ExternalLink size={18} className="text-white" />
@@ -89,7 +93,7 @@ export default function CmsProjectCard({
               <Link href={project.liveUrl} target="_blank">
                 <ArrowUpRight
                   size={20}
-                  className="text-white/20 group-hover:text-[#FF5652] group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
+                  className="text-white/20  group-hover:translate-x-1 group-hover:-translate-y-1 transition-all"
                 />
               </Link>
             )}
@@ -103,7 +107,7 @@ export default function CmsProjectCard({
             {project.tags.map((tag, idx) => (
               <span
                 key={idx}
-                className="text-[10px] font-black px-3 py-1.5 primary-rounded primary-text4 border primary-border group-hover:border-[#FF5652]/30 transition-all uppercase tracking-tighter"
+                className="text-[10px] font-black px-3 py-1.5 primary-rounded primary-text4 border primary-border  transition-all uppercase tracking-tighter"
               >
                 {tag}
               </span>

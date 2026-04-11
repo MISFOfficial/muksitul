@@ -134,3 +134,18 @@ export const useDeleteCmsProject = () => {
     },
   });
 };
+
+
+export const useGetCmsCount = () => {
+  const { data: count, isLoading, isError, refetch } = useQuery({
+    queryKey: ["cms-count"],
+    queryFn: async () => {
+      const res = await api.get("/cms/count");
+      return res.data.data.count;
+    },
+  });
+
+  return { count, isLoading, isError, refetch };
+}
+
+

@@ -2,8 +2,12 @@
 
 import React from "react";
 import { cmsProjectsData } from "@/lib/cmsProjectsData";
+import { useGetAllCmsProjects, useGetCmsCount } from "@/app/Global/data/useCmsProjects";
 
 export default function CmsProjects() {
+
+  const { count } = useGetCmsCount()
+
   return (
     <section
       id="cms-projects"
@@ -23,7 +27,7 @@ export default function CmsProjects() {
         {/* Count Badge */}
         <div className="relative">
           <span className="text-[60px] md:text-[100px] font-black leading-none primary-text2 tracking-tighter">
-            {cmsProjectsData.length}+
+            {count || "0"}+
           </span>
           <span className="absolute top-2 -right-8 text-[10px] md:text-sm font-bold bg-[#FF5652] px-3 py-1 rounded-full text-white rotate-12 uppercase tracking-widest whitespace-nowrap">
             CMH

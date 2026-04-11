@@ -29,9 +29,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       className="group w-full"
     >
       <Link href={`/projects/${project._id}`}>
-        <div className="relative primary-rounded overflow-hidden transition-all duration-300 bg-[#121212] border primary-border cursor-pointer">
+        <div className="relative primary-rounded overflow-hidden transition-all duration-300 border primary-border cursor-pointer">
           {/* Image / Preview Area */}
-          <div className="relative h-[380px] w-full overflow-hidden bg-[#1a1a1a]">
+          <div className="relative h-[380px] w-full overflow-hidden">
             <Image
               src={project.images[0]?.url || ""}
               alt={project.title}
