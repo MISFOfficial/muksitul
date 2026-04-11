@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { X, Upload, Send, Loader2, CheckCircle2 } from "lucide-react";
 import { sendInquiry } from "@/app/_actions/sendInquiry";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -67,20 +68,25 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   };
 
   return (
-    <>
+    <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-100 flex items-center justify-center px-4">
           {/* Backdrop */}
-          <div
-
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0   backdrop-blur-md"
+            className="absolute inset-0 bg-black/60 backdrop-blur-md"
           />
 
           {/* Modal Content */}
-          <div
-
-            className="relative w-full max-w-2xl  border-2 primary-border primary-rounded overflow-hidden shadow-2xl"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="relative w-full max-w-2xl bg-[#0a0a0a] border-2 primary-border primary-rounded overflow-hidden shadow-2xl z-10"
           >
             {/* Close Button */}
             <button
@@ -91,151 +97,165 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             </button>
 
             <div className="p-8 md:p-12">
-              {isSuccess ? (
-                <div
-
-                  className="flex flex-col items-center justify-center text-center py-10"
-                >
-                  <CheckCircle2 size={80} className="text-green-500 mb-6" />
-                  <h3 className="text-3xl font-bold text-white mb-2">
-                    Inquiry Sent!
-                  </h3>
-                  <p className="primary-text4">
-                    Thank you for your interest. I'll get back to you shortly to
-                    discuss your project.
-                  </p>
-                </div>
-              ) : (
-                <>
-                  <div className="mb-8">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                      Let's Build Together
-                    </h2>
+              <AnimatePresence mode="wait">
+                {isSuccess ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="flex flex-col items-center justify-center text-center py-10"
+                  >
+                    <CheckCircle2 size={80} className="text-green-500 mb-6" />
+                    <h3 className="text-3xl font-bold text-white mb-2">
+                      Inquiry Sent!
+                    </h3>
                     <p className="primary-text4">
-                      Share your vision and I'll help you bring it to life.
+                      Thank you for your interest. I'll get back to you shortly to
+                      discuss your project.
                     </p>
-                  </div>
-
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Error Message */}
-                    {error && (
-                      <div
-
-                        className="bg-red-500/10 border border-red-500/20 text-red-500 px-4 py-3 primary-rounded text-sm font-medium"
-                      >
-                        {error}
-                      </div>
-                    )}
-
-                    <div className="grid grid-cols-2 gap-4">
-                      {/* Project Name */}
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-white/70 ml-1">
-                          Project Name or Idea
-                        </label>
-                        <input
-                          required
-                          type="text"
-                          placeholder="e.g. E-commerce Revolution"
-                          className="w-full primary-text4 border primary-border primary-rounded px-4 py-4 placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
-                          value={formData.projectName}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              projectName: e.target.value,
-                            })
-                          }
-                        />
-                      </div>
-
-                      {/* User Email */}
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-white/70 ml-1">
-                          Your Email Address
-                        </label>
-                        <input
-                          required
-                          type="email"
-                          placeholder="e.g. you@example.com"
-                          className="w-full primary-text4 border primary-border primary-rounded px-4 py-4  placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
-                          value={formData.userEmail}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              userEmail: e.target.value,
-                            })
-                          }
-                        />
-                      </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="form"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <div className="mb-8">
+                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                        Let's Build Together
+                      </h2>
+                      <p className="primary-text4">
+                        Share your vision and I'll help you bring it to life.
+                      </p>
                     </div>
 
-                    {/* Details */}
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-white/70 ml-1">
-                        Project Details
-                      </label>
-                      <textarea
-                        required
-                        rows={4}
-                        placeholder="Tell me more about what you're looking to achieve..."
-                        className="w-full primary-text4 border primary-border primary-rounded px-4 py-4  placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors resize-none"
-                        value={formData.details}
-                        onChange={(e) =>
-                          setFormData({ ...formData, details: e.target.value })
-                        }
-                      />
-                    </div>
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      {/* Error Message */}
+                      <AnimatePresence>
+                        {error && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="bg-red-500/10 border border-red-500/20 text-red-500 px-4 py-3 primary-rounded text-sm font-medium overflow-hidden"
+                          >
+                            {error}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
 
-                    {/* File Upload */}
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-white/70 ml-1">
-                        Supporting Documents (Optional)
-                      </label>
-                      <div className="relative group">
-                        <input
-                          type="file"
-                          onChange={handleFileChange}
-                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                        />
-                        <div className="w-full primary-text4 border border-dashed primary-border group-hover:primary-border primary-rounded px-4 py-6 flex flex-col items-center justify-center gap-2 transition-colors">
-                          <Upload className="text-white/30 group-hover:text-white/50 transition-colors" />
-                          <span className="text-sm text-white/40 group-hover:primary-text4 transition-colors">
-                            {formData.file
-                              ? formData.file.name
-                              : "Click or drop files here"}
-                          </span>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Project Name */}
+                        <div className="space-y-2">
+                          <label className="text-sm font-medium text-white/70 ml-1">
+                            Project Name or Idea
+                          </label>
+                          <input
+                            required
+                            type="text"
+                            placeholder="e.g. E-commerce Revolution"
+                            className="w-full bg-white/5 primary-text4 border primary-border primary-rounded px-4 py-4 placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
+                            value={formData.projectName}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                projectName: e.target.value,
+                              })
+                            }
+                          />
+                        </div>
+
+                        {/* User Email */}
+                        <div className="space-y-2">
+                          <label className="text-sm font-medium text-white/70 ml-1">
+                            Your Email Address
+                          </label>
+                          <input
+                            required
+                            type="email"
+                            placeholder="e.g. you@example.com"
+                            className="w-full bg-white/5 primary-text4 border primary-border primary-rounded px-4 py-4  placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
+                            value={formData.userEmail}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                userEmail: e.target.value,
+                              })
+                            }
+                          />
                         </div>
                       </div>
-                    </div>
 
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full primary-color text-white cursor-pointer font-bold py-4 rounded-full flex items-center justify-center gap-3 transition-colors disabled:opacity-50 disabled:cursor-not-allowed group"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send
-                            size={20}
-                            className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                      {/* Details */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-white/70 ml-1">
+                          Project Details
+                        </label>
+                        <textarea
+                          required
+                          rows={4}
+                          placeholder="Tell me more about what you're looking to achieve..."
+                          className="w-full bg-white/5 primary-text4 border primary-border primary-rounded px-4 py-4  placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors resize-none"
+                          value={formData.details}
+                          onChange={(e) =>
+                            setFormData({ ...formData, details: e.target.value })
+                          }
+                        />
+                      </div>
+
+                      {/* File Upload */}
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-white/70 ml-1">
+                          Supporting Documents (Optional)
+                        </label>
+                        <div className="relative group">
+                          <input
+                            type="file"
+                            onChange={handleFileChange}
+                            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                           />
-                          Send Inquiry
-                        </>
-                      )}
-                    </button>
-                  </form>
-                </>
-              )}
+                          <div className="w-full bg-white/5 primary-text4 border border-dashed primary-border group-hover:primary-border primary-rounded px-4 py-6 flex flex-col items-center justify-center gap-2 transition-colors">
+                            <Upload className="text-white/30 group-hover:text-white/50 transition-colors" />
+                            <span className="text-sm text-white/40 group-hover:primary-text4 transition-colors">
+                              {formData.file
+                                ? formData.file.name
+                                : "Click or drop files here"}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Submit Button */}
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full bg-white text-black cursor-pointer font-bold py-4 rounded-full flex items-center justify-center gap-3 transition-colors disabled:opacity-50 disabled:cursor-not-allowed group"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="animate-spin" />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            <Send
+                              size={20}
+                              className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                            />
+                            Send Inquiry
+                          </>
+                        )}
+                      </button>
+                    </form>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-          </div>
+          </motion.div>
         </div>
       )}
-    </>
+    </AnimatePresence>
   );
 }
