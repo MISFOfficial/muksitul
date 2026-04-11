@@ -46,7 +46,7 @@ export default function AboutPage() {
             year: "2020",
             title: "A Family's Strength",
             description:
-                "Life took a profound turn in 2020 when we lost my eldest brother in a tragic bike accident. As the family shifted from four brothers to three, I stepped into the role of the eldest son. This moment defined my sense of responsibility and resilience.",
+                "2020 was a year of profound transformation and resilience. Stepping into greater family responsibilities during a challenging time redefined my sense of duty. This moment forged my character, teaching me to lead with strength and persistence—values that I carry into every project I build today.",
             icon: <Heart className="primary-text2" size={24} />,
             image: "/kg.jpg",
         },
