@@ -94,7 +94,7 @@ export default function AboutPage() {
                     <Philosophy />
 
                     {/* Beyond The Screen - Hobbies Section */}
-                    <Beyond />
+                    {/* <Beyond /> */}
 
                     {/* The Sea is Calling - Emotional Poetic Section */}
                 </div>

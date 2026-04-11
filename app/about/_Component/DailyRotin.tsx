@@ -5,7 +5,7 @@ function DailyRotin() {
   return (
     <section className="   bg-[#050505] relative z-10 overflow-hidden">
       <div className="ratio px-6">
-        <div className="flex flex-col md:flex-row gap-20">
+        <div className="flex flex-col md:flex-row gap-20 py-20">
           <div className="md:w-1/3 sticky top-32 h-fit">
             <h2 className="text-6xl font-black tracking-tighter mb-8 leading-none">
               Rhythm of a <br />
