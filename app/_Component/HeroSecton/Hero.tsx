@@ -28,7 +28,7 @@ export default function Hero() {
   // Refs for entry animations
   const greetingRef = useRef<HTMLParagraphElement>(null);
   const nameRef = useRef<HTMLHeadingElement>(null);
-  const ctaRef = useRef<HTMLAnchorElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
   const ctaArrowRef = useRef<HTMLSpanElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const aboutMeRef = useRef<HTMLDivElement>(null);
@@ -140,19 +140,20 @@ export default function Hero() {
             Muksitul <br />
             Islam
           </h1>
-          <Link
-            ref={ctaRef}
-            href="/about"
-            className="mt-6 px-10 py-5 relative primary-color text-white primary-rounded font-bold flex items-center gap-2 transition-all cursor-pointer group"
-          >
-            My Journey
-            <span
-              ref={ctaArrowRef}
-              className="inline-block transition-transform duration-300 group-hover:translate-x-2"
+          <div ref={ctaRef} className="mt-6">
+            <Link
+              href="/about"
+              className="px-10 py-5 relative primary-color text-white primary-rounded font-bold flex items-center gap-2 transition-all cursor-pointer group"
             >
-              <MoveRight size={20} />
-            </span>
-          </Link>
+              My Journey
+              <span
+                ref={ctaArrowRef}
+                className="inline-block transition-transform duration-300 group-hover:translate-x-2"
+              >
+                <MoveRight size={20} />
+              </span>
+            </Link>
+          </div>
         </div>
 
         {/* Center Column (Image & Dynamic Text Layering) */}
