@@ -28,7 +28,7 @@ export default function Home() {
         <EngineeringMindset />
         <Experiance />
         <AllProjects />
-        <AllDesigns />
+        {/* <AllDesigns /> */}
         <AllCmsProjects />
         <Services />
         <Optical />
