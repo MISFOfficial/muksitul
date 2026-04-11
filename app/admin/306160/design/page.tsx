@@ -138,7 +138,7 @@ export default function DesignPage() {
           ? Array.from({ length: 3 }).map((_, i) => (
             <div
               key={i}
-              className="h-24 primary-rounded border primary-border animate-pulse bg-white/[0.01]"
+              className="h-24 primary-rounded border primary-border animate-pulse bg-white/2"
             />
           ))
           : filteredDesigns?.map((design: any) => (

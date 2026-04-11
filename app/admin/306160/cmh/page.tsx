@@ -99,7 +99,7 @@ export default function CMHPage() {
         </div>
         <Link
           href="/admin/306160/cmh/create"
-          className="flex items-center justify-center gap-2 px-8 py-3.5 bg-[#0abab5] hover:bg-[#0abab5]/90 text-black font-black uppercase tracking-[0.1em] rounded-xl transition-all shadow-[0_0_25px_rgba(10,186,181,0.2)] text-xs"
+          className="flex items-center justify-center gap-2 px-8 py-3.5 bg-[#0abab5] hover:bg-[#0abab5]/90 text-black font-black uppercase tracking-widest rounded-xl transition-all shadow-[0_0_25px_rgba(10,186,181,0.2)] text-xs"
         >
           <Plus size={20} />
           <span>Add CMS Project</span>
@@ -114,7 +114,7 @@ export default function CMHPage() {
             <div
               onClick={() => router.push(`/admin/306160/cmh/${project._id}`)}
               key={project._id}
-              className="group primary-rounded cursor-pointer p-6 border primary-border bg-white/5 transition-all duration-300 hover:bg-white/[0.04] hover:border-[#0abab5]/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden"
+              className="group primary-rounded cursor-pointer p-6 border primary-border bg-white/5 transition-all duration-300  hover:border-[#0abab5]/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden"
             >
               <div className="flex items-center gap-6">
                 <div className="w-16 h-16 rounded-2xl border primary-border flex items-center justify-center overflow-hidden shrink-0 shadow-lg bg-black/40">
@@ -168,7 +168,7 @@ export default function CMHPage() {
                   {project.tags?.slice(0, 3).map((tag: string, i: number) => (
                     <span
                       key={i}
-                      className="px-2.5 py-1 rounded-md bg-white/[0.03] border primary-border text-white/30 text-[10px] font-bold uppercase tracking-wider"
+                      className="px-2.5 py-1 rounded-md bg-white/5 border primary-border text-white/30 text-[10px] font-bold uppercase tracking-wider"
                     >
                       {tag}
                     </span>

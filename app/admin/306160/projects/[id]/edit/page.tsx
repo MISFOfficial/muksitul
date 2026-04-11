@@ -469,7 +469,7 @@ export default function EditProjectPage({
                     ? "border-[#0abab5] bg-[#0abab5]/10 scale-[1.02]"
                     : imagePreview
                       ? "border-[#0abab5]/50 bg-[#0abab5]/5"
-                      : "border-white/10 hover:border-[#0abab5]/30 hover:bg-white/[0.05]"
+                      : "border-white/10 hover:border-[#0abab5]/30"
                   }`}
                 onClick={() => document.getElementById("cover-upload")?.click()}
                 onDragOver={onCoverDragOver}
@@ -829,7 +829,7 @@ export default function EditProjectPage({
                       handleArrayChange(i, e.target.value, setTags)
                     }
                     placeholder="e.g. Full-Stack"
-                    className="flex-1 bg-white/[0.03] border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
+                    className="flex-1 bg-white/5 border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
                   />
                   <button
                     type="button"
@@ -866,7 +866,7 @@ export default function EditProjectPage({
                       handleArrayChange(i, e.target.value, setTechnologies)
                     }
                     placeholder="e.g. React"
-                    className="flex-1 bg-white/[0.03] border primary-border rounded-xl px-4 py-2 text-xs font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
+                    className="flex-1 bg-white/5 border primary-border rounded-xl px-4 py-2 text-xs font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
                   />
                   <button
                     type="button"
@@ -906,7 +906,7 @@ export default function EditProjectPage({
                       handleArrayChange(i, e.target.value, setFeatures)
                     }
                     placeholder="Key feature..."
-                    className="flex-1 bg-white/[0.03] border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
+                    className="flex-1 bg-white/5 border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
                   />
                   <button
                     type="button"
@@ -943,7 +943,7 @@ export default function EditProjectPage({
                       handleArrayChange(i, e.target.value, setLessons)
                     }
                     placeholder="What you learned..."
-                    className="flex-1 bg-white/[0.03] border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
+                    className="flex-1 bg-white/5 border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
                   />
                   <button
                     type="button"
@@ -1019,7 +1019,7 @@ export default function EditProjectPage({
                           className={`w-9 h-9 rounded-full border-2 transition-all duration-200 hover:scale-110 ${badge.color.toLowerCase() ===
                             preset.color.toLowerCase()
                             ? "border-white scale-110 shadow-[0_0_12px_rgba(255,255,255,0.3)]"
-                            : "border-white/10 hover:border-white/30"
+                            : "border-white/10 "
                             }`}
                           style={{ backgroundColor: preset.color }}
                         />
@@ -1102,7 +1102,7 @@ export default function EditProjectPage({
                         handleArrayChange(i, e.target.value, setInfrastructure)
                       }
                       placeholder="e.g. Vercel"
-                      className="flex-1 bg-white/[0.03] border primary-border rounded-xl px-4 py-2 text-xs font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
+                      className="flex-1 bg-white/5 border primary-border rounded-xl px-4 py-2 text-xs font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
                     />
                     <button
                       type="button"

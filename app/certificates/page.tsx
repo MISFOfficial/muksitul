@@ -174,7 +174,7 @@ export default function CertificatesPage() {
                 </button>
               </Link>
               <Link href="/">
-                <button className="px-12 py-5 cursor-pointer primary-text4 text-white border primary-border rounded-full font-black text-sm uppercase  transition-all">
+                <button className="px-12 py-5 cursor-pointer primary-text4  border primary-border rounded-full font-black text-sm uppercase  transition-all">
                   Back to Home
                 </button>
               </Link>

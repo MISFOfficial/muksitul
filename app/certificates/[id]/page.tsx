@@ -29,7 +29,7 @@ import { useGetCertificateById } from "@/app/Global/data/useCertificates";
 
 // ── Skeleton ──────────────────────────────────────────────────────────────────
 function Pulse({ className }: { className?: string }) {
-  return <div className={`animate-pulse bg-white/[0.05] rounded-xl ${className}`} />;
+  return <div className={`animate-pulse bg-white/5 rounded-xl ${className}`} />;
 }
 
 function DetailSkeleton() {
@@ -159,12 +159,12 @@ export default function CertificateDetail() {
                 <div className="absolute inset-0 bg-black/10 group-hover/img:bg-transparent transition-colors" />
                 <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 opacity-0 group-hover/img:opacity-100 transition-all duration-300">
                   <Maximize2 size={11} className="text-white/70" />
-                  <span className="text-[9px] font-black text-white/60 uppercase tracking-wider">View Full</span>
+                  <span className="text-[9px] font-black primary-text4 uppercase tracking-wider">View Full</span>
                 </div>
                 {/* Verified badge on image */}
                 <div className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10">
                   <CheckCircle2 size={10} className="text-green-400" />
-                  <span className="text-[9px] font-black text-white/60 uppercase tracking-wider">Verified</span>
+                  <span className="text-[9px] font-black primary-text4 uppercase tracking-wider">Verified</span>
                 </div>
               </div>
             )}
@@ -175,7 +175,7 @@ export default function CertificateDetail() {
                 <Sparkles size={13} className="primary-text2" />
                 <h2 className="text-sm font-black text-white/40 uppercase tracking-[0.2em]">Overview</h2>
               </div>
-              <p className="text-white/60 text-lg md:text-xl leading-relaxed font-medium">
+              <p className="primary-text4 text-lg md:text-xl leading-relaxed font-medium">
                 {certificate.fullDescription || certificate.description}
               </p>
             </section>
@@ -191,12 +191,12 @@ export default function CertificateDetail() {
                   {certificate.challenges.map((challenge: string, idx: number) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border primary-border hover:bg-white/[0.04] hover:border-white/10 transition-all group"
+                      className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border primary-border hover:border-white/10 transition-all group"
                     >
                       <span className="shrink-0 w-6 h-6 rounded-lg bg-[#FF5C58]/10 border border-[#FF5C58]/20 flex items-center justify-center text-[10px] font-black text-[#FF5C58] group-hover:bg-[#FF5C58] group-hover:text-white transition-all mt-0.5">
                         {idx + 1}
                       </span>
-                      <p className="text-white/60 text-base md:text-lg leading-relaxed group-hover:text-white/85 transition-colors">
+                      <p className="primary-text4 text-base md:text-lg leading-relaxed  transition-colors">
                         {challenge}
                       </p>
                     </div>
@@ -216,7 +216,7 @@ export default function CertificateDetail() {
               <div className="space-y-4">
                 {/* Badges */}
                 <div className="flex items-center gap-2 flex-wrap">
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.05] border primary-border">
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border primary-border">
                     <Shield size={11} className="primary-text2" />
                     <span className="text-xs font-black text-white/50 uppercase tracking-[0.15em]">{certificate.provider}</span>
                   </div>
@@ -262,7 +262,7 @@ export default function CertificateDetail() {
               {/* Stat cards */}
               <div className="grid grid-cols-2 gap-2.5">
                 {certificate.certifiedAt && (
-                  <div className="p-4 rounded-2xl bg-white/[0.03] border primary-border hover:bg-white/[0.05] transition-colors col-span-2 sm:col-span-1">
+                  <div className="p-4 rounded-2xl bg-white/5 border primary-border hover:bg-white/5 transition-colors col-span-2 sm:col-span-1">
                     <p className="text-xs font-black text-white/30 uppercase tracking-wide mb-2 flex items-center gap-1.5">
                       <Calendar size={11} className="primary-text2" /> Issued
                     </p>
@@ -270,7 +270,7 @@ export default function CertificateDetail() {
                   </div>
                 )}
                 {certificate.duration && (
-                  <div className="p-4 rounded-2xl bg-white/[0.03] border primary-border hover:bg-white/[0.05] transition-colors col-span-2 sm:col-span-1">
+                  <div className="p-4 rounded-2xl bg-white/5 border primary-border hover:bg-white/5 transition-colors col-span-2 sm:col-span-1">
                     <p className="text-xs font-black text-white/30 uppercase tracking-wide mb-2 flex items-center gap-1.5">
                       <Clock size={11} className="primary-text2" /> Duration
                     </p>
@@ -278,7 +278,7 @@ export default function CertificateDetail() {
                   </div>
                 )}
                 {certificate.rating !== undefined && (
-                  <div className="p-4 rounded-2xl bg-yellow-500/[0.05] border border-yellow-500/15 hover:bg-yellow-500/[0.08] transition-colors col-span-2">
+                  <div className="p-4 rounded-2xl bg-yellow-500/5 border border-yellow-500/15 hover:bg-yellow-500/8 transition-colors col-span-2">
                     <p className="text-xs font-black text-yellow-500/60 uppercase tracking-wide mb-2 flex items-center gap-1.5">
                       <Star size={11} className="text-yellow-500" /> Rating
                     </p>
@@ -305,7 +305,7 @@ export default function CertificateDetail() {
                     {certificate.skillsLearned.map((skill: string, idx: number) => (
                       <span
                         key={idx}
-                        className="px-4 py-2 rounded-full bg-white/[0.04] border primary-border text-white/55 hover:text-white hover:bg-white/[0.07] font-bold text-sm uppercase tracking-wider transition-all cursor-default"
+                        className="px-4 py-2 rounded-full bg-white/5 border primary-border text-white/55 hover:text-white hover:bg-white/[0.07] font-bold text-sm uppercase tracking-wider transition-all cursor-default"
                       >
                         {skill}
                       </span>
@@ -320,7 +320,7 @@ export default function CertificateDetail() {
                   <p className="text-xs font-black text-white/25 uppercase tracking-[0.2em] mb-1">Certificate ID</p>
                   <p className="text-sm font-mono text-white/30 truncate">{certificate._id || certificate.id || "—"}</p>
                 </div>
-                <div className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/[0.06] border border-green-500/15">
+                <div className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/5 border border-green-500/15">
                   <CheckCircle2 size={10} className="text-green-400" />
                   <span className="text-xs font-black text-green-400/70 uppercase tracking-wider">Active</span>
                 </div>
@@ -337,7 +337,7 @@ export default function CertificateDetail() {
                 </Link>
                 <Link
                   href="/certificates"
-                  className="flex items-center justify-center gap-2 py-3.5 rounded-2xl border primary-border text-white/35 hover:text-white hover:border-white/15 hover:bg-white/[0.03] transition-all text-sm font-black uppercase tracking-widest"
+                  className="flex items-center justify-center gap-2 py-3.5 rounded-2xl border primary-border text-white/35 hover:text-white hover:border-white/15 hover:bg-white/5 transition-all text-sm font-black uppercase tracking-widest"
                 >
                   <ArrowLeft size={13} />
                   All Certificates
@@ -352,15 +352,15 @@ export default function CertificateDetail() {
 
       {/* ── Image Modal ── */}
       {isImageModalOpen && imageUrl && (
-        <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 md:p-10">
+        <div className="fixed inset-0 z-150 flex items-center justify-center p-4 md:p-10">
           <div onClick={() => setIsImageModalOpen(false)} className="absolute inset-0 backdrop-blur-2xl bg-black/80" />
           <button
             onClick={() => setIsImageModalOpen(false)}
-            className="absolute top-5 right-5 z-[160] w-10 h-10 rounded-full bg-white/10 border primary-border flex items-center justify-center text-white hover:bg-[#FF5C58] transition-all"
+            className="absolute top-5 right-5 z-160 w-10 h-10 rounded-full bg-white/10 border primary-border flex items-center justify-center text-white hover:bg-[#FF5C58] transition-all"
           >
             <X size={18} />
           </button>
-          <div className="relative z-[155] rounded-3xl overflow-hidden border primary-border max-h-[90vh] max-w-[95vw] shadow-2xl">
+          <div className="relative z-155 rounded-3xl overflow-hidden border primary-border max-h-[90vh] max-w-[95vw] shadow-2xl">
             <Image
               src={imageUrl}
               alt={certificate.title}

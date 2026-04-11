@@ -166,7 +166,7 @@ export default function ProjectPage() {
               {project.tags.map((tag: any, idx: any) => (
                 <span
                   key={idx}
-                  className="flex items-center gap-1.5 text-sm px-4 py-2 rounded-full primary-text4 text-gray-300 border primary-border hover:border-[#20255e]/50"
+                  className="flex items-center gap-1.5 text-sm px-4 py-2 rounded-full primary-text4  border primary-border hover:border-[#20255e]/50"
                 >
                   <Tag size={14} />
                   {tag}
@@ -454,7 +454,7 @@ export default function ProjectPage() {
 
           {/* Lessons Learned */}
           {project.lessons && (
-            <div className="p-8 md:p-12 primary-rounded bg-linear-to-br from-[#20255e]/20 to-[#20255e]/40 primary-rounded border border-[#20255e]/10">
+            <div className="p-8 md:p-12  bg-linear-to-br from-[#20255e]/20 to-[#20255e]/40 primary-rounded border border-[#20255e]/10">
               <h2 className="text-3xl font-black mb-10 flex items-center gap-3">
                 <Lightbulb className="text-yellow-400" />
                 Key Engineering Takeaways

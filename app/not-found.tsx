@@ -7,7 +7,7 @@ import Footer from "./_Component/Footer/Footer";
 
 export default function NotFound() {
   return (
-    <main className="relative min-h-screen selection:bg-[#FF0055] selection:text-white">
+    <main className="relative min-h-screen  selection:text-white">
       <div className="sticky top-0 w-full z-40 backdrop-blur-xl border-b primary-border">
         <Navigaton />
       </div>
@@ -23,7 +23,7 @@ export default function NotFound() {
               Error Code
             </span>
             <h1
-              className="text-8xl md:text-9xl font-black text-white/[0.08] leading-none tracking-tighter"
+              className="text-8xl md:text-9xl font-black text-transparent leading-none tracking-tighter"
               style={{ WebkitTextStroke: "1.5px rgba(255, 255, 255, 0.52)" }}
             >
               404
@@ -60,7 +60,7 @@ export default function NotFound() {
             </Link>
             <button
               onClick={() => history.back()}
-              className="group cursor-pointer inline-flex items-center gap-2.5 border primary-border text-white/70 px-7 py-3.5 rounded-full text-sm font-bold hover:text-white hover:primary-text4 hover:primary-border transition-all"
+              className="group cursor-pointer inline-flex items-center gap-2.5 border primary-border text-white/70 px-7 py-3.5 rounded-full text-sm font-bold  hover:primary-border transition-all"
             >
               <ArrowLeft
                 size={16}
@@ -73,7 +73,7 @@ export default function NotFound() {
 
         {/* Bottom coordinates */}
         <div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 text-white/[0.08] text-[9px] font-mono tracking-[0.3em] uppercase"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 primary-text4 text-[9px] font-mono tracking-[0.3em] uppercase"
         >
           <span>SYS::LOST</span>
           <span>·</span>

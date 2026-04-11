@@ -332,7 +332,7 @@ export default function ExperienceDetail() {
           </p>
           <Link
             href="/#contact"
-            className="inline-flex items-center gap-2 bg-[#FF0055] text-white px-8 py-4 rounded-full font-bold shadow-xl"
+            className="inline-flex items-center gap-2 primary-color2 text-white px-8 py-4 rounded-full font-bold shadow-xl"
           >
             Get In Touch
             <ArrowLeft size={20} className="rotate-180" />

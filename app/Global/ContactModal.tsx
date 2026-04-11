@@ -69,7 +69,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+        <div className="fixed inset-0 z-100 flex items-center justify-center px-4">
           {/* Backdrop */}
           <div
 
@@ -137,7 +137,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                           required
                           type="text"
                           placeholder="e.g. E-commerce Revolution"
-                          className="w-full primary-text4 border primary-border primary-rounded px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
+                          className="w-full primary-text4 border primary-border primary-rounded px-4 py-4 placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
                           value={formData.projectName}
                           onChange={(e) =>
                             setFormData({
@@ -157,7 +157,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                           required
                           type="email"
                           placeholder="e.g. you@example.com"
-                          className="w-full primary-text4 border primary-border primary-rounded px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
+                          className="w-full primary-text4 border primary-border primary-rounded px-4 py-4  placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors"
                           value={formData.userEmail}
                           onChange={(e) =>
                             setFormData({
@@ -178,7 +178,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         required
                         rows={4}
                         placeholder="Tell me more about what you're looking to achieve..."
-                        className="w-full primary-text4 border primary-border primary-rounded px-4 py-4 text-white placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors resize-none"
+                        className="w-full primary-text4 border primary-border primary-rounded px-4 py-4  placeholder:text-white/20 focus:outline-none focus:primary-border transition-colors resize-none"
                         value={formData.details}
                         onChange={(e) =>
                           setFormData({ ...formData, details: e.target.value })
