@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Create an axios instance with default config
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BASE_URL || "https://portfolio-v2-backend-chi.vercel.app",
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
 
 // Add a request interceptor to attach the token
