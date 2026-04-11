@@ -146,7 +146,7 @@ export default function ExperienceDetail() {
                     {experience.company}
                   </span>
                   <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
-                    {formatRole(experience.role)}
+                    {formatRole(experience.role)} <span className="text-sm primary-text2">( {formatRole(experience.jobType)} )</span>
                   </h1>
                 </div>
               </div>
@@ -284,7 +284,7 @@ export default function ExperienceDetail() {
                       <Briefcase size={12} /> Role
                     </span>
                     <span className="text-lg font-bold text-white">
-                      {formatRole(experience.role)}
+                      {formatRole(experience.role)} <span className="text-xs primary-text2">( {formatRole(experience.jobType)} )</span>
                     </span>
                   </div>
                   <div className="flex flex-col gap-1">

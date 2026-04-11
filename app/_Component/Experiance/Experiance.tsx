@@ -24,11 +24,11 @@ const ExperienceCard = ({ exp, index }: { exp: any; index: number }) => {
             )}
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="text-lg md:text-xl font-bold text-white group-hover:primary-text transition-colors leading-tight">
+            <h3 className="text-lg md:text-xl font-bold text-white transition-colors leading-tight">
               {formatRole(exp.role)}
             </h3>
             <p className="text-sm md:text-base font-medium text-gray-400 mt-1 truncate">
-              {exp.company}
+              {exp.company} <span className="text-xs primary-text2">( {formatRole(exp.jobType)} )</span>
             </p>
           </div>
         </div>
