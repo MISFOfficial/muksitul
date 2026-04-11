@@ -1,10 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { ShieldCheck, Award, Zap } from "lucide-react";
-import { certificatesData } from "@/lib/certificatesData";
+import { useGetAllCertificates } from "../../Global/data/useCertificates";
 
 export default function Certificates() {
+  const { allCertificates, isLoading } = useGetAllCertificates(100);
+
+  const totalCertificates = useMemo(() => {
+    if (!allCertificates) return 0;
+    return allCertificates.pages.flatMap((page: any) => page).length;
+  }, [allCertificates]);
+
   return (
     <section
       id="certificates"
@@ -56,7 +63,11 @@ export default function Certificates() {
           className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8"
         >
           {[
-            { label: "Credentials", val: certificatesData.length, icon: Award },
+            {
+              label: "Credentials",
+              val: isLoading ? "..." : totalCertificates,
+              icon: Award,
+            },
             { label: "Learning Hours", val: "2,500+", icon: Zap },
             { label: "Top Rated", val: "100%", icon: ShieldCheck },
             { label: "Institutions", val: "5+", icon: ShieldCheck },
