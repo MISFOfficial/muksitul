@@ -56,15 +56,15 @@ export default function AboutPage() {
             description:
                 "Completed my primary education locally, followed by SSC at Azimuddin and HSC at Gurudoyal. Since my high school days, I've felt a magnetic pull toward programming, though resources were scarce at the time.",
             icon: <BookOpen className="primary-text2" size={24} />,
-            image: "/kg.jpg",
+            image: "/gr.png",
         },
         {
-            year: "Present",
+            year: "Education",
             title: "The Engineer's Path",
             description:
                 "I fulfilled my dream by graduating with a Bachelor's in Computer Science and Engineering from Daffodil International University. Today, I am a professional Software Engineer, specializing in system architecture, full-stack development, and meticulous testing.",
             icon: <GraduationCap className="primary-text2" size={24} />,
-            image: "/kg.jpg",
+            image: "/diu.jpg",
         },
     ];
 
