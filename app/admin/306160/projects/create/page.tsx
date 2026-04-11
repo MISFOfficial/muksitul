@@ -355,9 +355,9 @@ export default function CreateProjectPage() {
 
   // --- Reusable input className ---
   const inputCls =
-    "w-full bg-white/[0.03] border primary-border rounded-xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 focus:ring-1 focus:ring-[#0abab5]/20 transition-all placeholder:text-white/10";
+    "w-full bg-white/5 border primary-border rounded-xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 focus:ring-1 focus:ring-[#0abab5]/20 transition-all placeholder:text-white/10";
   const textareaCls =
-    "w-full bg-white/[0.03] border primary-border rounded-xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 focus:ring-1 focus:ring-[#0abab5]/20 transition-all placeholder:text-white/10 resize-none";
+    "w-full bg-white/5 border primary-border rounded-xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 focus:ring-1 focus:ring-[#0abab5]/20 transition-all placeholder:text-white/10 resize-none";
   const labelCls =
     "text-[10px] font-black uppercase tracking-[0.2em] text-white/40 group-focus-within:text-[#0abab5] transition-colors flex items-center gap-2";
   const sectionTitle =
@@ -382,11 +382,11 @@ export default function CreateProjectPage() {
           </span>
         </button>
         <div className="flex items-center gap-4">
-          <div className="h-px w-20 bg-gradient-to-l from-[#0abab5]/50 to-transparent" />
+          <div className="h-px w-20 bg-linear-to-l from-[#0abab5]/50 to-transparent" />
           <h1 className="text-2xl font-black uppercase tracking-[0.2em] text-white">
             New <span className="text-[#0abab5]">Project</span>
           </h1>
-          <div className="h-px w-20 bg-gradient-to-r from-[#0abab5]/50 to-transparent" />
+          <div className="h-px w-20 bg-linear-to-r from-[#0abab5]/50 to-transparent" />
         </div>
       </div>
 
@@ -406,7 +406,7 @@ export default function CreateProjectPage() {
                     ? "border-[#0abab5] bg-[#0abab5]/10 scale-[1.02]"
                     : imagePreview
                       ? "border-[#0abab5]/50 bg-[#0abab5]/5"
-                      : "border-white/10 hover:border-[#0abab5]/30 hover:bg-white/[0.05]"
+                      : "border-white/10 hover:border-[#0abab5]/30 "
                   }`}
                 onClick={() => document.getElementById("cover-upload")?.click()}
                 onDragOver={onCoverDragOver}
@@ -736,7 +736,7 @@ export default function CreateProjectPage() {
                       handleArrayChange(i, e.target.value, setTags)
                     }
                     placeholder="e.g. Full-Stack"
-                    className="flex-1 bg-white/[0.03] border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
+                    className="flex-1 bg-white/5 border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
                   />
                   <button
                     type="button"
@@ -773,7 +773,7 @@ export default function CreateProjectPage() {
                       handleArrayChange(i, e.target.value, setTechnologies)
                     }
                     placeholder="e.g. React"
-                    className="flex-1 bg-white/[0.03] border primary-border rounded-xl px-4 py-2 text-xs font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
+                    className="flex-1 bg-white/5 border primary-border rounded-xl px-4 py-2 text-xs font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
                   />
                   <button
                     type="button"
@@ -813,7 +813,7 @@ export default function CreateProjectPage() {
                       handleArrayChange(i, e.target.value, setFeatures)
                     }
                     placeholder="Key feature..."
-                    className="flex-1 bg-white/[0.03] border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
+                    className="flex-1 bg-white/5 border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
                   />
                   <button
                     type="button"
@@ -850,7 +850,7 @@ export default function CreateProjectPage() {
                       handleArrayChange(i, e.target.value, setLessons)
                     }
                     placeholder="What you learned..."
-                    className="flex-1 bg-white/[0.03] border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
+                    className="flex-1 bg-white/5 border primary-border rounded-xl px-4 py-2.5 text-sm font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
                   />
                   <button
                     type="button"
@@ -890,23 +890,22 @@ export default function CreateProjectPage() {
               </label>
               <div className="flex gap-3 items-center">
                 {[
-                  { color: "#EF4444", name: "Red" },
-                  { color: "#F97316", name: "Orange" },
-                  { color: "#EAB308", name: "Yellow" },
-                  { color: "#22C55E", name: "Green" },
-                  { color: "#0ABAB5", name: "Teal" },
-                  { color: "#A855F7", name: "Purple" },
+                  { color: "#232c66", name: "Dark Blue" },
+                  { color: "#FF0055", name: "Pink" },
                 ].map((preset) => (
                   <button
                     key={preset.color}
                     type="button"
                     title={preset.name}
                     onClick={() =>
-                      setBadge((b) => ({ ...b, color: preset.color }))
+                      setBadge((b) => ({
+                        ...b,
+                        color: b.color === preset.color ? "" : preset.color,
+                      }))
                     }
                     className={`w-9 h-9 rounded-full border-2 transition-all duration-200 hover:scale-110 ${badge.color === preset.color
                       ? "border-white scale-110 shadow-[0_0_12px_rgba(255,255,255,0.3)]"
-                      : "border-white/10 hover:border-white/30"
+                      : "border-white/10"
                       }`}
                     style={{ backgroundColor: preset.color }}
                   />
@@ -986,7 +985,7 @@ export default function CreateProjectPage() {
                         handleArrayChange(i, e.target.value, setInfrastructure)
                       }
                       placeholder="e.g. Vercel"
-                      className="flex-1 bg-white/[0.03] border primary-border rounded-xl px-4 py-2 text-xs font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
+                      className="flex-1 bg-white/5 border primary-border rounded-xl px-4 py-2 text-xs font-medium focus:outline-none focus:border-[#0abab5]/50 transition-all"
                     />
                     <button
                       type="button"
