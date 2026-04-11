@@ -892,6 +892,7 @@ export default function CreateProjectPage() {
                 {[
                   { color: "#232c66", name: "Dark Blue" },
                   { color: "#FF0055", name: "Pink" },
+                  { color: "#a69921", name: "Yellow" },
                 ].map((preset) => (
                   <button
                     key={preset.color}
