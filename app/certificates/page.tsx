@@ -10,10 +10,12 @@ import {
 import Link from "next/link";
 import CertificateCard from "@/app/_Component/Certificates/CertificateCard";
 import { useGetAllCertificates } from "../Global/data/useCertificates";
+import ContactModal from "../Global/ContactModal";
 
 
 export default function CertificatesPage() {
   const limit = 10;
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const {
     allCertificates,
@@ -165,11 +167,11 @@ export default function CertificatesPage() {
               your next big idea.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-              <Link href="/#contact">
-                <button className="px-12 py-5 cursor-pointer primary-color2 text-white rounded-full font-black text-sm uppercase  transition-all ">
-                  Start a Collaboration
-                </button>
-              </Link>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="px-12 py-5 cursor-pointer primary-color2 text-white rounded-full font-black text-sm uppercase  transition-all ">
+                Start a Collaboration
+              </button>
               <Link href="/">
                 <button className="px-12 py-5 cursor-pointer primary-text4  border primary-border rounded-full font-black text-sm uppercase  transition-all">
                   Back to Home
@@ -179,6 +181,7 @@ export default function CertificatesPage() {
           </div>
         </div>
       </section>
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </main>
   );
 }

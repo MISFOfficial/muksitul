@@ -25,6 +25,8 @@ import {
 import Link from "next/link";
 import Navigaton from "@/app/_Component/Navigation/Navigaton";
 import Footer from "@/app/_Component/Footer/Footer";
+import ContactModal from "@/app/Global/ContactModal";
+import { useState } from "react";
 
 // Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -40,6 +42,7 @@ import { formatRole } from "@/app/Global/utils";
 export default function ProjectPage() {
   const { id } = useParams();
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Fetch project by ID from API
   const {
@@ -486,15 +489,17 @@ export default function ProjectPage() {
             Let's collaborate and bring your vision to life with cutting-edge
             technology and creative design.
           </p>
-          <Link
-            href="/#contact"
-            className="inline-flex items-center gap-2 primary-color2 text-white px-8 py-4 rounded-full font-bold shadow-xl"
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="inline-flex items-center gap-2 primary-color2 text-white px-8 py-4 rounded-full font-bold shadow-xl cursor-pointer"
           >
             Get In Touch
             <ArrowLeft size={20} className="rotate-180" />
-          </Link>
+          </button>
         </div>
       </section>
+
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </main>
   );
 }
