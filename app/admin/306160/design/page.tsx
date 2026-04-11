@@ -110,7 +110,7 @@ export default function DesignPage() {
       </div>
 
       {/* Action Bar */}
-      <div className="flex flex-col lg:flex-row items-center gap-4 bg-white/[0.02] p-2 primary-rounded border primary-border">
+      <div className="flex flex-col lg:flex-row items-center gap-4 bg-white/5 p-2 primary-rounded border primary-border">
         <div className="relative flex-1 group w-full">
           <Search
             className="absolute left-4 top-1/2 -translate-y-1/2 text-white/10 group-focus-within:text-[#0abab5] transition-colors"
@@ -136,81 +136,81 @@ export default function DesignPage() {
       <div className="grid grid-cols-1 gap-3">
         {isLoading
           ? Array.from({ length: 3 }).map((_, i) => (
-              <div
-                key={i}
-                className="h-24 primary-rounded border primary-border animate-pulse bg-white/[0.01]"
-              />
-            ))
+            <div
+              key={i}
+              className="h-24 primary-rounded border primary-border animate-pulse bg-white/[0.01]"
+            />
+          ))
           : filteredDesigns?.map((design: any) => (
-              <div
-                key={design._id}
-                className="group flex flex-col md:flex-row items-center gap-6 bg-[#0a0a0a]/40 border primary-border primary-rounded p-4 px-6 hover:bg-[#0f0f0f] hover:border-[#0abab5]/20 transition-all duration-300"
-              >
-                {/* Preview */}
-                <div className="w-24 h-16 md:w-32 md:h-20 primary-rounded overflow-hidden border primary-border shrink-0 bg-black relative">
-                  <Image
-                    src={design.images?.[0]?.url || design.image?.url}
-                    alt={design.title || "Design Preview"}
-                    fill
-                    unoptimized
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
+            <div
+              key={design._id}
+              className="group flex flex-col md:flex-row items-center gap-6 bg-[#0a0a0a]/40 border primary-border primary-rounded p-4 px-6 hover:bg-[#0f0f0f] hover:border-[#0abab5]/20 transition-all duration-300"
+            >
+              {/* Preview */}
+              <div className="w-24 h-16 md:w-32 md:h-20 primary-rounded overflow-hidden border primary-border shrink-0 bg-black relative">
+                <Image
+                  src={design.images?.[0]?.url || design.image?.url}
+                  alt={design.title || "Design Preview"}
+                  fill
+                  unoptimized
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
 
-                {/* Info */}
-                <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
-                  <div>
-                    <h3 className="text-sm font-bold text-white tracking-widest uppercase primary-text transition-colors">
-                      {design.title}
-                    </h3>
-                    <div className="flex items-center gap-3 mt-1">
-                      <span className="text-[9px] font-black uppercase tracking-widest text-[#0abab5]/60">
-                        {design.year}
-                      </span>
-                      {design.badge && (
-                        <span
-                          className={`text-[8px] font-black uppercase tracking-tighter px-2 py-0.5 rounded-full text-white ${design.badge.color}`}
-                        >
-                          {design.badge.text}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 max-w-[300px]">
-                    {design.tags.slice(0, 3).map((tag: string, i: number) => (
+              {/* Info */}
+              <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
+                <div>
+                  <h3 className="text-sm font-bold text-white tracking-widest uppercase primary-text transition-colors">
+                    {design.title}
+                  </h3>
+                  <div className="flex items-center gap-3 mt-1">
+                    <span className="text-[9px] font-black uppercase tracking-widest text-[#0abab5]/60">
+                      {design.year}
+                    </span>
+                    {design.badge && (
                       <span
-                        key={i}
-                        className="text-[8px] font-black uppercase tracking-tighter px-2 py-1 bg-white/5 border primary-border text-white/30 rounded"
+                        className={`text-[8px] font-black uppercase tracking-tighter px-2 py-0.5 rounded-full text-white ${design.badge.color}`}
                       >
-                        {tag}
-                      </span>
-                    ))}
-                    {design.tags.length > 3 && (
-                      <span className="text-[8px] font-black text-white/10">
-                        +{design.tags.length - 3}
+                        {design.badge.text}
                       </span>
                     )}
                   </div>
                 </div>
 
-                {/* Actions */}
-                <div className="flex items-center gap-2 border-t md:border-t-0 md:border-l primary-border pt-4 md:pt-0 md:pl-6 w-full md:w-auto justify-end">
-                  <Link
-                    href={`/admin/306160/design/${design._id}`}
-                    className="w-10 h-10 flex items-center justify-center primary-rounded border primary-border text-white/20 hover:border-[#0abab5]/30 hover:text-white transition-all bg-black/20"
-                  >
-                    <Edit size={14} />
-                  </Link>
-                  <button
-                    onClick={() => handleDelete(design._id, design.title)}
-                    className="w-10 h-10 flex items-center justify-center primary-rounded border primary-border text-white/20 hover:text-red-500 hover:border-red-500/30 transition-all bg-black/20"
-                  >
-                    <Trash2 size={14} />
-                  </button>
+                <div className="flex flex-wrap gap-2 max-w-[300px]">
+                  {design.tags.slice(0, 3).map((tag: string, i: number) => (
+                    <span
+                      key={i}
+                      className="text-[8px] font-black uppercase tracking-tighter px-2 py-1 bg-white/5 border primary-border text-white/30 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                  {design.tags.length > 3 && (
+                    <span className="text-[8px] font-black text-white/10">
+                      +{design.tags.length - 3}
+                    </span>
+                  )}
                 </div>
               </div>
-            ))}
+
+              {/* Actions */}
+              <div className="flex items-center gap-2 border-t md:border-t-0 md:border-l primary-border pt-4 md:pt-0 md:pl-6 w-full md:w-auto justify-end">
+                <Link
+                  href={`/admin/306160/design/${design._id}`}
+                  className="w-10 h-10 flex items-center justify-center primary-rounded border primary-border text-white/20 hover:border-[#0abab5]/30 hover:text-white transition-all bg-black/20"
+                >
+                  <Edit size={14} />
+                </Link>
+                <button
+                  onClick={() => handleDelete(design._id, design.title)}
+                  className="w-10 h-10 flex items-center justify-center primary-rounded border primary-border text-white/20 hover:text-red-500 hover:border-red-500/30 transition-all bg-black/20"
+                >
+                  <Trash2 size={14} />
+                </button>
+              </div>
+            </div>
+          ))}
       </div>
 
       {hasNextPage && (

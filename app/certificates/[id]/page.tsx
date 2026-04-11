@@ -191,7 +191,7 @@ export default function CertificateDetail() {
                   {certificate.challenges.map((challenge: string, idx: number) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-4 p-4 rounded-2xl bg-white/[0.02] border primary-border hover:bg-white/[0.04] hover:border-white/10 transition-all group"
+                      className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border primary-border hover:bg-white/[0.04] hover:border-white/10 transition-all group"
                     >
                       <span className="shrink-0 w-6 h-6 rounded-lg bg-[#FF5C58]/10 border border-[#FF5C58]/20 flex items-center justify-center text-[10px] font-black text-[#FF5C58] group-hover:bg-[#FF5C58] group-hover:text-white transition-all mt-0.5">
                         {idx + 1}
@@ -315,7 +315,7 @@ export default function CertificateDetail() {
               )}
 
               {/* Cert ID */}
-              <div className="flex items-center justify-between gap-3 p-4 rounded-2xl bg-white/[0.02] border border-dashed primary-border">
+              <div className="flex items-center justify-between gap-3 p-4 rounded-2xl bg-white/5 border border-dashed primary-border">
                 <div className="min-w-0">
                   <p className="text-xs font-black text-white/25 uppercase tracking-[0.2em] mb-1">Certificate ID</p>
                   <p className="text-sm font-mono text-white/30 truncate">{certificate._id || certificate.id || "—"}</p>

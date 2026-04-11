@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["i.ibb.co.com", "muksitul.biddaneer.com"],
   },
+  experimental: {
+    optimizePackageImports: ["lucide-react", "gsap", "swiper"],
+  },
 };
 
 export default nextConfig;

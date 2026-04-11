@@ -58,7 +58,7 @@ function DailyRotin() {
                   <div className="p-1.5 rounded-full primary-color border primary-border flex items-center justify-center text-white group-hover:text-white transition-all duration-300">
                     {item.icon}
                   </div>
-                  <div className="w-[1px] h-full bg-white/10 mt-4 group-last:hidden" />
+                  <div className="w-px h-full bg-white/10 mt-4 group-last:hidden" />
                 </div>
                 <div className="pb-12">
                   <h4 className="text-2xl font-bold mb-3">{item.task}</h4>

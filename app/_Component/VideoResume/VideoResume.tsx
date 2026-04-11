@@ -19,7 +19,7 @@ function VideoResume() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-[9999]">
+    <div className="fixed bottom-8 right-8 z-9999">
       {!isExpanded ? (
         <div
           onClick={() => setIsExpanded(true)}
@@ -41,7 +41,7 @@ function VideoResume() {
           </div>
         </div>
       ) : (
-        <div className="fixed inset-0 backdrop-blur-lg flex items-center justify-center z-[10000]">
+        <div className="fixed inset-0 backdrop-blur-lg flex items-center justify-center z-10000">
           <div className="relative w-full max-w-4xl aspect-video primary-rounded overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.6)] border primary-border bg-black">
             <button
               onClick={handleClose}

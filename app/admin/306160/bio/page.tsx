@@ -12,7 +12,7 @@ export default function BioPage() {
         This module is currently being prepared. Soon you'll be able to manage
         your biography here with our dynamic CMS.
       </p>
-      <button className="mt-8 px-10 py-3.5 border primary-border hover:border-white/20 hover:bg-white/5 primary-rounded font-bold transition-all uppercase tracking-widest text-sm primary-text4 hover:text-white">
+      <button className="mt-8 px-10 py-3.5 border primary-border hover:primary-border hover:bg-white/5 primary-rounded font-bold transition-all uppercase tracking-widest text-sm primary-text4 hover:text-white">
         Coming Soon
       </button>
     </div>

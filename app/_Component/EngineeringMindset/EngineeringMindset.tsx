@@ -87,7 +87,7 @@ export default function EngineeringMindset() {
             >
               {/* Gradient Background */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500`}
+                className={`absolute inset-0 bg-linear-to-br opacity-0 transition-opacity duration-500`}
               />
 
               <div className="relative z-10">
@@ -130,7 +130,7 @@ export default function EngineeringMindset() {
                 className="text-primary-color2 opacity-40 group-hover:opacity-100 transition-opacity"
                 size={48}
               />
-              <div className="h-12 w-[1px] bg-white/10 hidden md:block" />
+              <div className="h-12 w-px bg-white/10 hidden md:block" />
               <span className="text-white/40 font-mono text-sm uppercase tracking-widest group-hover:primary-text4 transition-colors underline decoration-primary-color2/30">
                 Trade-off Analysis
               </span>

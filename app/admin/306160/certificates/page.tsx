@@ -25,7 +25,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 
 const Skeleton = () => (
-  <div className="primary-rounded border primary-border animate-pulse bg-white/[0.02] p-6 flex flex-col md:flex-row items-center gap-6">
+  <div className="primary-rounded border primary-border animate-pulse bg-white/5 p-6 flex flex-col md:flex-row items-center gap-6">
     <div className="w-16 h-16 rounded-xl bg-white/5 shrink-0" />
     <div className="flex-1 space-y-3">
       <div className="h-6 w-48 bg-white/5 rounded" />
@@ -118,7 +118,7 @@ export default function CertificatesPage() {
                 router.push(`/admin/306160/certificates/${cert._id}`)
               }
               key={cert._id}
-              className="group primary-rounded cursor-pointer p-6 border primary-border bg-white/[0.02] transition-all duration-300 hover:bg-white/[0.04] hover:border-[#0abab5]/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden"
+              className="group primary-rounded cursor-pointer p-6 border primary-border bg-white/5 transition-all duration-300 hover:bg-white/[0.04] hover:border-[#0abab5]/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden"
             >
               <div className="flex items-center gap-6">
                 <div className="w-16 h-16 primary-rounded border primary-border flex items-center justify-center overflow-hidden shrink-0 shadow-lg bg-black/40">
@@ -155,7 +155,7 @@ export default function CertificatesPage() {
 
               <div className="flex items-center justify-between md:justify-end gap-6 w-full md:w-auto mt-4 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 primary-border">
                 <div className="flex flex-col items-start md:items-end gap-1.5">
-                  <div className="flex items-center gap-2 px-4 py-2 primary-rounded border primary-border bg-white/[0.02] primary-text text-xs font-black uppercase tracking-widest shadow-inner">
+                  <div className="flex items-center gap-2 px-4 py-2 primary-rounded border primary-border bg-white/5 primary-text text-xs font-black uppercase tracking-widest shadow-inner">
                     <Calendar size={14} />
                     {cert.certifiedAt}
                   </div>

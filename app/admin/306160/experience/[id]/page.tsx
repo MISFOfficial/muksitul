@@ -300,7 +300,7 @@ export default function EditExperiencePage() {
           {/* Sidebar: Image & Quick Stats */}
           <div className="lg:col-span-1 space-y-8">
             <div
-              className={`primary-rounded border primary-border bg-white/[0.02] p-8 space-y-6 transition-all duration-500 ${isEditMode ? "ring-1 ring-[#0abab5]/30" : ""}`}
+              className={`primary-rounded border primary-border bg-white/5 p-8 space-y-6 transition-all duration-500 ${isEditMode ? "ring-1 ring-[#0abab5]/30" : ""}`}
             >
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">
@@ -403,7 +403,7 @@ export default function EditExperiencePage() {
           {/* Main Form Fields */}
           <div className="lg:col-span-2 space-y-8">
             <div
-              className={`primary-rounded border primary-border bg-white/[0.02] p-8 space-y-8 transition-all duration-500 ${isEditMode ? "ring-1 ring-[#0abab5]/30" : ""}`}
+              className={`primary-rounded border primary-border bg-white/5 p-8 space-y-8 transition-all duration-500 ${isEditMode ? "ring-1 ring-[#0abab5]/30" : ""}`}
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2 group">
@@ -512,7 +512,7 @@ export default function EditExperiencePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Responsibilities */}
           <div
-            className={`primary-rounded border primary-border bg-white/[0.02] p-8 space-y-6 transition-all duration-500 ${isEditMode ? "ring-1 ring-[#0abab5]/20" : ""}`}
+            className={`primary-rounded border primary-border bg-white/5 p-8 space-y-6 transition-all duration-500 ${isEditMode ? "ring-1 ring-[#0abab5]/20" : ""}`}
           >
             <div className="flex items-center justify-between">
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#0abab5] flex items-center gap-2">
@@ -568,7 +568,7 @@ export default function EditExperiencePage() {
 
           {/* Achievements */}
           <div
-            className={`primary-rounded border primary-border bg-white/[0.02] p-8 space-y-6 transition-all duration-500 ${isEditMode ? "ring-1 ring-[#0abab5]/20" : ""}`}
+            className={`primary-rounded border primary-border bg-white/5 p-8 space-y-6 transition-all duration-500 ${isEditMode ? "ring-1 ring-[#0abab5]/20" : ""}`}
           >
             <div className="flex items-center justify-between">
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#0abab5] flex items-center gap-2">
@@ -620,7 +620,7 @@ export default function EditExperiencePage() {
 
           {/* Technologies */}
           <div
-            className={`md:col-span-2 primary-rounded border primary-border bg-white/[0.02] p-8 space-y-6 transition-all duration-500 ${isEditMode ? "ring-1 ring-[#0abab5]/20" : ""}`}
+            className={`md:col-span-2 primary-rounded border primary-border bg-white/5 p-8 space-y-6 transition-all duration-500 ${isEditMode ? "ring-1 ring-[#0abab5]/20" : ""}`}
           >
             <div className="flex items-center justify-between">
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#0abab5] flex items-center gap-2">

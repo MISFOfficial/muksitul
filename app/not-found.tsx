@@ -60,7 +60,7 @@ export default function NotFound() {
             </Link>
             <button
               onClick={() => history.back()}
-              className="group cursor-pointer inline-flex items-center gap-2.5 border primary-border text-white/70 px-7 py-3.5 rounded-full text-sm font-bold hover:text-white hover:primary-text4 hover:border-white/20 transition-all"
+              className="group cursor-pointer inline-flex items-center gap-2.5 border primary-border text-white/70 px-7 py-3.5 rounded-full text-sm font-bold hover:text-white hover:primary-text4 hover:primary-border transition-all"
             >
               <ArrowLeft
                 size={16}

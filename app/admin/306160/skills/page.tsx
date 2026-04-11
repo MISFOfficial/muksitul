@@ -170,7 +170,7 @@ export default function SkillsPage() {
       </div>
 
       {/* Action Bar - Tight Layout */}
-      <div className="flex flex-col lg:flex-row items-center gap-4 bg-white/[0.02] p-2 primary-rounded border primary-border">
+      <div className="flex flex-col lg:flex-row items-center gap-4 bg-white/5 p-2 primary-rounded border primary-border">
         <div className="relative flex-1 group w-full">
           <Search
             className="absolute left-4 top-1/2 -translate-y-1/2 text-white/10 group-focus-within:text-[#0abab5] transition-colors"
@@ -270,129 +270,129 @@ export default function SkillsPage() {
       </div>
 
       {/* Modal - Compact & Clean */}
-        {isModalOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-            <div
-              onClick={() => setIsModalOpen(false)}
-              className="absolute inset-0 bg-black/90 backdrop-blur-md"
-            />
-            <div
-              className="relative w-full max-w-lg bg-[#0a0a0a] border primary-border primary-rounded overflow-hidden shadow-2xl"
-            >
-              <div className="p-8 border-b primary-border bg-white/[0.01] flex items-center justify-between">
-                <div>
-                  <h2 className="text-xl font-serif text-white uppercase tracking-widest">
-                    {editingSkill ? "Update" : "Define"}{" "}
-                    <span className="text-[#0abab5]">Skill</span>
-                  </h2>
-                </div>
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center primary-rounded border primary-border hover:bg-white/5"
-                >
-                  <X size={18} />
-                </button>
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div
+            onClick={() => setIsModalOpen(false)}
+            className="absolute inset-0 bg-black/90 backdrop-blur-md"
+          />
+          <div
+            className="relative w-full max-w-lg bg-[#0a0a0a] border primary-border primary-rounded overflow-hidden shadow-2xl"
+          >
+            <div className="p-8 border-b primary-border bg-white/[0.01] flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-serif text-white uppercase tracking-widest">
+                  {editingSkill ? "Update" : "Define"}{" "}
+                  <span className="text-[#0abab5]">Skill</span>
+                </h2>
               </div>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="w-10 h-10 flex items-center justify-center primary-rounded border primary-border hover:bg-white/5"
+              >
+                <X size={18} />
+              </button>
+            </div>
 
-              <form onSubmit={handleSubmit} className="p-8 space-y-8">
-                <div className="space-y-3">
-                  <label className={labelCls}>Identity</label>
+            <form onSubmit={handleSubmit} className="p-8 space-y-8">
+              <div className="space-y-3">
+                <label className={labelCls}>Identity</label>
+                <input
+                  required
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData((p) => ({ ...p, name: e.target.value }))
+                  }
+                  placeholder="e.g. Next.js"
+                  className={inputCls}
+                />
+              </div>
+              <div className="space-y-3">
+                <label className={labelCls}>Symbol / Logo</label>
+                <div
+                  className={`relative aspect-square max-w-[120px] mx-auto primary-rounded border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center ${isDragging ? "border-[#0abab5] bg-[#0abab5]/10" : logoPreview ? "border-[#0abab5]/20 bg-white/[0.01]" : "primary-border hover:bg-white/5"}`}
+                  onClick={() =>
+                    document.getElementById("logo-upload")?.click()
+                  }
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    setIsDragging(true);
+                  }}
+                  onDragLeave={() => setIsDragging(false)}
+                  onDrop={(e) => {
+                    e.preventDefault();
+                    setIsDragging(false);
+                    const f = e.dataTransfer.files?.[0];
+                    if (f) setFile(f);
+                  }}
+                >
+                  {logoPreview ? (
+                    <img
+                      src={logoPreview}
+                      className="w-full h-full object-contain p-4"
+                    />
+                  ) : (
+                    <>
+                      <Upload size={24} className="text-white/5 mb-2" />
+                      <p className="text-[8px] font-black text-white/20 uppercase">
+                        Drag or Paste
+                      </p>
+                    </>
+                  )}
                   <input
-                    required
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData((p) => ({ ...p, name: e.target.value }))
-                    }
-                    placeholder="e.g. Next.js"
-                    className={inputCls}
+                    id="logo-upload"
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={handleImageChange}
                   />
                 </div>
-                <div className="space-y-3">
-                  <label className={labelCls}>Symbol / Logo</label>
-                  <div
-                    className={`relative aspect-square max-w-[120px] mx-auto primary-rounded border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center ${isDragging ? "border-[#0abab5] bg-[#0abab5]/10" : logoPreview ? "border-[#0abab5]/20 bg-white/[0.01]" : "primary-border hover:bg-white/[0.02]"}`}
-                    onClick={() =>
-                      document.getElementById("logo-upload")?.click()
-                    }
-                    onDragOver={(e) => {
-                      e.preventDefault();
-                      setIsDragging(true);
-                    }}
-                    onDragLeave={() => setIsDragging(false)}
-                    onDrop={(e) => {
-                      e.preventDefault();
-                      setIsDragging(false);
-                      const f = e.dataTransfer.files?.[0];
-                      if (f) setFile(f);
-                    }}
-                  >
-                    {logoPreview ? (
-                      <img
-                        src={logoPreview}
-                        className="w-full h-full object-contain p-4"
-                      />
-                    ) : (
-                      <>
-                        <Upload size={24} className="text-white/5 mb-2" />
-                        <p className="text-[8px] font-black text-white/20 uppercase">
-                          Drag or Paste
-                        </p>
-                      </>
-                    )}
-                    <input
-                      id="logo-upload"
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={handleImageChange}
-                    />
-                  </div>
+              </div>
+              <div className="space-y-3">
+                <label className={labelCls}>Field</label>
+                <div className="grid grid-cols-3 gap-3">
+                  {CATEGORIES.map((c) => (
+                    <button
+                      key={c.id}
+                      type="button"
+                      onClick={() =>
+                        setFormData((p) => ({ ...p, category: c.id }))
+                      }
+                      className={`flex flex-col items-center gap-2 p-4 primary-rounded border transition-all ${formData.category === c.id ? "bg-[#0abab5]/10 border-[#0abab5] primary-text" : "bg-white/[0.01] primary-border text-white/20"}`}
+                    >
+                      <c.icon size={16} />
+                      <span className="text-[8px] font-black tracking-widest">
+                        {c.label}
+                      </span>
+                    </button>
+                  ))}
                 </div>
-                <div className="space-y-3">
-                  <label className={labelCls}>Field</label>
-                  <div className="grid grid-cols-3 gap-3">
-                    {CATEGORIES.map((c) => (
-                      <button
-                        key={c.id}
-                        type="button"
-                        onClick={() =>
-                          setFormData((p) => ({ ...p, category: c.id }))
-                        }
-                        className={`flex flex-col items-center gap-2 p-4 primary-rounded border transition-all ${formData.category === c.id ? "bg-[#0abab5]/10 border-[#0abab5] primary-text" : "bg-white/[0.01] primary-border text-white/20"}`}
-                      >
-                        <c.icon size={16} />
-                        <span className="text-[8px] font-black tracking-widest">
-                          {c.label}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <div className="pt-4 flex gap-4">
-                  <button
-                    type="button"
-                    onClick={() => setIsModalOpen(false)}
-                    className="flex-1 py-4 border primary-border text-white/20 hover:text-white primary-rounded font-black uppercase tracking-widest text-[9px]"
-                  >
-                    QUIT
-                  </button>
-                  <button
-                    type="submit"
-                    disabled={isCreating || isUpdating}
-                    className="flex-1 py-4 primary-color2 hover:bg-[#0abab5]/90 text-black primary-rounded font-black uppercase tracking-widest text-[9px] disabled:opacity-50 flex items-center justify-center gap-2"
-                  >
-                    {isCreating || isUpdating ? (
-                      <Loader2 size={14} className="animate-spin" />
-                    ) : (
-                      <CheckCircle2 size={14} />
-                    )}
-                    <span>{editingSkill ? "REPLACE" : "COMMIT"}</span>
-                  </button>
-                </div>
-              </form>
-            </div>
+              </div>
+              <div className="pt-4 flex gap-4">
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(false)}
+                  className="flex-1 py-4 border primary-border text-white/20 hover:text-white primary-rounded font-black uppercase tracking-widest text-[9px]"
+                >
+                  QUIT
+                </button>
+                <button
+                  type="submit"
+                  disabled={isCreating || isUpdating}
+                  className="flex-1 py-4 primary-color2 hover:bg-[#0abab5]/90 text-black primary-rounded font-black uppercase tracking-widest text-[9px] disabled:opacity-50 flex items-center justify-center gap-2"
+                >
+                  {isCreating || isUpdating ? (
+                    <Loader2 size={14} className="animate-spin" />
+                  ) : (
+                    <CheckCircle2 size={14} />
+                  )}
+                  <span>{editingSkill ? "REPLACE" : "COMMIT"}</span>
+                </button>
+              </div>
+            </form>
           </div>
-        )}
+        </div>
+      )}
     </div>
   );
 }

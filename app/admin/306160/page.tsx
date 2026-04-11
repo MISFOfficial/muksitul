@@ -94,7 +94,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl border border-white/10 space-y-4 group hover:border-white/20 transition-all">
+            <div className="p-6 rounded-2xl border border-white/10 space-y-4 group hover:primary-border transition-all">
               <h4 className="text-sm font-bold text-white/30 uppercase tracking-widest">
                 Bio Preview
               </h4>
@@ -107,7 +107,7 @@ export default function DashboardPage() {
                 Edit Biography
               </button>
             </div>
-            <div className="p-6 rounded-2xl border border-white/10 space-y-4 group hover:border-white/20 transition-all">
+            <div className="p-6 rounded-2xl border border-white/10 space-y-4 group hover:primary-border transition-all">
               <h4 className="text-sm font-bold text-white/30 uppercase tracking-widest">
                 Active Role
               </h4>

@@ -233,11 +233,11 @@ export default function EditDesignPage() {
         </button>
 
         <div className="flex items-center gap-4">
-          <div className="h-px w-20 bg-gradient-to-l from-[#0abab5]/50 to-transparent" />
+          <div className="h-px w-20 bg-linear-to-l from-[#0abab5]/50 to-transparent" />
           <h1 className="text-2xl font-black uppercase tracking-[0.2em] text-white">
             Refine <span className="text-[#0abab5]">Design</span>
           </h1>
-          <div className="h-px w-20 bg-gradient-to-r from-[#0abab5]/50 to-transparent" />
+          <div className="h-px w-20 bg-linear-to-r from-[#0abab5]/50 to-transparent" />
         </div>
       </div>
 
@@ -252,7 +252,7 @@ export default function EditDesignPage() {
               </label>
               <div
                 className={`relative aspect-video primary-rounded border-2 border-dashed transition-all duration-500 flex flex-col items-center justify-center overflow-hidden cursor-pointer
-                  ${isDraggingCover ? "border-[#0abab5] bg-[#0abab5]/10" : coverPreview ? "border-[#0abab5]/50 bg-[#0abab5]/5" : "primary-border hover:border-[#0abab5]/30 hover:bg-white/[0.02]"}`}
+                  ${isDraggingCover ? "border-[#0abab5] bg-[#0abab5]/10" : coverPreview ? "border-[#0abab5]/50 bg-[#0abab5]/5" : "primary-border hover:border-[#0abab5]/30"}`}
                 onClick={() => document.getElementById("cover-upload")?.click()}
                 onDragOver={(e) => {
                   e.preventDefault();
@@ -313,7 +313,7 @@ export default function EditDesignPage() {
               </label>
               <div
                 className={`relative p-8 primary-rounded border-2 border-dashed transition-all duration-500 cursor-pointer
-                  ${isDraggingGallery ? "border-[#0abab5] bg-[#0abab5]/10" : "primary-border hover:border-[#0abab5]/30 hover:bg-white/[0.02]"}`}
+                  ${isDraggingGallery ? "border-[#0abab5] bg-[#0abab5]/10" : "primary-border hover:border-[#0abab5]/30 "}`}
                 onClick={() =>
                   document.getElementById("gallery-upload")?.click()
                 }

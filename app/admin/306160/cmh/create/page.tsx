@@ -146,7 +146,7 @@ export default function CreateCmsProjectPage() {
   const sectionTitle =
     "text-xs font-black uppercase tracking-[0.2em] text-[#0abab5] flex items-center gap-2";
   const cardCls =
-    "primary-rounded border primary-border bg-white/[0.02] p-8 space-y-6";
+    "primary-rounded border primary-border bg-white/5 p-8 space-y-6";
 
   return (
     <div className="  animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -180,12 +180,11 @@ export default function CreateCmsProjectPage() {
               <label className={labelCls}>Project Thumbnail *</label>
               <div
                 className={`relative group aspect-video rounded-2xl border-2 border-dashed transition-all duration-300 overflow-hidden flex flex-col items-center justify-center cursor-pointer
-                  ${
-                    isDragging
-                      ? "border-[#0abab5] bg-[#0abab5]/10 scale-[1.02]"
-                      : imagePreview
-                        ? "border-[#0abab5]/30 bg-[#0abab5]/5"
-                        : "border-white/10 hover:border-[#0abab5]/30 hover:bg-white/[0.05]"
+                  ${isDragging
+                    ? "border-[#0abab5] bg-[#0abab5]/10 scale-[1.02]"
+                    : imagePreview
+                      ? "border-[#0abab5]/30 bg-[#0abab5]/5"
+                      : "border-white/10 hover:border-[#0abab5]/30 hover:bg-white/[0.05]"
                   }`}
                 onClick={() => document.getElementById("img-upload")?.click()}
                 onDragOver={(e) => {

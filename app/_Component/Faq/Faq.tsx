@@ -52,7 +52,7 @@ export default function Faq() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Visual Graphic - Left Side */}
-        <div className="lg:col-span-4 relative flex items-center justify-center   hidden lg:block">
+        <div className="lg:col-span-4 relative hidden lg:flex items-center justify-center">
           <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px]">
             {/* Main dark bubble shape */}
             <div className="absolute inset-0 primary-color rounded-full rounded-bl-none transform rotate-[-10deg] flex items-center justify-center">

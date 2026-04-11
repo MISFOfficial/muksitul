@@ -163,7 +163,7 @@ export default function CreateExperiencePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sidebar: Image & Quick Stats */}
           <div className="lg:col-span-1 space-y-8">
-            <div className="primary-rounded border primary-border bg-white/[0.02] p-8 space-y-6">
+            <div className="primary-rounded border primary-border bg-white/5 p-8 space-y-6">
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">
                   Company Logo
@@ -255,7 +255,7 @@ export default function CreateExperiencePage() {
 
           {/* Main Form Fields */}
           <div className="lg:col-span-2 space-y-8">
-            <div className="primary-rounded border primary-border bg-white/[0.02] p-8 space-y-8">
+            <div className="primary-rounded border primary-border bg-white/5 p-8 space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2 group">
                   <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 group-focus-within:text-[#0abab5] transition-colors flex items-center gap-2">
@@ -384,7 +384,7 @@ export default function CreateExperiencePage() {
         {/* Dynamic Lists Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Responsibilities */}
-          <div className="primary-rounded border primary-border bg-white/[0.02] p-8 space-y-6">
+          <div className="primary-rounded border primary-border bg-white/5 p-8 space-y-6">
             <div className="flex items-center justify-between">
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#0abab5] flex items-center gap-2">
                 <FileText size={14} /> Responsibilities
@@ -425,7 +425,7 @@ export default function CreateExperiencePage() {
           </div>
 
           {/* Achievements */}
-          <div className="primary-rounded border primary-border bg-white/[0.02] p-8 space-y-6">
+          <div className="primary-rounded border primary-border bg-white/5 p-8 space-y-6">
             <div className="flex items-center justify-between">
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#0abab5] flex items-center gap-2">
                 <Trophy size={14} /> Key Achievements
@@ -462,7 +462,7 @@ export default function CreateExperiencePage() {
           </div>
 
           {/* Technologies */}
-          <div className="md:col-span-2 primary-rounded border primary-border bg-white/[0.02] p-8 space-y-6">
+          <div className="md:col-span-2 primary-rounded border primary-border bg-white/5 p-8 space-y-6">
             <div className="flex items-center justify-between">
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#0abab5] flex items-center gap-2">
                 <Cpu size={14} /> Technologies Used

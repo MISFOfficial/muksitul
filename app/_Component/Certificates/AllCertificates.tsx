@@ -21,7 +21,7 @@ export default function AllCertificates() {
         className="mt-16 flex justify-center px-4"
       >
         <Link href="/certificates" className="w-full max-w-5xl group">
-          <button className="relative w-full py-6 bg-white/[0.02] border primary-border primary-rounded text-white font-black text-xs uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 hover:border-[#FF5C58]/30 flex items-center justify-center gap-4">
+          <button className="relative w-full py-6 bg-white/2 border primary-border primary-rounded text-white font-black text-xs uppercase tracking-[0.3em] overflow-hidden transition-all duration-300 flex items-center justify-center gap-4">
             <span className="relative z-10">
               View All Professional Credentials
             </span>

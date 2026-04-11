@@ -13,16 +13,16 @@ export default function Journey({ journeyEvents }: any) {
               <div
                 className="flex-1 w-full"
               >
-                <div className="relative aspect-[16/10] primary-rounded overflow-hidden group shadow-2xl">
+                <div className="relative aspect-16/10 primary-rounded overflow-hidden group shadow-2xl">
                   <Image
                     src={event.image}
                     alt={event.title}
                     fill
                     className="object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-60" />
                   <div className="absolute bottom-8 left-8">
-                    <span className="px-4 py-2 rounded-full bg-[#FF0055] text-white text-[10px] font-black uppercase tracking-widest">
+                    <span className="px-4 py-2 rounded-full primary-color2 text-white text-[10px] font-black uppercase tracking-widest">
                       {event.year}
                     </span>
                   </div>
@@ -43,8 +43,8 @@ export default function Journey({ journeyEvents }: any) {
                   {event.description}
                 </p>
                 <div className="flex gap-4">
-                  <div className="h-[1px] w-20 bg-[#FF0055] mt-4" />
-                  <div className="p-4 primary-text4 primary-rounded border primary-border primary-text2">
+                  <div className="h-px w-20 primary-color2 mt-4" />
+                  <div className="p-4 primary-rounded border primary-border primary-text2">
                     {event.icon}
                   </div>
                 </div>

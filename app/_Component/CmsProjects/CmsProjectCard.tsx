@@ -44,7 +44,7 @@ export default function CmsProjectCard({
               <Link
                 href={project.liveUrl}
                 target="_blank"
-                className="p-4 bg-white/10 hover:bg-[#FF5652] rounded-full border border-white/20 transition-all hover:scale-110 flex items-center gap-2 group/btn"
+                className="p-4 bg-white/10 hover:bg-[#FF5652] rounded-full border primary-border transition-all hover:scale-110 flex items-center gap-2 group/btn"
               >
                 <span className="text-white font-bold text-xs">Live Site</span>
                 <ExternalLink size={18} className="text-white" />

@@ -52,7 +52,7 @@ export default function HeroBanner() {
             fill
             className="object-cover opacity-20 grayscale"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
         </div>
 
         {/* Floating Tech Stack Cards */}
@@ -73,7 +73,7 @@ export default function HeroBanner() {
         <div className="relative z-30 text-center px-6 pointer-events-none">
           <div>
             <div className="relative inline-block mb-12">
-              <span className="absolute -inset-x-8 -bottom-2 h-[2px] bg-[#FF0055] origin-left" />
+              <span className="absolute -inset-x-8 -bottom-2 h-[2px] primary-color2 origin-left" />
               <span className="primary-text4 font-black uppercase tracking-[0.6em] text-[10px] block">
                 Life of Mine
               </span>
@@ -97,10 +97,10 @@ export default function HeroBanner() {
             </h1>
 
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-xl md:text-2xl font-bold tracking-widest text-white/40">
-              <span className="hidden md:block w-20 h-[1px] bg-gradient-to-l from-white/20 to-transparent" />
+              <span className="hidden md:block w-20 h-px bg-linear-to-l from-white/20 to-transparent" />
               Known as my nick name{" "}
               <span className="text-white font-black italic">Jahin</span>
-              <span className="hidden md:block w-20 h-[1px] bg-gradient-to-r from-white/20 to-transparent" />
+              <span className="hidden md:block w-20 h-px bg-linear-to-r from-white/20 to-transparent" />
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function HeroBanner() {
         <div className="absolute inset-0 z-40 bg-scanlines opacity-[0.03] pointer-events-none" />
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
-          <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-[#FF0055] to-transparent mx-auto" />
+          <div className="w-px h-16 bg-linear-to-b from-transparent via-primary-color2 to-transparent mx-auto" />
           <span className="text-[10px] uppercase font-black tracking-[0.3em] mt-4 block primary-text2">
             Dive In
           </span>

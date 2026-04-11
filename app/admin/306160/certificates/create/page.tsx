@@ -154,7 +154,7 @@ export default function CreateCertificatePage() {
   const sectionTitle =
     "text-xs font-black uppercase tracking-[0.2em] text-[#0abab5] flex items-center gap-2";
   const cardCls =
-    "primary-rounded border primary-border bg-white/[0.02] p-8 space-y-6";
+    "primary-rounded border primary-border bg-white/5 p-8 space-y-6";
 
   return (
     <div className=" animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -188,12 +188,11 @@ export default function CreateCertificatePage() {
               <label className={labelCls}>Certificate Image *</label>
               <div
                 className={`relative group aspect-[4/3] rounded-2xl border-2 border-dashed transition-all duration-300 overflow-hidden flex flex-col items-center justify-center cursor-pointer
-                  ${
-                    isDragging
-                      ? "border-[#0abab5] bg-[#0abab5]/10 scale-[1.02]"
-                      : imagePreview
-                        ? "border-[#0abab5]/30 bg-[#0abab5]/5"
-                        : "border-white/10 hover:border-[#0abab5]/30 hover:bg-white/[0.05]"
+                  ${isDragging
+                    ? "border-[#0abab5] bg-[#0abab5]/10 scale-[1.02]"
+                    : imagePreview
+                      ? "border-[#0abab5]/30 bg-[#0abab5]/5"
+                      : "border-white/10 hover:border-[#0abab5]/30 hover:bg-white/[0.05]"
                   }`}
                 onClick={() => document.getElementById("img-upload")?.click()}
                 onDragOver={(e) => {
@@ -249,11 +248,10 @@ export default function CreateCertificatePage() {
                     key={s}
                     type="button"
                     onClick={() => setFormData((p) => ({ ...p, rating: s }))}
-                    className={`transition-all duration-300 ${
-                      s <= formData.rating
+                    className={`transition-all duration-300 ${s <= formData.rating
                         ? "text-yellow-500 scale-110"
                         : "text-white/10"
-                    }`}
+                      }`}
                   >
                     <Star
                       size={32}

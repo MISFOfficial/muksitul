@@ -24,7 +24,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 
 const Skeleton = () => (
-  <div className="primary-rounded border primary-border animate-pulse bg-white/[0.02] p-6 flex flex-col md:flex-row items-center gap-6">
+  <div className="primary-rounded border primary-border animate-pulse bg-white/5 p-6 flex flex-col md:flex-row items-center gap-6">
     <div className="w-16 h-16 rounded-xl bg-white/5 shrink-0" />
     <div className="flex-1 space-y-3">
       <div className="h-6 w-48 bg-white/5 rounded" />
@@ -114,7 +114,7 @@ export default function CMHPage() {
             <div
               onClick={() => router.push(`/admin/306160/cmh/${project._id}`)}
               key={project._id}
-              className="group primary-rounded cursor-pointer p-6 border primary-border bg-white/[0.02] transition-all duration-300 hover:bg-white/[0.04] hover:border-[#0abab5]/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden"
+              className="group primary-rounded cursor-pointer p-6 border primary-border bg-white/5 transition-all duration-300 hover:bg-white/[0.04] hover:border-[#0abab5]/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden"
             >
               <div className="flex items-center gap-6">
                 <div className="w-16 h-16 rounded-2xl border primary-border flex items-center justify-center overflow-hidden shrink-0 shadow-lg bg-black/40">

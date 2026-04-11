@@ -34,7 +34,7 @@ export default function DesignCard({ design, index }: DesignCardProps) {
                 <Link
                   href={design.figmaUrl}
                   target="_blank"
-                  className="p-3 bg-white/10 hover:bg-[#FF5652] rounded-full border border-white/20 transition-all hover:scale-110"
+                  className="p-3 bg-white/10 hover:bg-[#FF5652] rounded-full border primary-border transition-all hover:scale-110"
                 >
                   <Figma size={20} className="text-white" />
                 </Link>
@@ -43,7 +43,7 @@ export default function DesignCard({ design, index }: DesignCardProps) {
                 <Link
                   href={design.behanceUrl}
                   target="_blank"
-                  className="p-3 bg-white/10 hover:bg-[#FF5652] rounded-full border border-white/20 transition-all hover:scale-110"
+                  className="p-3 bg-white/10 hover:bg-[#FF5652] rounded-full border primary-border transition-all hover:scale-110"
                 >
                   <ExternalLink size={20} className="text-white" />
                 </Link>

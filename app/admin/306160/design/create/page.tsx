@@ -163,7 +163,7 @@ export default function CreateDesignPage() {
               </label>
               <div
                 className={`relative aspect-video primary-rounded border-2 border-dashed transition-all duration-500 flex flex-col items-center justify-center overflow-hidden cursor-pointer
-                  ${isDraggingCover ? "border-[#0abab5] bg-[#0abab5]/10" : coverPreview ? "border-[#0abab5]/50 bg-[#0abab5]/5" : "primary-border hover:border-[#0abab5]/30 hover:bg-white/[0.02]"}`}
+                  ${isDraggingCover ? "border-[#0abab5] bg-[#0abab5]/10" : coverPreview ? "border-[#0abab5]/50 bg-[#0abab5]/5" : "primary-border hover:border-[#0abab5]/30 hover:bg-white/5"}`}
                 onClick={() => document.getElementById("cover-upload")?.click()}
                 onDragOver={(e) => {
                   e.preventDefault();
@@ -224,7 +224,7 @@ export default function CreateDesignPage() {
               </label>
               <div
                 className={`relative p-8 primary-rounded border-2 border-dashed transition-all duration-500 cursor-pointer
-                  ${isDraggingGallery ? "border-[#0abab5] bg-[#0abab5]/10" : "primary-border hover:border-[#0abab5]/30 hover:bg-white/[0.02]"}`}
+                  ${isDraggingGallery ? "border-[#0abab5] bg-[#0abab5]/10" : "primary-border hover:border-[#0abab5]/30 hover:bg-white/5"}`}
                 onClick={() =>
                   document.getElementById("gallery-upload")?.click()
                 }

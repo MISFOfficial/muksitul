@@ -23,17 +23,17 @@ export default function AllProjects() {
               className="primary-rounded overflow-hidden bg-[#121212] border primary-border animate-pulse"
             >
               {/* Image skeleton */}
-              <div className="h-[380px] w-full bg-white/[0.04]" />
+              <div className="h-[380px] w-full bg-white/5" />
               {/* Footer skeleton */}
               <div className="p-5 space-y-4">
                 <div className="flex justify-between items-center">
-                  <div className="h-5 w-2/3 bg-white/[0.06] rounded-lg" />
-                  <div className="h-5 w-14 bg-white/[0.06] rounded" />
+                  <div className="h-5 w-2/3 bg-white/5 rounded-lg" />
+                  <div className="h-5 w-14 bg-white/5 rounded" />
                 </div>
                 <div className="flex gap-2">
-                  <div className="h-7 w-20 bg-white/[0.06] rounded" />
-                  <div className="h-7 w-16 bg-white/[0.06] rounded" />
-                  <div className="h-7 w-24 bg-white/[0.06] rounded" />
+                  <div className="h-7 w-20 bg-white/5 rounded" />
+                  <div className="h-7 w-16 bg-white/5 rounded" />
+                  <div className="h-7 w-24 bg-white/5 rounded" />
                 </div>
               </div>
             </div>
