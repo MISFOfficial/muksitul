@@ -114,7 +114,7 @@ export default function ProjectsPage() {
         </div>
         <Link
           href="/admin/306160/projects/create"
-          className="flex items-center justify-center gap-2 px-8 py-3.5 primary-color2 hover:bg-[#0abab5]/90 text-black font-black uppercase tracking-[0.1em] primary-rounded transition-all shadow-[0_0_25px_rgba(10,186,181,0.2)] text-xs"
+          className="flex items-center justify-center gap-2 px-8 py-3.5 primary-color2 hover:bg-[#0abab5]/90 text-black font-black uppercase tracking-widest primary-rounded transition-all shadow-[0_0_25px_rgba(10,186,181,0.2)] text-xs"
         >
           <Plus size={20} />
           <span>Add New Projects</span>

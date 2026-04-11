@@ -982,51 +982,30 @@ export default function EditProjectPage({
                 <Tag size={12} /> Badge Color
               </label>
               <div className="flex gap-3 items-center">
-                {(() => {
-                  const presets = [
-                    { color: "#EF4444", name: "Red" },
-                    { color: "#F97316", name: "Orange" },
-                    { color: "#EAB308", name: "Yellow" },
-                    { color: "#22C55E", name: "Green" },
-                    { color: "#0ABAB5", name: "Teal" },
-                    { color: "#A855F7", name: "Purple" },
-                  ];
-                  const currentMatchesPreset =
-                    badge.color &&
-                    presets.some(
-                      (p) =>
-                        p.color.toLowerCase() === badge.color.toLowerCase(),
-                    );
-                  return (
-                    <>
-                      {badge.color && !currentMatchesPreset && (
-                        <button
-                          type="button"
-                          title={`Current: ${badge.color}`}
-                          onClick={() => { }}
-                          className="w-9 h-9 rounded-full border-2 border-white scale-110 shadow-[0_0_12px_rgba(255,255,255,0.3)] transition-all duration-200"
-                          style={{ backgroundColor: badge.color }}
-                        />
-                      )}
-                      {presets.map((preset) => (
-                        <button
-                          key={preset.color}
-                          type="button"
-                          title={preset.name}
-                          onClick={() =>
-                            setBadge((b) => ({ ...b, color: preset.color }))
-                          }
-                          className={`w-9 h-9 rounded-full border-2 transition-all duration-200 hover:scale-110 ${badge.color.toLowerCase() ===
-                            preset.color.toLowerCase()
-                            ? "border-white scale-110 shadow-[0_0_12px_rgba(255,255,255,0.3)]"
-                            : "border-white/10 "
-                            }`}
-                          style={{ backgroundColor: preset.color }}
-                        />
-                      ))}
-                    </>
-                  );
-                })()}
+                {[
+                  { color: "#232c66", name: "Dark Blue" },
+                  { color: "#FF0055", name: "Pink" },
+                ].map((preset) => (
+                  <button
+                    key={preset.color}
+                    type="button"
+                    title={preset.name}
+                    onClick={() =>
+                      setBadge((b) => ({
+                        ...b,
+                        color:
+                          b.color.toLowerCase() === preset.color.toLowerCase()
+                            ? ""
+                            : preset.color,
+                      }))
+                    }
+                    className={`w-9 h-9 rounded-full border-2 transition-all duration-200 hover:scale-110 ${badge.color.toLowerCase() === preset.color.toLowerCase()
+                      ? "border-white scale-110 shadow-[0_0_12px_rgba(255,255,255,0.3)]"
+                      : "border-white/10 "
+                      }`}
+                    style={{ backgroundColor: preset.color }}
+                  />
+                ))}
               </div>
             </div>
           </div>
