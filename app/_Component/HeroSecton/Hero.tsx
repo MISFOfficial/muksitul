@@ -125,12 +125,12 @@ export default function Hero() {
       </div>
       <div className="relative z-10 w-full   grid grid-cols-1 lg:grid-cols-12  items-center">
         {/* Left Column (Greeting, Name, CTA) */}
-        <div className="lg:col-span-3 flex flex-col items-start text-left gap-4 order-2 lg:order-1">
+        <div className="lg:col-span-3 flex flex-col items-start text-left gap-4 order-2 lg:order-1 relative z-50">
           <p
             ref={greetingRef}
             className="text-sm font-bold tracking-widest uppercase primary-text4"
           >
-            Assalamualaikum/Greatings
+            Assalamualaikum/Greetings
           </p>
           <h1
             ref={nameRef}
@@ -140,10 +140,10 @@ export default function Hero() {
             Muksitul <br />
             Islam
           </h1>
-          <a
+          <Link
             ref={ctaRef}
             href="/about"
-            className="mt-6 px-10 py-5 primary-color text-white primary-rounded font-bold flex items-center gap-2 transition-all cursor-pointer group"
+            className="mt-6 px-10 py-5 relative primary-color text-white primary-rounded font-bold flex items-center gap-2 transition-all cursor-pointer group"
           >
             My Journey
             <span
@@ -152,7 +152,7 @@ export default function Hero() {
             >
               <MoveRight size={20} />
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* Center Column (Image & Dynamic Text Layering) */}
