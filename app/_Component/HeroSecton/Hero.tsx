@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useLayoutEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import {
   Instagram,
   Linkedin,
@@ -26,9 +25,38 @@ export default function Hero() {
   const fgSoftwareRef = useRef<HTMLHeadingElement>(null);
   const fgEngineerRef = useRef<HTMLHeadingElement>(null);
 
+  // Refs for entry animations
+  const greetingRef = useRef<HTMLParagraphElement>(null);
+  const nameRef = useRef<HTMLHeadingElement>(null);
+  const ctaRef = useRef<HTMLAnchorElement>(null);
+  const ctaArrowRef = useRef<HTMLSpanElement>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const aboutMeRef = useRef<HTMLDivElement>(null);
+  const socialsRef = useRef<HTMLDivElement>(null);
+
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Background Text Animations
+      // Entrance Animation Timeline
+      const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.8 } });
+
+      tl.from(greetingRef.current, { opacity: 0, x: -20 })
+        .from(nameRef.current, { opacity: 0, x: -20 }, "-=0.6")
+        .from(ctaRef.current, { opacity: 0, y: 20 }, "-=0.6")
+        .from(
+          imageContainerRef.current,
+          {
+            opacity: 0,
+            scale: 0.9,
+            y: 50,
+            duration: 1.2,
+            ease: "power4.out",
+          },
+          0
+        )
+        .from(aboutMeRef.current, { opacity: 0, x: 20 }, "-=1")
+        .from(socialsRef.current, { opacity: 0, x: 20 }, "-=0.6");
+
+      // Background Text Animations (Parallax)
       gsap.to(bgSoftwareRef.current, {
         x: -150,
         scrollTrigger: {
@@ -98,39 +126,33 @@ export default function Hero() {
       <div className="relative z-10 w-full   grid grid-cols-1 lg:grid-cols-12  items-center">
         {/* Left Column (Greeting, Name, CTA) */}
         <div className="lg:col-span-3 flex flex-col items-start text-left gap-4 order-2 lg:order-1">
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+          <p
+            ref={greetingRef}
             className="text-sm font-bold tracking-widest uppercase primary-text4"
           >
             Assalamualaikum/Greatings
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
+          </p>
+          <h1
+            ref={nameRef}
             className="text-6xl md:text-7xl font-black leading-[0.9] text-black dark:text-white tracking-tighter"
           >
             I'm <br />
             Muksitul <br />
             Islam
-          </motion.h1>
-          <motion.a
+          </h1>
+          <a
+            ref={ctaRef}
             href="/about"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            whileHover="hover"
-            className="mt-6 px-10 py-5 primary-color text-white primary-rounded font-bold flex items-center gap-2 transition-all cursor-pointer"
+            className="mt-6 px-10 py-5 primary-color text-white primary-rounded font-bold flex items-center gap-2 transition-all cursor-pointer group"
           >
             My Journey
-            <motion.span
-              variants={{ hover: { x: 8 } }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            <span
+              ref={ctaArrowRef}
+              className="inline-block transition-transform duration-300 group-hover:translate-x-2"
             >
               <MoveRight size={20} />
-            </motion.span>
-          </motion.a>
+            </span>
+          </a>
         </div>
 
         {/* Center Column (Image & Dynamic Text Layering) */}
@@ -153,10 +175,8 @@ export default function Hero() {
           {/* <div className="absolute hidden md:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[80px] -z-10 pointer-events-none mix-blend-screen" /> */}
 
           {/* 2. User Image - (z-10) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          <div
+            ref={imageContainerRef}
             className="relative z-10 w-full h-[80vh] flex items-end justify-center "
           >
             <Image
@@ -173,7 +193,7 @@ export default function Hero() {
                   "linear-gradient(to bottom, black 80%, transparent 100%)",
               }}
             />
-          </motion.div>
+          </div>
 
           {/* 3. Engineer (Red Outline) - IN FRONT OF IMAGE (z-20) */}
           <div className="absolute inset-0 hidden lg:flex flex-col items-center justify-center pointer-events-none z-20">
@@ -192,9 +212,8 @@ export default function Hero() {
 
         {/* Right Column (About Me & Socials) */}
         <div className="lg:col-span-3 flex flex-col gap-12 text-left order-3 relative z-30 mt-10 lg:mt-0">
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+          <div
+            ref={aboutMeRef}
             className="space-y-4"
           >
             <h3 className="font-bold text-2xl dark:text-white">About Me.</h3>
@@ -207,13 +226,11 @@ export default function Hero() {
               <span className="primary-text2">innovative solutions</span> meet
               architectural excellence to drive meaningful impact.
             </p>
-          </motion.div>
+          </div>
 
           {/* Social Icons */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
+          <div
+            ref={socialsRef}
             className="space-y-4"
           >
             <h3 className="font-bold text-lg dark:text-white">Find me on</h3>
@@ -237,7 +254,7 @@ export default function Hero() {
                 </Link>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
