@@ -160,7 +160,7 @@ export default function DesignPage() {
               {/* Info */}
               <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
                 <div>
-                  <h3 className="text-sm font-bold text-white tracking-widest uppercase primary-text transition-colors">
+                  <h3 className="text-sm font-bold tracking-widest uppercase primary-text transition-colors">
                     {design.title}
                   </h3>
                   <div className="flex items-center gap-3 mt-1">

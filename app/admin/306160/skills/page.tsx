@@ -212,7 +212,7 @@ export default function SkillsPage() {
           ? Array.from({ length: 6 }).map((_, i) => (
             <div
               key={i}
-              className="h-16 primary-rounded border primary-border animate-pulse bg-white/[0.01]"
+              className="h-16 primary-rounded border primary-border animate-pulse bg-white/1"
             />
           ))
           : filteredSkills?.map((skill: any) => (
@@ -231,7 +231,7 @@ export default function SkillsPage() {
 
               {/* Info - Inline side-by-side */}
               <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full">
-                <h3 className="text-sm font-bold text-white tracking-widest uppercase primary-text transition-colors">
+                <h3 className="text-sm font-bold tracking-widest uppercase primary-text transition-colors">
                   {skill.name}
                 </h3>
                 <div className="flex items-center gap-2 opacity-40">
@@ -271,7 +271,7 @@ export default function SkillsPage() {
 
       {/* Modal - Compact & Clean */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
           <div
             onClick={() => setIsModalOpen(false)}
             className="absolute inset-0 bg-black/90 backdrop-blur-md"
@@ -279,7 +279,7 @@ export default function SkillsPage() {
           <div
             className="relative w-full max-w-lg bg-[#0a0a0a] border primary-border primary-rounded overflow-hidden shadow-2xl"
           >
-            <div className="p-8 border-b primary-border bg-white/[0.01] flex items-center justify-between">
+            <div className="p-8 border-b primary-border bg-white/5 flex items-center justify-between">
               <div>
                 <h2 className="text-xl font-serif text-white uppercase tracking-widest">
                   {editingSkill ? "Update" : "Define"}{" "}
@@ -310,7 +310,7 @@ export default function SkillsPage() {
               <div className="space-y-3">
                 <label className={labelCls}>Symbol / Logo</label>
                 <div
-                  className={`relative aspect-square max-w-[120px] mx-auto primary-rounded border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center ${isDragging ? "border-[#0abab5] bg-[#0abab5]/10" : logoPreview ? "border-[#0abab5]/20 bg-white/[0.01]" : "primary-border hover:bg-white/5"}`}
+                  className={`relative aspect-square max-w-[120px] mx-auto primary-rounded border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center ${isDragging ? "border-[#0abab5] bg-[#0abab5]/10" : logoPreview ? "border-[#0abab5]/20 bg-white/5" : "primary-border"}`}
                   onClick={() =>
                     document.getElementById("logo-upload")?.click()
                   }
@@ -358,7 +358,7 @@ export default function SkillsPage() {
                       onClick={() =>
                         setFormData((p) => ({ ...p, category: c.id }))
                       }
-                      className={`flex flex-col items-center gap-2 p-4 primary-rounded border transition-all ${formData.category === c.id ? "bg-[#0abab5]/10 border-[#0abab5] primary-text" : "bg-white/[0.01] primary-border text-white/20"}`}
+                      className={`flex flex-col items-center gap-2 p-4 primary-rounded border transition-all ${formData.category === c.id ? "bg-[#0abab5]/10 border-[#0abab5] primary-text" : "bg-white/2 primary-border text-white/20"}`}
                     >
                       <c.icon size={16} />
                       <span className="text-[8px] font-black tracking-widest">

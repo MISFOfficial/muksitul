@@ -78,7 +78,7 @@ export default function AboutPage() {
     return (
         <main
             ref={containerRef}
-            className="min-h-screen text-white overflow-hidden relative"
+            className="min-h-screen text-white overflow-hidden relative selection:primary-color2 selection:text-white"
         >
             <HeroBanner />
 

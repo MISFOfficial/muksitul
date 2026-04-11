@@ -106,7 +106,7 @@ export default function ExperienceDetail() {
   }
 
   return (
-    <main className="relative min-h-screen selection:bg-[#FF0055] selection:text-white">
+    <main className="relative min-h-screen selection:primary-color2 selection:text-white overflow-hidden">
 
       <div className="ratio py-10">
         {/* Back Button */}
@@ -153,16 +153,16 @@ export default function ExperienceDetail() {
 
               {/* Meta Info */}
               <div className="flex flex-wrap items-center gap-4">
-                <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border primary-text2 text-sm font-bold tracking-wider">
+                <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border  text-sm font-bold tracking-wider">
                   <Calendar className="w-4 h-4" />
                   <span>{experience.duration}</span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border text-gray-400 text-sm font-medium">
+                <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border  text-sm font-medium">
                   <MapPin className="w-4 h-4" />
                   <span>{experience.location}</span>
                 </div>
                 {experience.teamSize && (
-                  <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border text-gray-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 px-4 py-2 primary-text4 rounded-full border primary-border  text-sm font-medium">
                     <Users className="w-4 h-4" />
                     <span>{experience.teamSize} Team</span>
                   </div>
@@ -232,7 +232,7 @@ export default function ExperienceDetail() {
             <div className="sticky top-32 space-y-6">
               {/* Technologies */}
               <div className="p-8 primary-rounded bg-white/5 border primary-border relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF0055] opacity-[0.03] blur-3xl -mr-16 -mt-16" />
+                <div className="absolute top-0 right-0 w-32 h-32 primary-color2 opacity-[0.03] blur-3xl -mr-16 -mt-16" />
                 <h3 className="text-xl font-bold   mb-6">
                   Tech Stack
                 </h3>
@@ -240,7 +240,7 @@ export default function ExperienceDetail() {
                   {experience.technologies.map((tech: any, idx: any) => (
                     <span
                       key={idx}
-                      className="text-sm px-4 py-2 primary-rounded primary-color cursor-pointer primary-text4 border primary-border text-white/80 hover:text-white font-semibold"
+                      className="text-sm px-4 py-2 primary-rounded primary-color cursor-pointer primary-text4 border primary-border  hover:text-white font-semibold"
                     >
                       {tech}
                     </span>

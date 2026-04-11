@@ -117,7 +117,7 @@ export default function ProjectPage() {
   }
 
   return (
-    <main className="relative min-h-screen selection:bg-[#FF0055] selection:text-white">
+    <main className="relative min-h-screen selection:primary-color2 selection:text-white">
 
 
       {/* Hero Section */}

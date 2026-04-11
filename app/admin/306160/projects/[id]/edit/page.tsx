@@ -445,11 +445,11 @@ export default function EditProjectPage({
           </span>
         </button>
         <div className="flex items-center gap-4">
-          <div className="h-px w-20 bg-gradient-to-l from-[#0abab5]/50 to-transparent" />
+          <div className="h-px w-20 bg-linear-to-l from-[#0abab5]/50 to-transparent" />
           <h1 className="text-2xl font-black uppercase tracking-[0.2em] text-white">
             Edit <span className="text-[#0abab5]">Project</span>
           </h1>
-          <div className="h-px w-20 bg-gradient-to-r from-[#0abab5]/50 to-transparent" />
+          <div className="h-px w-20 bg-linear-to-r from-[#0abab5]/50 to-transparent" />
         </div>
       </div>
 

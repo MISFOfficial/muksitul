@@ -380,7 +380,7 @@ export default function EditDesignPage() {
 
           {/* Right Column - Data */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="primary-rounded border primary-border bg-white/[0.01] p-10 space-y-8">
+            <div className="primary-rounded border primary-border bg-white/5 p-10 space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
                   <label className={labelCls}>

@@ -70,7 +70,7 @@ body {
 }
 
 @utility primary-border {
-  @apply primary-border;
+  @apply border-white/30;
 }
 
 @utility primary-rounded {
