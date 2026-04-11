@@ -90,7 +90,7 @@ export default function CertificateDetail() {
       <main className="relative min-h-screen">
 
         <div className="min-h-[70vh] flex flex-col items-center justify-center gap-6 p-6">
-          <div className="p-5 rounded-2xl bg-red-500/10 border border-red-500/20"><AlertCircle size={32} className="text-red-400" /></div>
+          <div className="p-5 rounded-2xl bg-red-500/10 border border-red-500/20"><AlertCircle size={32} className="primary-text2" /></div>
           <div className="text-center">
             <h1 className="text-xl font-black text-white uppercase tracking-tight mb-1">Connection Failed</h1>
             <p className="text-white/40 text-sm">Could not fetch this credential.</p>
@@ -193,7 +193,7 @@ export default function CertificateDetail() {
                       key={idx}
                       className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border primary-border hover:border-white/10 transition-all group"
                     >
-                      <span className="shrink-0 w-6 h-6 rounded-lg bg-[#FF5C58]/10 border border-[#FF5C58]/20 flex items-center justify-center text-[10px] font-black text-[#FF5C58] group-hover:bg-[#FF5C58] group-hover:text-white transition-all mt-0.5">
+                      <span className="shrink-0 w-6 h-6 rounded-lg bg-[#FF5C58]/10  flex items-center justify-center text-[10px] font-black primary-text2 group-hover:primary-color2 group-hover:text-white transition-all mt-0.5">
                         {idx + 1}
                       </span>
                       <p className="primary-text4 text-base md:text-lg leading-relaxed  transition-colors">
@@ -216,10 +216,10 @@ export default function CertificateDetail() {
               <div className="space-y-4">
                 {/* Badges */}
                 <div className="flex items-center gap-2 flex-wrap">
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border primary-border">
+                  <Link href={certificate.provider} target="_blank" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border primary-border">
                     <Shield size={11} className="primary-text2" />
-                    <span className="text-xs font-black text-white/50 uppercase tracking-[0.15em]">{certificate.provider}</span>
-                  </div>
+                    <span className="text-xs font-black text-white/50 uppercase tracking-[0.15em]">Provider</span>
+                  </Link>
                   <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/[0.07] border border-green-500/20">
                     <CheckCircle2 size={11} className="text-green-400" />
                     <span className="text-xs font-black text-green-400/80 uppercase tracking-[0.15em]">Verified</span>
