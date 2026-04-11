@@ -79,7 +79,7 @@ const TagRow = ({
                 loading="lazy"
               />
             </div>
-            <span className="text-[var(--text-muted)] text-sm font-bold tracking-widest uppercase group-hover:text-[var(--foreground)] transition-colors">
+            <span className="text-(--text-muted) text-sm font-bold tracking-widest uppercase group-hover:text-(--foreground) transition-colors">
               {item.name}
             </span>
           </div>

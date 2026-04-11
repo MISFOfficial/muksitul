@@ -11,6 +11,7 @@ import {
   Award,
   Shield,
 } from "lucide-react";
+import Marquee from "react-fast-marquee";
 
 const cards = [
   {
@@ -66,19 +67,20 @@ const cards = [
 
 export default function Optical() {
   return (
-    <section className="w-full  overflow-hidden   relative">
+    <section className="w-full overflow-hidden relative">
       {/* Gradient Fade Edges */}
       <div className="absolute left-0 top-0 bottom-0 w-20 z-10 bg-linear-to-r from-black to-transparent pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-20 z-10 bg-linear-to-l from-black to-transparent pointer-events-none" />
 
       {/* Marquee Container */}
-      <div className="flex">
-        <div
-          className="flex gap-6 pr-6"
-          style={{ width: "fit-content" }}
-        >
-          {/* Render cards twice for seamless loop */}
-          {[...cards, ...cards].map((card, idx) => (
+      <Marquee
+        gradient={false}
+        speed={100}
+        pauseOnHover={false}
+        className="flex overflow-hidden"
+      >
+        <div className="flex gap-6 pr-6">
+          {cards.map((card, idx) => (
             <div
               key={idx}
               className={`
@@ -111,15 +113,10 @@ export default function Optical() {
                 </h3>
                 <p className="text-gray-400 text-sm">{card.desc}</p>
               </div>
-
-              {/* Decor: Number or accent */}
-              {/* {card.highlight && (
-                                <div className="absolute top-4 right-4 primary-text2/20 text-6xl font-black">1</div>
-                            )} */}
             </div>
           ))}
         </div>
-      </div>
+      </Marquee>
     </section>
   );
 }
