@@ -17,11 +17,31 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect } from "react";
 
 const techCards = [
-  { text: "Next.js", style: { left: "calc(50% + 28%)", top: "calc(50% - 12%)" }, offset: 40 },
-  { text: "React", style: { left: "calc(50% + 35%)", top: "calc(50% + 15%)" }, offset: -30 },
-  { text: "Nest", style: { left: "calc(50% - 22%)", top: "calc(50% + 22%)" }, offset: 50 },
-  { text: "MongoDB", style: { left: "calc(50% - 18%)", top: "calc(50% - 30%)" }, offset: -40 },
-  { text: "Express", style: { left: "calc(50% + 18%)", top: "calc(50% + 32%)" }, offset: 25 },
+  {
+    text: "Next.js",
+    style: { left: "calc(50% + 28%)", top: "calc(50% - 12%)" },
+    offset: 40,
+  },
+  {
+    text: "React",
+    style: { left: "calc(50% + 35%)", top: "calc(50% + 15%)" },
+    offset: -30,
+  },
+  {
+    text: "Nest",
+    style: { left: "calc(50% - 22%)", top: "calc(50% + 22%)" },
+    offset: 50,
+  },
+  {
+    text: "MongoDB",
+    style: { left: "calc(50% - 18%)", top: "calc(50% - 30%)" },
+    offset: -40,
+  },
+  {
+    text: "Express",
+    style: { left: "calc(50% + 18%)", top: "calc(50% + 32%)" },
+    offset: 25,
+  },
 ];
 
 export default function HeroBanner() {
@@ -63,7 +83,12 @@ export default function HeroBanner() {
             scale: [1, 1.1, 1],
             opacity: [0.1, 0.15, 0.1],
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
           className="absolute top-1/2 -right-1/4 w-1/2 h-1/2 bg-[#FF0055]/20 blur-[120px] rounded-full"
         />
       </div>
@@ -79,7 +104,10 @@ export default function HeroBanner() {
           href="/"
           className="text-white cursor-pointer font-bold flex items-center gap-2 hover:scale-105 transition-transform backdrop-blur-md px-6 py-3 rounded-full border primary-border group"
         >
-          <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+          <ArrowLeft
+            size={20}
+            className="group-hover:-translate-x-1 transition-transform"
+          />
           Back to World
         </Link>
       </motion.div>
@@ -127,7 +155,12 @@ export default function HeroBanner() {
                 transition={{
                   opacity: { delay: 1 + i * 0.1, duration: 0.8 },
                   scale: { delay: 1 + i * 0.1, duration: 0.8 },
-                  rotate: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }
+                  rotate: {
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: i * 0.5,
+                  },
                 }}
                 className="absolute hidden md:flex items-center gap-3 px-5 py-2.5 primary-text4 backdrop-blur-xl border primary-border primary-rounded shadow-2xl"
               >
@@ -163,7 +196,11 @@ export default function HeroBanner() {
                   <motion.span
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 + i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.2 + i * 0.05,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
                     key={`m-${i}`}
                     className="inline-block text-white"
                   >
@@ -176,7 +213,11 @@ export default function HeroBanner() {
                   <motion.span
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 + i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.6 + i * 0.05,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
                     key={`i-${i}`}
                     className="inline-block text-outline-red"
                   >
@@ -218,4 +259,3 @@ export default function HeroBanner() {
     </div>
   );
 }
-

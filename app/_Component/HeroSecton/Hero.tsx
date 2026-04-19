@@ -37,7 +37,9 @@ export default function Hero() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       // Entrance Animation Timeline
-      const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.8 } });
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out", duration: 0.8 },
+      });
 
       tl.from(greetingRef.current, { opacity: 0, x: -20 })
         .from(nameRef.current, { opacity: 0, x: -20 }, "-=0.6")
@@ -51,7 +53,7 @@ export default function Hero() {
             duration: 1.2,
             ease: "power4.out",
           },
-          0
+          0,
         )
         .from(aboutMeRef.current, { opacity: 0, x: 20 }, "-=1")
         .from(socialsRef.current, { opacity: 0, x: 20 }, "-=0.6");
@@ -134,7 +136,7 @@ export default function Hero() {
           </p>
           <h1
             ref={nameRef}
-            className="text-6xl md:text-7xl font-black leading-[0.9] text-black dark:text-white tracking-tighter"
+            className="text-6xl z-100 md:text-7xl font-black leading-[0.9] text-white tracking-tighter"
           >
             I'm <br />
             Muksitul <br />
@@ -213,10 +215,7 @@ export default function Hero() {
 
         {/* Right Column (About Me & Socials) */}
         <div className="lg:col-span-3 flex flex-col gap-12 text-left order-3 relative z-30 mt-10 lg:mt-0">
-          <div
-            ref={aboutMeRef}
-            className="space-y-4"
-          >
+          <div ref={aboutMeRef} className="space-y-4">
             <h3 className="font-bold text-2xl dark:text-white">About Me.</h3>
             <p className="text-neutral-200 leading-relaxed font-black">
               As a{" "}
@@ -230,10 +229,7 @@ export default function Hero() {
           </div>
 
           {/* Social Icons */}
-          <div
-            ref={socialsRef}
-            className="space-y-4"
-          >
+          <div ref={socialsRef} className="space-y-4">
             <h3 className="font-bold text-lg dark:text-white">Find me on</h3>
             <div className="flex gap-4">
               {[
