@@ -110,7 +110,7 @@ export default function Footer() {
         <div className="pt-8 border-t primary-border">
           <div className="flex flex-col md:flex-row justify-center items-center gap-4">
             <p className="text-gray-500 text-sm">
-              © {currentYear} Muksitul Islam. All rights reserved.
+              © {currentYear} Muksitul Islam. All rights reserved
             </p>
 
             {/* <p className="text-gray-500 text-sm flex items-center gap-2">
