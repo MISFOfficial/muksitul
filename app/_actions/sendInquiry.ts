@@ -33,72 +33,111 @@ export async function sendInquiry(formData: FormData) {
       from: "Portfolio Inquiry <onboarding@resend.dev>",
       to: [recipientEmail],
       replyTo: userEmail,
-      subject: `🌐 Portfolio Inquiry: ${projectName} (${userEmail})`,
+      subject: `Mukstitul's Portfolio: ${projectName} (${userEmail})`,
       attachments: attachments.length > 0 ? attachments : undefined,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; padding: 0; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background-color: #ffffff;">
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 32px 16px; color: #1e293b;">
           
-          <!-- Header Banner -->
-          <div style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: #ffffff; padding: 24px; text-align: center;">
-            <span style="background-color: rgba(255, 255, 255, 0.2); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">
-              New Lead from Portfolio Website
-            </span>
-            <h1 style="margin: 12px 0 0 0; font-size: 24px; font-weight: 800;">${projectName}</h1>
+          <div style="max-width: 680px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);">
+            
+            <!-- Header Banner -->
+            <div style="background-color: #0f172a; padding: 32px 28px; text-align: left; border-bottom: 4px solid #6366f1;">
+              <div style="display: inline-block; background-color: rgba(99, 102, 241, 0.2); color: #818cf8; border: 1px solid rgba(129, 140, 248, 0.3); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;">
+                🌐 PORTFOLIO INQUIRY
+              </div>
+              <h1 style="margin: 0; color: #ffffff; font-size: 26px; font-weight: 800; line-height: 1.3;">
+                ${projectName}
+              </h1>
+            </div>
+
+            <!-- Main Body -->
+            <div style="padding: 32px 28px;">
+
+              <!-- Source Notification Badge -->
+              <div style="background-color: #f0f9ff; border-left: 4px solid #0284c7; border-radius: 8px; padding: 16px 20px; margin-bottom: 28px;">
+                <p style="margin: 0 0 4px 0; font-size: 15px; font-weight: 700; color: #0369a1;">
+                  📌 Source Identification
+                </p>
+                <p style="margin: 0; font-size: 15px; color: #0c4a6e; line-height: 1.5;">
+                  This email was sent via the <strong>Contact / Hire Me Modal</strong> on your portfolio website.
+                </p>
+              </div>
+
+              <!-- Client Information Section -->
+              <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+                <p style="margin: 0 0 6px 0; font-size: 13px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">
+                  Client Email Address
+                </p>
+                <p style="margin: 0; font-size: 19px; font-weight: 700; color: #0f172a;">
+                  <a href="mailto:${userEmail}" style="color: #4f46e5; text-decoration: none;">${userEmail}</a>
+                </p>
+              </div>
+
+              <!-- Project Title Section -->
+              <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+                <p style="margin: 0 0 6px 0; font-size: 13px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">
+                  Project Idea / Name
+                </p>
+                <p style="margin: 0; font-size: 19px; font-weight: 700; color: #0f172a;">
+                  ${projectName}
+                </p>
+              </div>
+
+              <!-- Details Section -->
+              <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; margin-bottom: 28px;">
+                <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px;">
+                  Message & Project Details
+                </p>
+                <div style="font-size: 17px; line-height: 1.75; color: #1e293b; white-space: pre-wrap; word-break: break-word;">
+${details}
+                </div>
+              </div>
+
+              <!-- File Attachment Section -->
+              ${
+                file && file.size > 0
+                  ? `
+              <div style="background-color: #f0fdf4; border: 1px solid #86efac; border-radius: 12px; padding: 18px 20px; margin-bottom: 28px;">
+                <p style="margin: 0 0 4px 0; font-size: 15px; font-weight: 700; color: #166534;">
+                  📎 Supporting Document Attached
+                </p>
+                <p style="margin: 0; font-size: 15px; color: #15803d;">
+                  File Name: <strong>${file.name}</strong> (${(file.size / 1024).toFixed(1)} KB)
+                </p>
+              </div>
+              `
+                  : `
+              <div style="background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 14px 20px; margin-bottom: 28px;">
+                <p style="margin: 0; font-size: 14px; color: #94a3b8; font-style: italic;">
+                  No supporting documents were attached.
+                </p>
+              </div>
+              `
+              }
+
+              <!-- Divider -->
+              <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 32px 0 24px 0;" />
+
+              <!-- Footer Call to Action -->
+              <div style="text-align: center; background-color: #f1f5f9; border-radius: 12px; padding: 20px; color: #475569;">
+                <p style="margin: 0 0 6px 0; font-size: 15px; font-weight: 700; color: #334155;">
+                  💬 Direct Response
+                </p>
+                <p style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.5;">
+                  Click <strong>"Reply"</strong> in your email client to send a message directly to <strong>${userEmail}</strong>.
+                </p>
+              </div>
+
+            </div>
           </div>
-
-          <div style="padding: 24px;">
-            <!-- Source Alert Box -->
-            <div style="background-color: #eef2ff; border-left: 4px solid #6366f1; padding: 14px; border-radius: 6px; margin-bottom: 24px;">
-              <p style="margin: 0; font-size: 13px; color: #374151; font-weight: bold;">
-                📌 Source Notice:
-              </p>
-              <p style="margin: 4px 0 0 0; font-size: 13px; color: #4338ca; line-height: 1.4;">
-                This message was submitted directly through the <strong>Contact / Hire Me Modal</strong> on your portfolio website.
-              </p>
-            </div>
-
-            <!-- Client Info Card -->
-            <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border-radius: 8px; border: 1px solid #f1f5f9;">
-              <h2 style="color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 6px 0;">Client Email Address</h2>
-              <p style="color: #0f172a; font-size: 16px; font-weight: bold; margin: 0;">
-                <a href="mailto:${userEmail}" style="color: #4f46e5; text-decoration: none;">${userEmail}</a>
-              </p>
-            </div>
-
-            <!-- Project Name -->
-            <div style="margin-bottom: 20px; padding: 16px; background-color: #f8fafc; border-radius: 8px; border: 1px solid #f1f5f9;">
-              <h2 style="color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 6px 0;">Project Idea / Name</h2>
-              <p style="color: #0f172a; font-size: 16px; font-weight: 600; margin: 0;">${projectName}</p>
-            </div>
-
-            <!-- Project Details -->
-            <div style="margin-bottom: 24px; padding: 16px; background-color: #f8fafc; border-radius: 8px; border: 1px solid #f1f5f9;">
-              <h2 style="color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 6px 0;">Message / Details</h2>
-              <p style="color: #334155; font-size: 15px; line-height: 1.6; margin: 0; white-space: pre-wrap;">${details}</p>
-            </div>
-
-            <!-- Attachment -->
-            ${
-              file && file.size > 0
-                ? `
-            <div style="padding: 14px; background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; margin-bottom: 24px;">
-              <span style="color: #166534; font-weight: bold; font-size: 13px;">📎 Attachment Attached:</span>
-              <span style="color: #15803d; font-size: 13px; margin-left: 6px;">${file.name} (${(file.size / 1024).toFixed(1)} KB)</span>
-            </div>
-            `
-                : `
-            <p style="color: #94a3b8; font-size: 13px; font-style: italic; margin-bottom: 24px;">No file attachments were included.</p>
-            `
-            }
-
-            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
-
-            <div style="text-align: center; color: #64748b; font-size: 13px;">
-              <p style="margin: 0 0 4px 0;">To reply to the client, simply click <strong>"Reply"</strong> in your email client.</p>
-              <p style="margin: 0; color: #94a3b8; font-size: 11px;">Sent automatically via Portfolio Website Server Action (Resend API).</p>
-            </div>
-          </div>
-        </div>
+        </body>
+        </html>
       `,
     });
 
