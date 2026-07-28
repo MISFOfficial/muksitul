@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { LayoutGrid, ArrowLeft } from "lucide-react";
+import { LayoutGrid, ArrowLeft, Loader2 } from "lucide-react";
 import Link from "next/link";
 import Navigation from "../_Component/Navigation/Navigaton";
 import Footer from "../_Component/Footer/Footer";
@@ -12,9 +12,19 @@ import { useRouter } from "next/navigation";
 
 export default function ProjectsPage() {
   const router = useRouter();
-  const { allProjects, isLoading, isError } = useGetAllProjects(10);
+  const {
+    allProjects,
+    isLoading,
+    isError,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  } = useGetAllProjects(6);
 
-  const projects = allProjects?.pages.flatMap((page: any) => page) || [];
+  const rawProjects = allProjects?.pages.flatMap((page: any) => page) || [];
+  const projects = Array.from(
+    new Map(rawProjects.map((item: any) => [item._id, item])).values()
+  );
 
   return (
     <main className="  min-h-screen ratio">
@@ -25,7 +35,7 @@ export default function ProjectsPage() {
         <div className=" relative z-10">
           <button
             onClick={() => router.back()}
-            className="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors mb-8 group"
+            className="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors mb-8 group cursor-pointer"
           >
             <ArrowLeft
               size={16}
@@ -65,7 +75,7 @@ export default function ProjectsPage() {
 
           {/* Empty State if no projects (unlikely but good for safety) */}
           {!isLoading && projects.length === 0 && (
-            <div className="text-center    border border-dashed primary-border primary-rounded">
+            <div className="text-center py-16 border border-dashed primary-border primary-rounded">
               <p className="text-gray-500">No projects found in the archive.</p>
             </div>
           )}
@@ -93,6 +103,26 @@ export default function ProjectsPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          )}
+
+          {/* Load More Button */}
+          {hasNextPage && (
+            <div className="mt-12 flex justify-center">
+              <button
+                onClick={() => fetchNextPage()}
+                disabled={isFetchingNextPage}
+                className="inline-flex items-center gap-3 px-8 py-4 primary-rounded font-bold text-white primary-color hover:opacity-90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-lg hover:shadow-primary-color/20"
+              >
+                {isFetchingNextPage ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin text-white" />
+                    <span>Loading More Projects...</span>
+                  </>
+                ) : (
+                  <span>Load More Projects</span>
+                )}
+              </button>
             </div>
           )}
         </div>

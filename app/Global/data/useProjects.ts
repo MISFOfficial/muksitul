@@ -23,7 +23,10 @@ export const useGetAllProjects = (limit: number = 10) => {
       return res.data.data;
     },
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.length === limit ? allPages.length * limit : undefined;
+      if (!lastPage || !Array.isArray(lastPage) || lastPage.length < limit) {
+        return undefined;
+      }
+      return allPages.length * limit;
     },
   });
 
